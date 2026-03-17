@@ -20,7 +20,6 @@ from typing import Any
 
 from pydantic_graph import BaseNode, End, Graph, GraphRunContext
 
-from cellsem_llm_client import create_anthropic_agent
 from cellsem_llm_client.agents.agent_connection import AgentConnection
 
 from atlas_chat.services.atlas_paper import AtlasConfig
@@ -459,7 +458,8 @@ async def run_report_graph(
     *,
     depth: int = 1,
     dry_run: bool = False,
-    model: str = "claude-sonnet-4-20250514",
+    provider: str = "anthropic",
+    model: str | None = None,
 ) -> str:
     """Run the full report generation graph for a single cell type.
 
@@ -468,15 +468,17 @@ async def run_report_graph(
         cell_type: The cell type annotation label.
         depth: Citation traversal depth (default 1, max 3).
         dry_run: If True, skip LLM calls and paper fetching.
-        model: Anthropic model to use.
+        provider: LLM provider — ``"anthropic"``, ``"openai"``, or
+            ``"litellm"``.
+        model: Model identifier.  If ``None``, uses the default for
+            the chosen provider.
 
     Returns:
         Path to the generated report file.
     """
-    from cellsem_llm_client import create_anthropic_agent, load_environment
+    from atlas_chat.llm import create_agent
 
-    load_environment()
-    agent = create_anthropic_agent(model=model, max_tokens=4000)
+    agent = create_agent(provider=provider, model=model, max_tokens=4000)
 
     traversal_dir = config.traversal_dir(cell_type)
     reports_dir = config.reports_dir()

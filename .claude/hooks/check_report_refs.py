@@ -1,12 +1,16 @@
 #!/usr/bin/env python
-"""Claude Code hook: validate report quotes and references on write.
+"""Claude Code hook: optional extra guard for report validation.
 
-Invoked as a post-tool hook when a Write tool targets a file matching
+This is a **convenience guard** for interactive Claude sessions — it is NOT
+the primary validation mechanism.  The canonical correction loop lives in the
+Python graph (``report_graph.py``: SynthesizeReport → ValidateReport → retry).
+
+Invoked as a PostToolUse hook when a Write tool targets a file matching
 ``projects/*/reports/*.md``.  Calls the shared validation logic in
 ``atlas_chat.validation.report_checker``.
 
 Exit codes:
-    0 — validation passed (or file is not a report)
+    0 — validation passed, file is not a report, or validation was skipped
     2 — validation failed (Claude sees stderr and self-corrects)
 """
 

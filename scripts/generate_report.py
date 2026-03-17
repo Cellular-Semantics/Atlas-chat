@@ -5,11 +5,18 @@ No orchestration logic lives here — the graph handles everything.
 
 Example usage::
 
+    # With Anthropic (default)
+    uv run python scripts/generate_report.py \\
+        --project fetal_skin_atlas \\
+        --cell-type "Iron-recycling macrophage"
+
+    # With OpenAI
     uv run python scripts/generate_report.py \\
         --project fetal_skin_atlas \\
         --cell-type "Iron-recycling macrophage" \\
-        --depth 1
+        --provider openai
 
+    # Dry run (no LLM calls)
     uv run python scripts/generate_report.py \\
         --project fetal_skin_atlas \\
         --cell-type "Iron-recycling macrophage" \\
@@ -50,9 +57,15 @@ def main() -> None:
         help="Show plan without executing LLM calls",
     )
     parser.add_argument(
+        "--provider",
+        default="anthropic",
+        choices=["anthropic", "openai", "litellm"],
+        help="LLM provider (default: anthropic)",
+    )
+    parser.add_argument(
         "--model",
-        default="claude-sonnet-4-20250514",
-        help="Anthropic model to use",
+        default=None,
+        help="Model identifier (default: provider-specific, e.g. claude-sonnet-4-20250514 for anthropic, gpt-4.1 for openai)",
     )
     parser.add_argument(
         "--verbose",
@@ -89,6 +102,7 @@ def main() -> None:
             cell_type=args.cell_type,
             depth=args.depth,
             dry_run=args.dry_run,
+            provider=args.provider,
             model=args.model,
         )
     )

@@ -96,12 +96,31 @@ These two steps are independent after name resolution. Run them in parallel.
 
 **Output:** `projects/{project}/reports/{cell_type}.md`
 
-The write hook (`.claude/hooks/check_report_refs.py`) automatically validates:
-- All quotes are exact substrings of evidence
-- All CorpusId references exist in paper_catalogue.json
+### 6. Validate Report (explicit step — not hook-dependent)
 
-**If hook rejects:** The synthesize-report subagent sees the errors in stderr
-and retries with corrections (max 2 retries).
+After the report is written, **always run validation explicitly**:
+
+1. Read the report file and the evidence files (`all_summaries.json`,
+   `paper_catalogue.json`, `supplementary_findings.json`).
+2. Check that every blockquoted text (`> "..."`) is a substring of the
+   evidence corpus.
+3. Check that every `CorpusId:NNN` reference exists in the paper catalogue.
+4. If validation fails, pass the error list back to `synthesize-report` and
+   retry (max 2 retries).
+
+The validation logic lives in `src/atlas_chat/atlas_chat/validation/report_checker.py`.
+You can invoke it directly:
+
+```python
+from atlas_chat.validation.report_checker import validate_report
+passed, errors = validate_report(report_path, traversal_dir)
+```
+
+Or in shell: `uv run python -c "from atlas_chat.validation.report_checker import validate_report; print(validate_report(...))"`.
+
+**Note:** The Claude Code write hook (`.claude/hooks/check_report_refs.py`) is
+an *optional extra guard* for interactive sessions — it is NOT the primary
+validation mechanism. The correction loop must work without it.
 
 ---
 
@@ -164,9 +183,15 @@ Shared validation logic in `src/atlas_chat/atlas_chat/validation/report_checker.
 2. **Reference check**: Every `CorpusId:NNN` in the report must appear as a key
    in `paper_catalogue.json`.
 
-Same logic, two feedback loops:
-- **Agentic**: Hook exits 2 → Claude sees stderr → self-corrects
+The canonical correction loop is in Python (`report_graph.py` nodes
+`SynthesizeReport` → `ValidateReport` → retry). Both runtimes use it:
 - **Programmatic**: Graph validation node → routes back to synthesis with error list
+- **Agentic**: Orchestrator calls validation explicitly after synthesis, feeds
+  errors back to synthesize-report subagent for retry
+
+The Claude Code write hook (`.claude/hooks/check_report_refs.py`) is an
+**optional extra guard** — it catches problems in interactive sessions but is
+not part of the required correction loop.
 
 ---
 
