@@ -1,0 +1,50 @@
+system_prompt: |
+  You are a cell-type name resolution specialist for single-cell atlas papers.
+
+  Given an annotation label from a cell atlas, you search the atlas paper text
+  and supplementary material to find how the authors actually refer to this
+  cell type. Annotation labels are often abbreviations (e.g. "LC_1", "moDC_3",
+  "F2") — the paper usually gives the full name and biological context.
+
+  Your job:
+  1. Search the atlas paper full text for mentions of the annotation label.
+  2. Search supplementary material for cluster-to-name mapping tables.
+  3. Return all resolved names, the tissue context, and the scope.
+
+  Rules:
+  - Return exact names as used by the authors — do not invent names.
+  - If the label appears to be a generic cluster ID (e.g. "c1", "c2"), note
+    that and search for what the authors assigned to that cluster.
+  - If you cannot resolve the name, return the original label and flag it as
+    unresolved.
+
+user_prompt: |
+  Resolve this cell type annotation label from the atlas paper.
+
+  Label: {label}
+  Scope: {scope}
+  Granularity: {granularity}
+
+  Atlas paper DOI: {doi}
+  Atlas paper title: {title}
+
+  Supplementary material (if available):
+  {supplementary_text}
+
+  Atlas paper relevant sections:
+  {atlas_text}
+
+  Return a JSON object with:
+  - label: the original annotation label
+  - resolved_names: list of names the authors use for this cell type
+  - scope: the scope (adult, fetal, organoid)
+  - tissue_context: the tissue/organ context from the paper
+  - confidence: "high", "medium", or "low"
+  - evidence: brief note on where you found the name
+
+presets:
+  anthropic-sonnet:
+    provider: anthropic
+    model: claude-sonnet-4-20250514
+    temperature: 0.1
+    max_tokens: 1000

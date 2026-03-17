@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "EXAMPLE: Replace with your domain-specific workflow output schema. INFRASTRUCTURE: Always define schemas in separate JSON files, then generate Pydantic models programmatically using cellsem-llm-client utilities.",
+  "title": "WorkflowOutput",
+  "description": "Canonical structured response produced by atlas-chat agents.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["pending", "completed", "failed"],
+      "description": "Current lifecycle state of the workflow."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Human-readable recap of the work performed or findings produced."
+    },
+    "actions": {
+      "type": "array",
+      "description": "Ordered list of follow-up tasks or API calls completed.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Identifier of the action or tool used."
+          },
+          "details": {
+            "type": "string",
+            "description": "Additional context about how the action was executed."
+          }
+        },
+        "required": ["name"],
+        "additionalProperties": false
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Non-fatal issues encountered during orchestration.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["status", "summary"],
+  "additionalProperties": false
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$comment": "INFRASTRUCTURE: Every run writes provenance.json as the first file in outputs/. Shared between programmatic and agentic modes. Used by validation_tools for run comparison.",
+  "title": "RunProvenance",
+  "description": "Full provenance record for a workflow run. Written before any LLM calls, including dry-runs.",
+  "type": "object",
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "UUID uniquely identifying this run."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp when the run was initiated."
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["programmatic", "agentic"],
+      "description": "Whether this run was executed via the Python package or an agent session."
+    },
+    "dry_run": {
+      "type": "boolean",
+      "description": "If true, no LLM calls were made. Provenance records planned execution only."
+    },
+    "git_version": {
+      "type": "string",
+      "description": "Output of git describe --tags --always --dirty. E.g. v0.3.1-2-gabcdef-dirty."
+    },
+    "package_version": {
+      "type": "string",
+      "description": "Installed package version from importlib.metadata."
+    },
+    "prompts": {
+      "type": "object",
+      "description": "Map of prompt label to file path and sha256 content hash.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "content_hash": {
+            "type": "string",
+            "description": "sha256 hex digest of prompt file content at run time."
+          }
+        },
+        "required": ["path", "content_hash"],
+        "additionalProperties": false
+      }
+    },
+    "schemas_used": {
+      "type": "object",
+      "description": "Map of schema label to file path and sha256 content hash.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "content_hash": { "type": "string" }
+        },
+        "required": ["path", "content_hash"],
+        "additionalProperties": false
+      }
+    },
+    "settings": {
+      "type": "object",
+      "description": "Model and runtime settings active for this run.",
+      "properties": {
+        "preset":      { "type": "string" },
+        "provider":    { "type": "string" },
+        "model":       { "type": "string" },
+        "temperature": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "input_hash": {
+      "type": "string",
+      "description": "sha256 hex digest of the serialised input, for reproducibility checks."
+    }
+  },
+  "required": ["run_id", "timestamp", "mode", "dry_run"],
+  "additionalProperties": false
+}

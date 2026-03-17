@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "example_input.schema.json",
+  "$comment": "EXAMPLE: Replace with your domain-specific input schema. INFRASTRUCTURE: Always define schemas in separate JSON files, then generate Pydantic models programmatically using cellsem-llm-client utilities.",
+  "title": "ExampleInput",
+  "description": "Example input schema demonstrating schema-first design pattern",
+  "type": "object",
+  "properties": {
+    "query": {
+      "type": "string",
+      "description": "The user query to process",
+      "minLength": 1,
+      "examples": [
+        "What is agentic AI?",
+        "Explain multi-agent systems"
+      ]
+    },
+    "max_results": {
+      "type": "integer",
+      "description": "Maximum number of results to return",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 10
+    }
+  },
+  "required": ["query"],
+  "additionalProperties": false
+}

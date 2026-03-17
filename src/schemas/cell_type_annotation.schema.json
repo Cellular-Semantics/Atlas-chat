@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cell_type_annotation.schema.json",
+  "title": "Cell Type Annotation Collection",
+  "description": "A collection of cell type annotations sourced from a published atlas dataset.",
+  "type": "object",
+  "required": ["source", "annotations"],
+  "properties": {
+    "source": {
+      "$ref": "#/$defs/AtlasPaper"
+    },
+    "annotations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/CellTypeAnnotation" }
+    }
+  },
+  "$defs": {
+    "AtlasPaper": {
+      "type": "object",
+      "description": "The atlas publication from which annotations are derived.",
+      "required": ["doi"],
+      "properties": {
+        "doi": {
+          "type": "string",
+          "description": "DOI of the source publication.",
+          "pattern": "^10\\.\\d{4,}(\\.\\d+)?/.+"
+        },
+        "title": {
+          "type": "string",
+          "description": "Full title of the publication."
+        },
+        "abstract": {
+          "type": "string",
+          "description": "Abstract of the publication."
+        },
+        "authors": {
+          "type": "array",
+          "description": "List of author names.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "CellTypeAnnotation": {
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Cell type annotation label.",
+          "minLength": 1
+        },
+        "granularity": {
+          "type": "string",
+          "description": "Resolution of the annotation.",
+          "enum": ["fine", "broad"]
+        },
+        "scope": {
+          "type": "string",
+          "description": "Biological context or origin of the cells.",
+          "enum": ["fetal", "adult", "organoid"]
+        }
+      }
+    }
+  }
+}

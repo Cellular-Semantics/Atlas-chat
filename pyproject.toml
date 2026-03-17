@@ -1,0 +1,59 @@
+[tool.uv.workspace]
+members = [
+    "src/atlas_chat",
+    "src/atlas_chat_validation_tools",
+]
+
+[tool.uv.sources]
+atlas_chat = { workspace = true }
+
+[tool.uv]
+managed = true
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.5.0",
+    "mypy>=1.10.0",
+    "sphinx>=7.3.0",
+    "sphinx-autodoc-typehints>=1.25.0",
+    "myst-parser>=2.0.0",
+    "pre-commit>=3.7.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'unit'"
+markers = [
+    "unit: fast, isolated tests",
+    "integration: real API and IO tests",
+]
+
+[tool.ruff]
+src = ["src", "tests"]
+line-length = 100
+exclude = ["experiments/"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+packages = ["atlas_chat", "atlas_chat_validation_tools"]
+python_version = "3.13"
+disallow_untyped_defs = true
+strict_optional = true
+warn_unused_ignores = true
+exclude = ["experiments/"]
+
+[tool.coverage.run]
+source = [
+    "src/atlas_chat",
+    "src/atlas_chat_validation_tools",
+]
+omit = ["experiments/*"]
+
+[tool.coverage.report]
+# Ring 0 default — run scripts/graduate-ring.py --to 1 to raise this to 80
+fail_under = 60

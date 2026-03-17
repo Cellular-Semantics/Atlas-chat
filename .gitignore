@@ -1,0 +1,15 @@
+__pycache__/
+*.egg-info/
+.python-version
+.DS_Store
+.env
+.venv
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+dist/
+build/
+docs/_build/
+.claude/settings.local.json
+
+projects/

@@ -1,0 +1,48 @@
+# EXAMPLE: Replace with your domain-specific prompts
+# INFRASTRUCTURE: Prompts co-located with agents/services that use them
+# Naming convention: {agent_name}.prompt.yaml or {service_name}.{purpose}.prompt.yaml
+
+system_prompt: |
+  You are an AI assistant helping with agentic workflow tasks.
+
+  Your role is to process user queries and provide helpful, accurate responses
+  following the configured parameters.
+
+  EXAMPLE: Replace this system prompt with your domain-specific instructions.
+
+user_prompt: |
+  Process the following query:
+
+  Query: {query}
+
+  Provide a comprehensive response based on the available context and your knowledge.
+
+  EXAMPLE: Replace this user prompt template with your domain-specific format.
+  Use {variable_name} for template variables that will be filled at runtime.
+
+# Preset configurations for different LLM providers/models
+# INFRASTRUCTURE: Define model presets here for easy switching
+presets:
+  openai-gpt4:
+    provider: openai
+    model: gpt-4
+    temperature: 0.1
+    max_tokens: 1000
+
+  openai-gpt4-turbo:
+    provider: openai
+    model: gpt-4-turbo-preview
+    temperature: 0.1
+    max_tokens: 2000
+
+  anthropic-claude:
+    provider: anthropic
+    model: claude-3-sonnet-20240229
+    temperature: 0.1
+    max_tokens: 1000
+
+# EXAMPLE: Add your domain-specific presets
+# Choose appropriate models for your use case:
+# - Fast/cheap models for simple tasks
+# - Powerful models for complex reasoning
+# - Specialized models for specific domains
