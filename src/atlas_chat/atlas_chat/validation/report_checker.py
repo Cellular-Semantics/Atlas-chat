@@ -42,6 +42,9 @@ def check_quotes(
         # Also include the summary text itself as context
         if isinstance(s.get("summary"), str):
             evidence_texts.append(s["summary"])  # type: ignore[arg-type]
+        # ASTA snippet search results use "snippet" key
+        if isinstance(s.get("snippet"), str):
+            evidence_texts.append(s["snippet"])  # type: ignore[arg-type]
 
     evidence_corpus = "\n".join(evidence_texts)
 
@@ -148,6 +151,11 @@ def validate_report(
                 atlas_snippets.append(eq["quote"])
             elif isinstance(eq, str):
                 atlas_snippets.append(eq)
+
+    # Include atlas paper full text if saved during fetch step
+    fulltext_path = traversal_dir / "atlas_full_text.txt"
+    if fulltext_path.exists():
+        atlas_snippets.append(fulltext_path.read_text())
 
     errors: list[str] = []
     errors.extend(check_quotes(report_md, summaries, atlas_snippets))

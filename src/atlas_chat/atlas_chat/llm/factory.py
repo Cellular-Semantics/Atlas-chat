@@ -11,6 +11,7 @@ model string has the right LiteLLM prefix.
 from __future__ import annotations
 
 import logging
+import os
 
 from cellsem_llm_client import (
     create_litellm_agent,
@@ -25,6 +26,12 @@ logger = logging.getLogger(__name__)
 DEFAULT_MODELS: dict[str, str] = {
     "anthropic": "anthropic/claude-sonnet-4-20250514",
     "openai": "openai/gpt-4.1",
+}
+
+# Maps provider name → environment variable holding the API key.
+_API_KEY_ENV: dict[str, str] = {
+    "anthropic": "ANTHROPIC_API_KEY",
+    "openai": "OPENAI_API_KEY",
 }
 
 PROVIDERS = list(DEFAULT_MODELS)
@@ -65,16 +72,24 @@ def create_agent(
     if "/" not in model:
         model = f"{provider}/{model}"
 
+    # Explicitly resolve the API key — create_litellm_agent's own
+    # inference breaks on prefixed model names like "openai/gpt-4.1"
+    # because it checks model.startswith("gpt"), not the prefix.
+    env_var = _API_KEY_ENV.get(provider, f"{provider.upper()}_API_KEY")
+    api_key = os.getenv(env_var)
+    if not api_key:
+        raise SystemExit(
+            f"Error: {env_var} not set.\n"
+            f"Set {env_var} in your .env file or environment."
+        )
+
     logger.info("Creating LLM agent: provider=%s model=%s", provider, model)
 
     try:
-        return create_litellm_agent(model=model, max_tokens=max_tokens)
+        return create_litellm_agent(
+            model=model, api_key=api_key, max_tokens=max_tokens
+        )
     except ValueError as exc:
-        # Missing API key — give a clean message
-        env_var = {
-            "anthropic": "ANTHROPIC_API_KEY",
-            "openai": "OPENAI_API_KEY",
-        }.get(provider, f"{provider.upper()}_API_KEY")
         raise SystemExit(
             f"Error: {exc}\n"
             f"Set {env_var} in your .env file or environment."

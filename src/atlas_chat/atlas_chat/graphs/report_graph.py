@@ -65,7 +65,6 @@ class ReportDeps:
     agent: AgentConnection
     traversal_dir: Path
     reports_dir: Path
-    dry_run: bool = False
 
 
 # ---------------------------------------------------------------------------
@@ -118,10 +117,6 @@ class FetchSupplements(BaseNode[ReportState, ReportDeps, str]):
 
         logger.info("Fetching atlas paper and supplements for DOI: %s", config.doi)
 
-        if ctx.deps.dry_run:
-            logger.info("[DRY RUN] Skipping paper fetch")
-            return ResolveName()
-
         # These would be called via Europe PMC / artl-mcp in a real run.
         # For the programmatic path, we use the services layer.
         # Import here to avoid hard dependency on optional HTTP libs.
@@ -142,6 +137,11 @@ class FetchSupplements(BaseNode[ReportState, ReportDeps, str]):
             )
         except (ImportError, Exception) as exc:
             logger.warning("Could not fetch paper data: %s", exc)
+
+        # Save full text so validation can check quotes against it
+        if state.atlas_full_text:
+            ft_path = ctx.deps.traversal_dir / "atlas_full_text.txt"
+            ft_path.write_text(state.atlas_full_text)
 
         return ResolveName()
 
@@ -164,16 +164,6 @@ class ResolveName(BaseNode[ReportState, ReportDeps, str]):
         granularity = ann["granularity"] if ann else "unknown"
 
         logger.info("Resolving name for: %s", state.cell_type)
-
-        if ctx.deps.dry_run:
-            state.name_resolution = {
-                "label": state.cell_type,
-                "resolved_names": [state.cell_type],
-                "scope": scope,
-                "tissue_context": "",
-                "confidence": "dry_run",
-            }
-            return FanOut()
 
         response = await asyncio.to_thread(
             _llm_call,
@@ -232,10 +222,6 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
 
         logger.info("Scanning supplementary material for: %s", state.cell_type)
 
-        if ctx.deps.dry_run:
-            state.supplementary_findings = {"markers": [], "other_findings": [], "evidence_quotes": []}
-            return
-
         resolved_names = state.name_resolution.get("resolved_names", [state.cell_type])
 
         response = await asyncio.to_thread(
@@ -273,11 +259,6 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
 
         logger.info("Citation traversal for: %s (depth=%d)", state.cell_type, state.depth)
 
-        if ctx.deps.dry_run:
-            state.all_summaries = []
-            state.paper_catalogue = {}
-            return
-
         # Build query from resolved name + scope + tissue
         resolved = state.name_resolution.get("resolved_names", [state.cell_type])
         tissue = state.name_resolution.get("tissue_context", "")
@@ -290,8 +271,7 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
         try:
             from atlas_chat.services import citation_traverser
 
-            summaries, catalogue = await asyncio.to_thread(
-                citation_traverser.traverse,
+            summaries, catalogue = await citation_traverser.traverse(
                 query=query,
                 seed_ids=[seed_id],
                 depth=state.depth,
@@ -333,10 +313,6 @@ class SynthesizeReport(BaseNode[ReportState, ReportDeps, str]):
             state.cell_type,
             state.synthesis_attempts,
         )
-
-        if ctx.deps.dry_run:
-            state.report_md = f"# {state.cell_type}\n\n[DRY RUN — no report generated]"
-            return ValidateReport()
 
         resolved = state.name_resolution.get("resolved_names", [state.cell_type])
         scope = state.name_resolution.get("scope", "unknown")
@@ -384,9 +360,6 @@ class ValidateReport(BaseNode[ReportState, ReportDeps, str]):
         self, ctx: GraphRunContext[ReportState, ReportDeps]
     ) -> SynthesizeReport | SaveReport:
         state = ctx.state
-
-        if ctx.deps.dry_run:
-            return SaveReport()
 
         # Write report to temp location for validation
         report_path = ctx.deps.reports_dir / f"{state.cell_type}.md"
@@ -457,7 +430,6 @@ async def run_report_graph(
     cell_type: str,
     *,
     depth: int = 1,
-    dry_run: bool = False,
     provider: str = "anthropic",
     model: str | None = None,
 ) -> str:
@@ -467,9 +439,7 @@ async def run_report_graph(
         config: Atlas project configuration.
         cell_type: The cell type annotation label.
         depth: Citation traversal depth (default 1, max 3).
-        dry_run: If True, skip LLM calls and paper fetching.
-        provider: LLM provider — ``"anthropic"``, ``"openai"``, or
-            ``"litellm"``.
+        provider: LLM provider — ``"anthropic"`` or ``"openai"``.
         model: Model identifier.  If ``None``, uses the default for
             the chosen provider.
 
@@ -489,7 +459,6 @@ async def run_report_graph(
         agent=agent,
         traversal_dir=traversal_dir,
         reports_dir=reports_dir,
-        dry_run=dry_run,
     )
 
     result = await report_graph.run(

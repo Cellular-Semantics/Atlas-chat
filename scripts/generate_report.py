@@ -85,9 +85,14 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    # Configure logging: only atlas_chat loggers get DEBUG in verbose mode.
+    # Third-party libs (litellm, httpx, httpcore, etc.) stay at WARNING.
     logging.basicConfig(
-        level=logging.DEBUG if args.verbose else logging.INFO,
+        level=logging.WARNING,
         format="%(asctime)s %(name)s %(levelname)s %(message)s",
+    )
+    logging.getLogger("atlas_chat").setLevel(
+        logging.DEBUG if args.verbose else logging.INFO
     )
 
     try:
@@ -107,7 +112,8 @@ def main() -> None:
 
 def _run(args: argparse.Namespace) -> None:
     from atlas_chat.services.atlas_paper import load_project_config
-    from atlas_chat.graphs.report_graph import run_report_graph
+    from atlas_chat.llm.factory import DEFAULT_MODELS
+    from atlas_chat.utils.prompt_loader import load_prompt
 
     config = load_project_config(args.project)
 
@@ -125,18 +131,104 @@ def _run(args: argparse.Namespace) -> None:
             print(f"  ... and {len(config.annotations) - 10} more", file=sys.stderr)
         sys.exit(1)
 
+    if args.dry_run:
+        _show_plan(args, config, ann, DEFAULT_MODELS)
+        return
+
+    from atlas_chat.graphs.report_graph import run_report_graph
+
     result_path = asyncio.run(
         run_report_graph(
             config=config,
             cell_type=args.cell_type,
             depth=args.depth,
-            dry_run=args.dry_run,
             provider=args.provider,
             model=args.model,
         )
     )
 
     print(f"\nReport written to: {result_path}")
+
+
+def _show_plan(
+    args: argparse.Namespace,
+    config: "AtlasConfig",
+    ann: dict,
+    default_models: dict[str, str],
+) -> None:
+    """Display the execution plan without running anything."""
+    from atlas_chat.utils.prompt_loader import load_prompt
+
+    model = args.model or default_models.get(args.provider, "?")
+    if "/" not in model:
+        model = f"{args.provider}/{model}"
+
+    print("=" * 60)
+    print("DRY RUN — execution plan")
+    print("=" * 60)
+
+    # 1. Config
+    print("\n--- Configuration ---")
+    print(f"  Project:    {args.project}")
+    print(f"  Cell type:  {args.cell_type}")
+    print(f"  Scope:      {ann.get('scope', '?')}")
+    print(f"  Granularity:{ann.get('granularity', '?')}")
+    print(f"  Atlas DOI:  {config.doi}")
+    print(f"  Atlas:      {config.title}")
+    print(f"  Provider:   {args.provider}")
+    print(f"  Model:      {model}")
+    print(f"  Depth:      {args.depth}")
+
+    # 2. Output paths
+    traversal_dir = config.project_dir / "traversal_output" / args.cell_type
+    reports_dir = config.project_dir / "reports"
+    print("\n--- Output paths ---")
+    print(f"  Traversal:  {traversal_dir}/")
+    print(f"  Report:     {reports_dir}/{args.cell_type}.md")
+
+    # 3. Orchestration steps
+    print("\n--- Orchestration sequence ---")
+    steps = [
+        ("1", "FetchSupplements",
+         "Resolve DOI → PMCID via Europe PMC, fetch full text + supplements"),
+        ("2", "ResolveName",
+         "LLM call: identify author terminology for this cell type"),
+        ("3a", "ScanSupplements  [parallel]",
+         "LLM call: scan supplementary material for markers & findings"),
+        ("3b", "CitationTraverse [parallel]",
+         f"ASTA snippet search (depth={args.depth}), build paper catalogue"),
+        ("4", "SynthesizeReport",
+         "LLM call: generate markdown report from all evidence"),
+        ("5", "ValidateReport",
+         "Check quotes against evidence, check CorpusId refs (max 2 retries)"),
+        ("6", "SaveReport",
+         f"Write to {reports_dir}/{args.cell_type}.md"),
+    ]
+    for num, name, desc in steps:
+        print(f"  [{num}] {name}")
+        print(f"       {desc}")
+
+    # 4. Prompts
+    prompt_names = [
+        ("name_resolver", "ResolveName"),
+        ("supplementary_scanner", "ScanSupplements"),
+        ("report_synthesizer", "SynthesizeReport"),
+    ]
+    print("\n--- Prompts ---")
+    for pname, step in prompt_names:
+        try:
+            prompt = load_prompt(pname)
+            print(f"\n  [{step}] {pname}.prompt.yaml")
+            for key in ("system_prompt", "user_prompt"):
+                text = prompt.get(key, "").strip()
+                if text:
+                    print(f"\n    {key}:")
+                    for line in text.split("\n"):
+                        print(f"      {line}")
+        except Exception:
+            print(f"\n  [{step}] {pname}.prompt.yaml — not found")
+
+    print("\n" + "=" * 60)
 
 
 if __name__ == "__main__":
