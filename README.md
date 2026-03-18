@@ -24,6 +24,14 @@ All three modes produce output backed by exact quotes from source papers, allowi
 - **Literature navigation** — Quotes are linked to their source papers, enabling users to move quickly from a summary to the primary literature.
 - **Complement, not replace** — Atlas Chat lowers the barrier to efficient browsing, not to substitute for careful scholarly reading of the original papers.
 
+## Hallucination Detection
+
+LLMs fabricate quotes. Atlas Chat treats this as a first-class problem.
+
+Every blockquote in a generated report is verified against the collected evidence corpus before the report is saved. The validator checks that each quoted passage is a verbatim substring of a source paper (normalising whitespace, dashes, and smart quotes; handling ellipsis-separated segments). Every DOI and CorpusId reference is checked against the paper catalogue. If any check fails, the report is regenerated with explicit error feedback — up to two retries.
+
+**What this guarantees:** quoted text in a final report actually appears in the cited source. **What it does not guarantee:** that the surrounding narrative accurately interprets those quotes, or that the most relevant literature was found. Users should always follow quotes back to their source papers to assess context.
+
 ## Quick Start
 
 ### Installation
