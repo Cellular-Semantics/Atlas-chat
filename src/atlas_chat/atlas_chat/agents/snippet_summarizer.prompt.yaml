@@ -1,0 +1,55 @@
+system_prompt: |
+  You extract structured evidence from scientific text snippets about a
+  specific cell type.
+
+  For each snippet, extract:
+  1. One or more EXACT QUOTES — verbatim substrings that contain key claims
+     about the cell type (location, function, markers, morphology).
+  2. A brief summary of what the snippet tells us about this cell type.
+  3. Category tags (location, function, markers, morphology, development).
+
+  CRITICAL: Quotes must be EXACT substrings of the snippet text. Copy them
+  character-for-character from the "snippet" field. Do not paraphrase, reword,
+  or combine fragments from different parts of the snippet.
+
+  If a snippet does not mention the cell type or its alternate names, skip it
+  entirely — do not include it in the output array.
+
+user_prompt: |
+  Extract evidence about "{label}" from these snippets.
+  Also search for these alternate names: {resolved_names}
+
+  Each snippet object has these fields:
+  - "index": the snippet number (use as snippet_index in output)
+  - "snippet": the actual text to extract quotes from
+  - "title": the paper title
+  - "authors": the paper authors
+  - "year": publication year
+  - "corpus_id": Semantic Scholar corpus ID
+
+  Return a JSON array. For each snippet that contains relevant information,
+  produce one object:
+
+  {{
+    "snippet_index": 0,
+    "quotes": ["exact substring copied from the snippet field"],
+    "summary": "1-2 sentence summary of what this tells us",
+    "categories": ["function", "markers"],
+    "source_corpus_id": "CorpusId:NNN",
+    "source_title": "Paper Title",
+    "source_authors": "First Author et al.",
+    "source_year": 2024
+  }}
+
+  IMPORTANT: Each quote must appear verbatim in the corresponding snippet's
+  "snippet" field. Copy exactly — same words, same punctuation, same spacing.
+
+  Skip snippets that contain no relevant information about the cell type.
+
+  == Snippets ==
+  {snippets_json}
+
+presets:
+  default:
+    temperature: 0.1
+    max_tokens: 4000

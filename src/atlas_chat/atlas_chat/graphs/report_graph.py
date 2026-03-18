@@ -253,6 +253,10 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
         This is the programmatic equivalent of the citation-traverse Claude Code
         skill. It calls Semantic Scholar snippet search and follows references
         to the configured depth.
+
+        After retrieving raw snippets, runs the snippet_summarizer LLM prompt
+        to extract structured evidence with exact verbatim quotes — this ensures
+        the synthesizer receives pre-verified quotes it can copy directly.
         """
         state = ctx.state
         config = ctx.deps.config
@@ -268,21 +272,37 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
         # Seed paper ID
         seed_id = config.corpus_id or f"DOI:{config.doi}"
 
+        raw_snippets: list[dict[str, Any]] = []
         try:
             from atlas_chat.services import citation_traverser
 
-            summaries, catalogue = await citation_traverser.traverse(
+            raw_snippets, catalogue = await citation_traverser.traverse(
                 query=query,
                 seed_ids=[seed_id],
                 depth=state.depth,
                 output_dir=ctx.deps.traversal_dir,
             )
-            state.all_summaries = summaries
             state.paper_catalogue = catalogue
         except (ImportError, Exception) as exc:
             logger.warning("Citation traversal failed: %s", exc)
             state.all_summaries = []
             state.paper_catalogue = {}
+
+        # Save raw snippets for debugging
+        (ctx.deps.traversal_dir / "raw_snippets.json").write_text(
+            json.dumps(raw_snippets, indent=2)
+        )
+
+        # --- Snippet summarization: extract exact quotes via LLM ---
+        if raw_snippets:
+            state.all_summaries = await self._summarize_snippets(
+                ctx, raw_snippets, resolved
+            )
+        else:
+            state.all_summaries = []
+
+        # Backfill catalogue for any corpus IDs in evidence not already present
+        await self._backfill_catalogue(ctx, raw_snippets, state.all_summaries)
 
         # Save outputs
         (ctx.deps.traversal_dir / "all_summaries.json").write_text(
@@ -291,6 +311,142 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
         (ctx.deps.traversal_dir / "paper_catalogue.json").write_text(
             json.dumps(state.paper_catalogue, indent=2)
         )
+
+    async def _summarize_snippets(
+        self,
+        ctx: GraphRunContext[ReportState, ReportDeps],
+        raw_snippets: list[dict[str, Any]],
+        resolved_names: list[str],
+    ) -> list[dict[str, Any]]:
+        """Run snippet_summarizer prompt to extract structured evidence.
+
+        Processes snippets in batches to stay within token limits. Each batch
+        produces a JSON array of evidence objects with exact verbatim quotes.
+        """
+        state = ctx.state
+        BATCH_SIZE = 10
+
+        all_evidence: list[dict[str, Any]] = []
+        for i in range(0, len(raw_snippets), BATCH_SIZE):
+            batch = raw_snippets[i : i + BATCH_SIZE]
+            # Build numbered snippet text for the prompt
+            snippets_for_prompt = []
+            for j, s in enumerate(batch):
+                snippets_for_prompt.append({
+                    "index": i + j,
+                    "snippet": s.get("snippet", ""),
+                    "title": s.get("title", ""),
+                    "authors": s.get("authors", ""),
+                    "year": s.get("year"),
+                    "corpus_id": s.get("corpus_id", ""),
+                })
+
+            logger.info(
+                "Summarizing snippets %d–%d of %d",
+                i, min(i + BATCH_SIZE, len(raw_snippets)) - 1, len(raw_snippets),
+            )
+
+            try:
+                response = await asyncio.to_thread(
+                    _llm_call,
+                    ctx.deps.agent,
+                    "snippet_summarizer",
+                    label=state.cell_type,
+                    resolved_names=json.dumps(resolved_names),
+                    snippets_json=json.dumps(snippets_for_prompt, indent=2),
+                )
+                batch_evidence = json.loads(response) if isinstance(response, str) else response
+                if isinstance(batch_evidence, list):
+                    # Verify quotes are actual substrings of source snippets
+                    for ev in batch_evidence:
+                        idx = ev.get("snippet_index", 0)
+                        # Map back to the raw snippet
+                        if 0 <= idx < len(raw_snippets):
+                            src_text = raw_snippets[idx].get("snippet", "")
+                            verified_quotes = [
+                                q for q in ev.get("quotes", [])
+                                if isinstance(q, str) and q in src_text
+                            ]
+                            ev["quotes"] = verified_quotes
+                            # Also carry forward the raw snippet for validation
+                            ev["snippet"] = src_text
+                        all_evidence.append(ev)
+            except (json.JSONDecodeError, Exception) as exc:
+                logger.warning("Snippet summarization failed for batch %d: %s", i, exc)
+                # Fall back: include raw snippets as-is
+                for s in batch:
+                    all_evidence.append(s)
+
+        logger.info(
+            "Snippet summarization complete: %d evidence items from %d snippets",
+            len(all_evidence), len(raw_snippets),
+        )
+        return all_evidence
+
+    async def _backfill_catalogue(
+        self,
+        ctx: GraphRunContext[ReportState, ReportDeps],
+        raw_snippets: list[dict[str, Any]],
+        evidence: list[dict[str, Any]],
+    ) -> None:
+        """Fetch metadata for papers referenced in evidence but missing from catalogue."""
+        state = ctx.state
+        existing_keys = set(state.paper_catalogue.keys())
+
+        # Collect all corpus IDs from raw snippets and evidence
+        missing_ids: set[str] = set()
+        for s in raw_snippets:
+            cid = s.get("corpus_id", "")
+            if cid and cid not in existing_keys:
+                missing_ids.add(s.get("paper_id", ""))
+        for ev in evidence:
+            cid = ev.get("source_corpus_id", "")
+            if cid and cid not in existing_keys:
+                # Extract numeric ID from "CorpusId:NNN"
+                num = cid.replace("CorpusId:", "").strip()
+                if num:
+                    missing_ids.add(num)
+
+        if not missing_ids:
+            return
+
+        logger.info("Backfilling catalogue for %d missing papers", len(missing_ids))
+        try:
+            from atlas_chat.services.citation_traverser import _make_provider, ASTA_FIELDS
+            import httpx
+
+            provider = _make_provider()
+            async with httpx.AsyncClient(timeout=60) as http_client:
+                raw = await provider._call_tool(http_client, "get_paper_batch", {
+                    "ids": list(missing_ids)[:50],
+                    "fields": f"{ASTA_FIELDS},externalIds",
+                })
+                papers_list = raw.get("result", raw) if isinstance(raw, dict) else raw
+                if isinstance(papers_list, list):
+                    for p_data in papers_list:
+                        if not p_data or not isinstance(p_data, dict):
+                            continue
+                        ext_ids = p_data.get("externalIds") or {}
+                        corpus_id = str(ext_ids.get("CorpusId", ""))
+                        key = f"CorpusId:{corpus_id}" if corpus_id else p_data.get("paperId", "")
+                        authors = [
+                            a.get("name", "")
+                            for a in (p_data.get("authors") or [])
+                        ]
+                        state.paper_catalogue[key] = {
+                            "title": p_data.get("title", ""),
+                            "authors": authors,
+                            "year": p_data.get("year"),
+                            "venue": p_data.get("venue", ""),
+                            "doi": ext_ids.get("DOI", ""),
+                            "pmid": ext_ids.get("PubMed", ""),
+                            "url": p_data.get("url", ""),
+                            "abstract": (p_data.get("abstract") or "")[:500],
+                            "tldr": (p_data.get("tldr") or {}).get("text", ""),
+                        }
+                    logger.info("Backfilled %d papers", len(papers_list))
+        except Exception as exc:
+            logger.warning("Catalogue backfill failed: %s", exc)
 
 
 # ---------------------------------------------------------------------------

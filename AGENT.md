@@ -18,6 +18,35 @@ workflow and the programmatic Python graph.
 
 ---
 
+## Tool Usage Rules
+
+1. **Never use `curl` or `WebFetch` for APIs that have MCP tools.** Semantic
+   Scholar, Europe PMC, and PubMed Central all have MCP tools. If an MCP tool
+   has a gap (e.g. missing field), use a different MCP query pattern — do not
+   bypass MCP.
+
+2. **Prefer `snippet_search` over `get_europepmc_full_text`** for evidence
+   gathering. Full text is fragile (silent failures, huge output). Snippet
+   search returns pre-chunked, relevance-ranked text with reference annotations.
+
+3. **CorpusId retrieval**: `snippet_search` is the canonical way to get
+   CorpusIds via MCP. The response includes `paper.corpusId` in snippet
+   metadata. For referenced papers within snippets, check
+   `matchedPaperCorpusId`. Do not attempt to get CorpusId from `get_paper`
+   fields — it is not available there.
+
+4. **Batch paper lookups**: Use `get_paper_batch` early to pre-fetch metadata
+   for all papers that will appear in the catalogue.
+
+5. **Limit supplement fetch attempts**: Max 2 attempts for full text or
+   supplement retrieval per paper. If both fail, move on to snippet search.
+
+6. **Pre-extract JSON before grepping MCP output**: When MCP tools save
+   large results as single-line JSON, use `python3 -c "import json..."` to
+   extract and search — do not grep raw JSON files.
+
+---
+
 ## Workflow Sequence
 
 Given a **project name** and **cell type label**:
@@ -28,6 +57,9 @@ Read `projects/{project}/cell_type_annotations.json`:
 - Extract atlas DOI, title
 - Validate the cell type label exists in annotations
 - Get scope and granularity for the cell type
+- **If scope indicates integrated external annotations** (e.g. adult annotations
+  from Reynolds integrated into Gopee), identify the source atlas early and
+  pivot supplementary fetching to that paper.
 
 ### 2. Fetch Supplementary Material
 
@@ -36,9 +68,17 @@ Use MCP tools directly (single call, no subagent needed):
 2. `get_pmc_supplemental_material(pmcid)` → list available supplements
 3. Fetch relevant supplement files (tables, figures with legends)
 
+If supplements are unavailable (max 2 attempts), fall back to snippet search
+with marker-focused queries. Try `get_europepmc_pdf_as_markdown` for
+supplement PDFs as an alternative.
+
 Store supplementary text for downstream steps.
 
 ### 3. Resolve Name → subagent: `resolve-name`
+
+**Primary method**: Use `snippet_search` with `paper_ids` parameter scoped to
+the atlas paper. This avoids fragile full text download → grep → parse cycles
+and returns relevance-ranked text.
 
 **Input:**
 - Cell type label, atlas DOI, scope
@@ -82,7 +122,7 @@ These two steps are independent after name resolution. Run them in parallel.
 #### 4b. Citation Traverse → subagent: `citation-traverse`
 
 **Input:**
-- Seed paper ID (CorpusId from identifier resolution, or `DOI:{doi}`)
+- Seed paper ID (CorpusId from snippet metadata, or `DOI:{doi}`)
 - Query: `"{label} / {resolved_name} in {scope} {tissue}: location, structure, function, markers"`
 - Depth: 1 (default), configurable up to 3
 
@@ -104,7 +144,7 @@ After the report is written, **always run validation explicitly**:
    `paper_catalogue.json`, `supplementary_findings.json`).
 2. Check that every blockquoted text (`> "..."`) is a substring of the
    evidence corpus.
-3. Check that every `CorpusId:NNN` reference exists in the paper catalogue.
+3. Check that every DOI in the report exists in the paper catalogue.
 4. If validation fails, pass the error list back to `synthesize-report` and
    retry (max 2 retries).
 
@@ -115,8 +155,6 @@ You can invoke it directly:
 from atlas_chat.validation.report_checker import validate_report
 passed, errors = validate_report(report_path, traversal_dir)
 ```
-
-Or in shell: `uv run python -c "from atlas_chat.validation.report_checker import validate_report; print(validate_report(...))"`.
 
 **Note:** The Claude Code write hook (`.claude/hooks/check_report_refs.py`) is
 an *optional extra guard* for interactive sessions — it is NOT the primary
@@ -132,8 +170,6 @@ projects/{project}/
 ├── traversal_output/{cell_type}/
 │   ├── name_resolution.json
 │   ├── supplementary_findings.json
-│   ├── depth_0_snippets.json
-│   ├── depth_0_summaries.json
 │   ├── all_summaries.json
 │   └── paper_catalogue.json
 └── reports/
@@ -144,32 +180,40 @@ projects/{project}/
 
 ## Report Format
 
+Reports use standard academic citation style. See the shared prompt at
+`src/atlas_chat/atlas_chat/agents/report_synthesizer.prompt.yaml` for full
+instructions. Key conventions:
+
+- **Inline citations**: `(Author et al., Year)`
+- **Blockquote evidence**: `> "exact quote"\n>\n> — Author et al. (Year)`
+- **References**: standard academic format with DOI links
+
 ```markdown
-# {Cell Type Full Name} ({annotation_label})
-Atlas: {atlas_title} (DOI: {doi})
-Scope: {scope}
+# Iron-Recycling Macrophages in Prenatal Human Skin
 
 ## Summary
-Brief overview (2-3 sentences).
-
-## Location
-> "exact quote" — [Author2024](CorpusId:NNN) Title
-
-Claim grounded by quote.
-
-## Function
-> "exact quote" — [Author2024](CorpusId:NNN) Title
+Iron-recycling macrophages are one of four macrophage subsets identified in
+prenatal human skin by Gopee et al. (2024)...
 
 ## Markers
-| Gene | Evidence | Source |
-|------|----------|--------|
-| GENE | > "quote about marker" | [Author2024](CorpusId:NNN) |
+> "Iron-recycling macrophages: CD5L, APOE, VCAM, TIMD4, SLC40A1"
+>
+> — Gopee et al. (2024), Supplementary Materials
 
-## Structure / Morphology
+These markers reflect the subset's functional specialisation:
+- **SLC40A1** (ferroportin) — the sole known cellular iron exporter...
+
+## Location
+### In prenatal skin
+...
+
+## Function
+### 1. Endothelial cell chemotaxis
 ...
 
 ## References
-- CorpusId:NNNNNNN | Author et al. (Year) "Title" — DOI:xxx
+- Gopee NH et al. (2024). "A prenatal skin atlas..." *Nature*. DOI: [10.1038/s41586-024-08002-x](https://doi.org/10.1038/s41586-024-08002-x)
+- Suo C et al. (2022). "Mapping the developing human immune system..." *Science*. DOI: ...
 ```
 
 ---
@@ -179,9 +223,9 @@ Claim grounded by quote.
 Shared validation logic in `src/atlas_chat/atlas_chat/validation/report_checker.py`:
 
 1. **Quote check**: Every blockquoted text (`> "..."`) must be a substring of
-   the evidence corpus (all_summaries.json quotes + supplementary evidence quotes).
-2. **Reference check**: Every `CorpusId:NNN` in the report must appear as a key
-   in `paper_catalogue.json`.
+   the evidence corpus (all_summaries.json snippets + supplementary evidence +
+   atlas full text).
+2. **DOI check**: Every DOI in the report must appear in `paper_catalogue.json`.
 
 The canonical correction loop is in Python (`report_graph.py` nodes
 `SynthesizeReport` → `ValidateReport` → retry). Both runtimes use it:

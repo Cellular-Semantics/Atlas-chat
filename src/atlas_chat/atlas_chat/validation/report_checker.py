@@ -62,13 +62,52 @@ def check_quotes(
 def _quote_in_evidence(quote: str, evidence_texts: list[str]) -> bool:
     """Check if a quote is a substring of any evidence text.
 
-    Uses case-insensitive matching and allows minor whitespace differences.
+    Uses case-insensitive matching, normalises whitespace, and handles
+    ellipsis (``...``) in quotes — each segment between ellipses must
+    appear in the same evidence text in order.
     """
-    normalised_quote = _normalise_ws(quote.lower())
+    # Split on ellipsis patterns: "...", "…", ". . ."
+    segments = re.split(r"\.{3}|\u2026|\.\s\.\s\.", quote)
+    segments = [s.strip() for s in segments if s.strip()]
+
+    if not segments:
+        return True  # empty quote
+
     for text in evidence_texts:
-        if normalised_quote in _normalise_ws(text.lower()):
+        norm_text = _normalise_for_match(text)
+        # All segments must appear in order in the same evidence text
+        pos = 0
+        matched = True
+        for seg in segments:
+            norm_seg = _normalise_for_match(seg)
+            if not norm_seg:
+                continue
+            idx = norm_text.find(norm_seg, pos)
+            if idx == -1:
+                matched = False
+                break
+            pos = idx + len(norm_seg)
+        if matched:
             return True
+
     return False
+
+
+def _normalise_for_match(text: str) -> str:
+    """Normalise text for fuzzy substring matching.
+
+    Collapses whitespace, lowercases, and strips characters that commonly
+    differ between XML-derived full text and LLM-generated quotes (en-dash,
+    em-dash, smart quotes, extra spaces around punctuation).
+    """
+    t = text.lower()
+    # Normalise dashes and hyphens
+    t = re.sub(r"[\u2013\u2014\u2015]", "-", t)
+    # Normalise quotes
+    t = re.sub(r"[\u2018\u2019\u201c\u201d]", "'", t)
+    # Collapse whitespace
+    t = re.sub(r"\s+", " ", t).strip()
+    return t
 
 
 def _normalise_ws(text: str) -> str:
@@ -80,10 +119,12 @@ def check_references(
     report_md: str,
     catalogue: dict[str, object],
 ) -> list[str]:
-    """Return error messages for reference IDs in the report not in the catalogue.
+    """Return error messages for DOIs in the report not found in the catalogue.
 
-    Scans for ``CorpusId:NNN`` patterns in the report and verifies each
-    against the paper catalogue.
+    Scans for DOI patterns (``10.NNNN/...``) in the report and verifies each
+    against the DOIs in the paper catalogue.
+
+    Also checks legacy ``CorpusId:NNN`` patterns for backwards compatibility.
 
     Args:
         report_md: The full markdown report text.
@@ -94,19 +135,33 @@ def check_references(
     """
     errors: list[str] = []
 
-    # Build set of known IDs from catalogue keys (normalised)
-    known_ids: set[str] = set()
+    # Build set of known DOIs from catalogue values
+    known_dois: set[str] = set()
+    for entry in catalogue.values():
+        if isinstance(entry, dict):
+            doi = entry.get("doi", "")
+            if doi:
+                known_dois.add(doi.lower().strip())
+
+    # Build set of known CorpusIds (legacy support)
+    known_corpus_ids: set[str] = set()
     for key in catalogue:
-        # Accept keys like "2762329", "CorpusId:2762329"
         clean = str(key).replace("CorpusId:", "").strip()
-        known_ids.add(clean)
+        known_corpus_ids.add(clean)
 
-    # Find all CorpusId references in the report
-    ref_pattern = re.compile(r"CorpusId:(\d+)")
-    found_ids = set(ref_pattern.findall(report_md))
+    # Find all DOIs in the report (standard DOI format: 10.NNNN/...)
+    doi_pattern = re.compile(r"10\.\d{4,}/[^\s\)>\]]+")
+    found_dois = {d.rstrip(".,;").lower() for d in doi_pattern.findall(report_md)}
 
-    for cid in sorted(found_ids):
-        if cid not in known_ids:
+    for doi in sorted(found_dois):
+        if doi not in known_dois:
+            errors.append(f"Unknown DOI {doi} — not in paper catalogue")
+
+    # Legacy: also check any CorpusId references
+    corpus_pattern = re.compile(r"CorpusId:(\d+)")
+    found_corpus_ids = set(corpus_pattern.findall(report_md))
+    for cid in sorted(found_corpus_ids):
+        if cid not in known_corpus_ids:
             errors.append(f"Unknown reference CorpusId:{cid} — not in paper catalogue")
 
     return errors
