@@ -206,6 +206,14 @@ An interactive question-answering mode for exploring the atlas literature. Loads
 
 ## Development
 
+This project uses Claude Code for agentic development. [`CLAUDE_dev.md`](CLAUDE_dev.md) provides the agent instructions — load it as context when working on the codebase. It covers:
+
+- **Scope rings** — ship Ring 0 (MVP) first, iterate based on user feedback before adding features
+- **Schema-first design** — JSON schemas are the source of truth; Pydantic models are generated from them
+- **Test-driven development** — integration tests with real APIs from day 1, no mocks
+- **Prompt management** — YAML prompt files co-located with agents/services, not hardcoded
+- **Quality gates** — ruff, mypy, and coverage thresholds enforced via pre-commit hooks
+
 ```bash
 # Run tests
 uv run pytest tests/unit -m unit
