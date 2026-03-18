@@ -1,0 +1,51 @@
+{
+  "CorpusId:231666430": {
+    "title": "Developmental cell programs are co-opted in inflammatory skin disease",
+    "authors": "Reynolds et al.",
+    "year": 2021,
+    "doi": "10.1126/science.aba6500",
+    "venue": "Science"
+  },
+  "CorpusId:273400864": {
+    "title": "A prenatal skin atlas reveals immune regulation of human skin morphogenesis",
+    "authors": "Gopee et al.",
+    "year": 2024,
+    "doi": "10.1038/s41586-024-08002-x",
+    "venue": "Nature"
+  },
+  "CorpusId:235813151": {
+    "title": "Inflammatory Skin Disorders: Monocyte-Derived Cells Take Center Stage",
+    "authors": "Mehta et al.",
+    "year": 2021,
+    "doi": "10.3389/fimmu.2021.691806",
+    "venue": "Frontiers in Immunology"
+  },
+  "CorpusId:195420284": {
+    "title": "A rule-based data-informed cellular consensus map of the human mononuclear phagocyte cell space",
+    "authors": "Gunther et al.",
+    "year": 2019,
+    "doi": "10.1101/658179",
+    "venue": "bioRxiv"
+  },
+  "CorpusId:248881268": {
+    "title": "Loss of T cell tolerance in the skin following immunopathology is linked to failed restoration of the dermal niche by recruited macrophages",
+    "authors": "West et al.",
+    "year": 2022,
+    "doi": "10.1016/j.celrep.2022.111585",
+    "venue": "Cell Reports"
+  },
+  "CorpusId:235213150": {
+    "title": "Immunology of Acute and Chronic Wound Healing",
+    "authors": "Raziyeva et al.",
+    "year": 2021,
+    "doi": "10.3390/biom11050700",
+    "venue": "Biomolecules"
+  },
+  "CorpusId:17549199": {
+    "title": "In Vivo Imaging Reveals a Pioneer Wave of Monocyte Recruitment into Mouse Skin Wounds",
+    "authors": "Rodero et al.",
+    "year": 2014,
+    "doi": "10.1371/journal.pone.0108212",
+    "venue": "PLoS ONE"
+  }
+}

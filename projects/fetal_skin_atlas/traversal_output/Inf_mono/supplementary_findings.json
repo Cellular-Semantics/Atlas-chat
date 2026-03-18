@@ -1,0 +1,25 @@
+{
+  "markers": [
+    {"gene": "CD14", "evidence_type": "known marker / flow cytometry", "source_table": "Reynolds et al. 2021 Fig S5; Mehta et al. 2021"},
+    {"gene": "S100A8", "evidence_type": "DE marker / scRNA-seq", "source_table": "Reynolds et al. 2021; Gunther et al. 2019 consensus map"},
+    {"gene": "S100A9", "evidence_type": "DE marker / scRNA-seq", "source_table": "Reynolds et al. 2021; Gunther et al. 2019 consensus map"},
+    {"gene": "FCN1", "evidence_type": "DE marker / scRNA-seq", "source_table": "Gunther et al. 2019 consensus map; multiple single-cell studies"},
+    {"gene": "VCAN", "evidence_type": "DE marker / scRNA-seq", "source_table": "Gunther et al. 2019 consensus map; Song et al. 2024"},
+    {"gene": "CD64", "evidence_type": "surface marker / flow cytometry", "source_table": "Mehta et al. 2021"}
+  ],
+  "other_findings": [
+    {"finding": "Inflammatory monocytes are CD14bright CD64bright CD163- mononuclear phagocytes distinct from tissue-resident macrophages", "category": "phenotype", "source_table": "Mehta et al. 2021"},
+    {"finding": "Inf_mono represents a cell state molecularly defined in the Reynolds et al. 2021 adult skin atlas, identified among 34 cell states in healthy human skin", "category": "annotation", "source_table": "Reynolds et al. 2021"},
+    {"finding": "Inflammatory monocytes are recruited to skin during inflammation and are implicated in psoriasis and atopic dermatitis pathogenesis", "category": "function", "source_table": "Mehta et al. 2021; Reynolds et al. 2021"},
+    {"finding": "Adult skin fibroblasts express high levels of inflammatory cytokines (IL6, IL1RA) and genes for antigen presentation (HLA-A) and innate immune responses (CD55, PTGES) compared to prenatal skin", "category": "tissue context", "source_table": "Gopee et al. 2024 Supplementary Tables 13-15"}
+  ],
+  "evidence_quotes": [
+    {"quote": "Monocytes recently recruited to inflamed skin have been referred to as monocyte-derived dendritic cells (Mo-DC), inflammatory DC, inflammatory monocyte-like (Infl Mo-like) cells, inflammatory Mf (Inf mac), or monocyte-derived Mf (Monomac) highlighting a need to better define their molecular identities and function", "source_file": "Mehta et al. 2021 (CorpusId:235813151)", "context": "Nomenclature of inflammatory monocyte-derived cells in skin"},
+    {"quote": "Monomacs displaying a monocyte-like molecular signature (CD14, S100A8, S100A9) comprise a mixture of Infl Mo-like MNP_1 and MNP_2 clusters identified by FCM", "source_file": "Mehta et al. 2021 (CorpusId:235813151)", "context": "Molecular signature of inflammatory monocyte-like cells in skin"},
+    {"quote": "a cell state molecularly defined as Inf mac, but not Mac2 or Monomac, is a major subset that significantly increased in L psoriasis skin", "source_file": "Mehta et al. 2021 (CorpusId:235813151)", "context": "Expansion of inflammatory monocyte-like cells in psoriatic lesional skin"},
+    {"quote": "cluster nine expressed S100A8, S100A9 and S100A12 together with VCAN and FCN1, identifying them as classical CD14 + monocytes", "source_file": "Gunther et al. 2019 (CorpusId:195420284)", "context": "Marker genes defining classical CD14+ monocytes in consensus myeloid cell map"},
+    {"quote": "Blood monocytes that are attracted to wounds are classified into classical or pro-inflammatory CD14 + CD16 - monocytes and anti-inflammatory CD14 low/- CD16 + monocytes", "source_file": "Raziyeva et al. 2021 (CorpusId:235213150)", "context": "Classification of monocyte subsets in skin wound healing"},
+    {"quote": "dermal monocytes are specifically primed to become immunomodulatory cells that express classic inflammatory and regulatory cytokines", "source_file": "West et al. 2022 (CorpusId:248881268)", "context": "Fate of monocytes recruited to dermis"},
+    {"quote": "All adult fibroblast subsets expressed high levels of inflammatory cytokines and receptors (for example, IL6 and IL1RA) and genes involved in antigen presentation (for example, HLA-A), innate immune and inflammatory responses (for example, CD55 and PTGES) and cellular senescence (CDKN1A)", "source_file": "Gopee et al. 2024 (CorpusId:273400864)", "context": "Pro-inflammatory milieu of adult skin compared to prenatal skin"}
+  ]
+}

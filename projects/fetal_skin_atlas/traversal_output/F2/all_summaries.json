@@ -1,0 +1,392 @@
+[
+  {
+    "snippet": "While all fibroblasts share some basic properties, primarily the ability to secrete collagen-rich ECM, no molecular markers are universally expressed by all fibroblasts, which directly leads to the dermal fibroblast subsets being historically defined by their spatial location. To date, the defining markers that allow purification of fibroblasts across skin locations and age still remain to be determined in both mouse and human skin, posing a major challenge to unbiased identification and isolation of fibroblasts. Therefore, here, we try to summarize the known surface markers of dermal fibroblasts in both mouse and human skin as comprehensively as possible, which can be seen in detail in Table 1. \n\nFps and Frs can be differentiated based on their unique surface marker profiles. For example, Janson et al. (2013) analyzed the specific gene expression in Fps and Frs in human skin and found that netrin-1, podoplanin and atypical chemokine receptor 4 are highly expressed in Fps, suggesting that Fps express the genes that mainly enhance skin immunity, host response and  the complement activation pathway (Stunova and Vistejnova, 2018). On the other hand, high expression of transglutaminase 2, calponin1, cadherin2, and matrix gla protein in Frs indicates that Frs express genes involved in cytoskeleton dynamics and cell motility (Shinde et al., 2017;Hogervorst et al., 2018). However, there also seem to be markers, such as CD26, that change dynamically with external factors. Driskell et al. (2013) believe that CD26 marks the superior papillary dermis at the early stages of mouse development, while Rinkevich found CD26 in a large fraction of dermal fibroblasts in an adult mouse (Rinkevich et al., 2015).",
+    "paper_id": "236095478",
+    "title": "Fibroblasts: Heterogeneous Cells With Potential in Regenerative Therapy for Scarless Wound Healing",
+    "authors": [
+      "M. Zou",
+      "Ying-ying Teng",
+      "Jun-Jie Wu",
+      "Si-Yu Liu",
+      "Xiaolan Tang",
+      "Yuan Jia",
+      "Zhong-hua Chen",
+      "Kai-Wen Zhang",
+      "Zi-Li Sun",
+      "Xia Li",
+      "Jun-Xing Ye",
+      "Rui-sheng Xu",
+      "Feng-Lai Yuan"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.47710596027967167,
+    "depth": 0,
+    "corpus_id": "CorpusId:236095478"
+  },
+  {
+    "snippet": "Fibroblasts are mesenchymal cells with different origins, locations, and functions that synthesize and maintain the extracellular components [15]. The dermal fibroblasts can be divided into subtypes, such as papillary fibroblast, reticular fibroblast, dermal papilla (DP), and dermal white adipose tissue (DWAT) [15][16][17]. The cellular markers that allow for classifying the fibroblast subpopulations fluctuate through embryo development. However, some features remain specific to papillary, reticular, or DWAT. Studies on homologous models such as mice demonstrate that fibroblast on the skin can be isolated through the surface marker FAP and CD90 [18,19]. \n\nInterestingly, different from the mouse model, the human skin presents a fibroblast population gradient where FAP and CD90 expression change depending on the dermis section. In the human skin, the papillary fibroblast can be identified as FAP+ CD90\u2212, the reticular fibroblast as FAP+ CD90+, and FAP\u2212 CD90+ pre-adipose reticular fibroblast [20]. The difference in these fibroblast populations is not exclusively on cellular markers that describe their anatomical locations. The fibroblast subpopulation presents a different gene and protein expression that determines how the fibroblast responds to environmental stimuli [21]. Under specific signals such as adipogenesis-induced medium reticular fibroblast, FAP\u2212 CD90+ can differentiate to adipocyte, whereas papillary fibroblast FAP+ CD90\u2212 cannot be differentiated. Sequencing studies also show that papillary fibroblast has enhanced collagen type VII and type III expressions related to papillary dermis formation, blood vessels, and dermo-epidermal junction (DEJ). In contrast, reticular fibroblast presents an enhanced expression of extracellular matrix (ECM)-related genes such as LOXL3, a lysyl oxidase related to elastin and collagen synthesis [21].",
+    "paper_id": "255027314",
+    "title": "The Human Dermis as a Target of Nanoparticles for Treating Skin Conditions",
+    "authors": [
+      "Javier Salazar",
+      "Thais Carmona",
+      "Flavia C. Zacconi",
+      "D. Venegas\u2010Yazigi",
+      "C. Cabello-Verrugio",
+      "Won Il Choi",
+      "C. Vilos"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4236389648499569,
+    "depth": 0,
+    "corpus_id": "CorpusId:255027314"
+  },
+  {
+    "snippet": "Fibroblasts were isolated from the foreskin of a 1-year-old male donor (neonatal skin, (a)), thigh of a 52-year-old female donor (adult skin, (b)) and harvested after cultivating fibroblasts that were isolated from neonatal skin (c). All samples were subject to single-cell sequencing (see methods), and each sample was clustered into different sub-populations depending on the gene expression of individual cells. \n\nNext, we checked for the expression of known cell surface markers of fibroblasts. As can be observed in Figure 2, the expression levels of CD29 (ITGB1) and CD164 are quite uniform across all samples (Figure 2a-f). However, the expression of CD44 was observed to be marginally higher in samples 2 and 3 (Figure 2h,i) in comparison to sample 1 (Figure 2g), and CD90 (THY1) was found to be lower in sample 2 (Figure 2k) in comparison to levels observed in samples 1 and 3 (Figure 2j,l). CD164 (d,e). A modest increase in the expression of CD44 is observed in adult fibroblasts and cultivated ones (g-i); whereas THY1 or CD90 expression is slightly lower in fibroblasts from adult skin (k) when compared to neonatal fibroblasts which are either freshly isolated (j) or cultivated (l). Blue denotes lower expression and red denotes higher expression of the indicated marker genes. CD164 (d,e). A modest increase in the expression of CD44 is observed in adult fibroblasts and cultivated ones (g-i); whereas THY1 or CD90 expression is slightly lower in fibroblasts from adult skin (k) when compared to neonatal fibroblasts which are either freshly isolated (j) or cultivated (l). Blue denotes lower expression and red denotes higher expression of the indicated marker genes. \n\nCD29 and CD164 served as important controls in our study and helped set up a baseline for the rest of our analysis since we could rule out any spurious effects arising due to differences in our samples with respect to variable parameters, such as body site location, age, sex, and cell culture.",
+    "paper_id": "249997033",
+    "title": "The Dynamic Nature of Human Dermal Fibroblasts Is Defined by Marked Variation in the Gene Expression of Specific Cytoskeletal Markers",
+    "authors": [
+      "A. Ahuja",
+      "L. Pontiggia",
+      "U. Moehrlen",
+      "T. Biedermann"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4173914776819337,
+    "depth": 0,
+    "corpus_id": "CorpusId:249997033"
+  },
+  {
+    "snippet": "Fibroblast subsets exhibit unique functions, on the basis of which they can be defined and classified. For example, by using genetic lineage tracing approaches of embryonic markers, such as Engrailed-1 (En1) and Wnt Family Member 1 (Wnt1), we have discovered several lineages of fibroblasts that inhabit either distinct or overlapping skin locations. Two such lineages co-inhabit murine back-skin: En1 lineage positive and negative fibroblasts (EPFs and ENFs, respectively). While EPFs are the primary contributors to all fibrotic outcomes after wounding, UV irradiation, or melanoma tumor formation, ENFs, on the other hand, do not contribute to fibrotic outcomes, but are the primary fibroblast cell lineage which forms the dermis during embryogenesis [13]. Further, we have shown that the back-skin undergoes a change in fibroblast cell lineage composition from ENF-predominant to EPF-predominant during skin development. The succession of these two fibroblast lineages leads to a phenotypic shift in the skin's response to injury, from fetal regeneration to adult scarring [14]. Similarly, by genetic fate mapping, Dulauroy and colleagues have shown that transient expression of a disintegrin and metalloprotease domain 12 (ADAM12) identifies a subset of perivascular PDGFR\u03b1 + fibroblasts that overproduce collagen during scarring in dermis and muscle [16]. Recently, a small population of Paired Related Homeobox 1 (Prrx1) enhancer-positive (Prrx1 enh+ ) fibroblasts located within the subcutaneous compartment that includes fascia and adipose tissue was shown to expand robustly upon skin wounding and contribute to healing tissues [15]. Similarly, the activation of the c-Jun-PI3K-AKT pathway is required for the rapid proliferation and migration of alpha-Smooth Muscle Actin (\u03b1-SMA) + fibroblasts [17], and sustained nuclear expression of c-Jun has been documented in various organ fibrosis and can be used to define a fibrogenic fibroblast subset.",
+    "paper_id": "210870875",
+    "title": "Scars or Regeneration?\u2014Dermal Fibroblasts as Drivers of Diverse Skin Wound Responses",
+    "authors": [
+      "Dongsheng Jiang",
+      "Yuval Rinkevich"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3982693164446218,
+    "depth": 0,
+    "corpus_id": "CorpusId:210870875"
+  },
+  {
+    "snippet": "Understanding the state, complexity and heterogeneity of normal fibroblasts may shed light on the origins of CAFs, how they form and how their transdifferentiation may be regulated in the early stages of tumorigenesis and at the tumor front. Two major populations of fibroblasts in the human dermis are papillary and reticular fibroblasts, which possess distinct morphology, molecular expression, and cellular functions (Harper and Grove, 1979). Janson et al. (2012) performed gene expression analysis on cultured papillary and reticular fibroblasts and identified 116 differentially expressed genes. However, except for matrix Gla protein (MGP), which is almost exclusively expressed in the reticular dermis, they did not discover any in vivo markers to separate the two fibroblast populations. Korosec et al. (2019) performed lineage identity and location studies of human dermis using two markers, fibroblast activation protein (FAP) and THY1 (Cluster of Differentiation 90 or CD90). They found that papillary fibroblasts are FAP + ; THY1 \u2212 , whereas FAP \u2212 ; THY1 + fibroblasts are mainly of the reticular lineage. Their data showed papillary and reticular fibroblasts are not completely separated according to their spatial location. \n\nHowever, recent studies have suggested that there exist more functionally distinct fibroblast subpopulations within the human dermis. A single-cell RNA sequencing (scRNA-seq) study by Philippeos et al. (2018) showed that there are five distinct fibroblast populations in adult human skin, which can be separated based on the expression of cell surface markers, including THY1, CD39, CD26 (DPP4), and regulator of G protein signaling 5 (RGS5), and are not spatially segregated. Tabib et al. (2018) performed single-cell transcriptomal analysis of cells obtained from whole skin without pre-purifying fibroblast populations.",
+    "paper_id": "129948941",
+    "title": "Cancer-Associated Fibroblasts Build and Secure the Tumor Microenvironment",
+    "authors": [
+      "Tianyi Liu",
+      "Linli Zhou",
+      "Danni Li",
+      "T. Andl",
+      "Yuhang Zhang"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3942364767350251,
+    "depth": 0,
+    "corpus_id": "CorpusId:129948941"
+  },
+  {
+    "snippet": "In our study, we did not observe SFRP2 expression in freshly isolated and cultivated neonatal fibroblasts either; only a very tiny fraction of adult fibroblasts express SFRP2. Therefore, unlike CD29/ITGB1, which is expressed consistently across all our samples, SFRP2 does not appear to be a major fibroblast marker. \n\nOne of the key findings of our study is that fibroblasts are not heterogenous for all kinds of biomarkers. We did not notice any striking differences in cell surface marker expression between neonatal and adult fibroblasts. However, neonatal and adult fibroblasts show quite a distinct difference in expression levels of cytoskeletal markers. It remains to be established whether an increase in cytoskeletal marker expression with age has a functional consequence, but there have been reports that fibroblasts become more rigid as they age [18,19]. \n\nThe increase in the expression of contractile markers may not necessarily translate into increased cellular contraction, but it is tempting to speculate that it may be the reason why human skin wrinkles with age. Although the differences in cytoskeletal gene expression between neonatal and adult fibroblasts may not be explicitly linked with aging due to other characteristic differences in the samples (such as body site location and sex), our results strongly suggest that the cultivation of fibroblasts exhibits the same trend (there is a marked increase in cytoskeletal gene expression when neonatal fibroblasts are cultivated), apparently mimicking physiological aging. Hence, our results suggest that cytoskeletal remodelling may be a function of physiological and induced aging. \n\nOur work also sheds light on why there is a high degree of variability when reprogramming fibroblasts into induced pluripotent stem cells (iPSCs). If fibroblasts were to be homogenous, one would expect that each fibroblast would give rise to an iPSC clone with the same efficiency and regenerative potential. However, several studies report how reprogramming efficiency can vary across different experiments even when using the same batch of fibroblasts [20].",
+    "paper_id": "249997033",
+    "title": "The Dynamic Nature of Human Dermal Fibroblasts Is Defined by Marked Variation in the Gene Expression of Specific Cytoskeletal Markers",
+    "authors": [
+      "A. Ahuja",
+      "L. Pontiggia",
+      "U. Moehrlen",
+      "T. Biedermann"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3920623746899159,
+    "depth": 0,
+    "corpus_id": "CorpusId:249997033"
+  },
+  {
+    "snippet": "Subclustering of 2,303 fibroblasts from the three sites resulted in the formation of four fibroblast clusters (Figures 3A and S2A). Fibroblasts II and III show non-overlapping localization, with fibro-blast II found nearly exclusively in the palmoplantar skin and fibroblast III found only in non-palmoplantar skin (Figures 3B and S2B). However, these two clusters share expression of markers such as WIF1, MMP2, SFRP2, and DPP4, suggesting a shared role in maintaining dermal and extracellular matrix homeostasis (Figures 3C, S2C, S2D, and S2G). 12,14,32 The palmo plantar-specific fibroblast II also expressed ANGPTL7 and PRG4, markers of two previously identified minor fibroblast populations (Figures S2G and S2H). 12 broblast I is marked by upregulation of CXCL12, APOE, FMO1, and LSP1, pointing to a role in immune surveillance and promotion of inflammation (Figures 3C, S2C, S2D, and S2G). 12,14,32 Fibroblast IV was marked by APOD, C2orf40, ITGA6, CLDN1, and TM4SF1, overlapping with a specialized fibroblast population previously identified in single-cell analysis of healthy human skin (Figures 3C and S2I). 12,32  calculated a reticular and papillary score [32][33][34][35][36][37] and found that, although the clustering was not driven by localization in the dermis, fibroblast II is marked by a higher papillary score, while fibroblast III has a higher reticular score (Figures S2E and S2F). GO terms for these clusters further support fibroblasts II and III sharing a role in structural maintenance, as both are marked by a number of terms related to extracellular matrix organization (Figure S2J).",
+    "paper_id": "256296630",
+    "title": "Differential cell composition and split epidermal differentiation in human palm, sole, and hip skin",
+    "authors": [
+      "J. Wiedemann",
+      "A. Billi",
+      "F. Bocci",
+      "Ghaidaa Kashgari",
+      "E. Xing",
+      "L. Tsoi",
+      "Leo Meller",
+      "W. Swindell",
+      "R. Wasikowski",
+      "X. Xing",
+      "Feiyang Ma",
+      "M. Gharaee-Kermani",
+      "J. Kahlenberg",
+      "P. Harms",
+      "E. Maverakis",
+      "Qing Nie",
+      "J. Gudjonsson",
+      "B. Andersen"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3908534054751986,
+    "depth": 0,
+    "corpus_id": "CorpusId:256296630"
+  },
+  {
+    "snippet": "The dermis is an important regulatory layer of the skin underlining the epidermis. It principally consists of ECM secreted by numerous fibroblasts and is divided in two regions: the papillary dermis (PD) and the reticular dermis (RD) (15). As in the gut, different fibroblast populations are localized in the distinct structures of the dermis. PD fibroblasts exhibit morphological differences compared to RD fibroblasts. While PD fibroblasts are thin and spindle-shaped, RD fibroblasts have a squarer shape (19). ScRNAseq studies on skin biopsies identified 4 clusters of dermal fibroblasts and two subpopulations with important structural and ECM organization roles. The first, in the RD (so-called secretary-reticular), is enriched with WISP2 or MFAP5. The second subpopulation (so-called secretary-papillary) is found in the PD region and expresses APCDD1 or COL18A1, previously described as papillary markers. The third population expressing Asporin (ASPN) and Periostin (POSTN) is implicated in mesenchymal regulation. The final sub-population represents a pro-inflammatory state, enriched with CCL19, APOE, or CXCL2 expression (24). However, poor overlap of adult dermal fibroblasts subpopulations has been observed in other scRNA-seq datasets (20, [25][26][27]. A comparative study on all published datasets on human skin, identified 3 mains dermal fibroblast types, type A fibroblasts implicated in ECM homeostasis and potentially in fibrotic linage, type B fibroblasts involved in inflammation and immune surveillance and type C corresponding to a specialized skin specific subpopulation such as papillary dermis fibroblasts. While disparities between datasets can be explained by variation in experimental processes, once clustered together those datasets reveal biological similarities between them.",
+    "paper_id": "257339585",
+    "title": "Fibroblast heterogeneity: Keystone of tissue homeostasis and pathology in inflammation and ageing",
+    "authors": [
+      "Vincent Gauthier",
+      "M. Kyriazi",
+      "M. Nefla",
+      "V. Pucino",
+      "K. Raza",
+      "C. Buckley",
+      "Ghada Alsaleh"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3905881419434722,
+    "depth": 0,
+    "corpus_id": "CorpusId:257339585"
+  },
+  {
+    "snippet": "Purpose: Skin fibrosis amounts to significant morbidity due to the prevalence of trauma and burn injuries. Fibroblasts are chiefly responsible for extracellular matrix (ECM) deposition in the skin and are increasingly recognized to be a heterogeneous population comprised of multiple subpopulations with distinct functions and scarring propensity. While anatomic and embryonic origin are known to determine fibroblast heterogeneity, most prior work in mice has focused on the dorsal dermis. Here, we explore how embryonic lineage and dermal spatial location define fibroblast heterogeneity in the mouse ventral dermis in both homeostasis and in acute and chronic fibroses. Methods: Prrx1 Cre ;R26 mTmG mice were used to identify two ventral dermal fibroblast lineages; Prrx1-positive fibroblasts (GFP+ PPFs), and Prrx1-negative (RFP+ PNFs). Fibrogenic potential was explored by comparing fibroblast abundance using FACS and histology: 1) throughout 6 developmental timepoints; embryonic day(E)16.5 (nonscarring), E18.5, postnatal days(P) 1, 30, and 60 (scarring) in wounds (acute fibrosis); 3) following irradiation (chronic fibrosis); and 4) after implantation of melanoma cells (chronic fibrosis). Reciprocal transplantation into the (non-scarring) oral dermis and co-localization with collagen type 1 by Imaris 24 hours after transplantation was used to assess whether fibrogenic potential was cellintrinsic. Single-cell sequencing of PPFs and PNFs from unwounded and scarred ventral skin was performed using 10X Genomics. Manifold-based dimensionality reduction was used to delineate transcriptionally-distinct fibroblast clusters (subpopulations) and non-linear discriminant analyses were applied to determine cluster expression profiles and surface markers and thus identify papillary and dermal subpopulations.",
+    "paper_id": "219483466",
+    "title": "Abstract 189: Postnatal Engrailed-1 Expression Activates A Pro-Fibrotic Transcriptional Program In Wound Fibroblasts",
+    "authors": [
+      "Shamik Mascharak",
+      "H. desJardins-Park",
+      "Mimi R. Borrelli",
+      "A. Moore",
+      "Michael F. Davitt",
+      "Malini S. Chinta",
+      "Deshka S. Foster",
+      "Michael Januszyk",
+      "S. H. Kwon",
+      "G. Wernig",
+      "Derrick C. Wan",
+      "H. P. Lorenz",
+      "Geoffrey C. Gurtner",
+      "M. Longaker"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3826429433388301,
+    "depth": 0,
+    "corpus_id": "CorpusId:219483466"
+  },
+  {
+    "snippet": "To examine the effect of low maternal care on the development of skin tissue, we performed the following experiments using NW-and EW-F2 offspring. Adult NW-and EW-F2 offspring (34-39-week-old, NW-F2 offspring: n = 9; EW-F2-offspring: n = 7) were used in Experiment I. Trans epidermal water loss (TEWL) in the intact trunk skin was measured to evaluate skin barrier function. Mice were then killed by cervical dislocation, and the trunk skin and DRGs were harvested for histological and gene expression assessments. In Experiment II, adult NWand EW-F2 offspring (9-11-week-old, NW-F2 offspring: n = 8; EW-F2 offspring: n = 10) were used for analysis of the developmental effect of low maternal care on the skin barrier",
+    "paper_id": "195891769",
+    "title": "Low maternal care enhances the skin barrier resistance of offspring in mice",
+    "authors": [
+      "Takashi Sakamoto",
+      "Yukino Ishio",
+      "Yuiko Ishida",
+      "K. Mogi",
+      "T. Kikusui"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.38263969477548243,
+    "depth": 0,
+    "corpus_id": "CorpusId:195891769"
+  },
+  {
+    "snippet_index": 10,
+    "quotes": [
+      "F2 expressed genes associated with prostate peri-epithelial fibroblasts (APOD, PTGS2, SFRP4) (Joseph et al., 2021) (Figure 1I; Supplementary Figure S1F).",
+      "cells expressing F2 markers APOD and SFRP4 were largely distinct from those expressing the F1 marker C7 in benignadjacent tissues (Supplementary Figure S2A) with APOD + /SFRP4 + cells typically in close proximity to epithelial glands whereas C7 + cells were frequently more distal, particularly within the interstitial stroma (Supplementary Figure S2A).",
+      "F3 and F4 differentially expressed C7 and APOD, suggesting they may represent activated counterparts of interstitial (F1) and periepithelial (F2) fibroblasts, respectively (Supplementary Figure S1f).",
+      "in malignant tissues F3 marker WNT2 was coexpressed with C7 whereas F4 marker SFRP4 was co-expressed with APOD (Supplementary Figure S2B). Moreover, cells abundantly expressing SFRP4 expressed little C7 and primarily displayed a peri-epithelial distribution (Supplementary Figures S2A,B)."
+    ],
+    "summary": "F2 (Fibroblast F2) in the prostate expresses the markers APOD, PTGS2, and SFRP4, and is associated with peri-epithelial regions near epithelial glands. F2 cells are largely distinct from F1 fibroblasts and may have specific roles in this microenvironment.",
+    "categories": [
+      "location",
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:279620431",
+    "source_title": "Optimised dissociation and multimodal profiling of prostate cancer stroma reveal fibromuscular cell heterogeneity with clinical correlates",
+    "source_authors": "E. Damisch et al.",
+    "source_year": null,
+    "snippet": "Whilst F1 expressed prostate interstitial fibroblast markers (C7, PAGE4, CES1, RSPO3), F2 expressed genes associated with prostate peri-epithelial fibroblasts (APOD, PTGS2, SFRP4) (Joseph et al., 2021) (Figure 1I; Supplementary Figure S1F). Duplex in situ hybridisation (dISH) confirmed that cells expressing F2 markers APOD and SFRP4 were largely distinct from those expressing the F1 marker C7 in benignadjacent tissues (Supplementary Figure S2A) with APOD + /SFRP4 + cells typically in close proximity to epithelial glands whereas C7 + cells were frequently more distal, particularly within the interstitial stroma (Supplementary Figure S2A). F1 also exhibited features ascribed to apCAF (Figures 1H,I; Supplementary Figure S1F) and displayed enrichment of pathways associated with antigenprocessing (Figures 1H-J; Supplementary Table S8) consistent with a non-professional antigen presenting capacity of fibroblasts under physiological conditions (Harryvan et al., 2021). \n\nF3-F5 were annotated as CAF due to their expression of activation markers (e.g., PDGFRB, ACTA2), enrichment in histo-morphologically activated tissues, and positioning at later timepoints in the fibroblast trajectory (Figures 1D,F,G). F3 and F4 differentially expressed C7 and APOD, suggesting they may represent activated counterparts of interstitial (F1) and periepithelial (F2) fibroblasts, respectively (Supplementary Figure S1f). Supportively, in malignant tissues F3 marker WNT2 was coexpressed with C7 whereas F4 marker SFRP4 was co-expressed with APOD (Supplementary Figure S2B). Moreover, cells abundantly expressing SFRP4 expressed little C7 and primarily displayed a peri-epithelial distribution (Supplementary Figures S2A,B). Conversely, cells expressing abundant C7 co-expressed little SFRP4 and were interspersed throughout the stroma."
+  },
+  {
+    "snippet_index": 11,
+    "quotes": [
+      "no significant difference in fibroblast markers CD90, Fibronectin and CD44 between F1 and F2 cells, indicating that they are similar fibroblast cell populations for both viral and non-viral made iPSC-derived cells (Fig. 1B).",
+      "The main differences in protein expression in F2 cells are signal transduction, cell cycle, and immune system proteins",
+      "flow cytometry analysis of the F1 and F2 populations and confirmed that the two fibroblast cell populations are similar for two fibroblast cell markers CD90, CD44 and negative for stem cell marker CD34 (Fig. 1H).",
+      "signal transduction pathways for AKT is over expressed in F2 cells compared to F1 cells by Western blot analysis (Fig. 1I)."
+    ],
+    "summary": "F2 fibroblast cells share classic fibroblast markers (CD90, Fibronectin, CD44, negative for CD34) with F1 cells, but F2 is distinguished by upregulation of signal transduction (notably AKT), cell cycle, and immune-related proteins, suggesting functional differences.",
+    "categories": [
+      "markers",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:58662576",
+    "source_title": "Global Proteomic and Methylome Analysis in Human Induced Pluripotent Stem Cells Reveals Overexpression of a Human TLR3 Affecting Proper Innate Immune Response Signaling",
+    "source_authors": "Jordi Requena et al.",
+    "source_year": null,
+    "snippet": "on function, we first demonstrate no significant difference in fibroblast markers CD90, Fibronectin and CD44 between F1 and F2 cells, indicating that they are similar fibroblast cell populations for both viral and non-viral made iPSC-derived cells (Fig. 1B). CD90, CD44, and Fibronectin are established markers of fibroblasts as defined by Pilling et al. [29]. The main differences in protein expression in F2 cells are signal transduction, cell cycle, and immune system proteins iPSC Overexpress Human TLR3 Affecting Immunity ( Fig. 1C-1G; Supporting Information Fig. S1A). Interestingly, the proteomic screen revealed many proteins interacting with the TLR3 and TLR4 pathway (Fig. 1F, 1G).\n\nTo verify the global proteomic analysis, we performed flow cytometry analysis of the F1 and F2 populations and confirmed that the two fibroblast cell populations are similar for two fibroblast cell markers CD90, CD44 and negative for stem cell marker CD34 (Fig. 1H). This was the same for retrovirally made iPSC-derived cells or non-virally made iPSC-derived cells and so they are both grouped together (Supporting Information Fig. S3). Given that signal transduction proteins were the most represented differentially expressed proteins between F1 and F2 cells, we also verified that signal transduction pathways for AKT is over expressed in F2 cells compared to F1 cells by Western blot analysis (Fig. 1I). We next assessed the immune response given the differences identified in the proteomic screen."
+  },
+  {
+    "snippet_index": 16,
+    "quotes": [
+      "CAFs will be divided into two functionally different subtypes: F1-and F2-polarized fibroblasts (Figure 2). F1 represents type I-CAFs displaying tumor-inhibitory effects while F2 refers to type II-CAFs that exhibit tumor-promoting properties.",
+      "F1 and F2 represent the two extremes of a spectrum of different phenotypes that CAFs can adopt and (2) the polarization of CAFs stays under the control of the tumor (micro)environment."
+    ],
+    "summary": "F2-polarized fibroblasts (type II-CAFs) are described as a cancer-associated fibroblast subtype with tumor-promoting functions, representing one extreme of CAF polarization controlled by the tumor microenvironment.",
+    "categories": [
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:17184813",
+    "source_title": "Cancer-Associated Fibroblasts as Another Polarized Cell Type of the Tumor Microenvironment",
+    "source_authors": "M. Augsten",
+    "source_year": null,
+    "snippet": "In an effort to better reflect the dynamic state of tumorassociated fibroblasts, Mader et al. introduced the term \"CAF state\" to describe the marker-based heterogeneity of these cells (91). The herein proposed concept of \"CAF polarization\" highlights the functional heterogeneity of CAFs and proposes that the different activation states of CAFs are associated with different, as yet poorly described marker. Thus, both definitions are not mutual exclusive but rather aim to provide a starting point to interconnect CAF-marker with specific functional phenotypes. Adopting the style introduced for the different polarized immune cells, CAFs will be divided into two functionally different subtypes: F1-and F2-polarized fibroblasts (Figure 2). F1 represents type I-CAFs displaying tumor-inhibitory effects while F2 refers to type II-CAFs that exhibit tumor-promoting properties. The obvious heterogeneity of CAFs and the recent findings on Slit2-and Wnt3a-expressing, tumor-suppressive fibroblasts (74,77) suggest that: (1) F1 and F2 represent the two extremes of a spectrum of different phenotypes that CAFs can adopt and (2) the polarization of CAFs stays under the control of the tumor (micro)environment. In contrast to polarized immune cells where several marker associated with either the type I or the type II subtype have been described, the marker/function relationship for CAFs is much less characterized. Thus, the molecular makeup of polarized fibroblasts, and the F1-type in particular, remain largely elusive (Figure 2). Because the action of CAFs depends on the nature of the interacting cell type it appears as an important future task to identify marker associated with distinct CAF activation states. Further studies should also aim to address if these activation states are associated with a specific tumor stage."
+  },
+  {
+    "snippet_index": 17,
+    "quotes": [
+      "Zhang et al. characterized this heterogeneity of the sublining layer fibroblasts and defined three THY1+ groups with additional subset markers; CD34 defined the SC-F1 cluster, human leukocyte antigen (HLA)-DRA high defined the SC-F2 cluster and DKK-3 defined the SC-F3 cluster. The SC-F2 in particular was significantly increased in leukocyte-rich RA ssynovium compared to leukocyte-poor RA synovium and osteoarthritis (OA) synovium [10], suggesting these to encompass TLS-associated fibroblast subsets."
+    ],
+    "summary": "The SC-F2 fibroblast cluster, characterized by high HLA-DRA expression (THY1+, HLA-DRA high), is enriched in leukocyte-rich rheumatoid arthritis synovium and may be associated with tertiary lymphoid structures.",
+    "categories": [
+      "markers",
+      "location",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:238723606",
+    "source_title": "Fibroblast Like Synovial Cell Subsets in Rheumatoid Arthritis",
+    "source_authors": "S. Lomholt et al.",
+    "source_year": null,
+    "snippet": "The scRNA-seq studies have reported several distinct sublining subsets presented in Table 1. The initial study by Stephenson et al. [43] identified THY1 as a marker of sublining fibroblasts and the subsequent scRNA-seq studies confirmed THY1 as a specific, albeit not universal marker of sublining fibroblasts [10,44,45]. \n\nZhang et al. characterized this heterogeneity of the sublining layer fibroblasts and defined three THY1+ groups with additional subset markers; CD34 defined the SC-F1 cluster, human leukocyte antigen (HLA)-DRA high defined the SC-F2 cluster and DKK-3 defined the SC-F3 cluster. The SC-F2 in particular was significantly increased in leukocyte-rich RA ssynovium compared to leukocyte-poor RA synovium and osteoarthritis (OA) synovium [10], suggesting these to encompass TLS-associated fibroblast subsets. Reanalysis of these human data by Croft et al. [45] enabled the distinction of four sublining layer fibroblast groups (F1-3,-5, Table 1). \n\nAs with the lining layer, large sets of multiomics data are available. Several markers connected to joint inflammation and destruction have been identified in these subsets. However, the markers most consistently reported are THY1, HLA-DRA, CD34, DKK3. \n\nTHY1 is a glycoprotein present on the membrane of several different cells including endothelial and mesenchymal cells [78]. Among the functions associated with THY1 expression is cellular contact, CD97 binding, integrin binding, trans-endothelial migration and MMP-9 and CXCL8 secretion after binding to neutrophiles [78]. \n\nAs with THY1, CD34 is an established marker in different cell types including several stromal cells, epi/endothelial cells and fibrocytes [79]."
+  },
+  {
+    "snippet_index": 20,
+    "quotes": [
+      "The washout step of the remaining unreacted thrombin during the preparation of the fibrin nanocoatings was determined as the crucial point for the formation of a nanofibrous homogeneous mesh on the surface of the membrane (F2 nanocoating),",
+      "the number of adhered fibroblasts on the F2 nanocoating was higher, and the cells tended to adopt a polygon-like shape (Figure 1, F2).",
+      "The enhancing effect of the fibrin mesh (F2) and of the Fn mesh (F2+Fn) on cell growth was evident mainly in the later cell cultivation intervals (Figure 1). On day 3 after cell seeding, several cell mitoses were observed on membranes with F2 and F2+Fn nanocoatings, but the cells remained mostly in their polygon-like shape (Figure 1)."
+    ],
+    "summary": "F2 refers to a fibrin nanocoating that produces a nanofibrous homogeneous mesh on membranes, promoting higher fibroblast adhesion and a polygon-like cellular morphology. F2 nanocoating also enhances fibroblast proliferation and mitosis over time.",
+    "categories": [
+      "location",
+      "morphology",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:49315759",
+    "source_title": "Morphology of a fibrin nanocoating influences dermal fibroblast behavior",
+    "source_authors": "Julia Pajorova et al.",
+    "source_year": null,
+    "snippet": "The washout step of the remaining unreacted thrombin during the preparation of the fibrin nanocoatings was determined as the crucial point for the formation of a nanofibrous homogeneous mesh on the surface of the membrane (F2 nanocoating), and also for the fibrin nanocoating covering individual fibers of the membrane (F1 nanocoating). Different behavior of human dermal fibroblasts was observed on these two different types of fibrin nanocoating. The number of adhered fibroblasts on the F1 nanocoating was lower, and the cells remained in their typical spindle-like shape (Figure 1, F1). However, the number of adhered fibroblasts on the F2 nanocoating was higher, and the cells tended to adopt a polygon-like shape (Figure 1, F2). As was mentioned above, Fn formed a secondary nanofibrous mesh (Figure 2, red) on the surface of the initially developed fibrin mesh (Figure 2, green) and enhanced the cell adhesion on both types of fibrin nanocoating (Figure 1, F1/F2+Fn). It was observed that fibroblasts (Figure 2, blue and magenta) adhered preferentially on top of Fn mesh (Figure 2, red). Moreover, the shape of the adhered fibroblasts mimicked well the morphology of the Fn mesh (Figure 2B and Figure 1, F2+Fn). \n\nThe enhancing effect of the fibrin mesh (F2) and of the Fn mesh (F2+Fn) on cell growth was evident mainly in the later cell cultivation intervals (Figure 1). On day 3 after cell seeding, several cell mitoses were observed on membranes with F2 and F2+Fn nanocoatings, but the cells remained mostly in their polygon-like shape (Figure 1)."
+  },
+  {
+    "snippet_index": 21,
+    "quotes": [
+      "On day 7 after cell seeding, the fine fibrin (F2) and Fn meshes (F2+Fn) were almost degraded, and the fibroblasts penetrated into the deeper layers of the PLA membrane."
+    ],
+    "summary": "F2 nanocoating is defined as fibrin forming a mesh on the membrane surface, resulting in fibroblasts with a polygon-like morphology. Over time, F2 is degraded, allowing fibroblasts to migrate deeper into the membrane.",
+    "categories": [
+      "morphology",
+      "location",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:49315759",
+    "source_title": "Morphology of a fibrin nanocoating influences dermal fibroblast behavior",
+    "source_authors": "Julia Pajorova et al.",
+    "source_year": null,
+    "snippet": "On day 3 after cell seeding, several cell mitoses were observed on membranes with F2 and F2+Fn nanocoatings, but the cells remained mostly in their polygon-like shape (Figure 1). On membranes Figure 1 Immunofluorescence staining of two different types of fibrin nanocoatings on polylactic acid membrane (column 1, in PBS) and the shape of human dermal fibroblasts on the fibrin nanocoatings (columns 2-4) on days 1, 3, and 7 after cell seeding. The membrane with the fibrin nanocoating covering only individual fibers (F1), with fibrin covering individual fibers and forming a mesh on the surface of the membrane (F2), and Fn adsorbed on fibrin (+Fn). A noncoated membrane (pristine) was used as a control sample. Fibrin and Fn nanocoatings were stained with primary and secondary antibodies (Alexa 488 -green). The cells were stained with phalloidin-tetramethylrhodamine (actin cytoskeleton -red) and with Hoechst #33258 (cell nuclei -blue). Leica TCS SPE DM2500 confocal microscope, magnification 40\u00d7/1.15 numerical aperture oil. Abbreviation: Fn, fibronectin. \n\nwith F1 and F1+Fn nanocoatings, the cells proliferated less, but their spindle-like shape enabled them to migrate into the fibrin-coated PLA membrane (Figure 1). On day 7 after cell seeding, the fine fibrin (F2) and Fn meshes (F2+Fn) were almost degraded, and the fibroblasts penetrated into the deeper layers of the PLA membrane. After 1 week, the Fn mesh on the membranes with F1+Fn and F2+Fn nanocoatings was completely replaced by the extracellular Fn produced by the fibroblasts (Figure 1). On the noncoated membranes, which were used as a control material, the fibroblasts were mostly round and were not strongly adhered, in all three cultivation intervals (Figure 1, pristine)."
+  },
+  {
+    "snippet_index": 27,
+    "quotes": [
+      "EC and fibroblast F2 expression. Expression levels of F2, (FII gene) were measured from HUVECs, LSECs, GMVECs, and fibroblasts. Levels of F2 in each cell type were quantified relative to the F2 levels in HUVECs. The fibroblast F2 mRNA levels are about twofold higher than F2 levels in each EC type (Fig. 2a, fibroblasts and LSECs, p = 0.0038)."
+    ],
+    "summary": "F2 (the gene encoding prothrombin) exhibits about twice the mRNA expression levels in fibroblasts compared to endothelial cells.",
+    "categories": [
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:238685025",
+    "source_title": "Human endothelial cells and fibroblasts express and produce the coagulation proteins necessary for thrombin generation",
+    "source_authors": "C. Cohen et al.",
+    "source_year": null,
+    "snippet": "lower F5 expression levels than ECs, concentrations of FV in fibroblast lysate/cell membrane fractions were two-to fourfold higher than in EC lysate/cell membrane fractions. Fibroblast surfaces have increased FV compared to ECs by immunofluorescence imaging.\n\nEC and fibroblast F2 expression. Expression levels of F2, (FII gene) were measured from HUVECs, LSECs, GMVECs, and fibroblasts. Levels of F2 in each cell type were quantified relative to the F2 levels in HUVECs. The fibroblast F2 mRNA levels are about twofold higher than F2 levels in each EC type (Fig. 2a, fibroblasts and LSECs, p = 0.0038). The complete comparison statistics for HUVEC, LSEC, GMVEC, and fibroblast F2 expression is shown in Supplementary Table S1. We previously found that the FII (prothrombin) protein levels in fibroblast lysate and supernatant were below the limit of detection in the assay we used 6 ."
+  },
+  {
+    "snippet_index": 29,
+    "quotes": [
+      "The cytoproliferative dose-responses on the human dermal fibroblasts were in the ranking order of F5~F6 > F2 > F4~F3 > F1, which was in general agreement with the residual bioactive FGF-2 content measured in these FGF solutions after 2 h at 37 \u2022 C [28].",
+      "The maximal cytoproliferative activity of F2, F3, F4, F5 and F6 were higher than F1, which might suggest that the effects of FGF-2 on the human dermal fibroblasts was potentiated by the stabilizers.",
+      "Thus, the enhanced cellular responses of F2, F3, F4, and particularly F5 and F6, could be attributed to the stabilization of FGF-2 in these solutions.",
+      "FGF-2 in the stabilized solutions acted as a chemoattractant to the human dermal fibroblast cells, similar to its effects on other cell types [34,35]."
+    ],
+    "summary": "F2 refers to a stabilized FGF-2 solution that supports fibroblast proliferation and migration; its cytoproliferative activity is higher than F1 and is likely due to enhanced FGF-2 stability.",
+    "categories": [
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:267691936",
+    "source_title": "In Vitro Assessment of Wound-Healing Efficacy of Stabilized Basic Fibroblast Growth Factor (FGF-2) Solutions",
+    "source_authors": "Leah Benington et al.",
+    "source_year": null,
+    "snippet": "The cytoproliferative dose-responses on the human dermal fibroblasts were in the ranking order of F5~F6 > F2 > F4~F3 > F1, which was in general agreement with the residual bioactive FGF-2 content measured in these FGF solutions after 2 h at 37 \u2022 C [28]. Between F5 and F6, the greater stability of F5 at 37 \u2022 C might explain its greater cytoproliferative effects at lower FGF-2 concentrations. However, both F5 and F6 elicited comparable cellular responses at higher FGF-2 doses, and at 50 ng/mL, were able to cause >90% closure of the wound area in the human dermal fibroblast monolayer after 24 h. \n\nThe maximal cytoproliferative activity of F2, F3, F4, F5 and F6 were higher than F1, which might suggest that the effects of FGF-2 on the human dermal fibroblasts was potentiated by the stabilizers. MC is reported to stimulate the proliferation of human skin cells (NCTC 135) and monkey kidney cells (LLCMK2), but not murine fibroblast cells (2571+L) [30,31]. There is evidence that alanine and HSA support lymphocyte proliferation [32] and mammalian cell growth [33], respectively, but the effects of alanine and HSA on fibroblast proliferation have not been reported. Data obtained for the blank vehicles in this study indicate that MC, alanine, and HSA, in the absence of FGF-2, do not support the proliferation and migration of the human dermal fibroblasts. Thus, the enhanced cellular responses of F2, F3, F4, and particularly F5 and F6, could be attributed to the stabilization of FGF-2 in these solutions. \n\nFGF-2 in the stabilized solutions acted as a chemoattractant to the human dermal fibroblast cells, similar to its effects on other cell types [34,35]."
+  },
+  {
+    "snippet_index": 32,
+    "quotes": [
+      "If we compare F1 and F2 nanocoatings, it seems that the fine nanofibrous fibrin mesh of the F2 nanocoating was formed into a more physiologic structure, which enabled the fibroblasts to remodel it and replace it with their own ECM."
+    ],
+    "summary": "The F2 nanocoating, a fine nanofibrous fibrin mesh, provides a more physiologic structure that allows fibroblasts to remodel and replace it with their own extracellular matrix, indicating a functional interaction with fibroblasts.",
+    "categories": [
+      "function",
+      "morphology"
+    ],
+    "source_corpus_id": "CorpusId:49315759",
+    "source_title": "Morphology of a fibrin nanocoating influences dermal fibroblast behavior",
+    "source_authors": "Julia Pajorova et al.",
+    "source_year": null,
+    "snippet": "If we compare F1 and F2 nanocoatings, it seems that the fine nanofibrous fibrin mesh of the F2 nanocoating was formed into a more physiologic structure, which enabled the fibroblasts to remodel it and replace it with their own ECM. Nevertheless, the relative expression of collagen I on the F1 nanocoating was enhanced by attaching Fn to the fibrin. It was shown that Fn is important for the production by fibroblasts of mature collagen fibrils and other extracellular proteins. 35,36 Moreover, the Fn formed an additional nanofibrous mesh on top of the F1 nanocoating. As was mentioned above, the fine nanostructure seems to better mimic the natural ECM matrix. This can improve the healing process, and enable the fibroblasts to synthesize their own ECM in in vitro conditions."
+  },
+  {
+    "snippet_index": 34,
+    "quotes": [
+      "Fibrin either covered the individual fibers in the membrane (F1 nanocoating), or covered the individual fibers and also formed a fine homogeneous nanofibrous mesh on the surface of the membrane (F2 nanocoating), depending on the mode of fibrin preparation.",
+      "The fibroblasts on the F1 nanocoating remained in their typical spindle-like shape, while the cells on the F2 nanocoating were polygonal with a higher proliferation rate [122]."
+    ],
+    "summary": "The F2 nanocoating, characterized by a fine homogeneous nanofibrous mesh, results in fibroblasts adopting a polygonal shape and exhibiting a higher proliferation rate compared to F1 nanocoating.",
+    "categories": [
+      "morphology",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:202219221",
+    "source_title": "Nanofibrous Scaffolds for Skin Tissue Engineering and Wound Healing Based on Nature-Derived Polymers",
+    "source_authors": "L. Ba\u010d\u00e1kov\u00e1 et al.",
+    "source_year": null,
+    "snippet": "121]. In our experiments, fibrin was deposited on PLLA in the form of two types of coating, depending on the mode of fibrin preparation. Fibrin either covered the individual fibers in the membrane (F1 nanocoating), or covered the individual fibers and also formed a fine homogeneous nanofibrous mesh on the surface of the membrane (F2 nanocoating), depending on the mode of fibrin preparation. The fibroblasts on the F1 nanocoating remained in their typical spindle-like shape, while the cells on the F2 nanocoating were polygonal with a higher proliferation rate [122]. F2 nanocoating was then used for development of a bilayer skin construct. First, a nanofibrous PLLA mesh was coated with fibrin and seeded with human dermal fibroblasts. After reaching confluence, the fibroblasts were covered with a collagen hydrogel and were allowed to migrate into this hydrogel and to proliferate inside. After sufficient colonization of the hydrogel with fibroblasts and formation of a structure resembling the skin dermis, human epidermal keratinocytes were seeded on the top of the collagen hydrogel (Figure 2) [123].\n\nAlso fibrinogen was used for modification of synthetic polymeric nanofibers in order to enhance the cell adhesion and growth. Nanofibrous scaffolds electrospun from blends of PCL and fibrinogen improved the adhesion, proliferation, and epidermal differentiation of adipose tissue-derived stem cells (ADSCs) in comparison with pure PCL scaffolds. Composite PCL/fibrinogen scaffolds seeded with ADSCs also markedly improved healing of full-thickness excisional wounds created in rats in comparison with acellular dermal matrix or acellular dermal matrix with ADSCs [124].\n\nKeratin is a fibrous structural protein, present in skin appendages, such as hair, wool, feather, nails, horns, claws, hooves, and in the outer (cornified) layer of epidermis [125,126]. Keratin protects epithelial cells from damage and stress and is insoluble in water and organic solvent"
+  },
+  {
+    "snippet_index": 37,
+    "quotes": [
+      "The results showed that the F2 nanocoating (fibrin mesh) provided better support than the F1 nanocoating for the adhesion and proliferation of dermal fibroblasts.",
+      "While the cells on the F1 nanocoating remained in a spindle-like shape, a polygon-like shape was typical for the cells cultivated on the F2 nanocoating.",
+      "The fine nanofibrous fibrin mesh of the F2 nanocoating resembled a 2-D surface, but its nanostructure mimicked the natural ECM, enabling faster and more successful adhesion of cells through adhesion receptors."
+    ],
+    "summary": "F2 nanocoating, composed of a fine nanofibrous fibrin mesh, enhances dermal fibroblast adhesion and proliferation and leads to fibroblasts adopting a polygonal morphology, likely due to its ECM-mimicking properties.",
+    "categories": [
+      "function",
+      "morphology"
+    ],
+    "source_corpus_id": "CorpusId:49315759",
+    "source_title": "Morphology of a fibrin nanocoating influences dermal fibroblast behavior",
+    "source_authors": "Julia Pajorova et al.",
+    "source_year": null,
+    "snippet": "n this study, we have proved that fibrin deposited on PLA membranes strongly improves the cell adhesion, proliferation, and synthesis of ECM proteins (collagen I and Fn). This confirms the results from our previous works. 12,13 As we have discussed, fibrin enabled cell adhesion by binding a specific fibrin molecule site by an adhesion receptor, mainly integrins of group \u03b2 1 . Fibrin also further enhanced cell adhesion by attaching other cell adhesion-mediating proteins (eg, Fn, vitronectin, or collagen) from the serum supplement of the cell culture medium. 1,12 his study has revealed the different behavior of dermal fibroblasts depending on the differences in the morphology of the fibrin nanocoating covering the membrane. The results showed that the F2 nanocoating (fibrin mesh) provided better support than the F1 nanocoating for the adhesion and proliferation of dermal fibroblasts. In addition, the shape of the adhered cells differed with the type of fibrin nanocoating. While the cells on the F1 nanocoating remained in a spindle-like shape, a polygon-like shape was typical for the cells cultivated on the F2 nanocoating. The spindle-like shape of fibroblasts seems to be more physiologic in the 3-D environment of natural skin dermis. 29 However, a 2-D substrate may provide better support for the initial cell adhesion that results in homogeneous cell growth. Cells cultivated on flat substrates, for example, on PS culture dishes, mostly show faster initial adhesion and spreading than cells cultivated in 3-D matrices. However, 2-D substrates mostly do not enable the specific behavior of cells as in the natural 3-D system, mainly their migration and differentiation. 30 The fine nanofibrous fibrin mesh of the F2 nanocoating resembled a 2-D surface, but its nanostructure mimicked the natural ECM, enabling faster and more successful adhesion of cells through adhesion receptors. 17"
+  }
+]

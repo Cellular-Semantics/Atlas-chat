@@ -1,0 +1,1043 @@
+{
+  "source": {
+    "doi": "10.1038/s41586-024-08002-x",
+    "title": "A prenatal skin atlas reveals immune regulation of human skin morphogenesis"
+  },
+  "annotations": [
+    {
+      "label": "C_Melanocyte",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "DC1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "DC2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "F1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "F2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "F3",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "ILC1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "ILC1_NK",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "ILC2_3",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Inf_mono",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "LC_1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "LC_2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "LC_3",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "LC_4",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "LE1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "LE2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "M_A_Mast_cell",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Macro_1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Macro_2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "MigDC",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Mono",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "NK",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Pericyte_1_non_inflamm",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Pericyte_2_inflamm",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Plasma",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Schwaan_1_Stroma_Schwan_myelinating",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Schwaan_2_non_myelinating",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Tc",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Th",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "Treg",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "VE1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "VE2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "VE3",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c3",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c4",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c5",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c6",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c7",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "c8",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "doublet",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "moDC_1",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "moDC_2",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "moDC_3",
+      "granularity": "fine",
+      "scope": "adult"
+    },
+    {
+      "label": "ASDC",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Adipocytes",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Arterioles",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "B cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "CCL19+ fibroblast",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "CD4 T cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "CD8 T cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Capillaries",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Capillary arterioles",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Companion layer",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Cuticle/cortex",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "DC1",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "DC2",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "DPYSL2+ basal",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Dermal condensate",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Dermal papilla",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Early LE",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Early endothelial cells",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Early erythroid",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Early erythroid (embryonic)",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Early myocytes",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Eo/baso/mast cell progenitor",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Erythroid (embryonic)",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Erythroid (fetal)",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "FRZB+ early fibroblast",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "HOXC5+ early fibroblast",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "HSC",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "ILC2",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "ILC3",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Immature basal",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Immature suprabasal",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Inflammatory DC",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Innate T type1",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Innate T type3",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Inner root sheath",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Iron-recycling macrophage",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "LC",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "LE",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "LMCD1+ mural cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "LTi",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "LYVE1++ macrophage",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Lymphoid progenitor",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "MEMP - Early erythroid",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "MEMP - Megak",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "MHCII+ macrophage",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Mast cell (earliest)",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Mast cell (medium)",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Mast cell (most mature)",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Matrix",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Megakaryocyte",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Melanoblast",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Melanocyte",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Monocyte",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Monocyte (activated/differentiating)",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Monocyte precursor",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Myelinating Schwann cells",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Myoblasts",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Myocytes",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Myofibroblasts",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "NK cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Neuroendocrine",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Neuron progenitors",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Neutrophil1",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Neutrophil2",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Outer root sheath",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "PEAR1+ fibroblast",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "PID1+ schwann cells",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "PLN+ mural cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "POSTN+ basal",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Pericytes",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Periderm",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Placode",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Postcapillary venules",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Pre B cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Pre pro B cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Pre-dermal condensate",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Pro B cell",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "SPP1+ proliferating neuron progenitors",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Schwann/Schwann precursors",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Suprabasal IFE",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "TML macrophage",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Treg",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Venules",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "WNT2+ Adipocytes",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "WNT2+ fibroblast",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "pDC",
+      "granularity": "fine",
+      "scope": "fetal"
+    },
+    {
+      "label": "Adipocytes",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Basal",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Basal POSTN+",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Capillary arterioles",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Companion layer",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Cuticle/cortex",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Dermal condensate",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Dermal papilla",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Early fibroblasts FRZB+",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Early fibroblasts HOXC5+",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Early myocytes",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Fibroblasts POSTN+",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Immature basal",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Immature suprabasal",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Inner root sheath",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Melanoblasts",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Melanocytes",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Merkel cells",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Myelinating Schwann cells",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Myoblasts",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Myocytes",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Neuroepithelial cells",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Neuron progenitors",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Neuron progenitors SPP1+",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Outer root sheath",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Periderm",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Placode/matrix",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Pre-dermal condensate",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Proliferating melanoblasts",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Schwann cells/Schwann precursors",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Secreting neuron",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Smooth muscle/Pericytes",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "Suprabasal IFE",
+      "granularity": "fine",
+      "scope": "organoid"
+    },
+    {
+      "label": "B cell",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "DC",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Fibroblast",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "ILC",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Keratinocytes",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Lymphatic endothelium",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Macrophage",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Mast cell",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Melanocyte",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Mural cell",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Schwann cell",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "T cell",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Vascular endothelium",
+      "granularity": "broad",
+      "scope": "adult"
+    },
+    {
+      "label": "Adipocyte",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "B cell",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "DC",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Erythroid",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Fibroblast",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Haem progenitor",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "ILC",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Keratinocyte",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Lymphatic endothelium",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Macrophage",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Mast cell",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Megakaryocyte",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Melanocyte",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Monocyte",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Mural cell",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Neuronal cells",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Neutrophil",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Schwann cell",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Skeletal muscle",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "T cell",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Vascular endothelium",
+      "granularity": "broad",
+      "scope": "fetal"
+    },
+    {
+      "label": "Adipocytes",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Fibroblast",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Keratinocyte",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Melanocyte",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Mural cell",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Neuronal cells",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Schwann cell",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Skeletal muscle",
+      "granularity": "broad",
+      "scope": "organoid"
+    },
+    {
+      "label": "Vascular endothelium",
+      "granularity": "broad",
+      "scope": "organoid"
+    }
+  ]
+}

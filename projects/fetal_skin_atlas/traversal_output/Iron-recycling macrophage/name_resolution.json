@@ -1,0 +1,10 @@
+{
+  "label": "Iron-recycling macrophage",
+  "resolved_names": [
+    "Iron-recycling macrophage"
+  ],
+  "scope": "fetal",
+  "tissue_context": "prenatal (fetal) human skin",
+  "confidence": "high",
+  "evidence": "The label 'Iron-recycling macrophage' appears explicitly in the manuscript and figures/tables (e.g., Figure 3C and Extended Data Figure 4D) as one of the annotated prenatal skin macrophage populations. The paper describes macrophage subclusters in fetal skin, including a population named 'Iron-recycling macrophage'."
+}

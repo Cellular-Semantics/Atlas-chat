@@ -1,0 +1,10 @@
+{
+  "label": "F2",
+  "resolved_names": [
+    "Fibroblast F2"
+  ],
+  "scope": "adult",
+  "tissue_context": "skin",
+  "confidence": "medium",
+  "evidence": "In the supplementary materials (Supplementary Table 5 and Extended Data Fig. 7) of the cited atlas paper (doi:10.1038/s41586-024-08002-x), the label 'F2' is used in fibroblast cluster annotations (e.g., 'F1', 'F2', 'F3', etc.). Cluster 'F2' is specifically referred to as 'F2 fibroblast' or 'Fibroblast F2'. The cluster is not assigned a specialized descriptive name beyond this, and it is embedded within the broader context of fibroblast diversity in both fetal and adult skin."
+}

@@ -1,0 +1,525 @@
+{
+  "CorpusId:280938973": {
+    "title": "Stem Cells in Regenerative Medicine: A Journey from Adult Stem Cells to Induced Pluripotent Cells",
+    "authors": [
+      "Ylenia Della Rocca",
+      "Antonella Mazzone",
+      "G. Marconi",
+      "O. Trubiani",
+      "J. Pizzicannella",
+      "F. Diomede"
+    ],
+    "year": 2025,
+    "venue": "International Journal of Molecular Sciences",
+    "doi": "10.3390/ijms26178255",
+    "pmid": "40943178",
+    "url": "https://www.semanticscholar.org/paper/14e44cf29423323a5189553a2ae22df545daddfe",
+    "abstract": "Regenerative medicine is the branch of medicine that aims to repair and regenerate damaged tissues and presents promising avenues for addressing a wide range of currently incurable diseases. Regenerative medicine is based on the use of cell therapy with stem cells that can differentiate into differentiated cells of specific tissues. There are various types of stem cells, which are different in potential and derivation. The aim of this review is to summarize the types of stem cells most studied a",
+    "tldr": "The aim of this review is to summarize the types of stem cells most studied and recently discovered, from adult stem cells to innovative induced pluripotent stem cells (iPSCs), for regenerative medicine purposes."
+  },
+  "CorpusId:257339585": {
+    "title": "Fibroblast heterogeneity: Keystone of tissue homeostasis and pathology in inflammation and ageing",
+    "authors": [
+      "Vincent Gauthier",
+      "M. Kyriazi",
+      "M. Nefla",
+      "V. Pucino",
+      "K. Raza",
+      "C. Buckley",
+      "Ghada Alsaleh"
+    ],
+    "year": 2023,
+    "venue": "Frontiers in Immunology",
+    "doi": "10.3389/fimmu.2023.1137659",
+    "pmid": "36926329",
+    "url": "https://www.semanticscholar.org/paper/41d7ae01312abc437f91e20e11d380c8e2d50e99",
+    "abstract": "Fibroblasts, derived from the embryonic mesenchyme, are a diverse array of cells with roles in development, homeostasis, repair, and disease across tissues. In doing so, fibroblasts maintain micro-environmental homeostasis and create tissue niches by producing a complex extracellular matrix (ECM) including various structural proteins. Although long considered phenotypically homogenous and functionally identical, the emergence of novel technologies such as single cell transcriptomics has allowed ",
+    "tldr": "The phenotypic heterogeneity and functionality of these cells are reviewed and their roles in health and disease are reviewed, highlighting their role in tissue regulation and inflammation."
+  },
+  "CorpusId:267730630": {
+    "title": "Modulating embryonic signaling pathways paves the way for regeneration in wound healing",
+    "authors": [
+      "S. Frech",
+      "B. Lichtenberger"
+    ],
+    "year": 2024,
+    "venue": "Frontiers in Physiology",
+    "doi": "10.3389/fphys.2024.1367425",
+    "pmid": "38434140",
+    "url": "https://www.semanticscholar.org/paper/5ad9ca26a8337f04bdc0b97484f72d9ff6e31f4d",
+    "abstract": "Epithelial tissues, including the skin, are highly proliferative tissues with the capability to constant renewal and regeneration, a feature that is essential for survival as the skin forms a protective barrier against external insults and water loss. In adult mammalian skin, every injury will lead to a scar. The scar tissue that is produced to seal the wound efficiently is usually rigid and lacks elasticity and the skin\u2019s original resilience to external impacts, but also secondary appendages su",
+    "tldr": "This review highlights how modulating dermal signaling or the abundance of specific fibroblast subsets could be utilized to induce de novo hair follicles within the wound bed, and thus to shift wound repair with a scar to scarless regeneration."
+  },
+  "CorpusId:268854758": {
+    "title": "Integrating Single\u2010Cell and Spatial Transcriptomics Reveals Heterogeneity of Early Pig Skin Development and a Subpopulation with Hair Placode Formation",
+    "authors": [
+      "Yi Wang",
+      "Yao Jiang",
+      "Guiyan Ni",
+      "Shujuan Li",
+      "Brad Balderson",
+      "Quan Zou",
+      "Huatao Liu",
+      "Yifan Jiang",
+      "Jingchun Sun",
+      "Xiangdong Ding"
+    ],
+    "year": 2024,
+    "venue": "Advancement of science",
+    "doi": "10.1002/advs.202306703",
+    "pmid": "38561967",
+    "url": "https://www.semanticscholar.org/paper/189847a997e9c250c132c389e64eb54483caee5e",
+    "abstract": "The dermis and epidermis, crucial structural layers of the skin, encompass appendages, hair follicles (HFs), and intricate cellular heterogeneity. However, an integrated spatiotemporal transcriptomic atlas of embryonic skin has not yet been described and would be invaluable for studying skin\u2010related diseases in humans. Here, single\u2010cell and spatial transcriptomic analyses are performed on skin samples of normal and hairless fetal pigs across four developmental periods. The cross\u2010species comparis",
+    "tldr": "By comparing normal and hairless fetal pigs, it is found that the hair placode, the most characteristic initial structure in HFs, arises from progenitor\u2010like OGN+/UCHL1+ cells, which may serve as a key reference atlas for studying human skin disease etiology using porcine models."
+  },
+  "CorpusId:211063673": {
+    "title": "Fibroblasts from the Human Skin Dermo-Hypodermal Junction are Distinct from Dermal Papillary and Reticular Fibroblasts and from Mesenchymal Stem Cells and Exhibit a Specific Molecular Profile Related to Extracellular Matrix Organization and Modeling",
+    "authors": [
+      "V. Haydont",
+      "V\u00e9ronique Neiveyans",
+      "Philippe Perez",
+      "\u00c9. Busson",
+      "J. Lataillade",
+      "D. Asselineau",
+      "N. Fortunel"
+    ],
+    "year": 2020,
+    "venue": "Cells",
+    "doi": "10.3390/cells9020368",
+    "pmid": "32033496",
+    "url": "https://www.semanticscholar.org/paper/f2276e46fcc4bbc3fa34730ce8030bff3d675c54",
+    "abstract": "Human skin dermis contains fibroblast subpopulations in which characterization is crucial due to their roles in extracellular matrix (ECM) biology. This study investigates the properties of fibroblasts localized at the frontier of deep dermis and hypodermis, i.e., dermo-hypodermal junction fibroblasts (F-DHJ), which were compared to intermediate reticular dermis (Fr) and superficial papillary dermis (Fp) fibroblasts. F-DHJ differed from Fr and Fp cells in their wider potential for differentiatio",
+    "tldr": "The genome-wide transcriptome profiling was used to evaluate the molecular proximity of F-DHJ with the two dermal fibroblast populations and with the mesenchymal stem cells corresponding to five tissue origins (bone marrow, fat, amnion, chorion, and cord)."
+  },
+  "CorpusId:129948941": {
+    "title": "Cancer-Associated Fibroblasts Build and Secure the Tumor Microenvironment",
+    "authors": [
+      "Tianyi Liu",
+      "Linli Zhou",
+      "Danni Li",
+      "T. Andl",
+      "Yuhang Zhang"
+    ],
+    "year": 2019,
+    "venue": "Front. Cell Dev. Biol.",
+    "doi": "10.3389/fcell.2019.00060",
+    "pmid": "31106200",
+    "url": "https://www.semanticscholar.org/paper/ed68732af3098098c5e981de978263bb68aef10e",
+    "abstract": "Tumor cells reside in a highly complex and heterogeneous tumor microenvironment (TME), which is composed of a myriad of genetically stable non-cancer cells, including fibroblasts, immune cells, endothelial cells, and epithelial cells, and a tumor-specific extracellular matrix (ECM). Cancer-associated fibroblasts (CAFs), as an abundant and active stromal cell population in the TME, function as the signaling center and remodeling machine to aid the creation of a desmoplastic tumor niche. Although ",
+    "tldr": "A better understanding of the complexities ofCAF-ECM and CAF-cancer cell interactions is necessary before novel therapeutic strategies targeting the malignant tumor \u201csoil\u201d can be successfully implemented in the clinic."
+  },
+  "CorpusId:255027314": {
+    "title": "The Human Dermis as a Target of Nanoparticles for Treating Skin Conditions",
+    "authors": [
+      "Javier Salazar",
+      "Thais Carmona",
+      "Flavia C. Zacconi",
+      "D. Venegas\u2010Yazigi",
+      "C. Cabello-Verrugio",
+      "Won Il Choi",
+      "C. Vilos"
+    ],
+    "year": 2022,
+    "venue": "Pharmaceutics",
+    "doi": "10.3390/pharmaceutics15010010",
+    "pmid": "36678639",
+    "url": "https://www.semanticscholar.org/paper/0a04915cbc8359fa78790d03050d40842549e8ae",
+    "abstract": "Skin has a preventive role against any damage raised by harmful microorganisms and physical and chemical assaults from the external environment that could affect the body\u2019s internal organs. Dermis represents the main section of the skin, and its contribution to skin physiology is critical due to its diverse cellularity, vasculature, and release of molecular mediators involved in the extracellular matrix maintenance and modulation of the immune response. Skin structure and complexity limit the tr",
+    "tldr": "The role of the dermis in regulating skin homeostasis and its alterations in pathophysiological conditions is analyzed, highlighting its potential as a therapeutic target and the use of nanoparticles for skin illness treatments focused on dermis release is described."
+  },
+  "CorpusId:219701996": {
+    "title": "Understanding the impact of fibroblast heterogeneity on skin fibrosis",
+    "authors": [
+      "M. Griffin",
+      "H. desJardins-Park",
+      "Shamik Mascharak",
+      "M. Borrelli",
+      "M. Longaker"
+    ],
+    "year": 2020,
+    "venue": "Disease Models & Mechanisms",
+    "doi": "10.1242/dmm.044164",
+    "pmid": "32541065",
+    "url": "https://www.semanticscholar.org/paper/4554be12be2aeb2497468e03835d1559fda8e7fb",
+    "abstract": "ABSTRACT Tissue fibrosis is the deposition of excessive extracellular matrix and can occur as part of the body's natural wound healing process upon injury, or as a consequence of diseases such as systemic sclerosis. Skin fibrosis contributes to significant morbidity due to the prevalence of injuries resulting from trauma and burn. Fibroblasts, the principal cells of the dermis, synthesize extracellular matrix to maintain the skin during homeostasis and also play a pivotal role in all stages of w",
+    "tldr": "The multifaceted aspects of fibroblast heterogeneity and the different roles of Fibroblast subpopulations to help overcome skin scarring and fibrosis are discussed."
+  },
+  "CorpusId:256296630": {
+    "title": "Differential cell composition and split epidermal differentiation in human palm, sole, and hip skin",
+    "authors": [
+      "J. Wiedemann",
+      "A. Billi",
+      "F. Bocci",
+      "Ghaidaa Kashgari",
+      "E. Xing",
+      "L. Tsoi",
+      "Leo Meller",
+      "W. Swindell",
+      "R. Wasikowski",
+      "X. Xing",
+      "Feiyang Ma",
+      "M. Gharaee-Kermani",
+      "J. Kahlenberg",
+      "P. Harms",
+      "E. Maverakis",
+      "Qing Nie",
+      "J. Gudjonsson",
+      "B. Andersen"
+    ],
+    "year": 2023,
+    "venue": "Cell Reports",
+    "doi": "10.1016/j.celrep.2023.111994",
+    "pmid": "36732947",
+    "url": "https://www.semanticscholar.org/paper/0425e36ea1e89d34c8f7943b9bc88149f8e8068f",
+    "abstract": "SUMMARY Palmoplantar skin is structurally and functionally unique, but the transcriptional programs driving this specialization are unclear. Here, we use bulk and single-cell RNA sequencing of human palm, sole, and hip skin to describe the distinguishing characteristics of palmoplantar and non-palmoplantar skin while also uncovering differences between palmar and plantar sites. Our approach reveals an altered immune environment in palmoplantar skin, with downregulation of diverse immunological p",
+    "tldr": "Deep characterization of highly adapted palmoplantar skin contributes key insights into the fundamental biology of human skin and provides a valuable data resource for further investigation."
+  },
+  "CorpusId:233745162": {
+    "title": "Myofibroblast transcriptome indicates SFRP2hi fibroblast progenitors in systemic sclerosis skin",
+    "authors": [
+      "T. Tabib",
+      "Mengqi Huang",
+      "N. Morse",
+      "A. Papazoglou",
+      "Rithika Behera",
+      "M. Jia",
+      "M. Bulik",
+      "Daisy Monier",
+      "P. Benos",
+      "Wei Chen",
+      "R. Domsic",
+      "R. Lafyatis"
+    ],
+    "year": 2021,
+    "venue": "Nature Communications",
+    "doi": "10.1038/s41467-021-24607-6",
+    "pmid": "34282151",
+    "url": "https://www.semanticscholar.org/paper/54f28b19149327c5cd7ab405a500c99d8cf1bc62",
+    "abstract": "Skin and lung fibrosis in systemic sclerosis (SSc) is driven by myofibroblasts, alpha-smooth muscle actin expressing cells. The number of myofibroblasts in SSc skin correlates with the modified Rodnan skin score, the most widely used clinical measure of skin disease severity. Murine fibrosis models indicate that myofibroblasts can arise from a variety of different cell types, but their origin in SSc skin has remained uncertain. Utilizing single cell RNA-sequencing, we define different dermal fib",
+    "tldr": "Using single cell RNA-sequencing, the authors show that SSc dermal myofibroblasts arise in a two-step process from SFRP2/DPP4-expressing progenitors and implicate upstream transcription factors."
+  },
+  "CorpusId:272763867": {
+    "title": "A comprehensive evaluation of dermal fibroblast therapy in clinical trials for treating skin disorders and cosmetic applications: a scoping review",
+    "authors": [
+      "Maryam Rahnama",
+      "Navid Ghasemzadeh",
+      "Yaser Ebrahimi",
+      "A. Golchin"
+    ],
+    "year": 2024,
+    "venue": "Stem cell research & therapeutics",
+    "doi": "10.1186/s13287-024-03892-0",
+    "pmid": "39304949",
+    "url": "https://www.semanticscholar.org/paper/95128446d8f2a4de5f65513ff1946b5674165f70",
+    "abstract": "Fibroblast cells have the ability to improve skin conditions through regenerative medicine and cell-based therapies. The purpose of this scoping review is to assess the contribution of fibroblast cells to skin homeostasis and extracellular matrix deposition in clinical trials involving skin disorders and cosmetic applications. Using targeted search terms, published publications from January 2000 to August 2023 that addressed fibroblast uses in clinical trials of skin conditions were obtained fro",
+    "tldr": "This study highlights the advantages of fibroblast therapy in treating skin conditions such as diabetic foot, venous leg ulcers, and cosmetic reasons and assesses the contribution of fibroblast cells to skin homeostasis and extracellular matrix deposition in clinical trials involving skin disorders and cosmetic applications."
+  },
+  "CorpusId:236095478": {
+    "title": "Fibroblasts: Heterogeneous Cells With Potential in Regenerative Therapy for Scarless Wound Healing",
+    "authors": [
+      "M. Zou",
+      "Ying-ying Teng",
+      "Jun-Jie Wu",
+      "Si-Yu Liu",
+      "Xiaolan Tang",
+      "Yuan Jia",
+      "Zhong-hua Chen",
+      "Kai-Wen Zhang",
+      "Zi-Li Sun",
+      "Xia Li",
+      "Jun-Xing Ye",
+      "Rui-sheng Xu",
+      "Feng-Lai Yuan"
+    ],
+    "year": 2021,
+    "venue": "Frontiers in Cell and Developmental Biology",
+    "doi": "10.3389/fcell.2021.713605",
+    "pmid": "34354997",
+    "url": "https://www.semanticscholar.org/paper/b565a21d741cf08ef65bafd980eb29a1591bc854",
+    "abstract": "In recent years, research on wound healing has become increasingly in-depth, but therapeutic effects are still not satisfactory. Occasionally, pathological tissue repair occurs. Influencing factors have been proposed, but finding the turning point between normal and pathological tissue repair is difficult. Therefore, we focused our attention on the most basic level of tissue repair: fibroblasts. Fibroblasts were once considered terminally differentiated cells that represent a single cell type, a",
+    "tldr": "It is proposed that scarless healing can be achieved by regulating fibroblast subpopulations and played different roles in tissue repair, resulting in different repair results, such as the formation of normal scars in physiological tissue repair and fibrosis or ulcers in pathological tissue repair."
+  },
+  "CorpusId:236972276": {
+    "title": "The bright side of fibroblasts: molecular signature and regenerative cues in major organs",
+    "authors": [
+      "Rita N. Gomes",
+      "Filipa Manuel",
+      "D. Nascimento"
+    ],
+    "year": 2021,
+    "venue": "npj Regenerative Medicine",
+    "doi": "10.1038/s41536-021-00153-z",
+    "pmid": "34376677",
+    "url": "https://www.semanticscholar.org/paper/14427d098908b528be03076cd4105201e3492c54",
+    "abstract": "Fibrosis is a pathologic process characterized by the replacement of parenchymal tissue by large amounts of extracellular matrix, which may lead to organ dysfunction and even death. Fibroblasts are classically associated to fibrosis and tissue repair, and seldom to regeneration. However, accumulating evidence supports a pro-regenerative role of fibroblasts in different organs. While some organs rely on fibroblasts for maintaining stem cell niches, others depend on fibroblast activity, particular",
+    "tldr": "An up-to-date overview of fibroblast-derived regenerative signaling across different organs is provided and a new paradigm for regenerative therapies based on reverting adult fibroblasts to a fetal/neonatal-like phenotype is introduced."
+  },
+  "CorpusId:219483466": {
+    "title": "Abstract 189: Postnatal Engrailed-1 Expression Activates A Pro-Fibrotic Transcriptional Program In Wound Fibroblasts",
+    "authors": [
+      "Shamik Mascharak",
+      "H. desJardins-Park",
+      "Mimi R. Borrelli",
+      "A. Moore",
+      "Michael F. Davitt",
+      "Malini S. Chinta",
+      "Deshka S. Foster",
+      "Michael Januszyk",
+      "S. H. Kwon",
+      "G. Wernig",
+      "Derrick C. Wan",
+      "H. P. Lorenz",
+      "Geoffrey C. Gurtner",
+      "M. Longaker"
+    ],
+    "year": 2020,
+    "venue": "Plastic and Reconstructive Surgery, Global Open",
+    "doi": "10.1097/01.GOX.0000667812.57122.ac",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/e22cac12dcc5ce2eb08c1767b47fec42473277fd",
+    "abstract": "Purpose: Skin fibrosis amounts to significant morbidity due to the prevalence of trauma and burn injuries. Fibroblasts are chiefly responsible for extracellular matrix (ECM) deposition in the skin and are increasingly recognized to be a heterogeneous population comprised of multiple subpopulations with distinct functions and scarring propensity. While anatomic and embryonic origin are known to determine fibroblast heterogeneity, most prior work in mice has focused on the dorsal dermis. Here, we ",
+    "tldr": "This work explores how embryonic lineage and dermal spatial location define fibroblast heterogeneity in the mouse ventral dermis in both homeostasis and in acute and chronic fibroses."
+  },
+  "CorpusId:246164440": {
+    "title": "Cancer-Associated Fibroblasts Influence the Biological Properties of Malignant Tumours via Paracrine Secretion and Exosome Production",
+    "authors": [
+      "M. Vokurka",
+      "L. Lacina",
+      "J. Br\u00e1bek",
+      "M. Kol\u00e1\u0159",
+      "Y. Ng",
+      "K. Smetana"
+    ],
+    "year": 2022,
+    "venue": "International Journal of Molecular Sciences",
+    "doi": "10.3390/ijms23020964",
+    "pmid": "35055153",
+    "url": "https://www.semanticscholar.org/paper/c26d09224367d8f47000939102f7330357cafaa2",
+    "abstract": "Cancer-associated fibroblasts (CAFs) are an essential component of the tumour microenvironment. They represent a heterogeneous group of cells that are under the control of cancer cells and can reversely influence the cancer cell population. They affect the cancer cell differentiation status, and the migration and formation of metastases. This is achieved through the production of the extracellular matrix and numerous bioactive factors. IL-6 seems to play the central role in the communication of ",
+    "tldr": "The role of exosomes as mediators of the dialogue between cancer cells and cancer-associated fibroblasts is discussed together with their therapeutic relevance and the functional unity of the paracrine- and exosome-mediated communication of cancer cells with the tumour microenvironment represented by CAFs is worthy of attention."
+  },
+  "CorpusId:52153445": {
+    "title": "Lineage Identity and Location within the Dermis\u00a0Determine the Function of Papillary and\u00a0Reticular Fibroblasts in Human Skin.",
+    "authors": [
+      "A. Korosec",
+      "S. Frech",
+      "B. Gesslbauer",
+      "M. Vierhapper",
+      "C. Radtke",
+      "P. Petzelbauer",
+      "B. Lichtenberger"
+    ],
+    "year": 2019,
+    "venue": "Journal of Investigative Dermatology",
+    "doi": "10.1016/j.jid.2018.07.033",
+    "pmid": "30179601",
+    "url": "https://www.semanticscholar.org/paper/6d64375fee0495958f51b9f08e730bf61c4f840c",
+    "abstract": "Human skin dermis is composed of the superficial papillary dermis and the reticular dermis in the lower layers, which can easily be distinguished histologically. In\u00a0vitro analyses of fibroblasts from explant cultures from superficial and lower dermal layers suggest that human skin comprises at least two fibroblast lineages with distinct morphology, expression profiles, and functions. However, while for mouse skin cell surface markers have been identified, allowing the isolation of pure populatio",
+    "tldr": "Functional analysis and expression profiling confirms that FAP+CD90- cells represent papillary fibroblasts, whereas FAP-CD90+ fibro Blasts derive from the reticular lineage."
+  },
+  "CorpusId:278927903": {
+    "title": "Bicomponent Cutaneous Cell Therapy for Early Burn Care: Manufacturing Homogeneity and Epidermis-Structuring Functions of Clinical Grade FE002-SK2 Allogeneic Dermal Progenitor Fibroblasts",
+    "authors": [
+      "Xi Chen",
+      "N. Hirt-Burri",
+      "C. Scaletta",
+      "A. Laurent",
+      "L. Applegate"
+    ],
+    "year": 2025,
+    "venue": "Pharmaceutics",
+    "doi": "10.3390/pharmaceutics17060692",
+    "pmid": "40574004",
+    "url": "https://www.semanticscholar.org/paper/a0346d629ccc878debbc7c689c02a763e6827596",
+    "abstract": "Background: The extracellular matrix (ECM), primarily composed of collagen and elastin synthesized by dermal fibroblasts, is critical for mesenchymal tissue integrity. Fibroblast phenotypes vary significantly with the anatomical location and developmental stage. Fetal skin, particularly prior to 14 weeks of gestation, exhibits a simplified structure compared to adult skin, characterized by a thin, loose dermal matrix and a single-layered epithelium. Objectives: This study aimed to characterize a",
+    "tldr": "The unique attributes of PFF, likely attributable to the simplified microenvironment of developing fetal tissue, positions them as a promising source for cell-based therapies, particularly advantageous for wound healing applications."
+  },
+  "CorpusId:219723162": {
+    "title": "Lef1 expression in fibroblasts maintains developmental potential in adult skin to regenerate wounds",
+    "authors": [
+      "Quan M. Phan",
+      "G. Fine",
+      "L. Salz",
+      "Gerardo G. Herrera",
+      "Ben Wildman",
+      "Iwona M. Driskell",
+      "R. Driskell"
+    ],
+    "year": 2020,
+    "venue": "bioRxiv",
+    "doi": "10.7554/eLife.60066",
+    "pmid": "32990218",
+    "url": "https://www.semanticscholar.org/paper/bfb78a4abd246ee877ddbe8920011a7094daa5c6",
+    "abstract": "Scars are a serious health concern that impacts the clinical outcome and long-term well-being of burn victims and individuals with genetic skin conditions associated with wound healing. In this study using mouse as the model, we identify regenerative factors in neonatal skin that will transform adult skin to regenerate instead of repairing wounds with a scar, without perturbing normal development and homeostasis. We utilized single-cell RNA-sequencing (scRNA-seq) to probe unsorted cells from Reg",
+    "tldr": "This study reveals the possibility of transferring the regenerative abilities of neonatal skin to adult tissue by expressing Lef1 in dermal fibroblasts and generates an expandable web resource with a search function to display gene expression in the context of scRNA-seq data."
+  },
+  "CorpusId:246165324": {
+    "title": "Challenges and Opportunities for the Translation of Single-Cell RNA Sequencing Technologies to Dermatology",
+    "authors": [
+      "A. M. Ascensi\u00f3n",
+      "M. Ara\u00fazo-Bravo",
+      "A. Izeta"
+    ],
+    "year": 2022,
+    "venue": "Life",
+    "doi": "10.3390/life12010067",
+    "pmid": "35054460",
+    "url": "https://www.semanticscholar.org/paper/a1404b881868335d3f841e5a07da515181de2a93",
+    "abstract": "Skin is a complex and heterogeneous organ at the cellular level. This complexity is beginning to be understood through the application of single-cell genomics and computational tools. A large number of datasets that shed light on how the different human skin cell types interact in homeostasis\u2014and what ceases to work in diverse dermatological diseases\u2014have been generated and are publicly available. However, translation of these novel aspects to the clinic is lacking. This review aims to summarize",
+    "tldr": "This review aims to summarize the state-of-the-art of skin biology using single-cell technologies, with a special focus on skin pathologies and the translation of mechanistic findings to the clinic."
+  },
+  "CorpusId:248762486": {
+    "title": "Characterization of the epidermal-dermal junction in hiPSC-derived skin organoids",
+    "authors": [
+      "V. Ramovs",
+      "H. Janssen",
+      "I. Fuentes",
+      "A. Pitaval",
+      "W. Rachidi",
+      "S. Chuva de Sousa Lopes",
+      "C. Freund",
+      "X. Gidrol",
+      "C. Mummery",
+      "K. Raymond"
+    ],
+    "year": 2022,
+    "venue": "Stem Cell Reports",
+    "doi": "10.1016/j.stemcr.2022.04.008",
+    "pmid": "35561682",
+    "url": "https://www.semanticscholar.org/paper/7d3cedaf71dd19316a92dff1db746253d981f5fc",
+    "abstract": "Summary Human induced pluripotent stem cell (hiPSC)-derived hair-bearing skin organoids offer exciting new possibilities for modeling diseases like epidermolysis bullosa (EB). These inherited diseases affect 1 in 30,000 people worldwide and result from perturbed expression and/or structure of components of the epidermal-dermal junction (EDJ). To establish whether hiPSC-derived skin organoids might be able to capture salient features of EB, it is thus important to characterize their EDJ. Here, we",
+    "tldr": "Successful generation of hair-bearing skin organoids from two hiPSC lines that exhibited fully stratified interfollicular epidermis is reported and it is demonstrated that basal keratinocytes in organoids adhere to laminin-332 and type IV collagen-rich basement membrane via type I hemidesmosomes and integrin \u03b21-based adhesion complexes."
+  },
+  "CorpusId:249219010": {
+    "title": "Age-Related Changes in the Fibroblastic Differon of the Dermis: Role in Skin Aging",
+    "authors": [
+      "A. Zorina",
+      "V. Zorin",
+      "D. Kudlay",
+      "P. Kopnin"
+    ],
+    "year": 2022,
+    "venue": "International Journal of Molecular Sciences",
+    "doi": "10.3390/ijms23116135",
+    "pmid": "35682813",
+    "url": "https://www.semanticscholar.org/paper/00d04d5aa2a0594de1722864735203314148c59a",
+    "abstract": "Skin aging is a multi-factorial process that affects nearly every aspect of skin biology and function. The processes developing in the skin during aging are based on fundamental molecular mechanisms associated with fibroblasts, the main cellular population of the dermis. It has been revealed that the amount of fibroblasts decreases markedly with age and their functional activity is also reduced. This inevitably leads to a decrease in the regenerative abilities of the skin and the progression of ",
+    "tldr": "The mechanisms underlying changes observed with age in the stem/progenitor cells that constitute the fibroblastic differon of the dermis and form their microenvironment (niches) are considered and the role of fibroblast senescence is described."
+  },
+  "CorpusId:245578778": {
+    "title": "Dermal fibroblasts: the terminology, heterogeneity of subpopulations and common properties",
+    "authors": [
+      "I. Tverdokhlib",
+      "Y. Silkina"
+    ],
+    "year": 2021,
+    "venue": "Morphologia",
+    "doi": "10.26641/1997-9665.2020.4.108-114",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/e9edd83121d4d96e3323142456224647c513acdc",
+    "abstract": "Dermal fibroblasts are a dynamic and diverse population of cells whose functions in skin in many respects remain unknown. Normal adult human skin contains at least three distinct subpopulations of fibroblasts, which occupy unique niches in the dermis. Fibroblasts from each of these niches exhibit distinctive differences when cultured separately. Specific differences in fibroblast histophysiology are evident in papillary dermal fibroblasts, which reside in the superficial dermis, and reticular fi",
+    "tldr": "Fibroblasts engage in fibroblast-epidermal interactions during hair development and in interfollicular regions of skin, and play an important role in cutaneous structural transformations."
+  },
+  "CorpusId:49291507": {
+    "title": "Genome-wide profiling of adult human papillary and reticular fibroblasts identifies ACAN, Col XI \u03b11, and PSG1 as general biomarkers of dermis ageing, and KANK4 as an exemplary effector of papillary fibroblast ageing, related to contractility.",
+    "authors": [
+      "V. Haydont",
+      "V\u00e9ronique Neiveyans",
+      "H. Zucchi",
+      "N. Fortunel",
+      "D. Asselineau"
+    ],
+    "year": 2019,
+    "venue": "Mechanisms of Ageing and Development",
+    "doi": "10.1016/j.mad.2018.06.003",
+    "pmid": "29913199",
+    "url": "https://www.semanticscholar.org/paper/f45b4a635ce5410360f7a66938cea04d504d684e",
+    "abstract": "Deciphering the characteristics of dermal fibroblasts is critical to further understand skin ageing. We have conducted a genome-wide transcriptomic characterization of papillary (Fp) and reticular (Fr) fibroblasts extracted from human skin samples corresponding to younger and older adult ages. From this screen, biomarkers suitable for the assessment of chronological ageing were identified, and extrapolated to the context of photo-damaged skin. In particular, KANK4, ACAN, Col XI \u03b11, and PSG1, wer",
+    "tldr": "A genome-wide transcriptomic characterization of papillary (Fp) and reticular fibroblasts extracted from human skin samples corresponding to younger and older adult ages found significant transcriptional signatures associated with ageing, which included transcripts related to extracellular matrix, focal adhesion points, and cytoskeleton."
+  },
+  "CorpusId:58643350": {
+    "title": "Transcriptome profiling of human papillary and reticular fibroblasts from adult interfollicular dermis pinpoints the 'tissue skeleton' gene network as a component of skin chrono-ageing.",
+    "authors": [
+      "V. Haydont",
+      "V\u00e9ronique Neiveyans",
+      "N. Fortunel",
+      "D. Asselineau"
+    ],
+    "year": 2019,
+    "venue": "Mechanisms of Ageing and Development",
+    "doi": "10.1016/j.mad.2019.01.003",
+    "pmid": "30641112",
+    "url": "https://www.semanticscholar.org/paper/c660ef981bba1ccef2899302bc7e1f8b685dfee8",
+    "abstract": "Interactions between extracellular matrix (ECM) and fibroblasts are essential for maintaining dermis integrity, and are subject to ageing. The \u00f6tissue skeleton' network connects ECM to the nucleus and DNA, impacting nuclear shape and gene expression. In a previous Mech Ageing Dev publication, we have presented a transcriptomic study of papillary (Fp) and reticular (Fr) fibroblasts, with a main focus on Fp ageing. As shown here, ageing affects \u00f6tissue skeleton' transcripts, even more clearly in F",
+    "tldr": "Using circular index measurement, it is shown that nuclear shape is affected by ageing in both cell fractions."
+  },
+  "CorpusId:46732589": {
+    "title": "Fibroblast Heterogeneity in Periodontium \u2013 a Review",
+    "authors": [
+      "A. Archana",
+      "V. Srikanth",
+      "Sasireka",
+      "B. Kurien",
+      "Ebenezer"
+    ],
+    "year": 2014,
+    "venue": "",
+    "doi": "10.12691/IJDSR-2-3-1",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/1af7cd5386ff4f40d9103a396ba7c7d53c8c464c",
+    "abstract": "Fibroblast heterogeneity applies to both phenotypic and functional properties exhibited by a fibroblast population within or across tissues (Mc Culloch et al) There is significant evidence that fibroblasts are heterogeneous with respect to functional properties, and that certain subpopulations of these cells may be clonally selected and expanded in diseased tissues. There are wide variations of gene expression and strikingly different responses to extracellular signals among different fibroblast",
+    "tldr": "A large number of in vitro studies suggest that fibroblasts are not homogeneous but instead comprise multiple subpopulations with extensive site-to-site and intra-site variations."
+  },
+  "CorpusId:230108472": {
+    "title": "Human dermal fibroblast subpopulations are conserved across single-cell RNA sequencing studies.",
+    "authors": [
+      "A. M. Ascensi\u00f3n",
+      "S. Fuertes-\u00c1lvarez",
+      "Olga Ib\u00e1\u00f1ez-Sol\u00e9",
+      "A. Izeta",
+      "M. Ara\u00fazo-Bravo"
+    ],
+    "year": 2020,
+    "venue": "Journal of Investigative Dermatology",
+    "doi": "10.1016/j.jid.2020.11.028",
+    "pmid": "33385399",
+    "url": "https://www.semanticscholar.org/paper/3af155db3a1e61f989fa49995373ba4ca2977f8f",
+    "abstract": "Based on their differential location within the dermis and on discrete changes in gene and protein expression, two major fibroblast subtypes (papillary and reticular) have traditionally been distinguished. In the last three years, a number of research groups have begun to address transcriptomic heterogeneity of human skin cells at the single-cell level, by determining mRNA levels of expressed genes through single-cell RNA sequencing (scRNAseq) technologies. However, the outcome of scRNAseq studi",
+    "tldr": "It is shown that fibroblasts may robustly be assigned to three major types (axes A-C), which in turn are composed of ten major subtypes (clusters) which are denominated A1-A4, B1-B2 and C1-C4, which may provide the basis to improve the understanding of dermal homeostasis and cellular function at the transcriptomic level."
+  },
+  "CorpusId:9206903": {
+    "title": "Alteration of Skin Properties with Autologous Dermal Fibroblasts",
+    "authors": [
+      "Rajesh L. Thangapazham",
+      "T. Darling",
+      "Jon Meyerle"
+    ],
+    "year": 2014,
+    "venue": "International Journal of Molecular Sciences",
+    "doi": "10.3390/ijms15058407",
+    "pmid": "24828202",
+    "url": "https://www.semanticscholar.org/paper/dfc70807ffe0b12e7a302e48bc9afb6e0ce9025c",
+    "abstract": "Dermal fibroblasts are mesenchymal cells found between the skin epidermis and subcutaneous tissue. They are primarily responsible for synthesizing collagen and glycosaminoglycans; components of extracellular matrix supporting the structural integrity of the skin. Dermal fibroblasts play a pivotal role in cutaneous wound healing and skin repair. Preclinical studies suggest wider applications of dermal fibroblasts ranging from skin based indications to non-skin tissue regeneration in tendon repair",
+    "tldr": "The role of fibroblast characteristics that define regional differences in skin, including the thick and hairless skin of the palms and soles as compared to hair-bearing skin, provides another platform for developing regional skin applications such as the induction of hair follicles in bald scalp or alteration of the phenotype of stump skin in amputees to better support their prosthetic devices."
+  },
+  "CorpusId:261047245": {
+    "title": "Lineage commitment of dermal fibroblast progenitors is controlled by Kdm6b\u2010mediated chromatin demethylation",
+    "authors": [
+      "Quan M. Phan",
+      "L. Salz",
+      "Sam S. Kindl",
+      "Jayden S. Lopez",
+      "S. M. Thompson",
+      "Jasson Makkar",
+      "Iwona M. Driskell",
+      "R. Driskell"
+    ],
+    "year": 2023,
+    "venue": "EMBO Journal",
+    "doi": "10.15252/embj.2023113880",
+    "pmid": "37602956",
+    "url": "https://www.semanticscholar.org/paper/1bd645c3b43280d781a15ca64baf094dfa802404",
+    "abstract": "Dermal Fibroblast Progenitors (DFPs) differentiate into distinct fibroblast lineages during skin development. However, the epigenetic mechanisms that regulate DFP differentiation are not known. Our objective was to use multimodal single\u2010cell approaches, epigenetic assays, and allografting techniques to define a DFP state and the mechanism that governs its differentiation potential. Our initial results indicated that the overall transcription profile of DFPs is repressed by H3K27me3 and has inacc",
+    "tldr": "It is concluded that DFPs are functionally derepressed during murine skin development by Kdm6b/Jmjd3, revealing a multimodal understanding of how D FPs differentiate into distinct fibroblast lineages and providing a novel publicly available multiomics search tool."
+  }
+}

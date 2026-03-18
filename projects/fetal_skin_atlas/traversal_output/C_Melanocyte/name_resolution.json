@@ -1,0 +1,10 @@
+{
+  "label": "C_Melanocyte",
+  "resolved_names": [
+    "Melanocyte"
+  ],
+  "scope": "adult",
+  "tissue_context": "skin",
+  "confidence": "high",
+  "evidence": "In the Methods and cell type annotation sections, as well as in cell type mapping figures/tables, the term \"Melanocyte\" is used to refer to skin pigment-producing cells. The label 'C_Melanocyte' refers to the adult skin melanocytes, without division into subclusters or distinct subtypes. Cluster abbreviations beginning with 'C_' in the supplemental mapping tables are mapped to full cell type names, e.g., 'C_Melanocyte' \u2192 'Melanocyte'."
+}

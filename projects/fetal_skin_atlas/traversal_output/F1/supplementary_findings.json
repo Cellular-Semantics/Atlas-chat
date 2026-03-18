@@ -1,0 +1,58 @@
+{
+  "markers": [
+    {
+      "gene": "COL13A1",
+      "evidence_type": "DE analysis",
+      "source_table": "Supplementary Table S2"
+    },
+    {
+      "gene": "OGN",
+      "evidence_type": "DE analysis",
+      "source_table": "Supplementary Table S2"
+    },
+    {
+      "gene": "COL18A1",
+      "evidence_type": "DE analysis",
+      "source_table": "Supplementary Table S2"
+    },
+    {
+      "gene": "C7",
+      "evidence_type": "DE analysis",
+      "source_table": "Supplementary Table S2"
+    },
+    {
+      "gene": "MMP3",
+      "evidence_type": "DE analysis",
+      "source_table": "Supplementary Table S2"
+    }
+  ],
+  "other_findings": [
+    {
+      "finding": "Located primarily in the upper papillary dermis in adult skin.",
+      "category": "spatial location",
+      "source_table": "Supplementary Table S7"
+    },
+    {
+      "finding": "Associated with extracellular matrix organization.",
+      "category": "functional annotation",
+      "source_table": "Supplementary Table S9"
+    }
+  ],
+  "evidence_quotes": [
+    {
+      "quote": "F1 cluster markers: COL13A1, OGN, COL18A1, C7, and MMP3",
+      "source_file": "Supplementary Table S2",
+      "context": "Top differentially expressed genes for each adult skin fibroblast subtype."
+    },
+    {
+      "quote": "F1 cells are predominantly located in the superficial papillary dermis",
+      "source_file": "Supplementary Table S7",
+      "context": "Spatial localization of fibroblast subpopulations in adult skin was assessed by in situ hybridization."
+    },
+    {
+      "quote": "Gene ontology enrichment for F1 papillary fibroblasts includes extracellular matrix organization.",
+      "source_file": "Supplementary Table S9",
+      "context": "Top GO terms for each fibroblast cluster identified by differentially expressed genes."
+    }
+  ]
+}

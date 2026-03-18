@@ -1,0 +1,109 @@
+[
+  {
+    "snippet_index": 1,
+    "quotes": [
+      "Gene ontology analysis showed that the four macrophage subsets (LYVE1 + , MHCII + , TML and iron-recycling) expressed gene programs that drive angiogenesis (Supplementary Tables 23-26).",
+      "Gene module expression profiles suggested that sprouting angiogenesis (growth of new vessels) was promoted by LYVE1 + and TML macrophages, blood vessel morphogenesis by LYVE1 + macrophages and endothelial cell chemotaxis by iron-recycling macrophages (Extended Data Fig. 8i and Supplementary Table 27)."
+    ],
+    "summary": "This snippet describes that iron-recycling macrophages in prenatal skin express genes driving angiogenesis and specifically promote endothelial cell chemotaxis, indicating a role in vascular development.",
+    "categories": [
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:273400864",
+    "source_title": "A prenatal skin atlas reveals immune regulation of human skin morphogenesis",
+    "source_authors": "N. Gopee et al.",
+    "source_year": null,
+    "snippet": "Macrophages have been implicated in angiogenesis during prenatal organ development and in the postnatal setting such as cancerrelated angiogenesis 67,68 . Furthermore, macrophages expressing pro-angiogenic genes have been observed in diverse tissues during human development 69 . Visium deconvolution analysis predicted co-location of prenatal skin macrophages with endothelial cells ('early and late neurovascular microenvironments', ME1 and ME5) (Fig. 1d and Extended Data Fig. 1e). Gene ontology analysis showed that the four macrophage subsets (LYVE1 + , MHCII + , TML and iron-recycling) expressed gene programs that drive angiogenesis (Supplementary Tables 23-26). Gene module expression profiles suggested that sprouting angiogenesis (growth of new vessels) was promoted by LYVE1 + and TML macrophages, blood vessel morphogenesis by LYVE1 + macrophages and endothelial cell chemotaxis by iron-recycling macrophages (Extended Data Fig. 8i and Supplementary Table 27). Consistent with this finding, multiplex RNAscope and immunofluorescence staining showed LYVE1 + and TML macrophages in close proximity to endothelial cells (Fig. 4a and Supplementary Video 1). Predicted ligandreceptor interactions were consistent with reciprocal communication between macrophages and endothelial cells to support angiogenesis, chemotaxis and cell migration (for example, CXCL8-ACKR1 and CCL8-ACKR1) 10,70 (Extended Data Fig. 9a and Supplementary Table 28). \n\nOur data suggested that macrophages contribute to prenatal skin angiogenesis. Consistent with this hypothesis, we observed fewer and less heterogeneous endothelial cells in the immunodeficient SkOs compared to prenatal skin, despite the formation of well-developed HFs, epidermis and neural cells (Fig. 4b,c, Extended Data Fig. 9b and Supplementary Table 29)."
+  },
+  {
+    "snippet_index": 5,
+    "quotes": [
+      "Analysis of myeloid cells in the fetal spleen suggested that iron-recycling erythrophagocytic macrophages might have conserved features with their adult counterparts (unlike other prenatal macrophages), indicating that this iron-recycling profile is retained with great fidelity from fetal into adult life."
+    ],
+    "summary": "Iron-recycling erythrophagocytic macrophages in the fetal spleen retain their functional profile into adulthood, suggesting strong conservation of their iron-recycling features across lifespan.",
+    "categories": [
+      "function",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:257152389",
+    "source_title": "Large\u2010scale single\u2010cell RNA sequencing atlases of human immune cells across lifespan: Possibilities and challenges",
+    "source_authors": "S. Webb and M. Haniffa",
+    "source_year": null,
+    "snippet": "The 16-18 PCW spleen has been profiled using scRNAseq and spatial genomics methods, revealing a highly vascularized splenic structure with overlapping T-and B-cell zone aggregates [28]. Analysis of myeloid cells in the fetal spleen suggested that iron-recycling erythrophagocytic macrophages might have conserved features with their adult counterparts (unlike other prenatal macrophages), indicating that this iron-recycling profile is retained with great fidelity from fetal into adult life. Surprisingly, the meta-analysis of human fetal hematopoietic tissues in this study [28] also revealed the presence of B1 cells in human tissues for the first time and detected B-cell progenitors in almost all prenatal hematopoietic organs, underscoring the power of integrative analysis to capture emergent biology. This study [28] was included in a Science journal bundle alongside other pan-human single-cell publications [43,44], foregrounding a wider trend in the single-cell community toward population-scale analysis for emergent biological insights."
+  },
+  {
+    "snippet_index": 12,
+    "quotes": [
+      "Among macrophages, we identified eight broad macrophage groupings based on their transcriptome profile ( fig. S4H): \"LYVE1 hi \", \"iron-recycling\", \"MHC class II hi \", \"Kupffer-like\" (18), \"microglia-like TREM2 hi \" (19), \"osteoclasts\" (11,20), and \"proliferating\" macrophages.",
+      "This population includes macrophages primarily from the spleen and liver that carry out iron-recycling functions (21)."
+    ],
+    "summary": "This snippet identifies 'iron-recycling' macrophages as a distinct transcriptomic subset, mainly located in the spleen and liver, where they are tasked with iron-recycling functions.",
+    "categories": [
+      "location",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:248122197",
+    "source_title": "Mapping the developing human immune system across organs",
+    "source_authors": "Chenqu Suo et al.",
+    "source_year": null,
+    "snippet": "We first examined the main compartments of immune cells in our multi-organ dataset to identify gestation-specific and organ-specific variability within cell populations.\n\nThe myeloid compartment captured the development from committed myeloid progenitors to neutrophils, monocytes, macrophages, and DCs ( fig. S4, G and H). Our cross-tissue analysis distinguished three distinct subsets of monocytes, characterized by a differential distribution between prenatal bone marrow and peripheral tissues and by the expression of CXCR4, CCR2, or IL1B (17). Among macrophages, we identified eight broad macrophage groupings based on their transcriptome profile ( fig. S4H): \"LYVE1 hi \", \"iron-recycling\", \"MHC class II hi \", \"Kupffer-like\" (18), \"microglia-like TREM2 hi \" (19), \"osteoclasts\" (11,20), and \"proliferating\" macrophages. Assigning proliferating cells to the other identified subsets, we observed a high fraction of proliferating macrophages in the yolk sac and within the LYVE1 hi subset across organs, suggesting an increased self-renewal potential (fig. S11).\n\nWe compared prenatal and adult immune-cell populations by mapping a cross-tissue adult dataset of immune cells (21) onto our prenatal myeloid reference (fig. S12, A and B). We found the transcriptional profiles of DC subsets were conserved between adult and prenatal counterparts (fig. S12C). Adult monocytes were most similar to the IL1B hi and CCR2 hi prenatal populations and no CXCR4 hi monocytes in non-lymphoid adult tissues were observed (fig. S13). The majority of adult macrophages clustered separately from the prenatal macrophages, with the exception of erythrophagocytic macrophages (fig. S12, B and C). This population includes macrophages primarily from the spleen and liver that carry out iron-recycling functions (21).\n\nTo quantify changes in cellular composition across gestation"
+  },
+  {
+    "snippet_index": 20,
+    "quotes": [
+      "macrophages are deeply involved in iron recycling in various ways.",
+      "Macrophages present different iron uptake mechanisms such as the usual import of transferrin-bound or non-transferrin-bound iron, ferrous iron uptake via natural resistance-associated macrophage protein 1 (NRAMP1) or Dmt1 (also known as NRAMP2, as mentioned above) or senescent erythrocyte phagocytosis [95,96].",
+      "To accomplish phagocytosis, macrophages recognize some ageing signals exhibited by senescent erythrocytes, such as an increase of membrane phosphatidylserine and a decrease in membrane flexibility or the antigen CD47 [97].",
+      "Erythrocytes are then incorporated into the denominated phagolysosomes, where they are degraded by ROS and hydrolytic enzymes until heme release.",
+      "Released heme is degraded by the above-mentioned HO-1 into biliverdin, carbon monoxide and ferrous iron.",
+      "Iron transport within the macrophage is performed in three stages. First, heme is transported to the cytosol across phagosome membrane by heme responsive gene 1 (HRG1). After its degradation, ferrous iron is transported through the cytoplasm by PCBP1, and is finally delivered to FPN1 to be exported and reduced by CP in circulation, making possible its transport through the organism via Tf [76,95,96]."
+    ],
+    "summary": "This snippet gives a detailed overview of iron-recycling macrophage function, describing their mechanisms for iron uptake (including phagocytosis of senescent erythrocytes and import via NRAMP1/Dmt1), processing of erythrocytes in phagolysosomes, stepwise intracellular handling of heme and iron, and the export of iron via FPN1. It also notes markers recognized on aging erythrocytes (e.g., phosphatidylserine, CD47).",
+    "categories": [
+      "function",
+      "markers",
+      "location"
+    ],
+    "source_corpus_id": "CorpusId:220976140",
+    "source_title": "Iron Metabolism in Obesity and Metabolic Syndrome",
+    "source_authors": "\u00c1. Gonz\u00e1lez-Dom\u00ednguez et al.",
+    "source_year": null,
+    "snippet": "Humans lack an active system of iron secretion, but about 1-2 mg of iron is lost by means of skin desquamation, bleeding, infestations, etc. The RES is responsible of the recycling of about 25 mg of iron every day, pointing to the great relevance that iron recycling displays in iron homeostasis in humans [94]. \n\nTo maintain the required rate of erythropoiesis (200 billion new erythrocytes every day) and the subsequent heme synthesis, 24 mg of iron are needed per day. To cover these iron requirements, macrophages are deeply involved in iron recycling in various ways. Macrophages present different iron uptake mechanisms such as the usual import of transferrin-bound or non-transferrin-bound iron, ferrous iron uptake via natural resistance-associated macrophage protein 1 (NRAMP1) or Dmt1 (also known as NRAMP2, as mentioned above) or senescent erythrocyte phagocytosis [95,96]. To accomplish phagocytosis, macrophages recognize some ageing signals exhibited by senescent erythrocytes, such as an increase of membrane phosphatidylserine and a decrease in membrane flexibility or the antigen CD47 [97]. Erythrocytes are then incorporated into the denominated phagolysosomes, where they are degraded by ROS and hydrolytic enzymes until heme release. Released heme is degraded by the above-mentioned HO-1 into biliverdin, carbon monoxide and ferrous iron. Iron transport within the macrophage is performed in three stages. First, heme is transported to the cytosol across phagosome membrane by heme responsive gene 1 (HRG1). After its degradation, ferrous iron is transported through the cytoplasm by PCBP1, and is finally delivered to FPN1 to be exported and reduced by CP in circulation, making possible its transport through the organism via Tf [76,95,96]. \n\nWith hemolysis, hemoglobin is released into the circulation."
+  },
+  {
+    "snippet_index": 25,
+    "quotes": [
+      "it is mainly expressed in liver macrophages (Browicz-Kupffer cells), and this expression is only slightly decreased by an iron-deficient diet. This may be due to the specificity of iron metabolism in Browicz-Kupffer cells, which play an essential role in iron recycling through the phagocytosis of senescent RBCs, and thus continuously acquire iron in large amounts."
+    ],
+    "summary": "This snippet identifies liver and splenic macrophages (including Browicz-Kupffer cells) as critical iron-recycling macrophages, emphasizing their function in erythrophagocytosis and iron export via ferroportin, especially during severe iron deficiency.",
+    "categories": [
+      "location",
+      "function",
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:232160521",
+    "source_title": "Marginally reduced maternal hepatic and splenic ferroportin under severe nutritional iron deficiency in pregnancy maintains systemic iron supply",
+    "source_authors": "Rafa\u0142 Mazgaj et al.",
+    "source_year": null,
+    "snippet": "It should be underlined that Fpn transcript containing IRE sequence (and thus amenable to regulation by IRPs) accounts only for 25% of total Fpn mRNA in duodenum. 41 th regard to maternal hepatic Fpn, our IF colocalization and Western blot analyses clearly demonstrated that it is mainly expressed in liver macrophages (Browicz-Kupffer cells), and this expression is only slightly decreased by an iron-deficient diet. This may be due to the specificity of iron metabolism in Browicz-Kupffer cells, which play an essential role in iron recycling through the phagocytosis of senescent RBCs, and thus continuously acquire iron in large amounts. 37,42 Although overall iron content in the liver was strongly decreased, it seems that this more accurately reflects the iron status in hepatocytes. In macrophages, Fpn is sequentially up-regulated by heme-dependent transcriptional induction followed by post-transcriptional IRP/IRE system regulation mediated by iron continuously released by heme catabolism, as described previously. 37 Importantly, under absolute iron-deficiency conditions, hypochromic and microcytic erythrocytes have a shortened lifespan coupled with accelerated reticuloendothelial cell sequestration once released into the circulation. 43 We therefore postulate that during severe maternal iron deficiency, iron recycling into the plasma through Fpn by erythrophagocytosing hepatic and splenic macrophages is the only efficient pathway of iron delivery for the mother and her fetuses. \n\nAnimal model studies indicate that a hierarchy of iron delivery during pregnancy is established in order to maintain fetal iron levels at the expense of the mother. 7,8 Despite this priority, a sufficient supply of iron to the fetus is difficult to maintain and iron deficiency can, lead to neonatal morbidity with an increased risk of prematurity, low birth weight and deleterious effects on brain development. 44,45"
+  },
+  {
+    "snippet_index": 27,
+    "quotes": [
+      "A large amount of iron is supplied by iron recycling of macrophages in the spleen where macrophages export Fe 2+ into plasma by ferroportin (Fpn1 or Slc40a1) after phagocytosis of senescent erythrocytes and breakdown of hemoglobins (22).",
+      "In line with the iron homeostasis of humans, a primary source of iron in mice is iron recycling by splenic macrophages (23).",
+      "Blocking the iron exporter of macrophages could reduce the serum iron level and the number of RBCs in mice (24)."
+    ],
+    "summary": "This snippet describes splenic iron-recycling macrophages as key suppliers of plasma iron, mediating export through ferroportin after phagocytosing senescent erythrocytes; it also shows their centrality for systemic iron levels and erythropoiesis.",
+    "categories": [
+      "location",
+      "function",
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:258334483",
+    "source_title": "TLR7 modulates extramedullary splenic erythropoiesis in P. yoelii NSM-infected mice through the regulation of iron metabolism of macrophages with IFN-\u03b3",
+    "source_authors": "Jiajie Li et al.",
+    "source_year": null,
+    "snippet": "As the course of differentiation and maturation, the expression of CD71 decreases but the expression of Ter119 increases gradually (19). Based on the CD71 and Ter119 expressions, ProE, EryA, EryB, and EryC are distinguished and defined (19). Especially, ProE lacks Ter119, but EryC loses CD71. ProE, EryA, and EryB are immature erythroid progenitors. EryC refers to mature RBCs. \n\nAs a component of hemoglobins (20), iron is an essential element for erythropoiesis. Erythropoiesis in an adult human demands 20-25 mg of iron daily, however, the dietary iron requirement of an adult human is only 1-2 mg/day which can not meet the large demand of erythropoiesis (21). A large amount of iron is supplied by iron recycling of macrophages in the spleen where macrophages export Fe 2+ into plasma by ferroportin (Fpn1 or Slc40a1) after phagocytosis of senescent erythrocytes and breakdown of hemoglobins (22). Once the Fe 2+ is released, it is oxidized to ferric cation (Fe 3+ ) by plasma ferroxidases, for example, copper-dependent ceruloplasmin, and then Fe 3+ is bound to transferrin that allows iron to be transported around the body and utilized by erythroid progenitor cells after transferrin receptor recognition (22). In line with the iron homeostasis of humans, a primary source of iron in mice is iron recycling by splenic macrophages (23). Blocking the iron exporter of macrophages could reduce the serum iron level and the number of RBCs in mice (24). Iron recycling plays a critical role in iron homeostasis. \n\nTLR7 is a member of the Toll-like receptors family, a type of pattern recognition receptors (PRRs)."
+  }
+]

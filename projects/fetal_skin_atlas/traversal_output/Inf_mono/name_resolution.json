@@ -1,0 +1,8 @@
+{
+  "label": "Inf_mono",
+  "resolved_names": ["Inflammatory monocyte", "Inf_mono", "Infl Mo-like"],
+  "scope": "adult",
+  "tissue_context": "adult healthy skin (dermis)",
+  "confidence": "high",
+  "evidence": "Label originates from Reynolds et al. 2021 adult healthy skin atlas (E-MTAB-8142), integrated into Gopee et al. 2024 with original annotations. 'Inf_mono' is a standard abbreviation for inflammatory monocyte in skin atlas nomenclature. Mehta et al. 2021 describe 'Infl Mo-like' cells in the Reynolds dataset as CD14bright CD64bright CD163- mononuclear phagocytes."
+}

@@ -1,0 +1,10 @@
+{
+  "label": "DC1",
+  "resolved_names": [
+    "DC1"
+  ],
+  "scope": "adult",
+  "tissue_context": "skin",
+  "confidence": "low",
+  "evidence": "The provided main text and abstract do not directly mention 'DC1'. Without supplementary tables or additional information showing a cluster-to-cell-type mapping, and as the prompt refers to the adult compartment (which is minor in this prenatal-focused atlas), the name could not be definitively resolved beyond the original label. Typically, 'DC1' refers to a subset of dendritic cells, but the atlas as described focuses primarily on prenatal skin, and the adult skin annotation is not detailed in the excerpt. The label remains unresolved due to lack of definitive mapping."
+}

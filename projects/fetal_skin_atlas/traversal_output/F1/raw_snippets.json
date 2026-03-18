@@ -1,0 +1,563 @@
+[
+  {
+    "snippet": "Fibroblasts are mesenchymal cells with different origins, locations, and functions that synthesize and maintain the extracellular components [15]. The dermal fibroblasts can be divided into subtypes, such as papillary fibroblast, reticular fibroblast, dermal papilla (DP), and dermal white adipose tissue (DWAT) [15][16][17]. The cellular markers that allow for classifying the fibroblast subpopulations fluctuate through embryo development. However, some features remain specific to papillary, reticular, or DWAT. Studies on homologous models such as mice demonstrate that fibroblast on the skin can be isolated through the surface marker FAP and CD90 [18,19]. \n\nInterestingly, different from the mouse model, the human skin presents a fibroblast population gradient where FAP and CD90 expression change depending on the dermis section. In the human skin, the papillary fibroblast can be identified as FAP+ CD90\u2212, the reticular fibroblast as FAP+ CD90+, and FAP\u2212 CD90+ pre-adipose reticular fibroblast [20]. The difference in these fibroblast populations is not exclusively on cellular markers that describe their anatomical locations. The fibroblast subpopulation presents a different gene and protein expression that determines how the fibroblast responds to environmental stimuli [21]. Under specific signals such as adipogenesis-induced medium reticular fibroblast, FAP\u2212 CD90+ can differentiate to adipocyte, whereas papillary fibroblast FAP+ CD90\u2212 cannot be differentiated. Sequencing studies also show that papillary fibroblast has enhanced collagen type VII and type III expressions related to papillary dermis formation, blood vessels, and dermo-epidermal junction (DEJ). In contrast, reticular fibroblast presents an enhanced expression of extracellular matrix (ECM)-related genes such as LOXL3, a lysyl oxidase related to elastin and collagen synthesis [21].",
+    "paper_id": "255027314",
+    "title": "The Human Dermis as a Target of Nanoparticles for Treating Skin Conditions",
+    "authors": [
+      "Javier Salazar",
+      "Thais Carmona",
+      "Flavia C. Zacconi",
+      "D. Venegas\u2010Yazigi",
+      "C. Cabello-Verrugio",
+      "Won Il Choi",
+      "C. Vilos"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.529642617666783,
+    "depth": 0,
+    "corpus_id": "CorpusId:255027314"
+  },
+  {
+    "snippet": "Lineage Identity and Location within the Dermis\u00a0Determine the Function of Papillary and\u00a0Reticular Fibroblasts in Human Skin.",
+    "paper_id": "52153445",
+    "title": "Lineage Identity and Location within the Dermis\u00a0Determine the Function of Papillary and\u00a0Reticular Fibroblasts in Human Skin.",
+    "authors": [
+      "A. Korosec",
+      "S. Frech",
+      "B. Gesslbauer",
+      "M. Vierhapper",
+      "C. Radtke",
+      "P. Petzelbauer",
+      "B. Lichtenberger"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.5081263831423433,
+    "depth": 0,
+    "corpus_id": "CorpusId:52153445"
+  },
+  {
+    "snippet": "Moreover, the early development of visceral organs, such as the lung [16], liver [17], and exocrine pancreas [18,19], follows a very similar morphogenetic scenario. As summarised in these review articles, the exchange of molecules, such as members of the BMP and FGF growth factor families, between the epithelium and mesenchyme is indispensable. Further, other factors, such as members of the TGF-\u03b2, IGF, and Wnt family ligands, as well as EGF and HGF, must also be highlighted in this context. The interaction of these factors via the appropriate membrane-bound receptors initiates the expression of specific transcription factors that control the genetic programme of the particular cell type differentiation, finally leading to organ development. \n\nRelevant to the skin structure, several populations of fibroblast lineages have been identified in the last few years; mouse models proved to be particularly useful for that [20,21]. Papillary and reticular fibroblasts show different morphologies and molecular markers in vivo and in vitro, and they can also differ functionally. A very prominent fibroblast population is also found in the dermal papilla of hair follicles [22]. There is increasing evidence that deeply located fibroblasts present at the border with adipose subcutis also represent a very different subset of dermal fibroblasts [23]. Single-cell sequencing methods proved to be very useful for unravelling cell heterogeneity. However, the single-cell analysis-based literature on human skin remains relatively scarce [24,25]. Moreover, these transcriptomics-identified markers may not be easy to link with the fibroblast subpopulation markers necessary in diagnostic pathology. Additionally, the extrapolation of mouse data to humans is not straightforward because murine and human skin differ significantly across many morphological and functional features.",
+    "paper_id": "246164440",
+    "title": "Cancer-Associated Fibroblasts Influence the Biological Properties of Malignant Tumours via Paracrine Secretion and Exosome Production",
+    "authors": [
+      "M. Vokurka",
+      "L. Lacina",
+      "J. Br\u00e1bek",
+      "M. Kol\u00e1\u0159",
+      "Y. Ng",
+      "K. Smetana"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.5047006365549205,
+    "depth": 0,
+    "corpus_id": "CorpusId:246164440"
+  },
+  {
+    "snippet": "At the end of morphogenesis, the progenitors express the fundamental markers that identify them as keratinocyte progenitors. However, in the adult epidermidis, the progenitors have additional molecular features. Basal epidermal progenitors are primary respondents in the re-epithelialization during the wound healing process [65]. Dermal fibroblast progenitors differentiate into various cell types such as upper papillary fibroblasts (PF), lower reticular fibroblasts (RF), dermal condensate/dermal papilla (DP), and intradermal adipocytes/dermal white adipose tissue (DWAT), with specific functions such as HF formation and scar formation during wound healing. The heterogeneity and plasticity of dermal fibroblasts have recently been studied, which has implications for skin diseases and tissue engineering approaches [66]. Adult mammals do not have the ability to completely regenerate skin; however, the African spiny mouse, Acomys, is able to regenerate skin from wounds up to 60% of the body surface area, complete with follicles, glands, and DWAT, making it an emerging mammalian model [67]. \n\nA previous study reported that the fibroblast progenitor of the deeper skin connective tissue layer is marked by CD201 expression and controls wound healing by generating multiple specialized cell types, from proinflammatory fibroblasts to myofibroblasts, in a spatiotemporally regulated sequence. The identification of proinflammatory and myofibroblast progenitors and their differentiation processes provides new foundations for understanding and clinically treating wound healing [68]. The human embryo is able to heal skin wounds without scarring, a capacity that is lost around the third trimester of gestation likely due to the more mature response of the innate immune system and subsequent changes in adult skin expression [69,70].",
+    "paper_id": "280938973",
+    "title": "Stem Cells in Regenerative Medicine: A Journey from Adult Stem Cells to Induced Pluripotent Cells",
+    "authors": [
+      "Ylenia Della Rocca",
+      "Antonella Mazzone",
+      "G. Marconi",
+      "O. Trubiani",
+      "J. Pizzicannella",
+      "F. Diomede"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.5043537715603928,
+    "depth": 0,
+    "corpus_id": "CorpusId:280938973"
+  },
+  {
+    "snippet": "Most significantly staining healthy and SSc skin, showing that CRABP1 stains cells in human dermal papilla as shown previously in murine studies and Perisostin stains in the papillary dermis Figure S3C. Thus, this fibroblast subpopulation (subcluster #2 in Figure 2) represents a cell population, previously not identified in human skin as papillary fibroblasts. Further based on the work of Dr. Watt's group, (J Invest Dermatol. 2018;138(4):811-25), we identify markers of papillary fibroblasts in fibroblast subcluster 3 (Figure 2). We have additionally added dot plot figures making it easier to follow the different cell types in normal skin (Figure S3B) and combined SSc and normal skin (Figure 3A). With these additional studies we have characterized most of the fibroblast subpopulations in skin.",
+    "paper_id": "233745162",
+    "title": "Myofibroblast transcriptome indicates SFRP2hi fibroblast progenitors in systemic sclerosis skin",
+    "authors": [
+      "T. Tabib",
+      "Mengqi Huang",
+      "N. Morse",
+      "A. Papazoglou",
+      "Rithika Behera",
+      "M. Jia",
+      "M. Bulik",
+      "Daisy Monier",
+      "P. Benos",
+      "Wei Chen",
+      "R. Domsic",
+      "R. Lafyatis"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.5036503101752547,
+    "depth": 0,
+    "corpus_id": "CorpusId:233745162"
+  },
+  {
+    "snippet": "and epidermis, and show specific markers. However, their function in wounding has not been fully examined. The mouse dermis is also host to the pre-adipocyte, a fibroblast subtype that resides in the hypodermis or dermal white adipose tissue under the reticular dermis, and directly differentiates into adipocytes at postnatal day (P)2 (Fig. 3) (Driskell et al., 2013).\n\nAlthough the work discussed above identified numerous surface markers for mouse fibroblasts, few studies focused on the human skin and accounted for reticular and papillary fibroblasts. A recently identified group of cell surface markers may help distinguish between the papillary and reticular fibroblasts of the human dermis (Korosec et al., 2019). Flow cytometry analysis of fibroblasts isolated from superficial and lower layers of the dermis showed that fibroblast activation protein-positive (FAP + ) CD90 \u2212 (also known as THY1 -) cells are enriched in the papillary dermis. Furthermore, papillary fibroblasts have increased proliferative potential, express podoplanin (PDPN) and netrin-1 (NTN1) and do not differentiate into adipocytes (Korosec et al., 2019). In contrast, FAP + CD90 + fibroblasts express high levels of actin alpha 2 (ACTA2), matrix glial protein (MGP), peroxisome proliferator-activated receptor gamma (PPARG) and CD36, and readily undergo adipogenic differentiation, a hallmark of reticular fibroblasts. The differences in the papillary and reticular fibroblast behavior observed parallel those of murine skin (Driskell et al., 2013). Another study has shown that human papillary and reticular fibroblast identity may also vary according to age, as shown by genome-wide profiling, which revealed that KN motif and ankyrin repeat domains 4 (KANK4), aggrecan (ACAN), pregnancy-specific beta 1glycoprotein (PSG1) and col",
+    "paper_id": "219701996",
+    "title": "Understanding the impact of fibroblast heterogeneity on skin fibrosis",
+    "authors": [
+      "M. Griffin",
+      "H. desJardins-Park",
+      "Shamik Mascharak",
+      "M. Borrelli",
+      "M. Longaker"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.5031921596669044,
+    "depth": 0,
+    "corpus_id": "CorpusId:219701996"
+  },
+  {
+    "snippet": "Subclustering of 2,303 fibroblasts from the three sites resulted in the formation of four fibroblast clusters (Figures 3A and S2A). Fibroblasts II and III show non-overlapping localization, with fibro-blast II found nearly exclusively in the palmoplantar skin and fibroblast III found only in non-palmoplantar skin (Figures 3B and S2B). However, these two clusters share expression of markers such as WIF1, MMP2, SFRP2, and DPP4, suggesting a shared role in maintaining dermal and extracellular matrix homeostasis (Figures 3C, S2C, S2D, and S2G). 12,14,32 The palmo plantar-specific fibroblast II also expressed ANGPTL7 and PRG4, markers of two previously identified minor fibroblast populations (Figures S2G and S2H). 12 broblast I is marked by upregulation of CXCL12, APOE, FMO1, and LSP1, pointing to a role in immune surveillance and promotion of inflammation (Figures 3C, S2C, S2D, and S2G). 12,14,32 Fibroblast IV was marked by APOD, C2orf40, ITGA6, CLDN1, and TM4SF1, overlapping with a specialized fibroblast population previously identified in single-cell analysis of healthy human skin (Figures 3C and S2I). 12,32  calculated a reticular and papillary score [32][33][34][35][36][37] and found that, although the clustering was not driven by localization in the dermis, fibroblast II is marked by a higher papillary score, while fibroblast III has a higher reticular score (Figures S2E and S2F). GO terms for these clusters further support fibroblasts II and III sharing a role in structural maintenance, as both are marked by a number of terms related to extracellular matrix organization (Figure S2J).",
+    "paper_id": "256296630",
+    "title": "Differential cell composition and split epidermal differentiation in human palm, sole, and hip skin",
+    "authors": [
+      "J. Wiedemann",
+      "A. Billi",
+      "F. Bocci",
+      "Ghaidaa Kashgari",
+      "E. Xing",
+      "L. Tsoi",
+      "Leo Meller",
+      "W. Swindell",
+      "R. Wasikowski",
+      "X. Xing",
+      "Feiyang Ma",
+      "M. Gharaee-Kermani",
+      "J. Kahlenberg",
+      "P. Harms",
+      "E. Maverakis",
+      "Qing Nie",
+      "J. Gudjonsson",
+      "B. Andersen"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4969841493490841,
+    "depth": 0,
+    "corpus_id": "CorpusId:256296630"
+  },
+  {
+    "snippet": "While all fibroblasts share some basic properties, primarily the ability to secrete collagen-rich ECM, no molecular markers are universally expressed by all fibroblasts, which directly leads to the dermal fibroblast subsets being historically defined by their spatial location. To date, the defining markers that allow purification of fibroblasts across skin locations and age still remain to be determined in both mouse and human skin, posing a major challenge to unbiased identification and isolation of fibroblasts. Therefore, here, we try to summarize the known surface markers of dermal fibroblasts in both mouse and human skin as comprehensively as possible, which can be seen in detail in Table 1. \n\nFps and Frs can be differentiated based on their unique surface marker profiles. For example, Janson et al. (2013) analyzed the specific gene expression in Fps and Frs in human skin and found that netrin-1, podoplanin and atypical chemokine receptor 4 are highly expressed in Fps, suggesting that Fps express the genes that mainly enhance skin immunity, host response and  the complement activation pathway (Stunova and Vistejnova, 2018). On the other hand, high expression of transglutaminase 2, calponin1, cadherin2, and matrix gla protein in Frs indicates that Frs express genes involved in cytoskeleton dynamics and cell motility (Shinde et al., 2017;Hogervorst et al., 2018). However, there also seem to be markers, such as CD26, that change dynamically with external factors. Driskell et al. (2013) believe that CD26 marks the superior papillary dermis at the early stages of mouse development, while Rinkevich found CD26 in a large fraction of dermal fibroblasts in an adult mouse (Rinkevich et al., 2015).",
+    "paper_id": "236095478",
+    "title": "Fibroblasts: Heterogeneous Cells With Potential in Regenerative Therapy for Scarless Wound Healing",
+    "authors": [
+      "M. Zou",
+      "Ying-ying Teng",
+      "Jun-Jie Wu",
+      "Si-Yu Liu",
+      "Xiaolan Tang",
+      "Yuan Jia",
+      "Zhong-hua Chen",
+      "Kai-Wen Zhang",
+      "Zi-Li Sun",
+      "Xia Li",
+      "Jun-Xing Ye",
+      "Rui-sheng Xu",
+      "Feng-Lai Yuan"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4957868145715616,
+    "depth": 0,
+    "corpus_id": "CorpusId:236095478"
+  },
+  {
+    "snippet": "The dermis is an important regulatory layer of the skin underlining the epidermis. It principally consists of ECM secreted by numerous fibroblasts and is divided in two regions: the papillary dermis (PD) and the reticular dermis (RD) (15). As in the gut, different fibroblast populations are localized in the distinct structures of the dermis. PD fibroblasts exhibit morphological differences compared to RD fibroblasts. While PD fibroblasts are thin and spindle-shaped, RD fibroblasts have a squarer shape (19). ScRNAseq studies on skin biopsies identified 4 clusters of dermal fibroblasts and two subpopulations with important structural and ECM organization roles. The first, in the RD (so-called secretary-reticular), is enriched with WISP2 or MFAP5. The second subpopulation (so-called secretary-papillary) is found in the PD region and expresses APCDD1 or COL18A1, previously described as papillary markers. The third population expressing Asporin (ASPN) and Periostin (POSTN) is implicated in mesenchymal regulation. The final sub-population represents a pro-inflammatory state, enriched with CCL19, APOE, or CXCL2 expression (24). However, poor overlap of adult dermal fibroblasts subpopulations has been observed in other scRNA-seq datasets (20, [25][26][27]. A comparative study on all published datasets on human skin, identified 3 mains dermal fibroblast types, type A fibroblasts implicated in ECM homeostasis and potentially in fibrotic linage, type B fibroblasts involved in inflammation and immune surveillance and type C corresponding to a specialized skin specific subpopulation such as papillary dermis fibroblasts. While disparities between datasets can be explained by variation in experimental processes, once clustered together those datasets reveal biological similarities between them.",
+    "paper_id": "257339585",
+    "title": "Fibroblast heterogeneity: Keystone of tissue homeostasis and pathology in inflammation and ageing",
+    "authors": [
+      "Vincent Gauthier",
+      "M. Kyriazi",
+      "M. Nefla",
+      "V. Pucino",
+      "K. Raza",
+      "C. Buckley",
+      "Ghada Alsaleh"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.49437363934822426,
+    "depth": 0,
+    "corpus_id": "CorpusId:257339585"
+  },
+  {
+    "snippet": "Understanding the state, complexity and heterogeneity of normal fibroblasts may shed light on the origins of CAFs, how they form and how their transdifferentiation may be regulated in the early stages of tumorigenesis and at the tumor front. Two major populations of fibroblasts in the human dermis are papillary and reticular fibroblasts, which possess distinct morphology, molecular expression, and cellular functions (Harper and Grove, 1979). Janson et al. (2012) performed gene expression analysis on cultured papillary and reticular fibroblasts and identified 116 differentially expressed genes. However, except for matrix Gla protein (MGP), which is almost exclusively expressed in the reticular dermis, they did not discover any in vivo markers to separate the two fibroblast populations. Korosec et al. (2019) performed lineage identity and location studies of human dermis using two markers, fibroblast activation protein (FAP) and THY1 (Cluster of Differentiation 90 or CD90). They found that papillary fibroblasts are FAP + ; THY1 \u2212 , whereas FAP \u2212 ; THY1 + fibroblasts are mainly of the reticular lineage. Their data showed papillary and reticular fibroblasts are not completely separated according to their spatial location. \n\nHowever, recent studies have suggested that there exist more functionally distinct fibroblast subpopulations within the human dermis. A single-cell RNA sequencing (scRNA-seq) study by Philippeos et al. (2018) showed that there are five distinct fibroblast populations in adult human skin, which can be separated based on the expression of cell surface markers, including THY1, CD39, CD26 (DPP4), and regulator of G protein signaling 5 (RGS5), and are not spatially segregated. Tabib et al. (2018) performed single-cell transcriptomal analysis of cells obtained from whole skin without pre-purifying fibroblast populations.",
+    "paper_id": "129948941",
+    "title": "Cancer-Associated Fibroblasts Build and Secure the Tumor Microenvironment",
+    "authors": [
+      "Tianyi Liu",
+      "Linli Zhou",
+      "Danni Li",
+      "T. Andl",
+      "Yuhang Zhang"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4929448535748937,
+    "depth": 0,
+    "corpus_id": "CorpusId:129948941"
+  },
+  {
+    "snippet": "Scale bars are 100 mm. The online version of this article includes the following figure supplement(s) for figure 5:  different fibroblast lineages present in either development or wounds, which express different Lef/ Tcf factors to direct a Wnt/beta-catenin-specific response (Driskell et al., 2013;Philippeos et al., 2018;Rognoni et al., 2016). We and others have shown that Lef1 is expressed in embryonic and neonatal papillary fibroblasts, which is lost in adult fibroblasts (Driskell et al., 2013;Mastrogiannaki et al., 2016;Philippeos et al., 2018;Rognoni et al., 2016). Here, we demonstrate that Lef1 is a key transcription factor in developing fibroblasts that supports hair follicle formation in adult wounds. Our data indicates that Lef1 expression in the dermis of the skin primes a response to support hair follicle neogenesis and arrector pili reformation in the wound. Our results align with studies that induced Lef1 expression in cultured human dermal papilla cells to enhance hair follicle formation in vitro (Abaci et al., 2018). In humans, at the age of 50+, the quality of the papillary dermis gradually deteriorates, which correlates with the aging skin decreased wound healing abilities (Haydont et al., 2019;Marcos-Garce \u00b4s et al., 2014). Our data suggests that activating the papillary region to retain its identity by expression of Lef1 has the potential to enhance wound healing in humans.",
+    "paper_id": "219723162",
+    "title": "Lef1 expression in fibroblasts maintains developmental potential in adult skin to regenerate wounds",
+    "authors": [
+      "Quan M. Phan",
+      "G. Fine",
+      "L. Salz",
+      "Gerardo G. Herrera",
+      "Ben Wildman",
+      "Iwona M. Driskell",
+      "R. Driskell"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4907982554667626,
+    "depth": 0,
+    "corpus_id": "CorpusId:219723162"
+  },
+  {
+    "snippet": "2 Contribution of distinct fibroblast subsets to skin physiology and wound healing \n\nMouse skin dermis comprises at least two functionally distinct fibroblast lineages which develop from a common progenitor: the papillary fibroblasts which contribute to the upper dermis including hair-follicle-associated fibroblasts of the dermal sheath (DS) and dermal papilla (DP) and are essential for HF development, and the reticular fibroblasts giving rise to adipocytes and preadipocytes of the hypodermis (Driskell et al., 2013). In vivo lineage tracing revealed that fibroblast diversification toward functional lineages occurs before embryonic day 16.5 (E16.5) (Driskell et al., 2013), possibly as early as E12.5 (Jacob et al., 2023). Additional heterogeneity within these two fibroblast lineages was demonstrated by scRNA-Seq of adult mouse skin (Joost et al., 2020). Recent spatial and single cell transcriptomic data confirm that also human skin harbors two major fibroblast subsets (Philippeos et al., 2018;Tabib et al., 2018;Korosec et al., 2019;Vorstandlechner et al., 2020). While differences in fibroblast subsets and markers exist between mouse and human skin, the two main subsets are functionally similar, e.g. reticular fibroblasts can undergo adipogenic differentiation, while papillary cannot (Driskell et al., 2013;Korosec et al., 2019). Reticular fibroblasts represent the majority of fibroblasts in adult tissue (Driskell et al., 2013;Lichtenberger et al., 2016) and have been shown to play a predominant role in fibrosis and cutaneous wound healing (Driskell et al., 2013;Rinkevich et al., 2015;Mastrogiannaki et al., 2016;Jiang and Rinkevich, 2020).",
+    "paper_id": "267730630",
+    "title": "Modulating embryonic signaling pathways paves the way for regeneration in wound healing",
+    "authors": [
+      "S. Frech",
+      "B. Lichtenberger"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4878657438698087,
+    "depth": 0,
+    "corpus_id": "CorpusId:267730630"
+  },
+  {
+    "snippet": "Well-organized fibrillary collagen bundles are abundant in the reticular dermis, while nonfibrillary collagens and proteoglycans like fibromodulin and decorin are more common in papillary dermis 41,45 . This suggests that these populations directly influence the ECM components of the dermis and may respond differently to injury. Jiang and Rinkevich reviewed the subsets of dermal fibroblasts implicated in fibrosis and concluded that no markers or spatial location within the dermis can discriminate fibrotic fibroblasts 46 . Conversely, other evidences point that papillary fibroblast favor scar-free wound healing by producing Wnt whereas reticular fibroblasts are fibrotic since readily synthetize collagenous ECM 47,48 . In fact, keratinocytes grown on papillary dermis-like ECM proliferate more than on reticular fibroblast-derived ECM 49 . In addition, reticular and papillary fibroblasts have been described to respond differently to aging 50,51 . In a comparative study, aged papillary fibroblasts display reduced capacity to proliferate and remodel ECM relatively to aged reticular fibroblasts 51 . The authors of this study suggest that the less-differentiated papillary fibroblasts may progressively disappear or differentiate into reticular fibroblasts with aging. These evidences collectively suggest that papillary fibroblasts are more pro-regenerative than reticular fibroblasts and that their stimulation can be key for regenerating skin without scarring 52 . \n\nAiming at understanding the mechanisms governing scarless skin regeneration, significant interest has been given to mammalian fetuses as they are able to regenerate their skin without scarring [53][54][55] . The fetal healing process was found to differ from the one of adults in various parameters such as inflammatory cell recruitment, TGF-\u03b2 expression, and ECM secretion 54,56 .",
+    "paper_id": "236972276",
+    "title": "The bright side of fibroblasts: molecular signature and regenerative cues in major organs",
+    "authors": [
+      "Rita N. Gomes",
+      "Filipa Manuel",
+      "D. Nascimento"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4868416993179413,
+    "depth": 0,
+    "corpus_id": "CorpusId:236972276"
+  },
+  {
+    "snippet": "In human skin, interfollicular dermis is a heterogeneous tissue compartment, considering its fibroblast content and extracellular matrix (ECM) structure. Its segmentation into two biologically distinct territories (i.e., superficial papillary dermis and deeper reticular dermis) occurs during the embryonic development at 12 weeks of gestation in humans [1,2]. Major structural specificities of these dermal territories concern collagen reticulation and organization of the elastin network, which are dynamic characteristics in constant evolution during the intra-uterine and postnatal life (for review, see [3]).\n\nSpecificities of the different dermal territories also concern their fibroblast contents, in which characterization drives an increasing interest considering their widely expected functions in skin physiology. The existence of two dermal fibroblast populations, named papillary (Fp) and reticular (Fr) fibroblasts according to their dermal localization, was reported in human skin in the late seventies [4]. Since then, studies have been conducted to further explore their cellular properties [5] and molecular profiles [6,7]. Biological aspects that are attracting attention are the cellular and molecular changes that affect Fp and Fr cells through skin ageing [8,9].\n\nOther fibroblast or fibroblast-like mesenchymal cell populations are present within the dermis, such as pericytes and telocytes. Pericytes appear in the fetal dermis at eight weeks of gestation in humans and acquire their mature characteristics at 21 weeks of gestation [10]. These cells contribute to the maintenance of capillary vessel integrity and may play a role in the maintenance of mesenchymal tissues in the contexts of homeostasis and/or wound healing [11]. In addition, pericytes may contribute to the niche that regulates the symmetrical versus asymmetrical division choice of epidermal keratinocyte precursors [12]. Telocytes possess an atypical fibroblast morphology characterized by long and slender moniliform cellular prolongations termed telopodes [13]. These cells serve as connecting devices, constructing homocellular junctions and connections with other cells types [14].",
+    "paper_id": "211063673",
+    "title": "Fibroblasts from the Human Skin Dermo-Hypodermal Junction are Distinct from Dermal Papillary and Reticular Fibroblasts and from Mesenchymal Stem Cells and Exhibit a Specific Molecular Profile Related to Extracellular Matrix Organization and Modeling",
+    "authors": [
+      "V. Haydont",
+      "V\u00e9ronique Neiveyans",
+      "Philippe Perez",
+      "\u00c9. Busson",
+      "J. Lataillade",
+      "D. Asselineau",
+      "N. Fortunel"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4864772769993914,
+    "depth": 0,
+    "corpus_id": "CorpusId:211063673"
+  },
+  {
+    "snippet": "Fibroblasts are the main cellular constituent of the dermis. Histologically, the dermis presents distinct upper (papillary) and lower (reticular) layers (Figure 1). Papillary fibroblasts are more densely packed, while the reticular dermis contains sparse fibroblasts and substantially more extracellular matrix (ECM). For a long time, phenotypic markers that distinguish both fibroblasts types have been explored. However, it is now clear that both fibroblast categories contain subpopulations [35], and more granularity is thus needed to achieve a biologically meaningful categorization of cell subsets. Several research groups have now proposed diverse clusterings of human skin fibroblast populations at the single-cell level, with all published studies finding three major cell populations and a varying number of subpopulations [36][37][38][39][40]. Unfortunately, there seems to be little overlap between studies concerning markers of fibroblast types and subtypes. This is only apparent because in a joint reanalysis of the first four datasets high comparability between them was uncovered [35]. Thus, there seem to be 3 major fibroblast types in human skin, denominated A-C, and they are composed of at least 10 minor subtypes (clusters), denominated A1-A4, B1 and B2, and C1-C4. For instance, Ascension's cluster B2 (CCL19 + ) can be mapped to Tabib's cluster 5 [36], Sol\u00e9-Boldo's 2A population [38], and Vorstandlechner's cluster 2 [37]. Similarly, Ascension's cluster A2 (APCDD1 + COL18A1 + ) can be mapped to Tabib's cluster 0, Sol\u00e9-Boldo's cluster 3, and Vorstandlechner's cluster 3. These computationally determined axes and clusters account for 92.5% of the sequenced fibroblasts. There are some indications of the localization of some of these cell types (Figure 1), but the functional characterization of fibroblast types and subtypes is still lacking.",
+    "paper_id": "246165324",
+    "title": "Challenges and Opportunities for the Translation of Single-Cell RNA Sequencing Technologies to Dermatology",
+    "authors": [
+      "A. M. Ascensi\u00f3n",
+      "M. Ara\u00fazo-Bravo",
+      "A. Izeta"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.48415868661117983,
+    "depth": 0,
+    "corpus_id": "CorpusId:246165324"
+  },
+  {
+    "snippet": "Notably, no differentiation was observed in any of the conditions tested for the PFF cultures, confirming the consistent absence of adipogenic and osteogenic differentiation potential over multiple passages. \n\nIt is well-established that cellular heterogeneity within adult skin can significantly influence fibroblast differentiation potential. To further investigate this phenomenon, adult skin samples were meticulously dissected to separate the papillary and reticular dermis, representing distinct dermal layers with varying cellular compositions and functions. Fibroblast cultures were then established from each layer using mechanical dissection and outgrowth, avoiding enzymatic digestion to minimize potential alterations in cellular phenotype. Prior research, employing enzymatic digestion and isolating fibroblasts from different anatomical sites, has revealed variations in differentiation capacity, with reticular fibroblasts typically exhibiting higher differentiation potential, likely due to their distinct developmental origins and functional roles. \n\nConsistent with these prior findings, our results demonstrated that papillary fibroblasts exhibited lower differentiation potential for both adipogenic and osteogenic lineages compared to reticular fibroblast populations (Figure 5). This observation underscores the importance of considering dermal layer specificity when evaluating fibroblast differentiation potential and highlights the impact of cellular heterogeneity on differentiation outcomes. \n\nThese findings suggest that, in addition to inter-patient variability, intra-patient heterogeneity within a single skin biopsy can significantly contribute to variations in fibroblast differentiation potential. Specifically, this variability may be influenced by the depth of the dermal layer and its proximity to the hypodermis, which contains distinct cell populations and ECM components that can influence cellular programming. \n\nPapillary dermal fibroblasts, located more superficially within the dermis, consistently exhibited lower overall differentiation potential for both adipogenesis and osteogenesis (Figure 5). This reduced differentiation capacity may be attributed to their distinct microenvironment, potentially characterized by lower fibroblast density and fewer interactions with cell types known to influence differentiation, such as those found in proximity to ASCs in deeper dermal layers.",
+    "paper_id": "278927903",
+    "title": "Bicomponent Cutaneous Cell Therapy for Early Burn Care: Manufacturing Homogeneity and Epidermis-Structuring Functions of Clinical Grade FE002-SK2 Allogeneic Dermal Progenitor Fibroblasts",
+    "authors": [
+      "Xi Chen",
+      "N. Hirt-Burri",
+      "C. Scaletta",
+      "A. Laurent",
+      "L. Applegate"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4833657213654955,
+    "depth": 0,
+    "corpus_id": "CorpusId:278927903"
+  },
+  {
+    "snippet": "Manifold-based dimensionality reduction was used to delineate transcriptionally-distinct fibroblast clusters (subpopulations) and non-linear discriminant analyses were applied to determine cluster expression profiles and surface markers and thus identify papillary and dermal subpopulations. Gene-set enrichment analysis was performed to confirm cluster profibrotic potential, and immunofluorescence and FACS were performed to confirm findings at the protein level. \n\nResults: PPFs progressively increased as a proportion of the total ventral fibroblasts over development, with the largest difference seen E16.5 to E18.5. In adult ventral skin, there were significantly more PPFs in wounded and irradiated skin, as well as in tumor stroma. PPFs transplanted into the oral mucosa exhibited 23.89% collagen I co-localization, whereas Wnt-1positive (non-scarring) fibroblasts transplanted into the ventral dermis exhibited low collagen co-localization (1.49%), demonstrating that the fibrogenic potential of PPFs is cell-intrinsic. Single cell analysis revealed unique PPF and PNF subpopulations which responded differently to wounding; the papillary (CD26+) fibroblasts were largely PPFs and expanded with wounding, whereas reticular (Dlk1+) fibroblasts were PNFs and minimally responded to wounding.",
+    "paper_id": "219483466",
+    "title": "Abstract 189: Postnatal Engrailed-1 Expression Activates A Pro-Fibrotic Transcriptional Program In Wound Fibroblasts",
+    "authors": [
+      "Shamik Mascharak",
+      "H. desJardins-Park",
+      "Mimi R. Borrelli",
+      "A. Moore",
+      "Michael F. Davitt",
+      "Malini S. Chinta",
+      "Deshka S. Foster",
+      "Michael Januszyk",
+      "S. H. Kwon",
+      "G. Wernig",
+      "Derrick C. Wan",
+      "H. P. Lorenz",
+      "Geoffrey C. Gurtner",
+      "M. Longaker"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.483129561578176,
+    "depth": 0,
+    "corpus_id": "CorpusId:219483466"
+  },
+  {
+    "snippet": "Neonatal developing skin has been extensively studied in the context of functional fibroblasts heterogeneity (Driskell et al., 2013). To identify fibroblasts lineages in scRNA-seq data, we isolated cell clusters from developing skin using pan fibroblast marker Pdgfra and Twist2 (Figure 2d, Figure 2figure supplement 1; Collins et al., 2011) and then overlaid previously identified molecular markers of different lineages including papillary (Dpp4+/Dlk1-/Ly6a-), reticular (Dpp4-/Dlk1+/Ly6a+/-) and hypodermal fibroblasts (Dpp4-/Dlk1-/Ly6a+) on the developing scRNA-seq UMAP (Figure 2a-e). We also identified small populations of fascia utilizing the new marker Gpx3 (Figure 2d; Joost et al., 2020). Furthermore, the dermal sheath cluster was identified by expression of Acan and Acta2 (Heitman et al., 2020; Figure 2d, Figure 2-figure supplement 1), which is plotted between the dermal papilla (DP) and papillary fibroblasts clusters (Figure 2d-e). The DP clusters were defined by expression of Corin, a well-established marker for DP (Enshell-Seijffers et al., 2008). Interestingly, we also found novel heterogeneity within papillary fibroblast clusters. Besides the Dpp4+ clusters, Lef1 and Dkk1 expressions marked distinct papillary fibroblast clusters (Figure 2i, Figure 2-figure supplement 1). Overall, we concluded that the previously identified fibroblasts heterogeneity and the lineages could be identified in the scRNA-seq analysis of developing skin, with the additional subclusters of papillary fibroblasts (Figure 2e; Driskell et al., 2013).",
+    "paper_id": "219723162",
+    "title": "Lef1 expression in fibroblasts maintains developmental potential in adult skin to regenerate wounds",
+    "authors": [
+      "Quan M. Phan",
+      "G. Fine",
+      "L. Salz",
+      "Gerardo G. Herrera",
+      "Ben Wildman",
+      "Iwona M. Driskell",
+      "R. Driskell"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4815714002566084,
+    "depth": 0,
+    "corpus_id": "CorpusId:219723162"
+  },
+  {
+    "snippet": "The human integumentary system, comprising the skin, is a complex organ system that serves as a protective barrier to the body's internal environment [1]. The skin contains three layers: epidermis, dermis, and hypodermis, each with sublayers that perform different skin physiological functions. Among skin layers, the dermis layer is composed primarily of fibroblasts, which maintain the integrity of its connective tissues. There exist three main categories of fibroblasts, and each of these categories includes several subgroups or clusters. Fibroblasts can be broadly classified into distinct groups. Specifically, these three categories consist of ten primary variants, which together make up 92.5% of the fibroblast groups that were analyzed using single-cell RNA sequencing (scRNA-seq) [2]. The classification of fibroblasts into three distinct types, namely papillary fibroblasts, reticular fibroblasts, and dermal-subcutaneous junction fibroblasts, is based on their precise positioning within the dermis. The various attributes of cutaneous fibroblasts are evident in the multitude of cell types (Fig. 1) [3]. Given their common features that confirm them as fibroblasts, they have different potentials (Fig. 1). Ernst Ziegler and Rudolf Virchow first identified fibroblasts as cells generating fresh connective tissue in wounds, and they were later characterized as cells that adhere easily to cultures and proliferate with nourishment [4]. When activated, fibroblasts can change their shape from elongated and pointed to a starshaped configuration [5]. Most of the body's fibroblasts originate from precursor cells in the paraxial and lateral plate mesoderm, while the dermal fibroblast cells of the craniofacial structures originate from cranial neural crest cells [6]. There are no standard cell markers for fibroblasts, as their markers vary according to subtype and location in the tissues/organs.",
+    "paper_id": "272763867",
+    "title": "A comprehensive evaluation of dermal fibroblast therapy in clinical trials for treating skin disorders and cosmetic applications: a scoping review",
+    "authors": [
+      "Maryam Rahnama",
+      "Navid Ghasemzadeh",
+      "Yaser Ebrahimi",
+      "A. Golchin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.47728332834016823,
+    "depth": 0,
+    "corpus_id": "CorpusId:272763867"
+  },
+  {
+    "snippet": "Two major subtypes of dermal fibroblasts were identified primarily using cluster-specific marker genes (Figure 5A,B): papillary fibroblasts (APCDD1 and AXIN2) and reticular fibroblasts (MFAP5 and COL11A1) (Table S5, Supporting Information).The physical localizations of the dermis subtypes in the tissues were consistent with their anatomical locations identified histologically; compared to the reticular dermis, the papillary dermis is the superficial layer of the dermis that lies immediately below the epidermis [29] (Figures 5C and 1D).The representative expression features of these dermal fibroblast subtypes are illustrated by ST (Figure 5C).No significant differences were observed in the proportions of the various clusters of dermal fibroblasts between the normal and hairless groups (Figure S8A, Supporting Information).However, notable variations were detected in the number of DEGs among the different cell clusters, particularly in clusters 1, 2, 0, and 3 (Figure S8B, Supporting Information).These DEGs were associated with the extracellular matrix and extracellular structures of the dermal layer (Figure S8C, Supporting Information).\n\nUsing Monocle2 and CytoTRACE, pseudo-time trajectory analyses divided dermal fibroblasts into three states, with two distinct cell fates arising from state 1 (Figure 5D,E; Figure S8D, Supporting Information).Based on the gene expression profiles along the trajectory, the fibroblasts were closely related to \"extracellular matrix organization,\" \"cell-substrate adhesion,\" and \"connective tissue development,\" reflecting the role of dermal fibroblasts in generating the extracellular matrix and forming the connective tissue that maintains skin morphology and homeostasis (Figure 5F).Fibroblast heterogeneity can be considered based on the stage of development, tissue of origin, or tissue microenvironment.In mice, dermal fibroblasts are derived from common fibroblast progenitor cells and differentiate into specific lineages by postnatal day two (P2). [30]",
+    "paper_id": "268854758",
+    "title": "Integrating Single\u2010Cell and Spatial Transcriptomics Reveals Heterogeneity of Early Pig Skin Development and a Subpopulation with Hair Placode Formation",
+    "authors": [
+      "Yi Wang",
+      "Yao Jiang",
+      "Guiyan Ni",
+      "Shujuan Li",
+      "Brad Balderson",
+      "Quan Zou",
+      "Huatao Liu",
+      "Yifan Jiang",
+      "Jingchun Sun",
+      "Xiangdong Ding"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.47120030184120826,
+    "depth": 0,
+    "corpus_id": "CorpusId:268854758"
+  },
+  {
+    "snippet": "Papillary gingival fibroblasts were similar to fetal skin fibroblasts in their production of the migration stimulating factor (MSF) in contrast to the reticular fibroblasts which displayed a phenotype similar to adult skin fibroblasts that do not produce MSF. The fetal like gingival papillary fibroblasts may thus contribute to migration beneficial non-scarring wound healing in the oral mucosa.",
+    "paper_id": "46732589",
+    "title": "Fibroblast Heterogeneity in Periodontium \u2013 a Review",
+    "authors": [
+      "A. Archana",
+      "V. Srikanth",
+      "Sasireka",
+      "B. Kurien",
+      "Ebenezer"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.46800282365637336,
+    "depth": 1,
+    "corpus_id": "CorpusId:46732589"
+  },
+  {
+    "snippet": "Fibroblasts that support hair follicle development differentiate from the papillary fibroblast lineage, into dermal papilla (DP), dermal sheath (DS), and arrector pili (AP) cells (Driskell et al., 2013;Plikus et al., 2017). Reticular fibroblasts, which cannot differentiate into papillary fibroblast lineages, secrete extra-cellular-matrix (ECM) and form adipocytes (Driskell et al., 2013;Schmidt and Horsley, 2013). \n\nBy post-natal day 2 (P2) fibroblast heterogeneity is fully established with the presence of the defined layers of the dermis (Figure 1a; Driskell et al., 2013). Skin maturation occurs after P2 with the formation of the AP and the completion of the first hair follicle cycle, which results in the loss of a defined papillary fibroblast layer (Figure 1b; Driskell et al., 2013;Rognoni et al., 2016;Salzer et al., 2018). We have previously shown that papillary fibroblasts are the primary source of de-novo dermal papilla during skin development, which are required for hair formation (Driskell et al., 2013). Furthermore, it has been suggested that adult murine skin form scars due to the lack of a defined papillary layer (Driskell et al., 2013;Driskell and Watt, 2015). Consequently, expanding this fibroblast layer in adult skin might support skin regeneration in adult mice. The use of scRNA-seq in the murine skin has established useful cell atlases of the skin during development and homeostasis (Guerrero-Juarez et al., 2019;Haensel et al., 2020;Joost et al., 2020;Joost et al., 2018;Joost et al., 2016;Mok et al., 2019).",
+    "paper_id": "219723162",
+    "title": "Lef1 expression in fibroblasts maintains developmental potential in adult skin to regenerate wounds",
+    "authors": [
+      "Quan M. Phan",
+      "G. Fine",
+      "L. Salz",
+      "Gerardo G. Herrera",
+      "Ben Wildman",
+      "Iwona M. Driskell",
+      "R. Driskell"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4643809018868729,
+    "depth": 1,
+    "corpus_id": "CorpusId:219723162"
+  },
+  {
+    "snippet": "Dermal fibroblasts are a dynamic and diverse population of cells whose functions in skin in many respects remain unknown. Normal adult human skin contains at least three distinct subpopulations of fibroblasts, which occupy unique niches in the dermis. Fibroblasts from each of these niches exhibit distinctive differences when cultured separately. Specific differences in fibroblast histophysiology are evident in papillary dermal fibroblasts, which reside in the superficial dermis, and reticular fibroblasts, which reside in the deep dermis. Both of these subpopulations of fibroblasts differ from the fibroblasts that are associated with hair follicles. Fibroblasts engage in fibroblast-epidermal interactions during hair development and in interfollicular regions of skin. They also play an important role in cutaneous structural transformations.",
+    "paper_id": "245578778",
+    "title": "Dermal fibroblasts: the terminology, heterogeneity of subpopulations and common properties",
+    "authors": [
+      "I. Tverdokhlib",
+      "Y. Silkina"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.46177962927085225,
+    "depth": 1,
+    "corpus_id": "CorpusId:245578778"
+  },
+  {
+    "snippet": "Furthermore, fibroblast subsets in E18.5 and P5 populations were identified based on gene expression profiles that have been previously defined (Fig EV1A and B) (Guerrero-Juarez et al, 2019;Phan et al, 2020;Thompson et al, 2022). We identified clusters of Dermal Papilla, Papillary Fibroblasts, Reticular Fibroblasts, Fascia, and Preadipocytes in both E18.5 and P5 skin. In addition, clusters of mature papillary and ECM-producing fibroblasts were detected only in P5 skin, reflecting the maturation of postnatal dermal fibroblasts. Our PAGA integrated analysis revealed that most E18.5 fibroblasts were closely associated with E14.5 DFPs while P5 fibroblasts clustered distinctly based on their lineage functions, except in the lineage-committed specialized fibroblasts such as Dermal Papilla and Preadipocytes, where E18.5 and P5 clustered together (Fig 1D -E). \n\nTo further establish the continuous transition between DFPs and fibroblast lineages, we performed RNA velocity analysis on the PAGA-embedded fibroblast subsets, which accounted for the transcriptional dynamics of splicing kinetics within each cell (Bergen et al, 2020). Upper DFPs are shown to differentiate into papillary fibroblasts (clusters 7, 8, 16, 21), dermal papillae (clusters 4, 12, 20), dermal sheath (clusters 10), and mature fibroblasts (clusters 3, 17), while lower DFPs are projected to become upper DFPs and reticular (clusters 9,13,15,18; (Driskell et al, 2014;Correa-Gallegos et al, 2019;Guerrero-Juarez et al, 2019;Joost et al, 2020;Shook et al, 2020). Unexpectedly, fascia and preadipocytes showed inverted RNA velocity trajectories toward replicating reticular fibroblasts.",
+    "paper_id": "261047245",
+    "title": "Lineage commitment of dermal fibroblast progenitors is controlled by Kdm6b\u2010mediated chromatin demethylation",
+    "authors": [
+      "Quan M. Phan",
+      "L. Salz",
+      "Sam S. Kindl",
+      "Jayden S. Lopez",
+      "S. M. Thompson",
+      "Jasson Makkar",
+      "Iwona M. Driskell",
+      "R. Driskell"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4571531659147495,
+    "depth": 1,
+    "corpus_id": "CorpusId:261047245"
+  },
+  {
+    "snippet": "Transcriptome profiling of human papillary and reticular fibroblasts from adult interfollicular dermis pinpoints the 'tissue skeleton' gene network as a component of skin chrono-ageing.",
+    "paper_id": "58643350",
+    "title": "Transcriptome profiling of human papillary and reticular fibroblasts from adult interfollicular dermis pinpoints the 'tissue skeleton' gene network as a component of skin chrono-ageing.",
+    "authors": [
+      "V. Haydont",
+      "V\u00e9ronique Neiveyans",
+      "N. Fortunel",
+      "D. Asselineau"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4458300176499064,
+    "depth": 1,
+    "corpus_id": "CorpusId:58643350"
+  },
+  {
+    "snippet": "In addition to the regional identify of fibroblasts isolated from different anatomical locations, it is now appreciated that fibroblasts from different microanatomic regions have properties specific to their particular niche [29]. Based on the sub anatomic location in the skin, fibroblasts can be divided into hair follicle associated fibroblasts, including dermal sheath and dermal papilla cells and interstitial fibroblasts, comprising papillary and reticular dermal fibroblasts (Figure 3). Harper and Grove, realizing the functional and structural differences between reticular and papillary dermis, showed that the fibroblast like cells isolated from these regions proliferate at a differential rate [86]. During normal aging, the papillary dermis skin is shown to atrophy as the reticular fibroblasts begin to occupy the papillary dermis. This is thought to impact epithelial morphogenesis and regeneration [87]. Fibroblasts isolated from papillary or reticular dermis have different genetic markers and functional properties demonstrating the regional uniqueness of fibroblast sub-populations [88][89][90]. Collagen synthesis was found to be similar regardless of fibroblast origin in the dermis [91], however consistently increased amounts of pro-collagen was secreted by reticular fibroblasts and not by papillary fibroblasts. Functionally, papillary fibroblasts have enhanced epidermal differentiation and maturation and secrete different soluble factors in reconstituted skin models [90] when compared with reticular fibroblasts. Conversely, reticular fibroblasts secrete different levels cytokines such as keratinocyte growth factor and interleukin-6, than papillary fibroblasts, and suppresses terminal differentiation of keratinocytes as well the formation of the basement membrane zone when incorporated into skin equivalents [92]. Reticular fibroblasts also secrete molecular targets that differentially remodel the collagen-glycosaminoglycan matrix [93].",
+    "paper_id": "9206903",
+    "title": "Alteration of Skin Properties with Autologous Dermal Fibroblasts",
+    "authors": [
+      "Rajesh L. Thangapazham",
+      "T. Darling",
+      "Jon Meyerle"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.43941442420630195,
+    "depth": 1,
+    "corpus_id": "CorpusId:9206903"
+  },
+  {
+    "snippet": "Genome-wide profiling of adult human papillary and reticular fibroblasts identifies ACAN, Col XI \u03b11, and PSG1 as general biomarkers of dermis ageing, and KANK4 as an exemplary effector of papillary fibroblast ageing, related to contractility.",
+    "paper_id": "49291507",
+    "title": "Genome-wide profiling of adult human papillary and reticular fibroblasts identifies ACAN, Col XI \u03b11, and PSG1 as general biomarkers of dermis ageing, and KANK4 as an exemplary effector of papillary fibroblast ageing, related to contractility.",
+    "authors": [
+      "V. Haydont",
+      "V\u00e9ronique Neiveyans",
+      "H. Zucchi",
+      "N. Fortunel",
+      "D. Asselineau"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.42888662693158275,
+    "depth": 1,
+    "corpus_id": "CorpusId:49291507"
+  },
+  {
+    "snippet": "Based on their differential location within the dermis and on discrete changes in gene and protein expression, two major fibroblast subtypes (papillary and reticular) have traditionally been distinguished. In the last three years, a number of research groups have begun to address transcriptomic heterogeneity of human skin cells at the single-cell level, by determining mRNA levels of expressed genes through single-cell RNA sequencing (scRNAseq) technologies. However, the outcome of scRNAseq studies is thus far confusing. Very little overlap was found in fibroblast subpopulations, which also varied in number and composition in each dataset. After a careful reappraisal of the transcriptomic data of 13,823 human adult dermal fibroblasts that have been sequenced to date, we show that fibroblasts may robustly be assigned to three major types (axes A-C), which in turn are composed of ten major subtypes (clusters) which we denominated A1-A4, B1-B2 and C1-C4. These computationally-determined axes and clusters represent the major fibroblast types and subtypes in adult healthy human skin across different datasets, accounting for 92.5% of the sequenced fibroblasts. They thus may provide the basis to improve our understanding of dermal homeostasis and cellular function at the transcriptomic level.",
+    "paper_id": "230108472",
+    "title": "Human dermal fibroblast subpopulations are conserved across single-cell RNA sequencing studies.",
+    "authors": [
+      "A. M. Ascensi\u00f3n",
+      "S. Fuertes-\u00c1lvarez",
+      "Olga Ib\u00e1\u00f1ez-Sol\u00e9",
+      "A. Izeta",
+      "M. Ara\u00fazo-Bravo"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.42543176877738087,
+    "depth": 1,
+    "corpus_id": "CorpusId:230108472"
+  },
+  {
+    "snippet": "When pigmented, the matrix region of the HFs and interfollicular epidermis were enriched with PMEL + melanocytes (Figures S1D and S1E). Skin organoids were rich in vimentin + dermal fibroblasts, which, much like mid-gestational fetal skin, clustered to FAP high papillary fibroblasts in the upper dermis and CD90 high FAP low reticular fibroblasts in the lower dermis (Figures 1E and S1D) (Korosec et al., 2019). Consistent with the previous report, we also observed hyaline cartilage in all organoids analyzed (Figure S1F) (Lee et al., 2020). \n\nhiPSC-derived skin organoids form a stratified interfollicular epidermis At day 130, skin organoids formed a stratified epidermis, which resembles the stratification of the adult human skin: basal keratinocytes express KRT5 and KRT14, and suprabasal keratinocyte layers contain KRT1 and KRT10, with a terminally differentiated loricrin-positive cornified layer marking the upper end of the epidermis (Figures 1C  and 1F). Such complete stratification of organoid interfol-licular epidermis was shown previously when mature organoids were grafted in a mouse model (Lee et al., 2020), but our data support the notion that organoid grafting may not be necessary for short-term experiments that require mature stratification. Nonetheless, it is important to note that organoid grafting in mice leads to the formation of rete-ridge-like structures, which are present in human skin but which neither we nor Lee et al. (2020) observed in the epidermis of skin organoids (Figure 1F). As rete ridges develop after week 19 of gestation (Figure 1F), this likely indicates increased maturity of the model after grafting.",
+    "paper_id": "248762486",
+    "title": "Characterization of the epidermal-dermal junction in hiPSC-derived skin organoids",
+    "authors": [
+      "V. Ramovs",
+      "H. Janssen",
+      "I. Fuentes",
+      "A. Pitaval",
+      "W. Rachidi",
+      "S. Chuva de Sousa Lopes",
+      "C. Freund",
+      "X. Gidrol",
+      "C. Mummery",
+      "K. Raymond"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4230343349192177,
+    "depth": 1,
+    "corpus_id": "CorpusId:248762486"
+  },
+  {
+    "snippet": "In particular, a study by Mine et al. (2008), analyzing the characteristics of papillary and reticular fibroblast populations of the dermis, showed that, with age, the most prominent changes are observed in the fibroblast population of the papillary layer [9]. This is probably due to the predominance of stem/progenitor cells (SCs, which are tissue-specific mesenchymal cells, precursors of fibroblasts of the skin outside the hair follicles and mesenchymal stem cells, such as bone marrow stem cells and others that were not incorporated into the skin during embryonic development) in the composition of the papillary fibroblast populations in which changes primarily occur [10].",
+    "paper_id": "249219010",
+    "title": "Age-Related Changes in the Fibroblastic Differon of the Dermis: Role in Skin Aging",
+    "authors": [
+      "A. Zorina",
+      "V. Zorin",
+      "D. Kudlay",
+      "P. Kopnin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4205908583874343,
+    "depth": 1,
+    "corpus_id": "CorpusId:249219010"
+  }
+]

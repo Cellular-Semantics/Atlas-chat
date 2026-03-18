@@ -1,0 +1,555 @@
+[
+  {
+    "snippet": "In the human epidermis, melanocytes produce unique subcellular lysosome-related organelles called melanosomes that are responsible for melanogenesis (24,25). After melanin synthesis, each melanocyte extends multiple dendrites (and still finer filopodia) as cytoplasmic extensions (22) that ramify between approximately 36 viable keratinocytes (i.e., those located below the stratum granulosum), thereby forming the EMU (Figure 2) (27). These cytoplasmic connections provide conduits for the transfer of pigment granules (and likely other melanocytic cellular material) to both basal and suprabasal keratinocytes (22,24,25). In this way, melanocyte 'donations' to keratinocytes influences their physiology, not least by protecting this critical proliferative cell population from UVR damage (39). Epidermal homeostasis is maintained, therefore, by proliferation and subsequent differentiation of these melanincontaining keratinocytes as they migrate distally, retaining some continued bi-directional communication with their EMU partner melanocyte. \n\nAt least two subpopulations of melanocytes can be detected in the human epidermis, represented by different levels of differentiation, dendricity, activity of melanogenesis-related apparatus, and cell receptor expression (28,29). These melanocyte subpopulations appear to occupy different anatomical locations within the epidermis, with c-KIT + | CD90 + melanocytes more commonly distributed around the base of rete ridges (40) and more differentiated and dendritic melanocytes located more superficially, including in the interrete ridge epidermis (Figure 2). Whether melanocytes of these two EMU are similarly susceptible to melanomagenesis awaits further study (22). The stem cell factor (SCF)/c-KIT pathway is particularly important in the organization of the EMU in adult human skin, as it controls melanocyte proliferation and differentiation (41).",
+    "paper_id": "248397472",
+    "title": "Loss of \u2018Epidermal Melanin Unit\u2019 Integrity in Human Skin During Melanoma-Genesis",
+    "authors": [
+      "C. Casalou",
+      "H. Moreiras",
+      "J. Mayatra",
+      "A. Fabre",
+      "D. Tobin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.5542991487231251,
+    "depth": 0,
+    "corpus_id": "CorpusId:248397472"
+  },
+  {
+    "snippet": "er the past few decades, many efforts have been devoted to investigating whether dormant melanocyte stem cells residing in the bulge region of hair follicles are awakened to participate in the perifollicular re-pigmentation. Goldstein et al [4] carried out a well-designed study using immunofluorescence to examine the melanocyte distribution in skin exposed to narrow band UVB (NB-UVB) using a panel of antibodies that recognize Dct (a lineage marker of melanocytes), c-Kit (a marker of proliferating melanocytes), and Tyrosinase (a marker of differentiated melanocytes). Their results revealed that there are three populations of melanocytes, Dct+/c-Kit\u00c0/TYR\u00c0 (melanocyte stem cells), Dct+/c-Kit+/TYR\u00c0 (melanoblasts, also known as transit-amplifying cells/TA cells) and Dct+/c-Kit +/TYR+ (mature melanocytes), found in serial sections of skin treated with NB-UVB. [4] The cellular events involved in formation of the perifollicular re-pigmentation pattern have been assumed to be: 1) dormant melanocyte stem cells (Dct+/c-Kit\u00c0/TYR\u00c0) residing in the bulge region of hair follicles are directly activated by NB-UVB [19] ; 2) once the melanocyte stem cells have mobilized to exit from the bulge region into the supra-bulge region, they grow and differentiate in part as a consequence of the eliminated repression by the niche-derived TGF-b1 and become melanoblasts (TA cells, Dct+/c-Kit+/TYR\u00c0); and 3) these melanoblasts migrate upward through the ORS to the lesional epidermis and eventually differentiate into functional melanocytes (Dct+/c-Kit+/TYR+) [Figure 1].",
+    "paper_id": "216647206",
+    "title": "Deciphering skin re-pigmentation patterns in vitiligo: an update on the cellular and molecular events involved.",
+    "authors": [
+      "T. Lei",
+      "V. Hearing"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.49561654456801896,
+    "depth": 0,
+    "corpus_id": "CorpusId:216647206"
+  },
+  {
+    "snippet": "er the past few decades, many efforts have been devoted to investigating whether dormant melanocyte stem cells residing in the bulge region of hair follicles are awakened to participate in the perifollicular re-pigmentation. Goldstein et al [4] carried out a well-designed study using immunofluorescence to examine the melanocyte distribution in skin exposed to narrow band UVB (NB-UVB) using a panel of antibodies that recognize Dct (a lineage marker of melanocytes), c-Kit (a marker of proliferating melanocytes), and Tyrosinase (a marker of differentiated melanocytes). Their results revealed that there are three populations of melanocytes, Dct+/c-Kit\u00c0/TYR\u00c0 (melanocyte stem cells), Dct+/c-Kit+/TYR\u00c0 (melanoblasts, also known as transit-amplifying cells/TA cells) and Dct+/c-Kit +/TYR+ (mature melanocytes), found in serial sections of skin treated with NB-UVB. [4] The cellular events involved in formation of the perifollicular re-pigmentation pattern have been assumed to be: 1) dormant melanocyte stem cells (Dct+/c-Kit\u00c0/TYR\u00c0) residing in the bulge region of hair follicles are directly activated by NB-UVB [19] ; 2) once the melanocyte stem cells have mobilized to exit from the bulge region into the supra-bulge region, they grow and differentiate in part as a consequence of the eliminated repression by the niche-derived TGF-b1 and become melanoblasts (TA cells, Dct+/c-Kit+/TYR\u00c0); and 3) these melanoblasts migrate upward through the ORS to the lesional epidermis and eventually differentiate into functional melanocytes (Dct+/c-Kit+/TYR+) [Figure 1].",
+    "paper_id": "218766725",
+    "title": "Deciphering skin re-pigmentation patterns in vitiligo: an update on the cellular and molecular events involved",
+    "authors": [
+      "T. Lei",
+      "V. Hearing"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.49561654456801896,
+    "depth": 0,
+    "corpus_id": "CorpusId:218766725"
+  },
+  {
+    "snippet": "(F) Immunoblot of conditioned medium from monocultured melanocytes treated with 2 ng/ml IL-1\u03b2 for the times indicated. (G) Immunoblot of conditioned medium from monocultured melanocytes treated with 2 \u03bcg/ml control goat IgG (mono goat IgG), cocultured melanocytes treated with anti-IL-1\u03b2 antibodies (co anti IL-1\u03b2), and cocultured melanocytes treated with 2 \u03bcg/ml control goat IgG (co goat IgG). The numbers below the CCN3 blot indicate the relative densities normalized to the fi bronectin blot. (D-G) Fibronectin immunoblot and Coomassie blue staining of Bis-Tris gels were performed as loading controls. \n\nmechanisms from humans. The behavior of melanocytes in the skin reconstructs resembles that in vivo (Haake and Scott, 1991;Meier et al., 2000). We further tested the proliferation and localization of melanocytes within human skin reconstructs (Fig. 2, E-H). To identify melanocytes in sections of skin reconstructs and to determine their localization by immunohistochemistry, we used a melanocyte-specifi c marker, HMB-45 (Fig. 2 E, left). Staining for collagen IV demonstrated the formation of an intact basement membrane within the 14-d skin formation period (Fig. 2 E, right). Knockdown of CCN3 in melanocytes increased their numbers and changed their localization by migrating either upward to the suprabasal layers of the epidermis or downward into the dermis. To better determine the cell number and localization of melanocytes within the basement membrane zone, we performed 2P microscopy on the skin reconstructs. The lentiviral vectors contained GFP as a marker for melanocytes. Second harmonic generation (SHG) signals served as a sensitive indicator of collagen I to separate the epithelial layer from underlying stroma (Pena et al., 2005).",
+    "paper_id": "12054047",
+    "title": "CCN3 controls 3D spatial localization of melanocytes in the human skin through DDR1",
+    "authors": [
+      "M. Fukunaga-Kalabis",
+      "G. Martinez",
+      "Zhao-Jun Liu",
+      "J. Kalabis",
+      "Paulus Mrass",
+      "W. Weninger",
+      "S. Firth",
+      "N. Planque",
+      "B. Perbal",
+      "M. Herlyn"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.47849128685570397,
+    "depth": 0,
+    "corpus_id": "CorpusId:12054047"
+  },
+  {
+    "snippet": "Melanocytes, referred to as pigment cells, are abundant within the human epidermis, with an approximate of 1,500 cells per square millimetre (Kanitakis, 2002).These pigmented cells are generally located in the dermis or epidermis and play a crucial role in skin pigmentation.They migrate along the dorsolateral pathway to connect the dermomyotome and the overlying ectoderm (Petit and Larue, 2016).\n\nMelanoblasts, the precursors of melanocyte, can generate melanocyte stem cells (MSCs) and melanocytes during mouse embryo development (Cable et al., 1995;Mackenzie et al., 1997;Nishimura et al., 2002).Melanocytes are typically identified by the expression of melanocyte-specific proteins, including dopachrome tautomerase (DCT), tyrosinase-related protein 1 (TYRP1), tyrosinase (TYR), Pmel17/gp100, melanoma antigen recognized by T cells 1 (MART1), and/or microphthalmia-associated transcription factor (MITF) (Belote et al., 2021).However, identifying MSCs is more challenging because of their lack of melanin production.In addition, MSCs do not exhibit the typical protein markers (Nishimura et al., 2002).DCT and/or v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog, also known as CD117 (C-KIT) may serve as detectable markers for these cells (Sun et al., 2019;Infarinato et al., 2020).\n\nTechnological advancements have gradually unveiled the specific functions and locations of melanocytes.Melanocytes and melanin have been detected in different anatomical regions, including the stria vascularis of the cochlea, the substantia nigra, leptomeninges, locus coeruleus within the brain, cardiac tissue, and adipose tissue (Plonka et al., 2009;van Beelen et al., 2020;Hutcheson et al., 2021;Ikeda et al., 2021).",
+    "paper_id": "265416607",
+    "title": "Biology of melanocytes in mammals",
+    "authors": [
+      "Ying-Zhe Cui",
+      "Xiao-yong Man"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.47057989205176864,
+    "depth": 0,
+    "corpus_id": "CorpusId:265416607"
+  },
+  {
+    "snippet": "Still, markers of murine HF melanocyte lineages have provided at least a starting point for the exploration and identification of melanocyte plasticity in human skin and include markers for melanogenesis/melanin synthesis, (e.g., MITF, DCT/Trp2, Trp1) and melanocyte development, differentiation, and survival (e.g., SOX10, c-KIT, MITF), among others [2,6]. While much of current cutaneous pigmentation research continues to reside in the mouse domain, the identity and characterization of heterogeneous subpopulations of melanocytes of human scalp HFs is a fertile area of research where many important questions in human HF pigmentation science have yet to be addressed. \n\nThis study addresses whether melanocytes in the growing human (anagen) scalp HF bulb exist along a differentiation/maturation spectrum, characterized here by the expression of so-called 'early' and 'late' maturity markers in vivo. Using the receptor tyrosine kinase cell surface marker protein c-KIT (CD117) that identifies 'precursory' melanocytes in human skin [11,12], we isolated melanocyte subpopulations from three distinct follicular units from the lower portion of human anagen HFs i.e., O-, PP-, and M-FMUs (Figure 1). These reflect melanocytes with variable levels of cell differentiation. The SCF/KIT pathway plays a critical role in the control of normal human melanocyte homeostasis [12], and c-KIT expression can demarcate a population of precursor melanocytes in human HF.",
+    "paper_id": "260940853",
+    "title": "Beyond the Epidermal-Melanin-Unit: The Human Scalp Anagen Hair Bulb Is Home to Multiple Melanocyte Subpopulations of Variable Melanogenic Capacity",
+    "authors": [
+      "C. Casalou",
+      "J. Mayatra",
+      "D. Tobin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4621303431847433,
+    "depth": 0,
+    "corpus_id": "CorpusId:260940853"
+  },
+  {
+    "snippet": "to melanocytes in the regenerate,   B-B') show more robust melanocyte rescue than skin clones that occur in a xanthophores stripe (C-C'). D. Dermal fibroblast, osteoblast, and skin clones were scored for the quality of melanocyte regeneration relative to their occurrence in a presumptive melanocyte stripe or xanthophore stripe. A single these new stump melanocytes are faint and small, supporting the notion that they are new melanocytes rather than older differentiated melanocytes that migrated toward the clone. Melanocytes rarely arise in the stump outside the stripe in fish without clones and without heat shock. Moreover, in a stable transgenic line expressing the pt2-hsp70l.kitlga construct (j996) heat shock is sufficient to induce new melanocytes outside the stripe without amputation (not shown).\n\nNext we asked whether the clone's regional position within the fin affects the ability of kitlga to rescue kit-dependent melanocytes. Even though kit-dependent melanocytes first develop unpatterned in the wild type regenerate (Figure 2A''), kitlga might be more effective at signaling in presumptive melanocyte stripes as compared to presumptive xanthophore stripes. Dermal fibroblast clones strongly rescue melanocytes irrespective of their location relative to pre-existing stripes (Fig 6A-A', 6D). In contrast, skin clones often showed better melanocyte rescue when the clone was in a melanocyte stripe region (Fig 6B-B') as compared to being within a xanthophore stripe region (6C-C'). Subdividing all skin clones relative to their presence in a melanocyte or xanthophores stripe showed a small, but significant difference in their quality of melanocyte rescue via kitlga expression (Fig. 6D, chi-squared 362 test, p value = 0.035).\n\nWe also asked whether kitlga acts at a distance. It is not known if kitlga in the zebrafish is soluble and diffusible or only expressed as a membrane-bound form. In",
+    "paper_id": "17849698",
+    "title": "Clonal Analysis of kit ligand a Functional Expression Reveals Lineage-Specific Competence to Promote Melanocyte Rescue in the Mutant Regenerating Caudal Fin",
+    "authors": [
+      "Robert C Tryon",
+      "Stephen L. Johnson"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4564767327609402,
+    "depth": 0,
+    "corpus_id": "CorpusId:17849698"
+  },
+  {
+    "snippet": "To compare the architecture and pigmentation pattern of human and mouse volar skin, we first performed histological analysis. As shown in Figure 1A-C, both human and mouse volar skin were characterized by a similar thickened epidermis with rete ridges extending into the underlying dermis and by the abundant presence of sweat glands (Figure 1A-C). No pigment-containing cells or melanocytic marker-expressing cells were detectable with conventional immunohistochemistry in the sweat glands found in the footpads of non-aged adult C57/BL6Cr mice (Figure 1D). In contrast, some pigment-containing cells were found in the sweat glands and the overlying epidermis from 2-year-old mice (Figure 1E and data not shown), which suggested that unpigmented melanoblasts that correspond to melanocyte stem cells or progenitors exist in non-hair-bearing volar skin. Dct-lacZ transgene (Figure 1F) and endogenous Dct protein expression, which has been used for melanocyte lineage tagging including melanocyte stem cells (McSCs) in hair follicles (Mackenzie et al., 1997;Nishimura et al., 2002), failed to tag that cell population in adult footpad skin (Figure 1H and data not shown). Thus, we examined the developmental process of melanocytes in the distal hindlimb using Dct-lacZ and expression of endogenous Dct as markers for melanoblasts. As shown in Figure 1G and Figure S1-S3, we succeeded in chronologically analyzing the distribution of migrating melanoblasts, which first appear in the developing dermis, then in the epidermis, and finally in the sweat buds, and of their eventual colonization in mature sweat glands in volar skin. This suggested that melanoblasts that colonize the sweat glands during development are maintained in a dormant and immature state with profound downregulation of lineage markers after development until they are reactivated during the physiological aging process.",
+    "paper_id": "26395517",
+    "title": "A melanocyte\u2013melanoma precursor niche in sweat glands of volar skin",
+    "authors": [
+      "Natsuko Okamoto",
+      "Takahiro Aoto",
+      "H. Uhara",
+      "S. Yamazaki",
+      "H. Akutsu",
+      "A. Umezawa",
+      "H. Nakauchi",
+      "Y. Miyachi",
+      "T. Saida",
+      "E. Nishimura"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4523680740171633,
+    "depth": 0,
+    "corpus_id": "CorpusId:26395517"
+  },
+  {
+    "snippet": "The traditionally used media for melanocyte culturing contain specific mitogens, such as PMA, CT and IBMX. Melanocytes cultured in media that contains PMA, CT or IBMX show the phenotype of fully differentiated melanocytes. Differentiated melanocytes are characterized by melanin production due to the activities of tyrosinase, TRP-1 and TRP-2; by numerous mature melanosomes and well-developed dendrites [3]. Melanocytes cultured without PMA, CT or IBMX show pigmentation loss and decreased dendrite formation [20,23,24]. \n\nIn melanocyte development, c-Kit plays a critical role in a number of cellular activities, including differentiation. The expression of c-Kit is considered a key step in pigment cell development, Kit+ nonmelanotic cells in the skin are putative melanocyte precursors [25]. Activation of c-Kit by stem cell factor results in Mitf phosphorilation [8]. Microphtalmia associated transcription factor (Mitf) determines the melanocyte fate of multipotent neural crest cells partially by its transcriptional and lineage-specific regulation of three major pigment enzymes, tyrosinase, TRP-1 and TRP-2 [26]. There is also evidence that c-Kit, tyrosinase and TRP-1 gene expression are coordinated in melanocytes [27]. The melanocytes that we harvested from the adult human skin uniformly stained for c-Kit and TRP-1, if they were cultured in PMA containing M254 medium. These cells showed characteristic dendritic morphology and pigment production. Among cells that were grown in Mel-mix medium without PMA, c-Kit expression appeared in fewer cells, and when c-Kit positive cells from PMA containing medium were switched into Mel-mix, the expression of c-Kit protein in the cells decreased dramatically. In the Mel-mix culture, without PMA, cells showed a uniform positivity for TRP-1 in early cultures, whereas in older cultures, we could not detect TRP-1 protein expression in the cells.",
+    "paper_id": "3180036",
+    "title": "In Vitro Dedifferentiation of Melanocytes from Adult Epidermis",
+    "authors": [
+      "B. Kormos",
+      "N. Bels\u0151",
+      "A. Bebes",
+      "G. Szabad",
+      "S. Bacsa",
+      "M. Sz\u00e9ll",
+      "L. Kem\u00e9ny",
+      "Z. Bata-Cs\u00f6rg\u0151"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4510885306876221,
+    "depth": 0,
+    "corpus_id": "CorpusId:3180036"
+  },
+  {
+    "snippet": "Du to the relatively low number of melanocytes present in each adult scalp HF (relative t keratinocyte and fibroblast numbers) and their limited ability to proliferate in culture, th unbiased culture of all bulbar melanocyte subpopulations can be very challenging. Afte the initial steps of the isolation of melanocytes from human HF scalp tissue, modified from the original methods reported by Tobin and co-workers [13,14], we selected melanocyte based on their relative expression of the cell surface marker CD117/c-KIT. This allowed u to enrich HF melanocytes from the mid to lower HF regions using MACS technology (Fig ure 3D-F) [15]. C-KIT is expressed in both melanocytes and several stem cell population throughout the human body [12,16]. Binding to its ligand, stem cell factor (SCF) plays a important role in cell homeostasis, including in cell survival, migration, and proliferatio [12,17]. We observed the isolation and expansion of melanocytes in both CD117/c-KIT and CD117/c-KIT \u2212 melanocyte fractions along with apparently some stromal/fibroblas like cell growth (Figure 3D). A Western blot analysis confirmed the expression of the tran scription factor SOX10 in the c-KIT + melanocyte population (Figure 3E), whereas the tran scription factor MITF (Figure 3F) was expressed in both c-KIT + and c-KIT \u2212 cell population Additionally, these cells displayed distinct pigmentation levels (amelanotic, low pigmented, and highly pigmented), suggesting that the anagen hair bulb contains heterogeneous populations of melanocytes with distinct differentiation stages and melanogenic activity. However, the function of these cells beyond the capacity for melanin synthesis per se is unclear. To characterize the populations of melanocytes of the mid-lower region of human HFs (Figure 1), we start by extracting the total protein content of microdissected human anagen VI HFs (see Table S1 for HF donors' details).",
+    "paper_id": "260940853",
+    "title": "Beyond the Epidermal-Melanin-Unit: The Human Scalp Anagen Hair Bulb Is Home to Multiple Melanocyte Subpopulations of Variable Melanogenic Capacity",
+    "authors": [
+      "C. Casalou",
+      "J. Mayatra",
+      "D. Tobin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4445840603426454,
+    "depth": 0,
+    "corpus_id": "CorpusId:260940853"
+  },
+  {
+    "snippet": "At the 12 th day of incubation, in the embryonic skin, the TC-L appeared as elongated spindle shaped with thin processes, and they were located in the dermis (Figure 1A). Some of TC-L were observed close to the epidermis. Others were located near the blood vessels in the deep dermis. The mean length of the processes of TC-L was 8.89 \u03bcm (n=4) in the embryonic skin at the 12 th day of incubation. At the 16 th day of incubation, in the embryonic skin, thin processes of TC-L were also observed in the dermis of embryonic skin (Figure 1B). The mean length of processes of TC-L was 16.45 \u03bcm (n=6). In addition, the mean length of processes of TC-L was 19.50 \u03bcm (n=4) in embryonic skin at the 20 th day of incubation (Figure 1C). Melanocytes were observed close to TCs in the dermis at both 16 th and 20 th day of incubation in the embryonic skin (Figure 1 B,C).",
+    "paper_id": "273372612",
+    "title": "Developmental characteristics of cutaneous telocytes in late embryos of the silky fowl",
+    "authors": [
+      "Hao Li",
+      "Junliang Chen",
+      "Wenjun You",
+      "Yizhen Xu",
+      "Yaqiong Ye",
+      "Haiquan Zhao",
+      "Junxing Li",
+      "Hui Zhang"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4444389283282211,
+    "depth": 0,
+    "corpus_id": "CorpusId:273372612"
+  },
+  {
+    "snippet": "In the nonstimulated, unexposed human skin, two dividing melanocytes were found after extensive sectioning (280 sections) of multiple blocks from 18 Caucasoid subjects (5-6 sections from each block, and 3 blocks from each subject, were examined). One mitotic figure was found in a cell which, in contrast to the surrounding keratinocytes, contained a large \"clear\" perikaryon and a number of pigment granules (Fig. 1 a). Serial thin sectioning showed that this dividing cell was devoid of tonofilaments but did contain 100-A filaments, ribosomes, and melanosomes (Fig. 2). There was little granular endoplasmic reticulum. Golgi apparatuses were simple and inconspicuous. The presence of nonaggregated and singly distributed melanosomes in various stages of melanization indicated that this dividing cell was the melanocyte. The second melanocyte was in late telophase with beginning nuclear organization and peripheral membrane construction, but no welldeveloped nuclear membrane. Keratinocytes in mitosis were occasionally found in the same materials (Fig. 3). The dividing melanocytes contained no Langerhans granules. \n\nAutoradiographic study of the mouse tail skin demonstrated that 9 of 1,322 melanocytes were in the S phase of the cell cycle (0.75 + 0.28%) (Fig. 1  b and c). In the same specimens, however, 15.0% -4-5.5% of the keratinocytes showed an incorporation of thymidine. Split-DOPA preparation revealed that the population density of the melanocytes in the skin is 722 ~: 7.6 per mm 2 of epidermis.",
+    "paper_id": "13942566",
+    "title": "Mitotic activity in non-neoplastic melanocytes in vivo as determined by histochemical, autoradiographic, and electron microscope studies",
+    "authors": [
+      "S. Roth",
+      "Thomas B. Fitzpatrick",
+      "George Szab\u00f3"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4443689030383544,
+    "depth": 0,
+    "corpus_id": "CorpusId:13942566"
+  },
+  {
+    "snippet": "To confirm that these cells were melanocytes, we examined the expression of the melanocyte and melanin-producing cell markers Mitf, Mc1r, Trp2, Mlana, Slc, Pmel, c-Kit, and S100\u03b2 using flow cytometry analysis. We also examined the expression of cytokeratin, an RPE cell marker, both by FACS and immune staining, to determine if these cells are comparable with ChMC. Figure 3 shows that the cells isolated here express the melanocyte markers, but not the RPE (cytokeratins) cell marker, further confirming their identity as melanocytes. We also compared the expression of ChMC specific markers by qPCR in ChMC, ChEC, ChPC, and RPE cells. Figure 4A shows that Tyrosinase, Mc1r, and Mitf are predominantly expressed in ChMC. Figure 4B shows the expression of RPE (Rpe65)-, ChEC (Cd31)-, and ChPC (Pdgfrb)-specific markers compared to ChMC. As expected, ChMC showed a negligible expression of these markers. \n\nTo further determine the purity of ChMC cultures established here, we immunostained cells for melanocyte and RPE markers. Figure 5 demonstrates that these cells express the melanocyte markers (Pmel and Melan A) but not the RPE marker (Pan Cytokeratin). Nearly all cells were positive for melanocyte markers and lacked the expression of cytokeratins as expected for melanocytes. Collectively these data strongly support the identity of the ChMC prepared here. \n\ncells isolated here were a unique cell type. Figure 2 shows the morphology photos of ChM ChEC, and RPE cells. The ChMC isolated here often had two or three long, thin proces and grew in a somewhat disorganized manner on the surface of the culture plate. The Ch also had long processes but tended to grow in a mesh-like network on the culture pl surface. RPE cells have slightly shorter processes than both of the other cell types and a organized in a cobblestone pattern with tighter junctions between cells than the ChMC.",
+    "paper_id": "278290402",
+    "title": "Isolation and Characterization of Mouse Choroidal Melanocytes and Their Proinflammatory Characteristics",
+    "authors": [
+      "Yong-Seok Song",
+      "SunYoung Park",
+      "Debra Fisk",
+      "C. Sorenson",
+      "Nader Sheibani"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.44307612734193697,
+    "depth": 0,
+    "corpus_id": "CorpusId:278290402"
+  },
+  {
+    "snippet": "In addition, it has been demonstrated that TCs in skin had the phagocytic-like capacity to uptake and store pigments (hemosiderin and melanin) (D\u00edaz-Flores et al., 2014). TCs may be related to the transfer of macromolecules (e.g., melanin) in some cell type, 8 including melanocytes. This function (the ability to internalize small particles), together with the capacity of these cells to release extracellular vesicles with macromolecules, could close the cellular bidirectional cooperative circle of informative exchange and intercellular interactions. In general, the melanocytes producing melanin are located in dermis but no in epidermis. However, the melanin is observed frequently in the epidermis. It is suggested that TCs surrounding melanocytes in the dermis can uptake the melanin releasing from melanocytes and transfer melanin to keratinocytes into epidermis by their Tps. Melanin in the epidermis participate in ray protection. These data suggested that TCs play a role in pigmentation of skin. To summarize, there may be 2 reasons why TCs are involved in regeneration. On the one hand, TCs that expressed CD34, c-Kit and PDGFRa are directly involved in tissue regeneration and repair as an undifferentiated cell by their stemness. On the other hand, TCs regulate proliferation and differentiation of stem cells by heterocellular close contacts, and constitute the stem cell niche to participate in tissue regeneration and renewal (Shoshkes-Carmel et al., 2018;Bahar Halpern et al., 2020;Vannucchi, 2020). \n\nIn conclusion, our findings confirm that the presence of TCs with special structural features in the dermis of the silky fowl. Avian cutaneous TCs expressed CD34, c-Kit and PDGFRa, which be suggested to be the markers of stemness capacity. In addition, the nanostructural relationships between TCs/Tps and neighboring cell types/structures were demonstrated by the morphometry.",
+    "paper_id": "236514869",
+    "title": "Telocytes and their structural relationships with surrounding cell types in the skin of silky fowl by immunohistochemistrical, transmission electron microscopical and morphometric analysis",
+    "authors": [
+      "Xianshu Chen",
+      "Jie Zeng",
+      "Yujie Huang",
+      "Meiling Gong",
+      "Yaqiong Ye",
+      "Haiquan Zhao",
+      "Zhi\u2010sheng Chen",
+      "Hui Zhang"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.44088175897129633,
+    "depth": 0,
+    "corpus_id": "CorpusId:236514869"
+  },
+  {
+    "snippet": "In zebrafish, the embryonic pigment patterns are established during the first three days of development and gradually replaced by the adult pigment patterns during  A-C) WT zebrafish develop metamorphic melanocyte stripes around 30 days, including 1D and 1V, along with corolla-like patterns of melanosomes in most melanocytes (A). adcy5 -/-mutants establish normal metamorphic stripes, but some melanocytes present punctate distribution of melanosomes (B). adcy3a -/-;adcy5 -/-double mutants are unable to form corolla distribution of melanosomes and instead punctate melanosomes (C). Next, we examined pigment pattern formation in these adcy mutants at 6-month-old adult stages. adcy3a -/-and adcy6a -/-single mutants, as well as adcy6a -/-;adcy6b -/-double mutants, exhibited normal adult body stripe patterns as seen in WT adult zebrafish, including three ventral black stripes 1V, 2V, and 3V, and two dorsal stripes, 1D and 2D, along the dorsoventral axis [25] (Figure 3D,D ,D ; Figure S3). In contrast, adcy5 -/-mutants only developed three black stripes, including 1D, 1V, and 2V (Figure 3E,E ,E ). The density of pigmented melanocytes in the three black stripes appeared reduced, and the melanin granules became smaller, making the skin look pale (Figure 3E ,E ). Remarkably, in adcy3a -/-;adcy5 -/-double mutants, the melanocyte stripes almost completely disappeared, and only a few pigmented punctate melanocytes were scattered on the surface of the body skin (Figure 3F,F ,F ).",
+    "paper_id": "253655296",
+    "title": "Requirement of Zebrafish Adcy3a and Adcy5 in Melanosome Dispersion and Melanocyte Stripe Formation",
+    "authors": [
+      "Lin Zhang",
+      "Meng Wan",
+      "Ramila Tohti",
+      "Daqing Jin",
+      "T. Zhong"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4370542479627374,
+    "depth": 0,
+    "corpus_id": "CorpusId:253655296"
+  },
+  {
+    "snippet": "Melanocytes follow interesting and diverse developmental pathways. Most melanocytes originate in the neural crest and migrate to specific regions of the developing embryo, including the skin, hair follicles, inner ear, and the eye 1 . Melanocyte stem cells reside in the hair follicle bulge, located in the outer root sheath 2 . The sebaceous gland (SG) and hair follicles constitute the pilosebaceous unit of the skin. Therefore, it is possible that melanocytes are also present in SGs. However, little is known about the presence of melanocytes in human SGs. The purpose of this study was to identify the presence of melanocytes and determine their distribution in human SGs. Determining the possible distribution of melanocytes and their functions within human SGs will offer several insights in the field of SG and melanocyte biology. We retrospectively reviewed 171 H&E slides taken from the scalp and facial skin. Among them, 103 slides containing sebaceous gland (SG) tissues were finally included in the study. Of these, 54 were stained with the antiserum to S-100, 11 with Fontana-Masson (F-M) stain, 7 with antiserum to human melanoma black-45 (HMB-45), 4 with antiserum to CD1a, 7 with antiserum to c-kit, 10 with antiserum to microphthalmia-associated transcription factor (MITF), and 10 with antiserum to tyrosinase. Out of the 54 specimens of human SGs, 34 slides showed S-100-positive cells. All specimens showed negative staining for F-M (11 specimens) and HMB-45 (7 specimens). In addition, 2 specimens were found to be CD1a-positive, and 4 were c-kit-positive. Out of 10 specimens of human SGs, 2 showed MITF-positive cells, and 2 others showed positive staining for tyrosinase.",
+    "paper_id": "17800120",
+    "title": "Possible Existence of Melanocytes or Melanoblasts in Human Sebaceous Glands",
+    "authors": [
+      "Y. Jang",
+      "Sang Lim Kim",
+      "Jin Sub Lee",
+      "K. Kwon",
+      "Seok-Jong Lee",
+      "Do Won Kim",
+      "W. Lee"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.43668136747053454,
+    "depth": 0,
+    "corpus_id": "CorpusId:17800120"
+  },
+  {
+    "snippet": "Thus, we confirm here for the human hair bulb, the presence of melanocytes expressing markers of early pigment cell differentiation, such as c-KIT and additionally SOX10, together with melanocytes positive for more mature markers like MITF, gp100, and Melan-A. SOX10 as a neural crest marker can be considered an early differentiation melanocyte marker [33] and in melanoma cells has been associated with melanoma cell proliferation, tumor formation, and growth [34,35]. SOX10 has been shown to heavily influence melanocyte development in adults, while SOX9 has been implicated in melanogenesis [36]. This is supported by our finding that some SOX10-positive melanocytes in the anagen hair bulb appeared to be relatively immature (non-melanic), as evidenced by the absence of the melanosome marker gp100. \n\nImportantly, the variable expression of c-KIT in hair bulb melanocytes indicates that some pigment cells are more mature than others. Specifically, the sole expression of c-KIT (i.e., without additional expression of gp100) in melanocytes suggested that these cells are not (yet) competent for melanosome biogenesis and subsequent melanogenesis. In this way, these melanocytes are positioned differently on the spectrum of pigment cell differentiation to closely located melanocytes that exhibit a co-expression of c-KIT with gp100. No other cell types resident within (or even transient visitors to) the human anagen hair bulb matrix have been reported to express c-KIT (mast cells are not found in the hair bulb matrix epithelium). It is important to demarcate the hair bulb matrix epithelium from the connective tissue areas of the anagen hair bulb (including dermal papilla and dermal sheath components), as the latter are vascularized tissues and can readily accommodate in-transit cells of non-fibroblast and non-endothelial lineages (e.g., mast cells). There have been recent studies, albeit in altogether different tissue types, reporting the isolation of melanocyte populations from the human limbal stroma [28,29] using c-KIT antibodies.",
+    "paper_id": "260940853",
+    "title": "Beyond the Epidermal-Melanin-Unit: The Human Scalp Anagen Hair Bulb Is Home to Multiple Melanocyte Subpopulations of Variable Melanogenic Capacity",
+    "authors": [
+      "C. Casalou",
+      "J. Mayatra",
+      "D. Tobin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.43380591953819003,
+    "depth": 0,
+    "corpus_id": "CorpusId:260940853"
+  },
+  {
+    "snippet": "Observations of Melanocytes and Nerve Fibers in Human Skin. were located in the basal layer at intervals (Fig. 1). Many transverse or longitudinal profiles of nerve fibers stained with red fluorescence in a beaded pattern were observed in the dermal papillae. Some showed a Y-shaped bifurcation and coursed upward to the epidermis and made contact with one of the melanocytes in the basal layer. The contact site of nerve terminal and melanocyte was visualized as orange-yellow spots in the computer-generated color images when single-channel readings of green and red were superimposed (Fig. 1).\n\nThis intimate contact between melanocytes and nerves was confirmed by electron microscopic examination (Fig.  2-4), Melanocytes were identified by the presence of melanosomes in varying stages of maturity in the cytoplasm, and by lack of tonofilaments or desmosomes, well-known ultrastructural features of normal melanocytes in the basal layer that permit them to be easily distinguished from keratinocytes (44). As well, profiles of nerve fibers in the superficial dermis were identified by their characteristic features of unmyelinated axonal complexes, i.e., membrane-bound cylinders of electron-lucent cytoplasm with many microtubules centrally, corresponding to axons, enveloped by cell extensions of darker cytoplasm, corresponding to Schwann cell processes (45). The intraepidermal nerve profiles were confirmed to be axons by seeking in consecutive sections a proximal dermal part with characteristics of axonal complexes as described above. Unexpectedly, many axonal profiles were encountered in the epidermis, particularly in the basal layer. Occasionally, axons made synapselike close contact with the cell body of melanocytes in which plasma membranes of the axon terminal and melanocyte faced each other without intervening basal lamina (Fig. 4 C). Hara et al.\n\nFurthermore, some axons terminated in invaginations in the melanocyte body ( Fig. 4/3). The plasma membrane of such melanocytes adjacent to the axon terminal was slightly thickened, closely resembling postsynaptic membrane specializations in nervous tissue (Fig. 4 A).",
+    "paper_id": "1577467",
+    "title": "Innervation of melanocytes in human skin",
+    "authors": [
+      "Masahiro Hara",
+      "M. Toyoda",
+      "M. Yaar",
+      "Jag Bhawan",
+      "E. Avila",
+      "I. Penner",
+      "Barbara A. Gilchrest"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4310681921964664,
+    "depth": 0,
+    "corpus_id": "CorpusId:1577467"
+  },
+  {
+    "snippet": "asma skin. PA \u00a4 1R was evaluated in terms of whether changes in rete ridge length may in\u00afuence the true melanin colour, 22 and this also increased in melasma skin. The amount of melanin per unit area, expressed as PA \u00a4 MA, 23,24 also increased in melasma skin. These image analyses correlate well with visual scoring and give more quantitative information. MC \u00a4 1E and MC \u00a4 1R also increased in melasma skin. The increased number of melanocytes in melasma skin was con\u00aermed by the increase in MC \u00a4 KC. The increase in the number of melanocytes was due to an increased density of melanocytes, and not to an increased length of rete ridge as in seborrhoeic keratosis and lentigines. Our observations clearly demonstrate that there are more melanocytes and melanin in the epidermis in melasma skin.\n\nUltrastructural observation of melasma skin also revealed increased numbers of melanosomes and melanocytes. There was no defect in the formation of melanosomes because maturation status, morphology and distribution of melanosomes were very similar in melasma and normal skin. The most striking feature of melasma melanocytes was an active process of protein synthesis and DOPA-reactive tyrosinase formation. This suggests that increased synthesis of tyrosinase with active protein synthesis is responsible for the formation of the melanosomal matrix and melanin.\n\nBased on our histopathological \u00aendings we suggest that melasma is histopathologically characterized by epidermal hyperpigmentation, possibly due to an increased number of melanocytes and to increased activity of melanogenic enzymes overlying dermal changes caused by solar radiation. The melanocytes are known to be functionally altered and seem to be type-speci\u00aec in melasma. What actually triggers the focal type-speci\u00aec alterations of melanocytes in melasma is not known. A possible scenario for the development of melasma is that certain clones of melanocytes are activated by a series of interactions of the skin with UV, with an in\u00afuence of female sex hormones and genetic background. 25 In addition, the melanocytes can",
+    "paper_id": "21200153",
+    "title": "Melasma: histopathological characteristics in 56 Korean patients",
+    "authors": [
+      "W. Kang",
+      "Yoon Kh",
+      "Eun-So Lee",
+      "J. Kim",
+      "K. Lee",
+      "H. Yim",
+      "S. Sohn",
+      "S. Im"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.43088879290490056,
+    "depth": 0,
+    "corpus_id": "CorpusId:21200153"
+  },
+  {
+    "snippet": "is an unresolved developmental problem. Dermal melanocytes are seen during human fetal development but they are not evident after birth. There are suggestions that some melanoblasts could stay in the dermis [64,65]. It remains unknown how the stream of melanoblasts to the epidermis is controlled. The time when melanoblast presence in the dermis is detectable is also time for cutaneous nerve development [60]. The time between 9 and 12 weeks is also the beginning of hair buds' development and melanoblast migration to them. On the 18 th week of intrauterine life a hair which comes through the skin surface have melanocytes present in the hair bulb [64,66] but the activity of tyrosinase is very low [67]. The fetal first hair present on the whole embryo skin is named lanugo. At the end of pregnancy (30-33 weeks) lanugo degenerates and final hair develops, the first hair cycle is done [68].\n\nSpaces between cells are filled with a rich extracellular matrix formed by many fibrillar proteins such as collagens, fibronectin. Cell adhere to one another using adhesion molecules such as cadherins or adhere to matrix by integrins. These adhesion mechanisms are of special importance during melanoblast migration. Melanoblasts migrate over very long distances throughout the embryo, proliferate and promote their own survival. Thus, melanoblast development is a highly dynamic process, which requires rapid activation of different signaling pathways. The results of experiments have not found out an answer to a question -at what stage NCC get features of melanoblasts, precursors to melanocytes [7,69]. Melanoblasts have features of melanocytes but do not produce melanin, there is no agreement about a set of molecular markers for this early stage of melanocyte in human development. The most commonly listed molecular markers for the precursors for melanocytes are: a tyrosine kinase receptor KIT (c-kit); transcription factors such as MITF, SOX10, Pax 3 and melanogenic enzyme tyrosinase-related protein (TYRP-2) [7,24,56,70]. The",
+    "paper_id": "16505141",
+    "title": "Skin melanocytes: biology and development",
+    "authors": [
+      "M. Cichorek",
+      "M. Wachulska",
+      "Aneta Stasiewicz",
+      "A. Tymi\u0144ska"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4285423672515459,
+    "depth": 0,
+    "corpus_id": "CorpusId:16505141"
+  },
+  {
+    "snippet": "c-Kit-positive skin cells isolated by FACS (unpublished data). Nonetheless, we were able to identify spherogenic neural crest-derived cells in the skin by using a genetic approach. Thereby, the lineage-specifi c activity of Dhh-Cre and of Dct-Cre, respectively, combined with a Cre reporter allele (Srinivas et al., 2001), led to EYFP expression in cells from either the glial or the melanocyte lineage. Consistent with a dual origin of multipotent neural crest-derived cells in the trunk skin, EYFP-positive cells isolated from both Dhh-Cre/R26R-EYFP and Dct-Cre/R26R-EYFP mice formed spheres of p75/Sox10positive cells (Fig. 8). Thus, we conclude that in the trunk skin of mice, spherogenic neural crest-derived cells are associated with the glial as well as the melanocyte lineage. Based on their high similarities to mouse cells in terms of marker expression and potential, and based on the fact that humans do not have whisker follicles, we assume that the p75/Sox10positive multipotent cells obtained from human skin (Figs. 1 and 3) are also related to glial and melanocyte rather than mesenchymal lineages.\n\nThat cells of the bulge region marked in Dct-Cre/R26R mice generate melanocytes is in agreement with earlier fi ndings (Nishimura et al., 2002), which identifi ed Dct lacZ -positive cells of the bulge region as so-called melanocyte stem cells generating differentiated melanocytes in the lower part of the hair follicle. Moreover, a considerable fraction of Dct-positive cells in the bulge also expresses Sox10 (Osawa et al., 2005), in agreement with our results (Fig. 7). Our analysis of neural crestderived cells isolated from Dct-Cre/R26R mice supports the hypothesis that melanocyte progenitors in the bulge region are not only self-renewing (Nishimura et al., 2002) but",
+    "paper_id": "9652360",
+    "title": "Neural crest\u2013derived cells with stem cell features can be traced back to multiple lineages in the adult skin",
+    "authors": [
+      "C. Wong",
+      "Christian Paratore",
+      "M. Dours-Zimmermann",
+      "A. Rochat",
+      "T. Pietri",
+      "U. Suter",
+      "D. Zimmermann",
+      "S. Dufour",
+      "J. Thiery",
+      "D. Meijer",
+      "F. Beermann",
+      "Y. Barrandon",
+      "L. Sommer"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.42111928289909384,
+    "depth": 1,
+    "corpus_id": "CorpusId:9652360"
+  },
+  {
+    "snippet": "Skin pigmentation is aff ected by many external and internal factors, such as ultraviolet, drugs, chemicals, infl ammation and hormones, with keratinocytes in the skin acting to control skin pigmentation through the regulation of melanocytes and their melanin production [47]. Adverse responses to certain drugs, including pain relievers and some psychoactive medications, can manifest with hyperpigmentation of the skin [47]. Inclusion of melanocytes into skin constructs will therefore enable us to utilize variations in skin pigmentation as a readout for pharmaceutical screening of drugs that may cause sunlight-induced darkening of the skin. \n\nPigmented skin equivalents have been previously established by seeding melanocytes along with keratino cytes onto a dermal skin construct [48]. Melanocytes and keratinocytes are able to self-organize, resulting in the production of pigmented skin. However, in keeping with the theme of developing skin constructs using cells from a single individual for patient-specifi c drug targeting, we aim to establish human skin constructs containing iPSCderived melanocytes, which originate from the same donor of the fi broblasts, endothelial and epithelial cells within the construct. Progress within the stem cell fi eld is rapid, and recently a protocol was published reporting the diff er entiation of iPSCs into melanocytes [49]. We will utilize this protocol to incorporate iPSC-derived melanocytes into our patient-specifi c skin equivalents. \n\nSuch constructs can then be exposed to UVB to mimic the environmental eff ect of sunlight.",
+    "paper_id": "12246972",
+    "title": "Building a microphysiological skin model from induced pluripotent stem cells",
+    "authors": [
+      "Zongyou Guo",
+      "C. Higgins",
+      "B. Gillette",
+      "M. Itoh",
+      "N. Umegaki",
+      "K. Gledhill",
+      "S. Sia",
+      "A. Christiano"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.41767264570273255,
+    "depth": 1,
+    "corpus_id": "CorpusId:12246972"
+  },
+  {
+    "snippet": "The epidermis is a stratified squamous epithelium consisting mainly of cells with two different origins: keratinocytes and melanocytes, of which keratinocytes form the 90-95% of epidermis. Melanocytes comprise from 5% to 10% of the cells in the basal layer of epidermis. Epidermal melanocytes are thin, elongated cell with branched structures, consisting of a central cell body and long numerous branches, or dendrites through which they interact with the adjacent keratinocytes of the basal epidermal layer [26]. Kemkemera et al. [27] have examined the cell shape of normal melanocytes (M-C) and of melanocytes from the skin of one neurofibromatosis type 1 patient (M-NFS) in vitro. They have reported that all cell types are bipolar and orient parallel to the grooves on the structured surface part, while all melanocytes remain distributed randomly. It has been reported by Valia [28] that although the size of melanocytes can vary, they are typically 7 \u00b5m in length. In human body variable pigmentation is seen due to variation in melanocyte population in different regions of the body. However there is no sexual or racial variation in the density of melanocytes in the skin. Thus the cellular activity is considered as the main contributor to racial differences in skin pigmentation [29].",
+    "paper_id": "53409199",
+    "title": "Current Challenges in Understanding the Story of Skin Pigmentation \u2014 Bridging the Morpho-Anatomical and Functional Aspects of Mammalian Melanocytes",
+    "authors": [
+      "Sharique A. Ali",
+      "Ishrat Naaz"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4139744060478212,
+    "depth": 1,
+    "corpus_id": "CorpusId:53409199"
+  },
+  {
+    "snippet": "Footpads from Dsk1, Dsk7, Dsk9, and Dsk10 (Class I, Fig. 2b) have excess pigment in a uniform and continuous slanted stripe that is especially and postnatal day 10 (P10), neural crestderived melanoblasts (Mb) migrate into the developing dermis (blue), and either differentiate into dermal melanocytes (Mc,1) or continue migrating into the epidermis (pink, 2). Between E16 and P10, epidermal melanoblasts can differentiate into intrafollicular melanocytes that are responsible for adult hair color (3), differentiate into interfollicular melanocytes that are responsible for neonatal skin color but disappear by 2 wk of age or in nonhairy regions of the skin and in the tail (4), differentiate into epidermal melanocytes that persist through adult life (5), and increase in number and/or activity in response to environmental signals such as UV irradiation (Rosdahl 1979) or wound healing (Hirobe 1988). Timing of these stages is based on Quevedo and Holstein (1998) and Yoshida et al. (1996), and our own unpublished studies (C.D. van Raamsdonk and G.S. Barsh, unpubl.). (b) Dsk1, Dsk7, Dsk9, and Dsk10 cause an increase in dermal melanocytes (1); Dsk1, Dsk7, and Dsk10 also cause a slight darkening of hair (data not shown). Dsk3, Dsk4, Dsk6, and Dsk8 cause melanin to accumulate in nonhairy regions of the epidermis; the phenotype is apparent by 2-3 wk of age. Dsk2 and Dsk5 cause an increased number of epidermal melanocytes, but the phenotype is not apparent until 6-8 wk of age. \n\nprominent over the volar pad at the base of the first digit (but not other volar pads) and has a bluish-gray color.",
+    "paper_id": "23863388",
+    "title": "Genetics of dark skin in mice.",
+    "authors": [
+      "Karen R. Fitch",
+      "K. McGowan",
+      "Catherine D. Van Raamsdonk",
+      "H. Fuchs",
+      "Daekee Lee",
+      "A. Puech",
+      "Y. H\u00e9rault",
+      "D. Threadgill",
+      "M. Hrab\u011b de Angelis",
+      "G. Barsh"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4088062246804729,
+    "depth": 1,
+    "corpus_id": "CorpusId:23863388"
+  },
+  {
+    "snippet": "This process represents an extremely rare example of organelle 'donation' from the cell type that makes it (i.e., melanocyte) to a wholly different histologic cell type (keratinocyte) that receives it. In the epidermis, melanin granules tend to aggregate as supranuclear caps within (often) proliferative keratinocytes, where it can protect their nuclear DNA from UVR-induced damage (26). \n\nMelanocytes and keratinocytes exist in the human epidermis within a truly extraordinary and remarkably-stable unit of one post-mitotic melanocyte to approximately 36 viable keratinocytes -the so-called 'epidermal melanin unit' or 'EMU,' as first proposed by Breathnach and Fitzpatrick in 1963 (27). This unit is crucial for maintaining the integrity of the human epidermis and especially for its protective skin pigmentation (see Figure 2). Given that all human skin phototypes, from black to white, have the same melanocyte number per unit area of epidermis, much of the qualitative variation in human skin color is due to differences in a) the number of melanin granules per melanocyte; b) melanin type (i.e., eu-/pheo-melanin), and c) pattern of melanin granule distribution throughout various strata of the human epidermis (27). Within the EMU, the keratinocyte partner tightly controls several aspects of melanocyte behavior, including via a regulated balance of paracrine growth factors and cell-cell adhesion molecules. Distinct subpopulations of melanocytes seem to be differentially positioned within the basal layer of the human epidermis, generating at least two EMUs (28, 29) (see below). \n\nBeyond the epidermis, the skin's main appendage, the human hair follicle, contains a remarkable diversity of melanocyte subpopulations, the most apparent of which form a melanogenicially-active \"follicular melanin unit\" or \"M-FMU\" (30).",
+    "paper_id": "248397472",
+    "title": "Loss of \u2018Epidermal Melanin Unit\u2019 Integrity in Human Skin During Melanoma-Genesis",
+    "authors": [
+      "C. Casalou",
+      "H. Moreiras",
+      "J. Mayatra",
+      "A. Fabre",
+      "D. Tobin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.40611740505896265,
+    "depth": 1,
+    "corpus_id": "CorpusId:248397472"
+  },
+  {
+    "snippet": "These data strongly suggest that the stem cells, which are resistant against c-Kit antibody treatment and is capable of regenerating the hair pigmentary unit, are present somewhere in the hair follicle. Using Dct-LacZ transgenic mice, which allow visualizing melanocyte lineage by the specific expression of the LacZ transgene (Mackenzie et al., 1997), a small subset of melanoblasts were found to remain localized at the bulge region of the hair follicle in c-Kit antibody treated animals (Nishimura et al., 2002). These melanoblasts are immature, infrequently dividing, and capable of regenerating follicular pigmentary unit when they are grafted onto neonatal skin. These capacities of the melanoblasts satisfy the definitions for stem cells. Hence, it is evident that the melanoblasts localizing at the bulge region of the hair follicle represent a stem cell population in the melanocyte lineage (Nishimura et al., 2002) (Figure 4). Because these bulge stem cells are anatomically segregated from their differentiated progenies in the hair matrix (Figure 4), this distribution pattern of follicular melanocytes allows locating the individual stem cells at this specific location. Hence, melanocyte stem cells offer an advantageous model in which to understand how stem cell behavior is regulated by their surrounding microenvironment. Interestingly, the bulge melanoblasts can also be found in human hair follicles, while whether they are corresponding to stem cells or not awaits further investigation. \n\nIn the human skin, immature melanocytes reside on the basement membrane of the interfollicular epidermis, where they play a role in formation of skin pigmentation. Whereas the origin of the human epidermal melanocytes has not been determined yet, several lines of evidence suggests that these melanocytes may also arise from the bulge melanoblasts in the hair follicle. Vitiligo is a condition where the epidermal melanocytes are lost from the skin.",
+    "paper_id": "16430498",
+    "title": "Melanocyte stem cells",
+    "authors": [
+      "M. Osawa"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4053703406132055,
+    "depth": 1,
+    "corpus_id": "CorpusId:16430498"
+  },
+  {
+    "snippet": "Melanocytes are melanin-producing cells originating from the neural crest [17]. During development melanocyte stem cells migrate from the neural crest to the skin and to mucous membranes. Active melanocytes are present in the stria vascularis of the cochlea, in the leptomeninges, in the substantia nigra and locus coerulus of the brain, and in the heart, where they play a number of as yet ill-defined roles [13,18].\n\nMelanocyte stem cells have the capacity for self-renewal and for differentiation and thus can maintain the population of mature melanocytes. In the epidermis, the melanocyte stem cells reside in the bulge region of hair follicles [19,20], but the niche in which they reside in the oral mucosa is unknown.\n\nEpidermal melanocyte stem cells give rise to transientamplifying melanocyte precursors that settle without the stem cell niche where they differentiate into mature melanin producing melanocytes [19,[21][22][23][24]. Stem cell factor (SCF) and its tyrosine kinase receptor C-kit signalling pathways are critical for epidermal melanocyte development during embryogenesis [17,20], notch signalling pathways are essential in the maintenance of adult melanocyte stem cells, and thus for melanocyte homeostasis [20], endothelin 1 plays a role in the differentiation of melanocyte precursors, and micropthalmia-associated transcription factor (MITF) with its cAMP response element play a critical role in melanogenesis [25].\n\nIn the skin, migration of precursor melanocytes from the dermis to their final destination in the basal cell layer of the epithelium is mediated by c-Kit/SCF, endothelin 1 and 3, hepatocyte growth factor (HGF) and basic fibroblast growth factor (bFGF). These precursor dermal melanocytes, as they pass through the basement membrane, express E-cadherin which later facilitates intercellular communication with neighbouring keratinocytes in the basal cell layer of the epithelium [1]. Sometimes, melanocy",
+    "paper_id": "14343389",
+    "title": "Melanin: the biophysiology of oral melanocytes and physiological oral pigmentation",
+    "authors": [
+      "L. Feller",
+      "A. Masilana",
+      "R. Khammissa",
+      "M. Altini",
+      "Y. Jadwat",
+      "J. Lemmer"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.4033900646577617,
+    "depth": 1,
+    "corpus_id": "CorpusId:14343389"
+  },
+  {
+    "snippet": "Melanocytes in the human body originate during neurogenesis in the embryonic stage, typically around 6-8 weeks, known as melanoblasts [6]. These melanoblasts develop from neural crest cells and migrate to various locations, including the eyes, inner ears, heart, adipose tissue, mucosa, brain, and skin [10]. Once within the epidermis, melanoblasts proliferate and differentiate, leading to colonization of the entire embryonic skin. During the 15th-24th weeks of human embryonic development, hair follicles begin to form. During this period, a portion of mature melanocytes differentiate and migrate to the bulb of the hair follicles, while others differentiate into melanocyte stem cells (MSCs), a population of embryonic progenitors with self-renewal capability, which also migrate and settle in the hair follicles [11,12]. In the subsequent developmental process, melanocyte stem cells provide mature melanocytes to the hair bulb to produce pigment for the newly formed hair follicles, as well as supplying mature melanocytes to the interfollicular epidermis, serving as a reservoir for mature melanocytes in adult skin [13]. Initially existing mature melanocytes in the dermis undergo asymmetric division during the embryonic period to supplement the mature melanocytes in the epidermis and gradually disappear after childhood [14]. However, mature melanocytes persist in the dermis, resulting in blue or gray patches on the skin, known as nevi or Mongolian spots [14]. Therefore, melanin in adult skin is secreted by epidermal melanocytes, and two populations of melanocytes exist in hair follicles: mature melanocytes capable of producing melanin and melanocyte stem cells that serve as a reservoir for mature melanocytes [6].",
+    "paper_id": "270720871",
+    "title": "Transcriptional dysregulation and insights into clinical implications in melanoma",
+    "authors": [
+      "Chen Shen",
+      "Mengjiao Chen",
+      "Xuanbingning Nian",
+      "Jun Li",
+      "J. Tao"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.40283666803772233,
+    "depth": 1,
+    "corpus_id": "CorpusId:270720871"
+  },
+  {
+    "snippet": "10 expression in vivo, given that cells displaying NCSC properties after isolation from the adult trunk skin express these markers. Indeed, in Wnt1-Cre/R26R, Ht-PA-Cre/R26R, Dhh-Cre/R26R, and Dct-Cre/R26R mice, \u03b2-galactosidase-expressing cells positive for p75 and Sox10 were found in the bulge region encompassing melanocyte stem cells and glial cells in nerve endings (Botchkarev et al., 1997;Nishimura et al., 2002;Figs. 6 and 7). However, the only way to unambiguously demonstrate that these lineages contain resident multipotent cells with the potential to selfrenew is by prospectively identifying such cells in the adult skin and testing their potential upon acute isolation. Because of the lack of specifi c surface markers, we were not able to use antibodies to directly isolate multipotent cells from back skin. In particular, p75 expression does not distinguish between glial and melanocyte lineages (Fig. 7) and, in addition, is found in regions of the skin that are not neural crest derived, such as the outer root sheath of hair follicles, and, at early stages of hair follicle morphogenesis, the dermal papilla ( Fig. 6; Botchkareva et al., 1999;Rendl et al., 2005). Similarly, the melanocyte marker c-Kit is not suitable for isolation of prospective multipotent cells from the melanocyte lineage because it is not expressed in the bulge of anagen hair follicles and because in vivo it is also found in epithelial skin cells not originating from the neural crest (Peters et al., 2002(Peters et al., , 2003. Moreover, in preliminary experiments, we failed to obtain p75/Sox10-positive spheres from c-Kit-positive skin cells isolated by FACS (unpublished data). Nonetheless, we were able to identify spherogenic neural crest-derived cells in the skin by using a genetic approach. Thereby, the lineage-specifi c activity of Dhh-Cre and of Dct-Cre,",
+    "paper_id": "9652360",
+    "title": "Neural crest\u2013derived cells with stem cell features can be traced back to multiple lineages in the adult skin",
+    "authors": [
+      "C. Wong",
+      "Christian Paratore",
+      "M. Dours-Zimmermann",
+      "A. Rochat",
+      "T. Pietri",
+      "U. Suter",
+      "D. Zimmermann",
+      "S. Dufour",
+      "J. Thiery",
+      "D. Meijer",
+      "F. Beermann",
+      "Y. Barrandon",
+      "L. Sommer"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.39965851495371696,
+    "depth": 1,
+    "corpus_id": "CorpusId:9652360"
+  },
+  {
+    "snippet": "Subsequently, a subpopulation of these melanocytes change from E-cadherin to P-cadherin-expressing cells, thereby enabling them to enter the developing P-cadherinrich hair follicles as the latter start to develop (30). Although the melanin units of the epidermis and hair follicle are thereafter distinct, they do remain open, especially when the skin tissue is stimulated. \n\nStill, it is important to emphasize that a considerable fraction of cutaneous melanocytes reside outside of the epidermis in adult human skin; mostly located in multiple distinct compartments of the hair follicle, its associated sebaceous gland, and even in sweat glands [see Figure 3;(73)]. Thus, the question of the precise location of the melanoma-targeted pigment cell must be very relevant in any discussion of human melanomagenesis. For example, upon stimulation (e.g., UVR or wound healing), hair follicle McSCs can indeed migrate to the interfollicular epidermis and differentiate into pigment-producing melanocytes (73)(74)(75). \n\nBut the hair follicle and sebaceous gland are not the only sources of melanocytes in the interfollicular epidermis poststimulation. For example, studies from mouse tail skin lacking appendages show that this epidermis contains a low frequency of immature amelanotic melanocytes, which may function as interfollicular McSCs (76)(77)(78). These cells are reminiscent of the rare immature melanocytes that survive in the leucodermic epidermis of long-duration human vitiligo (79) or of immature melanocytes in hair-less glabrous skin -the suggested source for repigmenting of the lip in vitiligo. \n\nHowever, available data suggest that melanoma may not arise from immature melanocytes, melanoblasts, etc. In fact, recent lineage-tracing studies using mouse tail epidermis (containing melanocytes) reported that melanoma arises instead from mature melanogenically-active melanocytes of the interfollicular epidermis (80).",
+    "paper_id": "248397472",
+    "title": "Loss of \u2018Epidermal Melanin Unit\u2019 Integrity in Human Skin During Melanoma-Genesis",
+    "authors": [
+      "C. Casalou",
+      "H. Moreiras",
+      "J. Mayatra",
+      "A. Fabre",
+      "D. Tobin"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3985007431257347,
+    "depth": 1,
+    "corpus_id": "CorpusId:248397472"
+  },
+  {
+    "snippet": "After H&E staining and IHC, the melanocytes were not observed in the embryonic skin at the 12 th day of incubation. Melanocytes/melanin were observed at the 16 th day of incubation, but were still sparse. It was not until the 20 th day of incubation that the melanocytes/melanin were denser (Figures 1 and 2). With the embryo developing, there was a pattern of distribution of melanocytes from absent to present and from sparse to dense in the skin (Figures 1 and 2). In addition, melanocytes were observed in close proximity to the Tps (Figures 2 G,H). \n\nBy TEM, the melanocytes were not observed in the embryonic   3 and 4). Rarely, the melanocytes containing electron-dense melanosomes were observed in the embryonic skin at the 16 th day of incubation (Figure 6B). Furthermore, the melanocytes were located close to the Tps. In the embryonic skin at the 20 th day of incubation, the melanocytes were found to contain many oval and electron-dense melanosomes (Figures 7 and 8). In particular, the melanocytes established close contacts the neighbouring TCs/Tps (Figure 8). In addition, extracellular multivesicular bodies were observed between melanocytes and TCs/Tps, which remained close to each other (Figure 8 B,C).",
+    "paper_id": "273372612",
+    "title": "Developmental characteristics of cutaneous telocytes in late embryos of the silky fowl",
+    "authors": [
+      "Hao Li",
+      "Junliang Chen",
+      "Wenjun You",
+      "Yizhen Xu",
+      "Yaqiong Ye",
+      "Haiquan Zhao",
+      "Junxing Li",
+      "Hui Zhang"
+    ],
+    "year": null,
+    "url": "",
+    "score": 0.3977841643052673,
+    "depth": 1,
+    "corpus_id": "CorpusId:273372612"
+  }
+]

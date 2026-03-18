@@ -1,0 +1,48 @@
+{
+  "markers": [
+    {
+      "gene": "MLANA",
+      "evidence_type": "Known marker (from Table S3, cluster annotation)",
+      "source_table": "Table S3"
+    },
+    {
+      "gene": "PMEL",
+      "evidence_type": "Known marker (from Table S3, cluster annotation)",
+      "source_table": "Table S3"
+    },
+    {
+      "gene": "TYR",
+      "evidence_type": "Known marker (from Table S3, cluster annotation)",
+      "source_table": "Table S3"
+    },
+    {
+      "gene": "DCT",
+      "evidence_type": "Known marker (from Table S3, cluster annotation)",
+      "source_table": "Table S3"
+    }
+  ],
+  "other_findings": [
+    {
+      "finding": "Melanocytes were identified in adult skin samples from epidermal layers.",
+      "category": "spatial location",
+      "source_table": "Table S3"
+    }
+  ],
+  "evidence_quotes": [
+    {
+      "quote": "Melanocyte\tMLANA;PMEL;TYR;DCT",
+      "source_file": "Table S3",
+      "context": "Cluster annotation and associated markers in adult skin."
+    },
+    {
+      "quote": "Skin cell types and representative markers: ... Melanocyte - MLANA, PMEL, TYR, DCT ...",
+      "source_file": "Table S3",
+      "context": "Cluster annotation table, listing cell type name and representative markers."
+    },
+    {
+      "quote": "Melanocytes were identified in adult skin samples from epidermal layers.",
+      "source_file": "Table S3",
+      "context": "Annotation of spatial location for clusters in skin."
+    }
+  ]
+}

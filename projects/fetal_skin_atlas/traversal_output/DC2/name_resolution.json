@@ -1,0 +1,11 @@
+{
+  "label": "DC2",
+  "resolved_names": [
+    "Dendritic cell type 2",
+    "DC2"
+  ],
+  "scope": "adult",
+  "tissue_context": "human skin",
+  "confidence": "medium",
+  "evidence": "The main text and supplementary information from Gopee et al. (2024) (DOI: 10.1038/s41586-024-08002-x) refer to 'DC2' as a dendritic cell subtype in skin, consistent with immunology conventions. The paper clusters dendritic cells into DC1, DC2, and Langerhans cells in figures and in the supplementary material. Although 'DC2' is used as both the cluster label and resolved name, no alternative longer name (e.g. 'conventional dendritic cell type 2') is explicitly given in the main cell/table annotations. Therefore, both names are returned; 'DC2' and 'Dendritic cell type 2', with medium confidence due to direct, but somewhat ambiguous, usage."
+}

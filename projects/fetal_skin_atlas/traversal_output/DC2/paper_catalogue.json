@@ -1,0 +1,364 @@
+{
+  "CorpusId:218505102": {
+    "title": "Antigen-Conjugated Silica Solid Sphere as Nanovaccine for Cancer Immunotherapy",
+    "authors": [
+      "Ying Dong",
+      "Jing Gao",
+      "Mengyue Pei",
+      "Xiaoli Wang",
+      "Chuangnian Zhang",
+      "Yingjie Du",
+      "Yanjun Jiang"
+    ],
+    "year": 2020,
+    "venue": "International Journal of Nanomedicine",
+    "doi": "10.2147/IJN.S242463",
+    "pmid": "32368049",
+    "url": "https://www.semanticscholar.org/paper/702155ad86508f8aa40b45f3ed506be6169d222b",
+    "abstract": "Background Nanocarriers could deliver significantly higher amounts of antigen to antigen-presenting cells (APCs), which have great potential to stimulate humoral and cellular response in cancer immunotherapy. Thereafter, silica solid nanosphere (SiO2) was prepared, and a model antigen (ovalbumin, OVA) was covalently conjugated on the surface of SiO2 to form nanovaccine (OVA@SiO2). And the application of OVA@SiO2 for cancer immunotherapy was evaluated. Materials and Methods SiO2 solid nanosphere ",
+    "tldr": "Noteworthily, OVA@SiO2 significantly promoted the maturation of dendritic cells and up-regulation of cytokine secretion by co-administration of adjuvant CpG-ODN and shows promising potential for use as an antigen delivery carrier."
+  },
+  "CorpusId:273037707": {
+    "title": "Molecular mechanisms regulating T helper 2 cell differentiation and function",
+    "authors": [
+      "Aydan CH Szeto",
+      "Ana Cf Ferreira",
+      "A. Mckenzie"
+    ],
+    "year": 2024,
+    "venue": "Current Opinion in Immunology",
+    "doi": "10.1016/j.coi.2024.102483",
+    "pmid": "39357077",
+    "url": "https://www.semanticscholar.org/paper/151e62b65f7b7146cc079346c4aa995365eda23f",
+    "abstract": "T helper 2 (TH2) cells orchestrate type 2 immunity during protective antihelminth immunity and help restore tissue homoeostasis. Their misdirected activities against innocuous substances also underlie atopic diseases, such as asthma and allergy. Recent technological advances are uncovering novel insights into the molecular mechanisms governing TH2 cell differentiation and function.",
+    "tldr": "T helper 2 (TH2) cells orchestrate type 2 immunity during protective antihelminth immunity and help restore tissue homoeostasis and underlie atopic diseases, such as asthma and allergy."
+  },
+  "CorpusId:222003684": {
+    "title": "Subsets of CD1c+ DCs: Dendritic Cell Versus Monocyte Lineage",
+    "authors": [
+      "L. Heger",
+      "Thomas P Hofer",
+      "V. Bigley",
+      "I. J. D. de Vries",
+      "M. Dalod",
+      "D. Dudziak",
+      "L. Ziegler-Heitbrock"
+    ],
+    "year": 2020,
+    "venue": "Frontiers in Immunology",
+    "doi": "10.3389/fimmu.2020.559166",
+    "pmid": "33101275",
+    "url": "https://www.semanticscholar.org/paper/32d74249f7149da528953936cd92fb746f715335",
+    "abstract": "Currently three bona fide dendritic cell (DC) types are distinguished in human blood. Herein we focus on type 2 DCs (DC2s) and compare the three defining markers CD1c, CD172, and CD301. When using CD1c to define DC2s, a CD14+ and a CD14\u2212 subset can be detected. The CD14+ subset shares features with monocytes, and this includes substantially higher expression levels for CD64, CD115, CD163, and S100A8/9. We review the current knowledge of these CD1c+CD14+ cells as compared to the CD1c+CD14\u2212 cells ",
+    "tldr": "Data on lower antigen presentation and higher cytokine production in the monocyte-marker expressing DC2 subset, which demonstrate that the DC2 subsets are also functionally distinct, are summarized."
+  },
+  "CorpusId:280019601": {
+    "title": "Spectral cytometry of rheumatoid arthritis patients implicates myeloid dendritic cells and granular HLA-DR+CD15+CD16+ cells in pro-inflammatory antigen presentation",
+    "authors": [
+      "Christian Geier",
+      "Haani Qudsi",
+      "Estelle Khairallah",
+      "Jihad Ben Gabr",
+      "Robert Winchester",
+      "Andras Perl"
+    ],
+    "year": 2025,
+    "venue": "Frontiers in Immunology",
+    "doi": "10.3389/fimmu.2025.1596609",
+    "pmid": "40703515",
+    "url": "https://www.semanticscholar.org/paper/d93287396290bcf4e9a7d01b0231c14975a63408",
+    "abstract": "Introduction Rheumatoid arthritis (RA) is a systemic autoimmune disease that leads to inflammation of synovial joints and other organs. Many RA patients \u201cshare\u201d a common peptide sequence within the HLA-DR (MHC II) molecule expressed on antigen-presenting cells (APC), suggesting that HLA-DR+ cells are important in RA inflammation. We use HLA-DR positivity to comprehensively immunophenotype APC by spectral cytometry. Methods We measured mean fluorescence intensities (MFI) of HLA-DR and molecules a",
+    "tldr": "Dendritic cell and monocyte alterations in RA include an increased co-stimulatory phenotype of CD1c+ DC2 and CD163+ DC3 with increased CD56 and CD15 in dendritic cells and monocytes, which suggest that increased HLA-DR+ phenotypes with shared granulocytic and dendritic cell features can contribute to RA."
+  },
+  "CorpusId:90822825": {
+    "title": "Erratum: Utility of murine dendritic cell line DC2.4 for in vitro assay of skin-sensitization potential",
+    "authors": [
+      "Eri Shiraishi",
+      "A. Ido",
+      "Y. Hiromori",
+      "Kento Tanaka",
+      "T. Kimura",
+      "H. Nagase",
+      "T. Nakanishi"
+    ],
+    "year": 2017,
+    "venue": "Fundamental Toxicological Sciences",
+    "doi": "10.2131/FTS.4.121",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/891861b540be1b9fc3bd64fe5ade2ca8fe4002ff",
+    "abstract": "Animal tests, such as the local lymph node assay (LLNA), are the gold standard for assaying skin-sensitizing potential. However, because of concerns about animal welfare, extensive research has been conducted on the use of various cell lines, such as human leukemia cells, for in vitro assays of skin-sensitizing potential, but such assays have not replaced animal tests as stand-alone assays. Because Langerhans cells\u2014a type of dendritic cell\u2014are the main antigen-presenting cells in the epidermis a",
+    "tldr": "Results suggest that murine dendritic cell line DC2.4 cells may be a viable replacement for human leukemia cells in in vitro assays of skin-sensitization potential."
+  },
+  "CorpusId:38766018": {
+    "title": "Transcriptional patterns associated with BDCA3 expression on BDCA1+ myeloid dendritic cells",
+    "authors": [
+      "E. Aa",
+      "P. Biesta",
+      "A. Woltman",
+      "S. Buschow"
+    ],
+    "year": 2018,
+    "venue": "Immunology and Cell Biology",
+    "doi": "10.1111/imcb.12002",
+    "pmid": "29363156",
+    "url": "https://www.semanticscholar.org/paper/23e779e4894d561bd25413194b70151e0928237c",
+    "abstract": "Myeloid dendritic cells, including BDCA3hi DCs and BDCA1+ DCs (hereafter dubbed DC1 and DC2 for clarity), play a pivotal role in the induction and regulation of immune responses. Interestingly, a fraction of DC2 also express low to intermediate levels of BDCA3. It is unknown whether BDCA3+ DC2 also share other traits with DC1 that are absent in BDCA3\u2212 DC2 and/or whether BDCA3 expression renders DC2 functionally distinct from their BDCA3\u2010lacking counterparts. Here, we used expression analysis on ",
+    "tldr": "Insight into the relationship between myeloid DC populations is provided and TLR\u2010induced maturation marker expression and inflammatory cytokine production by BDCA3+ DC2 were observed and contributes to further understanding of DC immunobiology."
+  },
+  "CorpusId:8117131": {
+    "title": "Generation of Interferon \u03b1\u2013Producing Predendritic Cell (Pre-Dc)2 from Human Cd34+ Hematopoietic Stem Cells",
+    "authors": [
+      "B. Blom",
+      "S. Ho",
+      "S. Antonenko",
+      "Yong\u2010jun Liu"
+    ],
+    "year": 2000,
+    "venue": "Journal of Experimental Medicine",
+    "doi": "10.1084/JEM.192.12.1785",
+    "pmid": "11120775",
+    "url": "https://www.semanticscholar.org/paper/6354ddde273c7dad556cec668e3186c65a70e81a",
+    "abstract": "Upon viral stimulation, the natural interferon (IFN)-\u03b1/\u03b2\u2013producing cells (IPCs; also known as pre-dendritic cells (DCs 2) in human blood and peripheral lymphoid tissues rapidly produce huge amounts of IFN-\u03b1/\u03b2. After performing this innate antiviral immune response, IPCs can differentiate into DCs and strongly stimulate T cell\u2013mediated adaptive immune responses. Using four-color immunofluorescence flow cytometry, we have mapped the developmental pathway of pre-DC2/IPCs from CD34+ hematopoietic st",
+    "tldr": "Using four-color immunofluorescence flow cytometry, this work has mapped the developmental pathway of pre-DC2/IPCs from CD34+ hematopoietic stem cells in human fetal liver, bone marrow, and cord blood."
+  },
+  "CorpusId:8543020": {
+    "title": "The role of regulatory T cells and genes involved in their differentiation in pathogenesis of selected inflammatory and neoplastic skin diseases. Part I: Treg properties and functions",
+    "authors": [
+      "B. Nedoszytko",
+      "M. Lange",
+      "M. Soko\u0142owska-Wojdy\u0142o",
+      "J. Renke",
+      "P. Trzonkowski",
+      "M. Sobjanek",
+      "A. Szczerkowska-Dobosz",
+      "M. Niedoszytko",
+      "A. G\u00f3rska",
+      "J. Romantowski",
+      "J. Skokowski",
+      "L. Kalinowski",
+      "R. Nowicki"
+    ],
+    "year": 2017,
+    "venue": "Advances in Dermatology and Allergology",
+    "doi": "10.5114/ada.2017.69305",
+    "pmid": "28951701",
+    "url": "https://www.semanticscholar.org/paper/0610381486ede73bc4284376235d6c0040d86783",
+    "abstract": "Regulatory T cells (Treg) can be divided into two types: the natural cells (tTreg), which arise in the thymus, and the induced cells (iTreg), which are produced in peripheral tissues during immune response. The most recently published studies indicate that the supervisory functions of these cells are weakened in the pathogenesis of autoimmune and neoplastic diseases of the skin. This may be a result of the domination of other immune cells in the skin, such as Th1/Th17/Th22 and Tc1 type in psoria",
+    "tldr": "The types and functions of Treg cells are described, which suggest that the supervisory functions of these cells are weakened in the pathogenesis of autoimmune and neoplastic diseases of the skin."
+  },
+  "CorpusId:8927995": {
+    "title": "Regulation of Dendritic Cell Function in Inflammation",
+    "authors": [
+      "A. Said",
+      "G. Weindl"
+    ],
+    "year": 2015,
+    "venue": "Journal of Immunological Research",
+    "doi": "10.1155/2015/743169",
+    "pmid": "26229971",
+    "url": "https://www.semanticscholar.org/paper/71f27e9e0d370a6c96c9a903491d89cc4874e750",
+    "abstract": "Dendritic cells (DC) are professional antigen presenting cells and link the innate and adaptive immune system. During steady state immune surveillance in skin, DC act as sentinels against commensals and invading pathogens. Under pathological skin conditions, inflammatory cytokines, secreted by surrounding keratinocytes, dermal fibroblasts, and immune cells, influence the activation and maturation of different DC populations including Langerhans cells (LC) and dermal DC. In this review we address",
+    "tldr": "Critical differences in human DC subtypes during inflammatory settings compared to steady state are addressed and the functional characteristics of human DC subsets in inflammatory skin environments and skin diseases including psoriasis and atopic dermatitis are highlighted."
+  },
+  "CorpusId:256001380": {
+    "title": "Multimodal human thymic profiling reveals trajectories and cellular milieu for T agonist selection",
+    "authors": [
+      "Marte Heimli",
+      "S. T. Fl\u00e5m",
+      "H. Hjorthaug",
+      "Don Trinh",
+      "M. Frisk",
+      "K. Dumont",
+      "T. Ribarska",
+      "X. Tekpli",
+      "M. Saare",
+      "B. Lie"
+    ],
+    "year": 2023,
+    "venue": "Frontiers in Immunology",
+    "doi": "10.3389/fimmu.2022.1092028",
+    "pmid": "36741401",
+    "url": "https://www.semanticscholar.org/paper/46590a953783aeaf53fa817f1608115ea3468fba",
+    "abstract": "To prevent autoimmunity, thymocytes expressing self-reactive T cell receptors (TCRs) are negatively selected, however, divergence into tolerogenic, agonist selected lineages represent an alternative fate. As thymocyte development, selection, and lineage choices are dependent on spatial context and cell-to-cell interactions, we have performed Cellular Indexing of Transcriptomes and Epitopes by sequencing (CITE-seq) and spatial transcriptomics on paediatric human thymus. Thymocytes expressing mark",
+    "tldr": null
+  },
+  "CorpusId:201209265": {
+    "title": "An integrated analysis of myeloid cells identifies gaps in in vitro models of in vivo biology",
+    "authors": [
+      "N. Rajab",
+      "Paul W. Angel",
+      "Yidi Deng",
+      "Jennifer L. Gu",
+      "Vanta J Jameson",
+      "M. Kurowska-Stolarska",
+      "Simon Milling",
+      "Chris M. Pacheco",
+      "C. Rivera",
+      "Matt Rutar",
+      "A. Laslett",
+      "K. Cao",
+      "Jarny Choi",
+      "C. Wells"
+    ],
+    "year": 2019,
+    "venue": "bioRxiv",
+    "doi": "10.1101/719237",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/b18c8d613733b4f1748397ac31bd51b4939929ac",
+    "abstract": "The Stemformatics myeloid atlas is an integrated transcriptome atlas of human macrophages and dendritic cells that systematically compares freshly isolated tissue-resident, cultured, and stem-cell derived myeloid cell types. We identified two broad classes of tissue-resident macrophages with lung, gut and tumour-associated macrophages most similar to monocytes. Microglia, Kupffer cells and synovial macrophages shared similar profiles with each other, and with cultured macrophages. Pluripotent st",
+    "tldr": "This work identified two broad classes of tissue-resident macrophages with lung, gut and tumour-associated macrophage most similar to monocytes and Flt3L-derived cord blood dendritic cells, and myeloid subsets were reproducible across different experimental series, showing the resource is a robust reference for new data."
+  },
+  "CorpusId:274130040": {
+    "title": "Newly found rat CD103- dendritic cells are the highly immunogenic conventional DC2 subpopulation, corresponding to the known DC subsets in mice and humans",
+    "authors": [
+      "Y. Sawanobori",
+      "Tadayuki Ogawa",
+      "H. Ueta",
+      "Yusuke Kitazawa",
+      "Nobuko Tokuda"
+    ],
+    "year": 2024,
+    "venue": "bioRxiv",
+    "doi": "10.1101/2024.11.12.623329",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/212eeed33a1c17b23996df8708b9cda088eb1492",
+    "abstract": "Dendritic cells (DCs), the primary antigen-presenting cells, have traditionally been identified by CD103 molecules in rats, whereas mouse and human DCs are identified by CD11c molecules. However, this history does not preclude the existence of CD103- DCs in rats. To explore this possibility, we examined MHCII+ cells in rat spleen and thymus, identifying a novel population of CD103-MHCII+CD45R-CD172a+ cells. These cells are negative for CD103 and B cell marker CD45R, but positive for the type-2 c",
+    "tldr": "It is confirmed that the rat CD103- cDC2s induce T cell proliferation more effectively than other DC subsets, suggesting enhanced immunogenic potential, and gene set enrichment analysis predicted enhanced immunogenic activities for this novel population compared to known rat cDC2s."
+  },
+  "CorpusId:250094015": {
+    "title": "Early life tolerance depends on a subset of specialized dendritic cells and is reinforced by the skin microbiota",
+    "authors": [
+      "Antonin Weckel",
+      "M. Dhariwala",
+      "K\u00e9vin Ly",
+      "Oluwasunmisola T. Ojewumi",
+      "J. Riggs",
+      "Jeanmarie R. Gonzalez",
+      "Laura R. Dwyer",
+      "Joy N. Okoro",
+      "John M. Leech",
+      "Marg\u00f4t Bacino",
+      "Grace D. Cho",
+      "G. Merana",
+      "N. Anandasabapathy",
+      "Yosuke Kumamoto",
+      "T. Scharschmidt"
+    ],
+    "year": 2022,
+    "venue": "bioRxiv",
+    "doi": "10.1101/2022.06.23.497363",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/8d557cae95c4904b767a0277f51ee6bd7df57b37",
+    "abstract": "Early life establishment of tolerance to commensal bacteria at barrier surfaces carries enduring implications for immune health but remains poorly understood. Here we show that this process is controlled by microbial interaction with a specialized subset of antigen presenting cells. More particularly, we identify CD301b+ type 2 conventional dendritic cells (DC) as a subset in neonatal skin specifically capable of uptake, presentation and generation of regulatory T cells (Tregs) to commensal anti",
+    "tldr": "This work identifies CD301b+ type 2 conventional dendritic cells (DC) as a subset in neonatal skin specifically capable of uptake, presentation and generation of regulatory T cells (Tregs) to commensal antigens."
+  },
+  "CorpusId:133604906": {
+    "title": "The Role of the Immune System in Cutaneous Squamous Cell Carcinoma",
+    "authors": [
+      "M. Bottomley",
+      "J. Thomson",
+      "C. Harwood",
+      "I. Leigh"
+    ],
+    "year": 2019,
+    "venue": "International Journal of Molecular Sciences",
+    "doi": "10.3390/ijms20082009",
+    "pmid": "31022866",
+    "url": "https://www.semanticscholar.org/paper/46c3244de9006e0f1b4abe876bc5ced19f837053",
+    "abstract": "Cutaneous squamous cell carcinoma (cSCC) is the second most common skin cancer. In immunosuppressed populations it is a source of considerable morbidity and mortality due to its enhanced recurrence and metastatic potential. In common with many malignancies, leucocyte populations are both protective against cancer development and also play a role in \u2018sculpting\u2019 the nascent tumor, leading to loss of immunogenicity and tumor progression. UV radiation and chronic viral carriage may represent unique ",
+    "tldr": "The lessons learned from animal and ex vivo human studies of the role of individual leucocyte subpopulations in the development of cutaneous SCC are discussed and insights into cSCC immunity gleaned from studies in humans are discussed, particularly in populations receiving pharmacological immunosuppression such as transplant recipients."
+  },
+  "CorpusId:231614702": {
+    "title": "The skin environment controls local dendritic cell differentiation and function through innate IL-13",
+    "authors": [
+      "J. Mayer",
+      "O. Lamiable",
+      "K. Hilligan",
+      "J. Chandler",
+      "S. Old",
+      "David A. Eccles",
+      "Jianping Yang",
+      "G. Webb",
+      "Rita G. Domingues",
+      "L. Munoz-Erazo",
+      "Kirsty A Wakelin",
+      "Evelyn J Hyde",
+      "Shiau-Choot Tang",
+      "Sally Chappell",
+      "C. Mackay",
+      "F. Brombacher",
+      "A. Sher",
+      "R. Tussiwand",
+      "Lisa M. Connor",
+      "Dragana Jankovic",
+      "M. Hepworth",
+      "G. Le Gros",
+      "F. Ronchese"
+    ],
+    "year": 2021,
+    "venue": "bioRxiv",
+    "doi": "10.1101/2021.01.05.425466",
+    "pmid": "",
+    "url": "https://www.semanticscholar.org/paper/8b2eab73b1d9aab28eaec9ff34399d9279fbb0ea",
+    "abstract": "The signals driving the adaptation of type-2 dendritic cells (DC2s) to diverse peripheral environments are not well understood. We show that the development of CD11blow migratory DC2s, a DC2 population unique to the dermis, requires STAT6- and KLF4-dependent IL-13 signaling, whereas DC2s in lung and small intestine are STAT6-independent. Dermal IL-13 is mostly derived from innate lymphoid cells expressing a resting ICOS+ KLRG1-ST2-phenotype. Analysis of public datasets indicates that human skin ",
+    "tldr": "St steady-state IL-13 fosters a non-inflammatory and pro-allergic environment in healthy skin via conditioning of local DC2s through conditioning of STAT6- and KLF4-dependent IL- 13 signaling."
+  },
+  "CorpusId:265481554": {
+    "title": "Straight to the point: targeted mRNA-delivery to immune cells for improved vaccine design",
+    "authors": [
+      "Bruna Clemente",
+      "Maxime Denis",
+      "C. P. Silveira",
+      "Francesca Schiavetti",
+      "M. Brazzoli",
+      "Daniela Stranges"
+    ],
+    "year": 2023,
+    "venue": "Frontiers in Immunology",
+    "doi": "10.3389/fimmu.2023.1294929",
+    "pmid": "38090568",
+    "url": "https://www.semanticscholar.org/paper/019697c02649dea52d0292cc3a2337fe16e19b0e",
+    "abstract": "With the deepening of our understanding of adaptive immunity at the cellular and molecular level, targeting antigens directly to immune cells has proven to be a successful strategy to develop innovative and potent vaccines. Indeed, it offers the potential to increase vaccine potency and/or modulate immune response quality while reducing off-target effects. With mRNA-vaccines establishing themselves as a versatile technology for future applications, in the last years several approaches have been ",
+    "tldr": "The potential specific targets for immune system-directed mRNA delivery, as well as the different targeting ligand classes and delivery systems used for this purpose, are discussed."
+  },
+  "CorpusId:268050765": {
+    "title": "Utilizing murine dendritic cell line DC2.4 to evaluate the immunogenicity of subunit vaccines in vitro",
+    "authors": [
+      "Lantian Lu",
+      "Wei Yang Kong",
+      "Jiahui Zhang",
+      "F. Firdaus",
+      "James W. Wells",
+      "R. Stephenson",
+      "Istvan Toth",
+      "M. Skwarczynski",
+      "J. G. Cruz"
+    ],
+    "year": 2024,
+    "venue": "Frontiers in Immunology",
+    "doi": "10.3389/fimmu.2024.1298721",
+    "pmid": "38469294",
+    "url": "https://www.semanticscholar.org/paper/52fef43441bdd588f402c918d2a77bf319d0e4c7",
+    "abstract": "Subunit vaccines hold substantial promise in controlling infectious diseases, due to their superior safety profile, specific immunogenicity, simplified manufacturing processes, and well-defined chemical compositions. One of the most important end-targets of vaccines is a subset of lymphocytes originating from the thymus, known as T cells, which possess the ability to mount an antigen-specific immune response. Furthermore, vaccines confer long-term immunity through the generation of memory T cell",
+    "tldr": "An in vitro model generated using the immortalized murine dendritic cell line enables the selection of the lead vaccine candidates based on DC activation capacity prior to in vivo animal studies, demonstrating a strong correlation with previously published in vivo study outcomes."
+  },
+  "CorpusId:253326816": {
+    "title": "Micro/Nanostructured Topography on Titanium Orchestrates Dendritic Cell Adhesion and Activation via \u03b22 Integrin-FAK Signals",
+    "authors": [
+      "Yang Yang",
+      "Yujing Lin",
+      "Ruogu Xu",
+      "Zhengchuan Zhang",
+      "Wenyi Zeng",
+      "Qiong Xu",
+      "Feilong Deng"
+    ],
+    "year": 2022,
+    "venue": "International Journal of Nanomedicine",
+    "doi": "10.2147/IJN.S381222",
+    "pmid": "36345509",
+    "url": "https://www.semanticscholar.org/paper/33a40bfcefd614d00fd3cf141414996dbb9e27e3",
+    "abstract": "Background and Purpose In clinical application of dental implants, the functional state of dendritic cells (DCs) has been suggested to have a close relationship with the implant survival rate or speed of osseointegration. Although microscale surfaces have a stable osteogenesis property, they also incline to trigger unfavorable DCs activation and threaten the osseointegration process. Nanoscale structures have an advantage in regulating cell immune response through orchestrating cell adhesion, in",
+    "tldr": "Compared to the SA surface with solely micro-scale topography, titanium surfaces with hybrid micro/nano-topographies reduced DC inflammatory response by influencing their adhesion states, and this regulatory effect was accompanied by the modulation of \u03b22 integrin-FAK signal expression."
+  }
+}

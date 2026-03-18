@@ -1,0 +1,48 @@
+{
+  "markers": [
+    {
+      "gene": "CD1C",
+      "evidence_type": "known marker; cluster annotation",
+      "source_table": "Supplementary Table 1"
+    },
+    {
+      "gene": "FCER1A",
+      "evidence_type": "known marker; cluster annotation",
+      "source_table": "Supplementary Table 1"
+    },
+    {
+      "gene": "CLEC10A",
+      "evidence_type": "differential expression analysis",
+      "source_table": "Supplementary Table 2"
+    },
+    {
+      "gene": "CD163",
+      "evidence_type": "differential expression analysis",
+      "source_table": "Supplementary Table 2"
+    }
+  ],
+  "other_findings": [
+    {
+      "finding": "Localized mainly in the dermis, rarely found in the epidermis",
+      "category": "spatial distribution",
+      "source_table": "Supplementary Table 3"
+    }
+  ],
+  "evidence_quotes": [
+    {
+      "quote": "DC2 (CD1C+, FCER1A+) cluster annotation",
+      "source_file": "Supplementary Table 1",
+      "context": "Cell type annotation table listing DC2 with associated markers"
+    },
+    {
+      "quote": "Top DEGs for DC2: CLEC10A, CD163",
+      "source_file": "Supplementary Table 2",
+      "context": "Table of differentially expressed genes per cluster"
+    },
+    {
+      "quote": "DC2 were localized mainly in the dermis, rarely found in the epidermis",
+      "source_file": "Supplementary Table 3",
+      "context": "Table summarizing spatial locations of analyzed cell types"
+    }
+  ]
+}

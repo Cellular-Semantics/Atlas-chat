@@ -1,0 +1,10 @@
+{
+  "label": "F1",
+  "resolved_names": [
+    "Papillary fibroblast 1"
+  ],
+  "scope": "adult",
+  "tissue_context": "human skin (adult, compared with prenatal and organoid)",
+  "confidence": "high",
+  "evidence": "Resolved from Supplementary Table 4 ('Fine annotation cell types and abbreviations'), which maps 'F1' in the adult skin to 'Papillary fibroblast 1'. The main and supplementary materials show cluster 'F1' is consistently used for this population."
+}

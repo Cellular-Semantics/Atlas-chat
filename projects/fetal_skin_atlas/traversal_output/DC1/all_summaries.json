@@ -1,0 +1,325 @@
+[
+  {
+    "snippet_index": 1,
+    "quotes": [
+      "Mature adult skin contains the dendritic cell (DC) subsets DC1 and DC2, as well as macrophages, all of which have been identified in first-trimester human skin and closely resemble their adult counterparts.",
+      "DC1 and DC2 have been identified in fetal skin prior to bone marrow production, 38,39,41 as such they may originate from both fetal liver-and bone marrow-derived precursors."
+    ],
+    "summary": "This snippet establishes that DC1 is present in both adult and fetal human skin, including first-trimester fetal skin, and suggests that these cells may originate from fetal liver or bone marrow progenitors. It also notes their resemblance to adult counterparts.",
+    "categories": [
+      "location",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:218615208",
+    "source_title": "The developing immune network in human prenatal skin",
+    "source_authors": "R. Botting et al.",
+    "source_year": null,
+    "snippet": "Unlike the epidermis, during development the dermis hosts multiple antigen-presenting cell (APC) subsets. Mature adult skin contains the dendritic cell (DC) subsets DC1 and DC2, as well as macrophages, all of which have been identified in first-trimester human skin and closely resemble their adult counterparts. 38 Macrophages greatly outnumber DCs in the first trimester, but reach adult ratios mid-gestation, 7,39 coinciding with bone marrow development. 40 Furthermore, plasmacytoid DCs, monocytes, monocyte-DCs (having both a monocyte and DC gene signature) and a neutrophil-myeloid precursor have also recently been identified in first-trimester human skin using single-cell RNA sequencing (scRNAseq). 41 acrophages are the most abundant immune subset in fetal skin, 41 which may elicit a multitude of functions due to their plasticity. 42 As has been shown in mice, they may be derived from progenitors originating in yolk sac, fetal liver or bone marrow. 13,16,43 Embryonic and fetal macrophages in the first-and second-trimester express MR (CD206) and DC-SIGN (CD209), 8,39 which is typically attributed to an M2 phenotype. 44 M2 macrophages are anti-inflammatory and support migration and differentiation of fibroblasts and keratinocytes during wound healing, 45,46 and in mice and zebrafish have been shown to support vascularization. 47 As such, macrophages in developing human skin may play a crucial role in supporting the structural changes occurring during maturation of skin. \n\nUnlike macrophages and LCs, very little is known about dermal DCs in developing skin beyond their presence. DC1 and DC2 have been identified in fetal skin prior to bone marrow production, 38,39,41 as such they may originate from both fetal liver-and bone marrow-derived precursors. Major Histocompatibility Complex class II + cells have been observed in lymphatic vessels of second-trimester skin, 38 suggesting DCs may migrate as part of homeostatic surveillance."
+  },
+  {
+    "snippet_index": 2,
+    "quotes": [
+      "Xcr1 hi CD103 hi type 1 conventional dendritic cells (DC1)"
+    ],
+    "summary": "This snippet identifies DC1 in mice as Xcr1 high, CD103 high conventional dendritic cells, demonstrating their status as one of the main skin DC types.",
+    "categories": [
+      "markers",
+      "location"
+    ],
+    "source_corpus_id": "CorpusId:250094015",
+    "source_title": "Early life tolerance depends on a subset of specialized dendritic cells and is reinforced by the skin microbiota",
+    "source_authors": "Antonin Weckel et al.",
+    "source_year": null,
+    "snippet": "-seq) on D10 mice. This confirmed Epcam hi Langerhans cells (LC), Xcr1 hi CD103 hi type 1 conventional dendritic cells (DC1) and Itgam hi and Itgam lo type 2 conventional dendritic cells (CD11b hi and CD11b lo DC2s) as the four main skin DC types, with a separate small cluster of DCs that contain a mix of these markers but are defined primarily by their CCR7 + status (Figs. 1C-D, S1C). In the SDLN, CD11c lo/hi MHCII hi migratory DCs (migDCs) were comprised of the same four DC subsets with different relative prevalence (Figs. S1D-E). Of note, the C-type lectin CD301b, encoded by Mgl2, is known to mark a portion of DC2 in adult murine skin and other tissues (Kumamoto et al., 2013;Linehan et al., 2015;Shin et al., 2016;Tatsumi et al., 2021). Our CITE-seq data confirmed enrichment of Mgl2 and CD301b expression in both skin CD11b hi DC2 and CD11b lo DC2 clusters (Fig. 1E), with similar enrichment of CD301b protein but not RNA-level expression in SDLN migDC2 (Fig. S1F). Flow cytometry revealed that approximately two thirds of neonatal skin DC2s were CD301b + by surface staining (Fig. 1F, S1G-I).\n\nTo systematically assess if a specific DC subset preferentially supports generation of Tregs specific for skin commensal antigens, we next used three complementary models to temporarily deplete each of the major skin DC subsets in the neonatal window during S. epi-2w colonization ( Fig. 1G). As reported in adult mice (Yamazaki et al., 2013a), diptheria toxin (DT) administration to Xcr1 DTR mice led to preferential depletion of DC1 in the skin and SDLN (Fig. S1J). Likewise, Hu-Lang DTR mice"
+  },
+  {
+    "snippet_index": 4,
+    "quotes": [
+      "DT-mediated depletion of DC1 in XCR1-DTR mice suppressed the development of passive EAE (Figures 8A-D).",
+      "DC1 play a critical role in presenting endogenous autoantigens to activate pathogenic T cells under homeostatic conditions where there is a lack of tissue damage and proinflammatory cues.",
+      "DC1 are a significant source of IL-12, which suppresses Treg induction, proliferation, and FOXP3 expression levels (54).",
+      "Using XCR1-DTR mice, we were able to precisely target and deplete only DC1, because XCR1 expression is limited to DC1 alone."
+    ],
+    "summary": "This snippet demonstrates that DC1 are defined by XCR1 expression, play a pro-inflammatory role in autoimmunity by presenting autoantigens and activating pathogenic T cells, and are a significant source of IL-12 which negatively regulates Tregs. Depleting DC1 suppresses passive experimental autoimmune encephalomyelitis (EAE).",
+    "categories": [
+      "markers",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:264578467",
+    "source_title": "CAR-T cells and CAR-Tregs targeting conventional type-1 dendritic cell suppress experimental autoimmune encephalomyelitis",
+    "source_authors": "Cody D. Moorman et al.",
+    "source_year": null,
+    "snippet": "DT-mediated depletion of DC1 in XCR1-DTR mice suppressed the development of passive EAE (Figures 8A-D). Interestingly DC1 depletion had no effect on active EAE, in which mice are immunized with MOG/CFA, but suppressed passive EAE, in which T cells are adoptively transferred (Figure 8). These data are consistent with previous reports in which total DC depletion exacerbated active EAE but suppressed passive EAE (8,9,17,(25)(26)(27)(28). Taken together, these results suggest that DC1 play a critical role in presenting endogenous autoantigens to activate pathogenic T cells under homeostatic conditions where there is a lack of tissue damage and proinflammatory cues. However, DC1 may play a more passive role or even regulatory role in adjuvant-primed environments where there are proinflammatory cues and exogenous autoantigen, leading to antigen presentation by activated non-DC antigen-presenting cells such as macrophages/ B-cells. These results collectively suggest that under homeostatic conditions, DC1 are a major contributor to inflammation and serve to activate pathogenic T cells. Importantly, our findings provide more precise insight into the proinflammatory role of DC1 in autoimmunity, compared with previous studies that relied on other DC1 depletion methods (29-31). Using XCR1-DTR mice, we were able to precisely target and deplete only DC1, because XCR1 expression is limited to DC1 alone. Furthermore, our research also sheds light on the previously underappreciated involvement of DC1 in the activation of autoreactive CD4 + T cells in EAE. \n\nDC1 depletion increased polyclonal Tregs and Treg proliferation in EAE mice (Figure 8). Possible but not exclusive explanations include the absence of DC1 or the skewing of endogenous antigen presentation to DC2 and pDC favoring Treg expansion. DC1 are a significant source of IL-12, which suppresses Treg induction, proliferation, and FOXP3 expression levels (54)."
+  },
+  {
+    "snippet_index": 16,
+    "quotes": [
+      "both human DC subsets, CD141 + DC1 and CD1c + DC2, were capable of efficiently taking up ACM-Rhodamine, as indicated by the high expression of Rhodamine in both populations, relative to the control (Figure 2e)."
+    ],
+    "summary": "This snippet describes that DC1 (CD141+ in humans) is capable of efficiently taking up polymersome nanocarriers (ACMs), similar to DC2, and is likely to present encapsulated antigens to naive T cells, which may induce strong and durable adaptive immune responses relevant for vaccination.",
+    "categories": [
+      "function",
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:238476037",
+    "source_title": "Polymersomes as Stable Nanocarriers for a Highly Immunogenic and Durable SARS-CoV-2 Spike Protein Subunit Vaccine",
+    "source_authors": "Jian Hang Lam et al.",
+    "source_year": null,
+    "snippet": "However, DC2 in the skin seemed to be more potent in ACM-Rhodamine uptake over time as compared to DC1, with around 80\u221290% of DC2 remaining Rhodamine + on days 1 to 3 postinjection compared to around 70% and 20% of DC1 on days 1 and 3, respectively (Figure 2c). While we could not detect any signal for Rhodamine in the draining LNs on day 1 postinjection (data not shown), around 2\u22125% of migratory DC1 (mDC1) and migratory DC2 (mDC2) had taken up ACM-Rhodamine as early as day 3 postinjection (Figure 2b,d). Collectively, these experiments show that DCs take up ACMs from the skin and then migrate to the draining LNs with their \"ACM cargo\". As the LNs are the prime location for DC-T cell interaction, we speculate that these ACM-loaded DCs interact with nai \u0308ve CD8 + T cells or CD4 + T cells to prime and polarize them for further responses. \n\nTo translate our results from mouse to human, we cultured primary human peripheral blood mononuclear cells (PBMCs) with ACM-Rhodamine in varying concentrations overnight and assessed their ability to take up ACM-Rhodamine by flow cytometry. We found that, compared to our mouse data, both human DC subsets, CD141 + DC1 and CD1c + DC2, were capable of efficiently taking up ACM-Rhodamine, as indicated by the high expression of Rhodamine in both populations, relative to the control (Figure 2e). Since uptake was also observed in monocytes but not B or T cells (Supplementary Figure 6), this indicated a process that was dependent on cell type. \n\nIn conclusion, both DC1 and DC2 are capable of efficiently taking up ACMs and thus likely to present ACM-encapsulated antigen to nai \u0308ve CD8 + T cells or CD4 + T cells. This may potentially induce a strong and durable adaptive immune response, which is highly desirable in the context of a vaccine."
+  },
+  {
+    "snippet_index": 17,
+    "quotes": [
+      "conventional DC1 cells in the dermis of mouse and human skin in response to various different bacterial insults produced vascular endothelial growth factor-\u03b1 (VEGF-\u03b1), which was critical for mediating neutrophil recruitment and host defense (Janela et al. 2019).",
+      "cDC1s in the skin and potentially at other epithelial sites are essential regulators of neutrophil recruitment in the innate immune response to S. aureus (and other bacteria), providing evidence of a role for DCs beyond classical antigen presentation."
+    ],
+    "summary": "DC1 (cDC1) cells in the dermis of skin produce VEGF-\u03b1 in response to bacterial infection, playing an essential role in neutrophil recruitment and innate host defense, highlighting a functional role for DC1 cells beyond antigen presentation.",
+    "categories": [
+      "location",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:209383456",
+    "source_title": "Development of a vaccine against Staphylococcus aureus invasive infections: Evidence based on human immunity, genetics and bacterial evasion mechanisms",
+    "source_authors": "L. Miller et al.",
+    "source_year": null,
+    "snippet": "DCs primarily function as professional antigen presenting cells (APCs) in which MHC molecules on the DCs present antigens to TCRs on T cells in adaptive immunity.For example, antigen delivery to DCs shapes human CD4 + and CD8 + T cell memory responses against S. aureus (Uebele et al. 2017).DCs can also directly mediate host defense against different bacterial insults to the skin, including S. aureus (Janela et al. 2019).In particular, conventional DC1 cells in the dermis of mouse and human skin in response to various different bacterial insults produced vascular endothelial growth factor-\u03b1 (VEGF-\u03b1), which was critical for mediating neutrophil recruitment and host defense (Janela et al. 2019).Thus, cDC1s in the skin and potentially at other epithelial sites are essential regulators of neutrophil recruitment in the innate immune response to S. aureus (and other bacteria), providing evidence of a role for DCs beyond classical antigen presentation."
+  },
+  {
+    "snippet_index": 20,
+    "quotes": [
+      "There were statistically significant differences in DC1 and DC1/DC2 ratio in NSCLC patients with different tumor staging (P=0.029  and P=0.001), while there were statistically significant differences in patients with a different Karnofsky performance status (KPS) scores (P=0.025) (Table II).",
+      "In NSCLC, DC1 expression was low, and the immune function of body was decreased significantly.",
+      "The DC1 content and DC1/DC2 ratio after three DC treatments were significantly increased compared with those before treatment (Table III).",
+      "The number of DC1 in para-carcinoma and normal lung tissues was significantly lower than that in lung cancer tissues, and the difference was statistically significant (P<0.05)."
+    ],
+    "summary": "This snippet provides evidence that DC1 levels and the DC1/DC2 ratio vary with tumor stage and patient performance status in NSCLC. DC1 expression is low in NSCLC and increases after DC-based treatments. DC1 numbers are higher in lung cancer tissue compared to adjacent or normal lung tissue.",
+    "categories": [
+      "function",
+      "location"
+    ],
+    "source_corpus_id": "CorpusId:21696114",
+    "source_title": "Effect of dendritic cell immunotherapy on distribution of dendritic cell subsets in non-small cell lung cancer",
+    "source_authors": "Zhongfei Yang et al.",
+    "source_year": null,
+    "snippet": ". There were no statistically significant differences in the sex, age, pathological type, CEA and other DC subsets for the 55 NSCLC patients (P>0.05). There were statistically significant differences in DC1 and DC1/DC2 ratio in NSCLC patients with different tumor staging (P=0.029  and P=0.001), while there were statistically significant differences in patients with a different Karnofsky performance status (KPS) scores (P=0.025) (Table II). \n\nComparisons of DC subsets in peripheral blood before and after three DC treatments. In NSCLC, DC1 expression was low, and the immune function of body was decreased significantly. The DC1 content and DC1/DC2 ratio after three DC treatments were significantly increased compared with those before treatment (Table III). \n\nRelationship between peripheral blood subsets and prognosis of NSCLC patients. After three DC treatments, 49 NSCLC patients were followed up for >1 year and 32 patients were lost to follow-up or died, and the 1-year survival rate was 34.7%. There were no statistically significant differences in the comparisons of DC1 and DC2, limited by 1-year survival time (P=0.122 and P=0.916), but there was statistically significant difference in the DC1/DC2 ratio between patients with the survival time of greater than and less than one year (P=0.019) (Table IV). \n\nThe number of DC subsets in lung cancer, para-carcinoma and normal lung tissues. The number of DC1 in para-carcinoma and normal lung tissues was significantly lower than that in lung cancer tissues, and the difference was statistically significant (P<0.05). The number of DC2 in para-carcinoma and normal lung tissues was also evidently lower than that in lung cancer tissues, and the difference was statistically significant (P<0.05). Compared with those in normal lung tissues, the number of DC1 and DC2 in para-carcinoma tissues was increased significantly, and the differences were statistically significant (P<0.05) (Fig. 2). Table IV."
+  },
+  {
+    "snippet_index": 21,
+    "quotes": [
+      "when the DC1 population was added to the TranswellH membrane, we observed a break in T reg mediated suppression that was similar to that seen when T regs were co-cultured directly with DC1 (Figure 3B).",
+      "Quantitatively, the proliferative response noted when DC1 cells were added to the Transwell membrane differed significantly from that seen in the presence of iDC alone and approached that observed when DC1 were added directly to the coculture.",
+      "the DC1 population can inhibit T reg -mediated suppression in cell contact-independent fashion.",
+      "The DC1 population secretes a large amount of IL-12 which is principally involved in Th1 immunity [18]"
+    ],
+    "summary": "DC1 cells can inhibit regulatory T cell-mediated suppression in a contact-independent manner and produce high amounts of IL-12, supporting a role in Th1 immune responses.",
+    "categories": [
+      "function",
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:16699925",
+    "source_title": "Inhibition of CD4+CD25+ Regulatory T Cell Function and Conversion into Th1-Like Effectors by a Toll-Like Receptor-Activated Dendritic Cell Vaccine",
+    "source_authors": "M. K. Lee et al.",
+    "source_year": null,
+    "snippet": "Having established that the effect of DC1 cells on T reg -mediated suppression is likely not due to apoptosis, we next questioned whether this effect was cell-contact dependent or mediated by soluble factors. To do so, we again co-cultured CFSE-labeled effector cells with unlabeled CD4+CD25+ T cells in the presence of immature dendritic cells. This time we added alternate dendritic cell populations separated by a semi-permeable TranswellH membrane. When an additional complement of immature dendritic cells was added to the TranswellH membrane, there was no effect on suppression in the presence of iDC. However, when the DC1 population was added to the TranswellH membrane, we observed a break in T reg mediated suppression that was similar to that seen when T regs were co-cultured directly with DC1 (Figure 3B). To control for the possibility that DC1 dendritic cells themselves migrated through the TranswellH to break suppression, we co-cultured regulatory T cells and CFSElabeled effectors in the absence of dendritic cells but added DC1 cells separated by the membrane. Very little proliferation was noted (Figure 3C). Quantitatively, the proliferative response noted when DC1 cells were added to the Transwell membrane differed significantly from that seen in the presence of iDC alone and approached that observed when DC1 were added directly to the coculture. In fact, there was no significant difference in proliferation when DC1 were added to the TranswellH versus directly to the co-culture. (Figure 3D; P = 0.037 for iDC alone versus iDC with DC1 in TranswellH; P = 0.15 for DC1 alone versus iDC with DC1 in TranswellH). These data collectively suggest that the DC1 population can inhibit T reg -mediated suppression in cell contact-independent fashion. \n\nIn our view, the two most likely soluble mediators for the break in suppression are IL-12 and IL-6. The DC1 population secretes a large amount of IL-12 which is principally involved in Th1 immunity [18], while IL-6 has previously been shown to be central to LPS-mediated T reg inhibition in vitro [9]."
+  },
+  {
+    "snippet_index": 22,
+    "quotes": [
+      "Claudin 1-mediated positioning of DC1 to mTECs is essential for antigen transfer-coupled DC1 maturation and maintenance of central tolerance"
+    ],
+    "summary": "This snippet states that positioning of DC1 via Claudin 1 to medullary thymic epithelial cells is essential for their maturation and for maintaining central tolerance.",
+    "categories": [
+      "location",
+      "function",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:277150298",
+    "source_title": "Claudin 1-mediated positioning of DC1 to mTECs is essential for antigen transfer-coupled DC1 maturation and maintenance of central tolerance",
+    "source_authors": "J. B\u0159ezina et al.",
+    "source_year": null,
+    "snippet": "Claudin 1-mediated positioning of DC1 to mTECs is essential for antigen transfer-coupled DC1 maturation and maintenance of central tolerance"
+  },
+  {
+    "snippet_index": 23,
+    "quotes": [
+      "DC1 are specialized in cross-presenting antigens to CD8 + T cells and in promoting Th1 differentiation [66].",
+      "they play a critical role in priming CD8 + T cells during antiviral and antitumor immune responses and are an essential part of effective responses to checkpoint blockade therapy [73].",
+      "DC1 also contribute to maintaining homeostasis in mucosal tissues, such as the lungs and intestine, by sampling microbial antigens and exerting tolerogenic functions [74].",
+      "In the thymus, DC1 develop intrathymically from immigrating pre-DC1 precursors [34,75].",
+      "Pre-DC1 cells enter the thymus during embryonic development in a CCR7-dependent manner, giving rise to fully committed DC1 cells that predominantly localize to the thymic medullary region [82]."
+    ],
+    "summary": "DC1 functionally cross-present antigens to CD8+ T cells, promote Th1 differentiation, and maintain immune homeostasis in mucosal tissues. Developmentally, thymic DC1 arise from pre-DC1 precursors that enter the thymus embryonically and localize mainly to the medullary region.",
+    "categories": [
+      "function",
+      "location",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:283079609",
+    "source_title": "Thymic Dendritic Cells Revisited",
+    "source_authors": "Matou\u0161 Vobo\u0159il et al.",
+    "source_year": null,
+    "snippet": "Functionally, DC1 are specialized in cross-presenting antigens to CD8 + T cells and in promoting Th1 differentiation [66]. As such, they play a critical role in priming CD8 + T cells during antiviral and antitumor immune responses and are an essential part of effective responses to checkpoint blockade therapy [73]. Beyond their role in cytotoxic immunity, DC1 also contribute to maintaining homeostasis in mucosal tissues, such as the lungs and intestine, by sampling microbial antigens and exerting tolerogenic functions [74]. A detailed overview of DC1 functions in immune responses has been comprehensively reviewed elsewhere [29]. \n\nIn the thymus, DC1 develop intrathymically from immigrating pre-DC1 precursors [34,75]. Early studies proposed that DC1s and committed T cells arose from a shared intrathymic progenitor [76,77]. However, it is now established that DC1 originates from distinct pre-DC-related progenitors rather than from CLP [78]. This confusion came from the early experiments showing that both thymic DC1 and committed T cells could differentiate from the DN1 stage of double-negative thymocytes. Subsequent work revealed that the DN1 compartment is heterogenous, containing DN1a and DN1b subsets that represent early thymocyte progenitors, and the DN1c subset that corresponds to pre-DC1 precursors. These findings clarified that thymic DC1 arise from the same DC progenitors that give rise to DC1 in the periphery [79][80][81]. Pre-DC1 cells enter the thymus during embryonic development in a CCR7-dependent manner, giving rise to fully committed DC1 cells that predominantly localize to the thymic medullary region [82]. Interestingly, CCR7 signaling does not appear to regulate DC1 medullary accumulation, as CCR7 deficiency does not affect the DC1 positioning in the medulla, even though the CCR7 ligands are predominantly expressed by mTECs [83,84]."
+  },
+  {
+    "snippet_index": 24,
+    "quotes": [
+      "The expression of DC1 in peripheral blood in NSCLC patients was significantly decreased compared with that in the normal control group, and the difference was statistically significant (P<0.01)."
+    ],
+    "summary": "DC1 levels are significantly decreased in the peripheral blood of patients with NSCLC compared to normal controls.",
+    "categories": [
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:21696114",
+    "source_title": "Effect of dendritic cell immunotherapy on distribution of dendritic cell subsets in non-small cell lung cancer",
+    "source_authors": "Zhongfei Yang et al.",
+    "source_year": null,
+    "snippet": "Comparisons of DC subsets in peripheral blood between NSCLC patients and normal controls. The expression of DC1 in peripheral blood in NSCLC patients was significantly decreased compared with that in the normal control group, and the difference was statistically significant (P<0.01). The expression of DC2 did not change significantly in the NSCLC and normal control groups. Compared with that in the normal control group, the DC1/DC2 ratio in the NSCLC group was lower, but there was no statistically significant difference between the groups (P>0.05) (Table I and Fig. 1)."
+  },
+  {
+    "snippet_index": 25,
+    "quotes": [
+      "These progenitors subsequently differentiate into pre-DC1 or pre-DC2 lineages [61]. After exiting the BM, these precursors migrate into tissues, where they complete their development and maturation into fully differentiated DC1 or DC2 [61,62].",
+      "In Flt3L-deficient mice, CDPs and both pre-DC populations in the BM are severely reduced, resulting in the diminishment of committed DC1 and DC2 cells in peripheral tissues and the thymus [63,64].",
+      "The commitment of DC1 is regulated by several transcription factors, including ID2, NFIL3, BATF3, and IRF8 [65][66][67][68][69] (Figure 2). Among these, IRF8 plays an essential role as it is required for the generation of pre-DC1 from CDPs, and its deletion resulted in the complete loss of DC1, which cannot be restored under inflammatory conditions [70]. BATF3-deficient mice also exhibit a near-complete absence of DC1 in both peripheral tissues and the thymus; however, pre-DC1 numbers remain unaffected, and DC1 development can still occur under inflammatory settings [65,66].",
+      "DC1 are characterized by the expression of the chemokine receptor XCR1, C-type lectin receptor CLEC9A, as well as CD205 and CD207. In non-lymphoid tissues, DC1 express integrin \u03b1E (CD103) and CD24 [29]. These markers are also applicable for the identification of DC1 in the thymus [72].",
+      "Functionally, DC1 are specialized in cross-presenting antigens to CD8 + T cells and in promoting Th1 differentiation [66]."
+    ],
+    "summary": "DC1 develop from pre-DC1 progenitors in the bone marrow under the control of several transcription factors, notably IRF8 and BATF3. Key markers of DC1 include XCR1, CLEC9A, CD205, CD207, CD103, and CD24. They are specialized for cross-presentation and induction of Th1 responses.",
+    "categories": [
+      "development",
+      "markers",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:283079609",
+    "source_title": "Thymic Dendritic Cells Revisited",
+    "source_authors": "Matou\u0161 Vobo\u0159il et al.",
+    "source_year": null,
+    "snippet": "As described above, cDCs develop from CDPs in the BM under the control of Flt3 signaling [59,60]. These progenitors subsequently differentiate into pre-DC1 or pre-DC2 lineages [61]. After exiting the BM, these precursors migrate into tissues, where they complete their development and maturation into fully differentiated DC1 or DC2 [61,62]. In Flt3L-deficient mice, CDPs and both pre-DC populations in the BM are severely reduced, resulting in the diminishment of committed DC1 and DC2 cells in peripheral tissues and the thymus [63,64]. The commitment of DC1 is regulated by several transcription factors, including ID2, NFIL3, BATF3, and IRF8 [65][66][67][68][69] (Figure 2). Among these, IRF8 plays an essential role as it is required for the generation of pre-DC1 from CDPs, and its deletion resulted in the complete loss of DC1, which cannot be restored under inflammatory conditions [70]. BATF3-deficient mice also exhibit a near-complete absence of DC1 in both peripheral tissues and the thymus; however, pre-DC1 numbers remain unaffected, and DC1 development can still occur under inflammatory settings [65,66]. Furthermore, DC1 specification is also dependent on NFIL3-mediated suppression of ZEB2, which in turn enhances ID2 activity and reinforces DC1 lineage commitment [71]. \n\nDC1 are characterized by the expression of the chemokine receptor XCR1, C-type lectin receptor CLEC9A, as well as CD205 and CD207. In non-lymphoid tissues, DC1 express integrin \u03b1E (CD103) and CD24 [29]. These markers are also applicable for the identification of DC1 in the thymus [72]. Functionally, DC1 are specialized in cross-presenting antigens to CD8 + T cells and in promoting Th1 differentiation [66]."
+  },
+  {
+    "snippet_index": 26,
+    "quotes": [
+      "DC1 (Cd209a + Flt3 + , cluster 11) was the major DC population at both phases.",
+      "The proportion of both DC1 and DC2 (Fscn1 + Cacnb3 + Mreg + , cluster 17) increased as rejection regressed, whereas pDC (Siglech + Cox6a2 + Ccr9 + , cluster 20) proportion was at low levels throughout this process (<0.5%).",
+      "DC1 expressed higher levels of MHCII molecules than DC2 ( Figure 11B).",
+      "TFs including Pbx1, Irf5, Hif1a and Cebpb were underlying the specific gene expression in DC1"
+    ],
+    "summary": "In a mouse model of renal allograft rejection, DC1 (Cd209a+, Flt3+) are the major DC population and their proportion increases as rejection regresses. DC1 express higher levels of MHCII compared to DC2, and key transcription factors in DC1 include Pbx1, Irf5, Hif1a, and Cebpb.",
+    "categories": [
+      "markers",
+      "function",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:236180744",
+    "source_title": "Single-Cell RNA Sequencing Reveals the Immunological Profiles of Renal Allograft Rejection in Mice",
+    "source_authors": "Qixia Shen et al.",
+    "source_year": null,
+    "snippet": "A total of 469 DCs were detected and separated into two cDC clusters and one pDC cluster ( Figures 2B, 11A, Supplementary Table 1). DC1 (Cd209a + Flt3 + , cluster 11) was the major DC population at both phases. The proportion of both DC1 and DC2 (Fscn1 + Cacnb3 + Mreg + , cluster 17) increased as rejection regressed, whereas pDC (Siglech + Cox6a2 + Ccr9 + , cluster 20) proportion was at low levels throughout this process (<0.5%). DC1 expressed higher levels of MHCII molecules than DC2 ( Figure 11B). DC2 was associated with response to tumor necrosis factor and DC differentiation. TFs including Pbx1, Irf5, Hif1a and Cebpb were underlying the specific gene expression in DC1, whereas Rel, Relb, Nfkb2 and Stat5a were underlying the specific gene expression in DC2 ( Figure 11C)."
+  },
+  {
+    "snippet_index": 27,
+    "quotes": [
+      "DC1 (CD141+: Supplementary Figure S12) showed significant increases in CD275 (ICOS-L) in RA (Supplementary Figure S12U; p = 0.0065). CCR7 was also higher compared to control DC1 (Supplementary Figure S12D; p = 0.0001), but in contrast with DC2, CD86 did not differ (Supplementary Figure S12P; p = 0.6395). We also observed higher CD15 in RA DC1 (CD141+) (Supplementary Figure S12I, p = 0.0002); CD56 was numerically higher but not statistically different (Supplementary Figure S12N, p = 0.1321)."
+    ],
+    "summary": "In rheumatoid arthritis, DC1 (CD141+) show higher expression of CD275 (ICOS-L), CCR7, and CD15 compared to controls; CD56 is also increased but not statistically significant, and CD86 levels are unchanged.",
+    "categories": [
+      "markers"
+    ],
+    "source_corpus_id": "CorpusId:280019601",
+    "source_title": "Spectral cytometry of rheumatoid arthritis patients implicates myeloid dendritic cells and granular HLA-DR+CD15+CD16+ cells in pro-inflammatory antigen presentation",
+    "source_authors": "Christian Geier et al.",
+    "source_year": null,
+    "snippet": "DC2 (CD1c+; Supplementary Figure S11)-the most abundant dendritic cell subset and considered to be the most potent APC (12) -had higher MFIs of the co-stimulatory molecules CD86 (Figure 1G, p = 0.0184) and CD275 (ICOS-L; Figure 1H, p = 0.0046), consistent with an increased capacity of RA DC2 to provide co-stimulation to T cells. RA DC2 also had increases of CD56 (Figure 1I, p = 0.0315) and CD15 (Figure 1J, p = 0.0002), consistent with an increased adhesive propensity (13). C-C chemokine receptor type 7 (CCR7) was higher in RA DC2, consistent with an increased migratory potential to lymphatic tissues (Figure 1K, p = 0.0063). \n\nDC1 (CD141+: Supplementary Figure S12) showed significant increases in CD275 (ICOS-L) in RA (Supplementary Figure S12U; p = 0.0065). CCR7 was also higher compared to control DC1 (Supplementary Figure S12D; p = 0.0001), but in contrast with DC2, CD86 did not differ (Supplementary Figure S12P; p = 0.6395). We also observed higher CD15 in RA DC1 (CD141+) (Supplementary Figure S12I, p = 0.0002); CD56 was numerically higher but not statistically different (Supplementary Figure S12N, p = 0.1321). \n\nWe also gated the recently proposed DC3 definition (CD1c +CD163+; Supplementary Figure S13) (10,11). Like DC1 and DC2, DC3 showed clearly increased CD15 (Supplementary Figure S13I, p = 0.0001) and CD56 (Supplementary Figure S13N, p = 0.0453) as well as CD275 (Supplementary Figure S13U, p = 0.0018), whereas CD86 did not differ (Supplementary Figure S13P, p = 0.2876)."
+  },
+  {
+    "snippet_index": 28,
+    "quotes": [
+      "The DC1 population significantly increased proliferation in the presence of regulators (Figure 1G; P,.001 for DC1 vs iDC).",
+      "These results collectively demonstrate that DC1 dendritic cells inhibit T reg -mediated suppression of both CD4 and CD8-positive T cells responding to anti-CD3."
+    ],
+    "summary": "DC1 dendritic cells significantly increase effector T cell proliferation and inhibit T regulatory cell-mediated suppression of both CD4+ and CD8+ T cell responses.",
+    "categories": [
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:16699925",
+    "source_title": "Inhibition of CD4+CD25+ Regulatory T Cell Function and Conversion into Th1-Like Effectors by a Toll-Like Receptor-Activated Dendritic Cell Vaccine",
+    "source_authors": "M. K. Lee et al.",
+    "source_year": null,
+    "snippet": "To quantify these differences, we capitalized on the successive halving of fluorescence intensity characteristic of CFSE to calculate the number of mitoses per 10 4 cells as has been done elsewhere [15,16]. The DC1 population significantly increased proliferation in the presence of regulators (Figure 1G; P,.001 for DC1 vs iDC). Notably, dendritic cells matured using a conventional cytokine-based maturation cocktail (IL-1, IL-6, TNF-a, PGE 2 ) did not fully restore proliferation of effectors in the presence T regs (Figure 1E,1G). Responder cell proliferation in the presence of DC1 versus these cells approached but did not quite reach statistical significance (P = 0.087 for DC1 versus cytokine-matured DC). \n\nThat LPS used to mature the DC1 dendritic cells contaminated the co-culture causing the observed effect was excluded by brief pretreatment of iDC with LPS (15 minutes). Suppression was unaffected in this setting, indicating that the DC1 population needed to be formally matured and contaminating LPS was not responsible for the result (Figure 1F). These results collectively demonstrate that DC1 dendritic cells inhibit T reg -mediated suppression of both CD4 and CD8-positive T cells responding to anti-CD3."
+  },
+  {
+    "snippet_index": 29,
+    "quotes": [
+      "Comparable to murine CD8a + and CD11b + DC subsets, human classical DCs can be separated into CD141 + (DC1) and CD1c + (DC2) subsets, respectively (24, 25).",
+      "an age-related increase of CD141 + DC1 frequencies did not occur in tonsils of elder subjects as observed in blood (Figure 5E)."
+    ],
+    "summary": "Human DC1 cells correspond to the CD141+ classical DC subset. DC1 frequency increases with aging in blood but not in tonsils, suggesting tissue-specific changes with age.",
+    "categories": [
+      "markers",
+      "location",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:259288828",
+    "source_title": "Age-related changes of the innate immune system of the palatine tonsil in a healthy cohort",
+    "source_authors": "N. Andreas et al.",
+    "source_year": null,
+    "snippet": "Comparable to murine CD8a + and CD11b + DC subsets, human classical DCs can be separated into CD141 + (DC1) and CD1c + (DC2) subsets, respectively (24, 25). While CD11c is not exclusively expressed on human dendritic cells but is shared with human monocytes (26), we analysed cells expressing a combination of CD11c with CD141 (27) or with CD1c (28) to sufficiently identify the major cDC subsets (Figure 5A). While CD1c + CD141 -DC2 subset frequencies remained unaltered, we could detect an increase of CD141 + DC1 frequencies among blood cells upon aging (Figures 5B, C). However, the CD1c + CD141 -DC2 subset frequencies remained unaltered in the tonsils (Figure 5D) and an age-related increase of CD141 + DC1 frequencies did not occur in tonsils of elder subjects as observed in blood (Figure 5E). Within a few samples, we could analyse plasmacytoid dendritic cells (pDCs) by the expression of CD303 (29) and we detected a strong age-related decrease of pDCs among blood leukocytes (Supplement-Figures 1A, B). However, a comparable drop was not detected in the tonsils of elder subjects (Supplement-Figures 1A, B). Collectively, while DC frequencies were partially altered among blood cells upon aging, these changes did not affect DC frequencies within tonsil."
+  },
+  {
+    "snippet_index": 30,
+    "quotes": [
+      "dermal DC1 and dermal DC2, which derive from the common dendritic progenitor CDP in the bone marrow.",
+      "Dermal DC1 and 2, as well as lymph nodes resident DC1 and DC2 and plasmacytoid DCs (pDCs), are dependent on the ligand on Fms-like tyrosine kinase 3 (FLT3-L) for their differentiation in the bone marrow and their homeostasis in periphery [18]. Consequently, mice constitutively deficient in FLT3-L are devoid of DC1, DC2, and pDCs."
+    ],
+    "summary": "DC1 cells, including dermal and lymph node-resident subsets, derive from common dendritic progenitors in the bone marrow. Their differentiation and maintenance depend on FLT3-L, as mice lacking this ligand lack DC1 cells.",
+    "categories": [
+      "location",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:254307309",
+    "source_title": "Synthetic Melanin Acts as Efficient Peptide Carrier in Cancer Vaccine Strategy",
+    "source_authors": "S. Cuzzubbo et al.",
+    "source_year": null,
+    "snippet": "They include Langerhans cells (LCs), which derive from yolk sac and fetal liver macrophage progenitors, and dermal DC1 and dermal DC2, which derive from the common dendritic progenitor CDP in the bone marrow. Dermal DC1 and 2, as well as lymph nodes resident DC1 and DC2 and plasmacytoid DCs (pDCs), are dependent on the ligand on Fms-like tyrosine kinase 3 (FLT3-L) for their differentiation in the bone marrow and their homeostasis in periphery [18]. Consequently, mice constitutively deficient in FLT3-L are devoid of DC1, DC2, and pDCs. If LCs and dermal DCs are important for transporting antigens from the skin to the draining lymph nodes, it has been shown that LN-resident DCs are also essential to prime T cells in the LN, as they can present antigens from LN-migrating skin APCs after phagocytosis or antigen transfer [19], as well as soluble skin antigens migrating to the LNs through the lymphatic vessels. \n\nIn this study, we investigated the mechanisms of synthetic L-DOPA melanin as an adjuvant in peptide vaccines. We first analyzed the role of DCs as APCs with this vaccine formulation, and investigated the potential stimulatory effect of melanin upon these cells in vitro. We then evaluated the carrier activity of L-DOPA melanin by assessing its protective effect on peptides, the biodistribution of L-DOPA melanin-peptide nanoaggregates after subcutaneous injection in mice using PET imaging, and the potential role of the different populations of DCs in transportation of nanoaggregates from injection site to lymph nodes and in the activation of T lymphocytes."
+  },
+  {
+    "snippet_index": 31,
+    "quotes": [
+      "In mice, DCs include DC1 (also known as Batf3-dependent, CD103 + tissue residen and CD8\u03b1 + lymphoid resident DCs)",
+      "In humans, a correspondence with this classificatio has been found with DC1 defined as CD141(BDCA-3) + Clec9A (DNGR1) + CXR1 + DCs",
+      "Initial studies showed that CD8\u03b1 + DC in mice and BDCA3 + in humans had a highe cross-presentation capacity than the other subpopulations, thereby explaining their abilit to preferentially induce CD8 + T cells [54,55].",
+      "Targeting DC2 via DCIR in mice [56,57] and Langerhans cells via langerin was more effective in activating follicula helper T cells and a humoral response than targeting DC1 [58,59].",
+      "In the light of these findings, targeting highly specific DC1 markers such as Clec9 and XCR1 appeared as the most promising strategy for CD8 + T-cell induction (Figure 2"
+    ],
+    "summary": "DC1 in mice are Batf3-dependent, found as CD103+ tissue and CD8\u03b1+ lymphoid resident DCs. In humans, DC1s are defined by CD141(BDCA-3)+, Clec9A+, and XCR1+ markers. DC1s have high cross-presentation capacity and strongly induce CD8+ T cells, with Clec9 and XCR1 as key markers.",
+    "categories": [
+      "location",
+      "markers",
+      "function"
+    ],
+    "source_corpus_id": "CorpusId:247424102",
+    "source_title": "STxB as an Antigen Delivery Tool for Mucosal Vaccination",
+    "source_authors": "E. Tartour et al.",
+    "source_year": null,
+    "snippet": "In mice, DCs include DC1 (also known as Batf3-dependent, CD103 + tissue residen and CD8\u03b1 + lymphoid resident DCs), myeloid CD8\u03b1 negative CD11b + DC2, and plasmacy toid DCs (B220 + , Bst2 + and SiglecH + ). In humans, a correspondence with this classificatio has been found with DC1 defined as CD141(BDCA-3) + Clec9A (DNGR1) + CXR1 + DCs, DC identified as CD1c/BDCA-1 + DCs, and plasmacytoid DCs expressing BDCA2 (CD303 + For the skin, Langerhans cells and dermal DCs (CD14 + ) need to be added to this listin [52,53]. \n\nInitial studies showed that CD8\u03b1 + DC in mice and BDCA3 + in humans had a highe cross-presentation capacity than the other subpopulations, thereby explaining their abilit to preferentially induce CD8 + T cells [54,55]. On the contrary, CD8\u03b1 negative DCs an Langerhans cells preferentially induce humoral responses [56]. Targeting DC2 via DCIR in mice [56,57] and Langerhans cells via langerin was more effective in activating follicula helper T cells and a humoral response than targeting DC1 [58,59]. \n\nIn the light of these findings, targeting highly specific DC1 markers such as Clec9 and XCR1 appeared as the most promising strategy for CD8 + T-cell induction (Figure 2 However, converging evidence has since accumulated that has challenged this idea on functional dichotomy of DCs. It was indeed shown that all DCs are capable of cross presentation in humans, especially when antigens are targeted to early endosomes [60 62]. In mice, STxB does not specifically target only CD8\u03b1 + DCs [51], and adenylate cyclase A binds to the myeloid DC-specific CD11b [63]. Yet, both vectors potently induce CD8 + T cells."
+  },
+  {
+    "snippet_index": 32,
+    "quotes": [
+      "DCs treated with IFN\uf067 had high expression of DC1 markers over baseline [all quantitative polymerase chain reactions (qPCRs) were performed relative to untreated DCs], which was suppressed by challenge with IL-4 at both the mRNA (Fig. 1, A to C) and protein (Fig. 1, D to F) levels.",
+      "While TNF\uf061 on its own did not induce DC1 activation, DC1 pretreated with TNF\uf061 during their initial IFN\uf067induced polarization resisted subsequent IL-4-mediated change to DC2, maintaining robust DC1 gene expression at both the mRNA (Fig. 1, A to C) and protein (Fig. 1, D to F) levels.",
+      "these data demonstrate that TNF\uf061 stimulation during the initial DC1 activation resulted in a stabilized DC1 phenotype (TNF\uf061-programmed DC1) capable of sustaining a DC1 phenotype in a DC2-skewing environment."
+    ],
+    "summary": "DC1 marker expression is induced by IFN-\u03b3 and can be suppressed by IL-4. Pretreating DC1 with TNF\u03b1 during IFN-\u03b3-induced polarization stabilizes the DC1 phenotype, allowing it to resist transition to DC2 even in a DC2-skewing environment.",
+    "categories": [
+      "markers",
+      "function",
+      "development"
+    ],
+    "source_corpus_id": "CorpusId:209356394",
+    "source_title": "Epigenetic stabilization of DC and DC precursor classical activation by TNF\u03b1 contributes to protective T cell polarization",
+    "source_authors": "A. Eastman et al.",
+    "source_year": null,
+    "snippet": "BMDCs) treated with IFN\uf067 with a DC2-driving cytokine, IL-4 (see fig. S2A for schematic). DCs treated with IFN\uf067 had high expression of DC1 markers over baseline [all quantitative polymerase chain reactions (qPCRs) were performed relative to untreated DCs], which was suppressed by challenge with IL-4 at both the mRNA (Fig. 1, A to C) and protein (Fig. 1, D to F) levels. While TNF\uf061 on its own did not induce DC1 activation, DC1 pretreated with TNF\uf061 during their initial IFN\uf067induced polarization resisted subsequent IL-4-mediated change to DC2, maintaining robust DC1 gene expression at both the mRNA (Fig. 1, A to C) and protein (Fig. 1, D to F) levels. Similarly, DC1s challenged with IL-4 up-regulated DC2 markers at both the mRNA (Fig. 1, G to I) and protein (Fig. 1, J to L) levels, showing strong DC1-DC2 plasticity; however, pretreatment with TNF\uf061 prevented DC2 magnitude up-regulation of these factors in an IL-4 environment. Fizz1 and CD206 mRNA increased slightly but significantly with IL-4 treatment; however, the levels induced are still at (Fizz1) or below (CD206) the level seen in nonstabilized DC1 with a P value of <0.001. No DCs from any culture conditions made an appreciable amount of TNF\uf061 when assessed at the mRNA level ( fig. S2B). We performed these experiments using both 24-and 48-hour incubation periods ( fig. S2, C and D) for programming and challenge, achieving similar results at 48 hours. Together, these data demonstrate that TNF\uf061 stimulation during the initial DC1 activation resulted in a stabilized DC1 phenotype (TNF\uf061-programmed DC1) capable of sustaining a DC1 phenotype in a DC2-skewing environment.\n\nTo determine the DC1 specificity of TNF\uf061-mediated effect, we also assessed whether TNF\uf061 could stabilize DC2 polarization. DC2s were generated using IL-4 in the absence or presence of"
+  }
+]

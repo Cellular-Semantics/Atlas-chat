@@ -1,0 +1,44 @@
+prefix,term
+adult,B cell
+adult,DC
+adult,Fibroblast
+adult,ILC
+adult,Keratinocytes
+adult,Lymphatic endothelium
+adult,Macrophage
+adult,Mast cell
+adult,Melanocyte
+adult,Mural cell
+adult,Schwann cell
+adult,T cell
+adult,Vascular endothelium
+fetal,Adipocyte
+fetal,B cell
+fetal,DC
+fetal,Erythroid
+fetal,Fibroblast
+fetal,Haem progenitor
+fetal,ILC
+fetal,Keratinocyte
+fetal,Lymphatic endothelium
+fetal,Macrophage
+fetal,Mast cell
+fetal,Megakaryocyte
+fetal,Melanocyte
+fetal,Monocyte
+fetal,Mural cell
+fetal,Neuronal cells
+fetal,Neutrophil
+fetal,Schwann cell
+fetal,Skeletal muscle
+fetal,T cell
+fetal,Vascular endothelium
+organoid,Adipocytes
+organoid,Fibroblast
+organoid,Keratinocyte
+organoid,Melanocyte
+organoid,Mural cell
+organoid,Neuronal cells
+organoid,Schwann cell
+organoid,Skeletal muscle
+organoid,Vascular endothelium

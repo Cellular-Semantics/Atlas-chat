@@ -1,0 +1,165 @@
+prefix,term
+adult,C_Melanocyte
+adult,DC1
+adult,DC2
+adult,F1
+adult,F2
+adult,F3
+adult,ILC1
+adult,ILC1_NK
+adult,ILC2_3
+adult,Inf_mono
+adult,LC_1
+adult,LC_2
+adult,LC_3
+adult,LC_4
+adult,LE1
+adult,LE2
+adult,M_A_Mast_cell
+adult,Macro_1
+adult,Macro_2
+adult,MigDC
+adult,Mono
+adult,NK
+adult,Pericyte_1_non_inflamm
+adult,Pericyte_2_inflamm
+adult,Plasma
+adult,Schwaan_1_Stroma_Schwan_myelinating
+adult,Schwaan_2_non_myelinating
+adult,Tc
+adult,Th
+adult,Treg
+adult,VE1
+adult,VE2
+adult,VE3
+adult,c1
+adult,c2
+adult,c3
+adult,c4
+adult,c5
+adult,c6
+adult,c7
+adult,c8
+adult,doublet
+adult,moDC_1
+adult,moDC_2
+adult,moDC_3
+fetal,ASDC
+fetal,Adipocytes
+fetal,Arterioles
+fetal,B cell
+fetal,CCL19+ fibroblast
+fetal,CD4 T cell
+fetal,CD8 T cell
+fetal,Capillaries
+fetal,Capillary arterioles
+fetal,Companion layer
+fetal,Cuticle/cortex
+fetal,DC1
+fetal,DC2
+fetal,DPYSL2+ basal
+fetal,Dermal condensate
+fetal,Dermal papilla
+fetal,Early LE
+fetal,Early endothelial cells
+fetal,Early erythroid
+fetal,Early erythroid (embryonic)
+fetal,Early myocytes
+fetal,Eo/baso/mast cell progenitor
+fetal,Erythroid (embryonic)
+fetal,Erythroid (fetal)
+fetal,FRZB+ early fibroblast
+fetal,HOXC5+ early fibroblast
+fetal,HSC
+fetal,ILC2
+fetal,ILC3
+fetal,Immature basal
+fetal,Immature suprabasal
+fetal,Inflammatory DC
+fetal,Innate T type1
+fetal,Innate T type3
+fetal,Inner root sheath
+fetal,Iron-recycling macrophage
+fetal,LC
+fetal,LE
+fetal,LMCD1+ mural cell
+fetal,LTi
+fetal,LYVE1++ macrophage
+fetal,Lymphoid progenitor
+fetal,MEMP - Early erythroid
+fetal,MEMP - Megak
+fetal,MHCII+ macrophage
+fetal,Mast cell (earliest)
+fetal,Mast cell (medium)
+fetal,Mast cell (most mature)
+fetal,Matrix
+fetal,Megakaryocyte
+fetal,Melanoblast
+fetal,Melanocyte
+fetal,Monocyte
+fetal,Monocyte (activated/differentiating)
+fetal,Monocyte precursor
+fetal,Myelinating Schwann cells
+fetal,Myoblasts
+fetal,Myocytes
+fetal,Myofibroblasts
+fetal,NK cell
+fetal,Neuroendocrine
+fetal,Neuron progenitors
+fetal,Neutrophil1
+fetal,Neutrophil2
+fetal,Outer root sheath
+fetal,PEAR1+ fibroblast
+fetal,PID1+ schwann cells
+fetal,PLN+ mural cell
+fetal,POSTN+ basal
+fetal,Pericytes
+fetal,Periderm
+fetal,Placode
+fetal,Postcapillary venules
+fetal,Pre B cell
+fetal,Pre pro B cell
+fetal,Pre-dermal condensate
+fetal,Pro B cell
+fetal,SPP1+ proliferating neuron progenitors
+fetal,Schwann/Schwann precursors
+fetal,Suprabasal IFE
+fetal,TML macrophage
+fetal,Treg
+fetal,Venules
+fetal,WNT2+ Adipocytes
+fetal,WNT2+ fibroblast
+fetal,pDC
+organoid,Adipocytes
+organoid,Basal
+organoid,Basal POSTN+
+organoid,Capillary arterioles
+organoid,Companion layer
+organoid,Cuticle/cortex
+organoid,Dermal condensate
+organoid,Dermal papilla
+organoid,Early fibroblasts FRZB+
+organoid,Early fibroblasts HOXC5+
+organoid,Early myocytes
+organoid,Fibroblasts POSTN+
+organoid,Immature basal
+organoid,Immature suprabasal
+organoid,Inner root sheath
+organoid,Melanoblasts
+organoid,Melanocytes
+organoid,Merkel cells
+organoid,Myelinating Schwann cells
+organoid,Myoblasts
+organoid,Myocytes
+organoid,Neuroepithelial cells
+organoid,Neuron progenitors
+organoid,Neuron progenitors SPP1+
+organoid,Outer root sheath
+organoid,Periderm
+organoid,Placode/matrix
+organoid,Pre-dermal condensate
+organoid,Proliferating melanoblasts
+organoid,Schwann cells/Schwann precursors
+organoid,Secreting neuron
+organoid,Smooth muscle/Pericytes
+organoid,Suprabasal IFE
