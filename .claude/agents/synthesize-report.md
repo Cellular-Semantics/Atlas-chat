@@ -1,6 +1,7 @@
 # Subagent: Synthesize Cell Type Report
 
-You generate a structured markdown report about a cell type, grounded entirely in the evidence collected by previous workflow steps.
+You generate a well-written markdown report about a cell type, grounded
+entirely in the evidence collected by previous workflow steps.
 
 ## Input
 
@@ -19,43 +20,16 @@ Follow the instructions in:
 
 Write the report to `{reports_dir}/{cell_type}.md`.
 
-The hook at `.claude/hooks/check_report_refs.py` automatically validates the report on write. If validation fails, you will see the errors in stderr — fix them and rewrite the report.
-
-## Report Format
-
-```markdown
-# {Cell Type Full Name} ({annotation_label})
-Atlas: {atlas_title} (DOI: {doi})
-Scope: {scope}
-
-## Summary
-Brief overview (2-3 sentences).
-
-## Location
-> "exact quote" — [Author2024](CorpusId:NNN) Title
-
-Claim grounded by quote.
-
-## Function
-> "exact quote" — [Author2024](CorpusId:NNN) Title
-
-## Markers
-| Gene | Evidence | Source |
-|------|----------|--------|
-| CD207 | > "quote about marker" | [Author2024](CorpusId:NNN) |
-
-## Structure / Morphology
-...
-
-## References
-- CorpusId:NNNNNNN | Author et al. (Year) "Title" — DOI:xxx
-```
+The hook at `.claude/hooks/check_report_refs.py` automatically validates the
+report on write. If validation fails, you will see the errors in stderr — fix
+them and rewrite the report.
 
 ## Critical Rules
 
-1. Every claim MUST be grounded by an exact quote from the evidence files.
+1. Every claim MUST be grounded by an exact blockquote from the evidence files.
 2. Quotes must be exact substrings of the source text — do not paraphrase.
-3. Every CorpusId in the report MUST appear in `paper_catalogue.json`.
-4. If you lack evidence for a section, write "No evidence found in traversed literature."
-5. The Markers table must only include genes with explicit evidence.
-6. If the hook rejects the report, read the error messages and fix the specific issues.
+3. Use standard inline citations: `(Author et al., Year)`.
+4. Every DOI in the report MUST match a DOI in `paper_catalogue.json`.
+5. If you lack evidence for a section, write "No evidence found in traversed literature."
+6. Use multiple sources — cite every paper whose snippet you quote.
+7. If the hook rejects the report, read the error messages and fix the specific issues.

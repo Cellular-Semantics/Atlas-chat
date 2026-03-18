@@ -55,6 +55,14 @@ You receive:
 - `{output_dir}/all_summaries.json` — merged summaries from all depths
 - `{output_dir}/paper_catalogue.json` — metadata for all discovered papers
 
+## CorpusId Retrieval
+
+`snippet_search` is the canonical way to get CorpusIds via MCP:
+- Each snippet result includes `paper.corpusId` in its metadata.
+- For papers referenced within a snippet, check `matchedPaperCorpusId`.
+- Do NOT attempt to get CorpusId from `get_paper` fields — it is not
+  available there. Do NOT use `curl` or `WebFetch` to call the S2 API.
+
 ## Rules
 
 - **Summarize each snippet as it is returned.** Do not batch.
@@ -62,4 +70,4 @@ You receive:
 - **Maintain a visited set.** Never search the same corpus ID twice.
 - **Write files incrementally.** Each depth's results saved before next.
 - **Quotes must be exact substrings** of the snippet text.
-- Do NOT use `paperqa2_cyberian.extract_asta_refs` — extract CorpusIds directly from ASTA results.
+- Extract CorpusIds directly from ASTA snippet metadata.

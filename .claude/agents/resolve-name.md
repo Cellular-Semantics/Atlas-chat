@@ -12,9 +12,14 @@ You receive:
 
 ## Procedure
 
-1. Use `get_europepmc_full_text` with the atlas DOI to get the paper text.
-2. Search the paper text for the exact annotation label.
-3. Search supplementary material for cluster-to-name mapping tables.
+1. **Primary**: Use `snippet_search` with `paper_ids` scoped to the atlas
+   paper (by CorpusId or DOI). Search for the annotation label and likely
+   synonyms. This returns relevance-ranked chunks and avoids fragile full
+   text download → grep cycles.
+2. Search supplementary material (already fetched) for cluster-to-name
+   mapping tables.
+3. If snippet search is insufficient, fall back to `get_europepmc_full_text`
+   (max 2 attempts).
 4. Identify all names the authors use for this cell type.
 
 ## Shared Prompt
