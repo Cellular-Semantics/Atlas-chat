@@ -15,7 +15,7 @@ These are orthogonal and layer cleanly:
 
 ## Part A: Content & Format (shared prompts)
 
-### 1. `src/atlas_chat/atlas_chat/agents/report_synthesizer.prompt.yaml`
+### 1. `src/atlas_chat/agents/report_synthesizer.prompt.yaml`
 
 **system_prompt** — loosen:
 - Remove rigid markdown template
@@ -28,7 +28,7 @@ These are orthogonal and layer cleanly:
 - Replace rigid template with section guidelines + one example showing style
 - Describe citation/reference format by example, not template
 
-### 2. Validation: `src/atlas_chat/atlas_chat/validation/report_checker.py`
+### 2. Validation: `src/atlas_chat/validation/report_checker.py`
 
 - `check_references`: switch from CorpusId to DOI-based
   - Extract DOIs from report (`10.\d{4,}/\S+`)

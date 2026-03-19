@@ -11,10 +11,10 @@
 These YAML files are the canonical prompts — shared between this agentic
 workflow and the programmatic Python graph.
 
-@src/atlas_chat/atlas_chat/agents/name_resolver.prompt.yaml
-@src/atlas_chat/atlas_chat/agents/supplementary_scanner.prompt.yaml
-@src/atlas_chat/atlas_chat/agents/report_synthesizer.prompt.yaml
-@src/atlas_chat/atlas_chat/agents/orchestrator.prompt.yaml
+@src/atlas_chat/agents/name_resolver.prompt.yaml
+@src/atlas_chat/agents/supplementary_scanner.prompt.yaml
+@src/atlas_chat/agents/report_synthesizer.prompt.yaml
+@src/atlas_chat/agents/orchestrator.prompt.yaml
 
 ---
 
@@ -148,7 +148,7 @@ After the report is written, **always run validation explicitly**:
 4. If validation fails, pass the error list back to `synthesize-report` and
    retry (max 2 retries).
 
-The validation logic lives in `src/atlas_chat/atlas_chat/validation/report_checker.py`.
+The validation logic lives in `src/atlas_chat/validation/report_checker.py`.
 You can invoke it directly:
 
 ```python
@@ -181,7 +181,7 @@ projects/{project}/
 ## Report Format
 
 Reports use standard academic citation style. See the shared prompt at
-`src/atlas_chat/atlas_chat/agents/report_synthesizer.prompt.yaml` for full
+`src/atlas_chat/agents/report_synthesizer.prompt.yaml` for full
 instructions. Key conventions:
 
 - **Inline citations**: `(Author et al., Year)`
@@ -220,7 +220,7 @@ These markers reflect the subset's functional specialisation:
 
 ## Validation Rules
 
-Shared validation logic in `src/atlas_chat/atlas_chat/validation/report_checker.py`:
+Shared validation logic in `src/atlas_chat/validation/report_checker.py`:
 
 1. **Quote check**: Every blockquoted text (`> "..."`) must be a substring of
    the evidence corpus (all_summaries.json snippets + supplementary evidence +

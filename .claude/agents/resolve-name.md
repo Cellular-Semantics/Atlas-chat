@@ -25,7 +25,7 @@ You receive:
 ## Shared Prompt
 
 Follow the instructions in:
-@src/atlas_chat/atlas_chat/agents/name_resolver.prompt.yaml
+@src/atlas_chat/agents/name_resolver.prompt.yaml
 
 ## Output
 

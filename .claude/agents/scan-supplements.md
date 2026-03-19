@@ -26,7 +26,7 @@ You receive:
 ## Shared Prompt
 
 Follow the instructions in:
-@src/atlas_chat/atlas_chat/agents/supplementary_scanner.prompt.yaml
+@src/atlas_chat/agents/supplementary_scanner.prompt.yaml
 
 ## Output
 

@@ -14,7 +14,7 @@ You read these files from `{traversal_dir}`:
 ## Shared Prompt
 
 Follow the instructions in:
-@src/atlas_chat/atlas_chat/agents/report_synthesizer.prompt.yaml
+@src/atlas_chat/agents/report_synthesizer.prompt.yaml
 
 ## Output
 
