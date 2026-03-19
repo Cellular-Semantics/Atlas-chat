@@ -9,4 +9,3 @@ load_dotenv()
 
 def bootstrap() -> None:
     """Load environment configuration required for agent workflows."""
-

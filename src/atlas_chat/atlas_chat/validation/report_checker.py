@@ -46,8 +46,6 @@ def check_quotes(
         if isinstance(s.get("snippet"), str):
             evidence_texts.append(s["snippet"])  # type: ignore[arg-type]
 
-    evidence_corpus = "\n".join(evidence_texts)
-
     # Extract quoted text from blockquotes: > "some text"
     quote_pattern = re.compile(r'>\s*"([^"]+)"')
     for match in quote_pattern.finditer(report_md):

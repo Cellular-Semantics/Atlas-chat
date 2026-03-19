@@ -8,14 +8,13 @@ This is the programmatic equivalent of the citation-traverse Claude Code skill.
 
 from __future__ import annotations
 
-import asyncio
 import logging
 import os
 from pathlib import Path
 from typing import Any
 
 from deep_research_client.models import ProviderConfig
-from deep_research_client.providers.asta import AstaProvider, AstaPaper, AstaSnippet
+from deep_research_client.providers.asta import AstaPaper, AstaProvider, AstaSnippet
 
 logger = logging.getLogger(__name__)
 
@@ -100,10 +99,14 @@ async def _search_depth(
         # Fetch paper metadata — builds catalogue and paperId→CorpusId map
         if paper_ids_0:
             try:
-                raw = await provider._call_tool(http_client, "get_paper_batch", {
-                    "ids": paper_ids_0[:50],
-                    "fields": f"{ASTA_FIELDS},externalIds",
-                })
+                raw = await provider._call_tool(
+                    http_client,
+                    "get_paper_batch",
+                    {
+                        "ids": paper_ids_0[:50],
+                        "fields": f"{ASTA_FIELDS},externalIds",
+                    },
+                )
                 papers_list = raw.get("result", raw) if isinstance(raw, dict) else raw
                 if isinstance(papers_list, list):
                     for p_data in papers_list:
@@ -114,10 +117,7 @@ async def _search_depth(
                         paper_id = p_data.get("paperId", "")
                         key = f"CorpusId:{corpus_id}" if corpus_id else paper_id
 
-                        authors = [
-                            a.get("name", "")
-                            for a in (p_data.get("authors") or [])
-                        ]
+                        authors = [a.get("name", "") for a in (p_data.get("authors") or [])]
                         catalogue[key] = {
                             "title": p_data.get("title", ""),
                             "authors": authors,
@@ -147,18 +147,13 @@ async def _search_depth(
             try:
                 # Broaden query slightly for depth 1
                 broad_query = query.split(":")[0]  # drop the "location, structure..." suffix
-                snippets_1 = await provider._search_snippets(
-                    http_client, broad_query, []
-                )
+                snippets_1 = await provider._search_snippets(http_client, broad_query, [])
                 for s in snippets_1:
                     d = _snippet_to_dict(s)
                     d["depth"] = 1
                     d["corpus_id"] = f"CorpusId:{s.paper_id}" if s.paper_id else ""
                     # Avoid duplicates
-                    if not any(
-                        existing["snippet"] == d["snippet"]
-                        for existing in all_snippets
-                    ):
+                    if not any(existing["snippet"] == d["snippet"] for existing in all_snippets):
                         all_snippets.append(d)
             except Exception as exc:
                 logger.warning("Depth 1 snippet search failed: %s", exc)

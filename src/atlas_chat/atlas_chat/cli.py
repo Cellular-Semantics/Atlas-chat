@@ -18,6 +18,11 @@ import asyncio
 import logging
 import sys
 import traceback
+from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from atlas_chat.services.atlas_paper import AtlasConfig
 
 
 def main() -> None:
@@ -85,9 +90,7 @@ def main() -> None:
         level=logging.WARNING,
         format="%(asctime)s %(name)s %(levelname)s %(message)s",
     )
-    logging.getLogger("atlas_chat").setLevel(
-        logging.DEBUG if args.verbose else logging.INFO
-    )
+    logging.getLogger("atlas_chat").setLevel(logging.DEBUG if args.verbose else logging.INFO)
 
     try:
         if args.batch:
@@ -111,18 +114,20 @@ def main() -> None:
 # Helpers
 # ---------------------------------------------------------------------------
 
-def _report_path(config: "AtlasConfig", cell_type: str) -> "Path":
+
+def _report_path(config: AtlasConfig, cell_type: str) -> Path:
     """Return the expected report file path for a cell type."""
     return config.project_dir / "reports" / f"{cell_type}.md"
 
 
-def _report_exists(config: "AtlasConfig", cell_type: str) -> bool:
+def _report_exists(config: AtlasConfig, cell_type: str) -> bool:
     return _report_path(config, cell_type).is_file()
 
 
 # ---------------------------------------------------------------------------
 # Single cell-type run
 # ---------------------------------------------------------------------------
+
 
 def _run_single(args: argparse.Namespace) -> None:
     from atlas_chat.services.atlas_paper import load_project_config
@@ -169,6 +174,7 @@ def _run_single(args: argparse.Namespace) -> None:
 # ---------------------------------------------------------------------------
 # Batch mode
 # ---------------------------------------------------------------------------
+
 
 def _run_batch(args: argparse.Namespace) -> None:
     from atlas_chat.services.atlas_paper import load_project_config
@@ -237,7 +243,7 @@ def _run_batch(args: argparse.Namespace) -> None:
 
 def _show_batch_plan(
     args: argparse.Namespace,
-    config: "AtlasConfig",
+    config: AtlasConfig,
     annotations: list[dict[str, str]],
 ) -> None:
     """Dry-run output for batch mode."""
@@ -276,9 +282,10 @@ def _show_batch_plan(
 # Single dry-run plan (unchanged from original)
 # ---------------------------------------------------------------------------
 
+
 def _show_plan(
     args: argparse.Namespace,
-    config: "AtlasConfig",
+    config: AtlasConfig,
     ann: dict,
     default_models: dict[str, str],
 ) -> None:
@@ -315,20 +322,29 @@ def _show_plan(
     # 3. Orchestration steps
     print("\n--- Orchestration sequence ---")
     steps = [
-        ("1", "FetchSupplements",
-         "Resolve DOI -> PMCID via Europe PMC, fetch full text + supplements"),
-        ("2", "ResolveName",
-         "LLM call: identify author terminology for this cell type"),
-        ("3a", "ScanSupplements  [parallel]",
-         "LLM call: scan supplementary material for markers & findings"),
-        ("3b", "CitationTraverse [parallel]",
-         f"ASTA snippet search (depth={args.depth}), build paper catalogue"),
-        ("4", "SynthesizeReport",
-         "LLM call: generate markdown report from all evidence"),
-        ("5", "ValidateReport",
-         "Check quotes against evidence, check CorpusId refs (max 2 retries)"),
-        ("6", "SaveReport",
-         f"Write to {reports_dir}/{args.cell_type}.md"),
+        (
+            "1",
+            "FetchSupplements",
+            "Resolve DOI -> PMCID via Europe PMC, fetch full text + supplements",
+        ),
+        ("2", "ResolveName", "LLM call: identify author terminology for this cell type"),
+        (
+            "3a",
+            "ScanSupplements  [parallel]",
+            "LLM call: scan supplementary material for markers & findings",
+        ),
+        (
+            "3b",
+            "CitationTraverse [parallel]",
+            f"ASTA snippet search (depth={args.depth}), build paper catalogue",
+        ),
+        ("4", "SynthesizeReport", "LLM call: generate markdown report from all evidence"),
+        (
+            "5",
+            "ValidateReport",
+            "Check quotes against evidence, check CorpusId refs (max 2 retries)",
+        ),
+        ("6", "SaveReport", f"Write to {reports_dir}/{args.cell_type}.md"),
     ]
     for num, name, desc in steps:
         print(f"  [{num}] {name}")

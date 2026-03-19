@@ -18,9 +18,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from pydantic_graph import BaseNode, End, Graph, GraphRunContext
-
 from cellsem_llm_client.agents.agent_connection import AgentConnection
+from pydantic_graph import BaseNode, End, Graph, GraphRunContext
 
 from atlas_chat.services.atlas_paper import AtlasConfig
 from atlas_chat.utils.prompt_loader import load_prompt, render_prompt
@@ -34,6 +33,7 @@ MAX_SYNTHESIS_RETRIES = 2
 # ---------------------------------------------------------------------------
 # State & Dependencies
 # ---------------------------------------------------------------------------
+
 
 @dataclass
 class ReportState:
@@ -71,6 +71,7 @@ class ReportDeps:
 # Helper: run LLM call with prompt YAML
 # ---------------------------------------------------------------------------
 
+
 def _llm_call(
     agent: AgentConnection,
     prompt_name: str,
@@ -105,13 +106,12 @@ def _llm_call(
 # Node: FetchSupplements
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class FetchSupplements(BaseNode[ReportState, ReportDeps, str]):
     """Fetch atlas paper full text and supplementary material."""
 
-    async def run(
-        self, ctx: GraphRunContext[ReportState, ReportDeps]
-    ) -> ResolveName:
+    async def run(self, ctx: GraphRunContext[ReportState, ReportDeps]) -> ResolveName:
         config = ctx.deps.config
         state = ctx.state
 
@@ -129,9 +129,7 @@ class FetchSupplements(BaseNode[ReportState, ReportDeps, str]):
             if ids.corpus_id:
                 config.corpus_id = ids.corpus_id
 
-            state.atlas_full_text = await asyncio.to_thread(
-                europepmc.get_full_text, config.doi
-            )
+            state.atlas_full_text = await asyncio.to_thread(europepmc.get_full_text, config.doi)
             state.supplementary_text = await asyncio.to_thread(
                 europepmc.get_supplementary_text, config.pmcid or ""
             )
@@ -150,13 +148,12 @@ class FetchSupplements(BaseNode[ReportState, ReportDeps, str]):
 # Node: ResolveName
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class ResolveName(BaseNode[ReportState, ReportDeps, str]):
     """Resolve how the atlas authors refer to this cell type."""
 
-    async def run(
-        self, ctx: GraphRunContext[ReportState, ReportDeps]
-    ) -> FanOut:
+    async def run(self, ctx: GraphRunContext[ReportState, ReportDeps]) -> FanOut:
         config = ctx.deps.config
         state = ctx.state
         ann = config.get_annotation(state.cell_type)
@@ -179,7 +176,9 @@ class ResolveName(BaseNode[ReportState, ReportDeps, str]):
         )
 
         try:
-            state.name_resolution = json.loads(response) if isinstance(response, str) else response.model_dump()
+            state.name_resolution = (
+                json.loads(response) if isinstance(response, str) else response.model_dump()
+            )
         except (json.JSONDecodeError, AttributeError):
             state.name_resolution = {
                 "label": state.cell_type,
@@ -202,21 +201,18 @@ class ResolveName(BaseNode[ReportState, ReportDeps, str]):
 # Node: FanOut — runs ScanSupplements + CitationTraverse in parallel
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class FanOut(BaseNode[ReportState, ReportDeps, str]):
     """Fan-out node: runs supplement scanning and citation traversal in parallel."""
 
-    async def run(
-        self, ctx: GraphRunContext[ReportState, ReportDeps]
-    ) -> SynthesizeReport:
+    async def run(self, ctx: GraphRunContext[ReportState, ReportDeps]) -> SynthesizeReport:
         scan_task = asyncio.create_task(self._scan_supplements(ctx))
         cite_task = asyncio.create_task(self._citation_traverse(ctx))
         await asyncio.gather(scan_task, cite_task)
         return SynthesizeReport()
 
-    async def _scan_supplements(
-        self, ctx: GraphRunContext[ReportState, ReportDeps]
-    ) -> None:
+    async def _scan_supplements(self, ctx: GraphRunContext[ReportState, ReportDeps]) -> None:
         state = ctx.state
         config = ctx.deps.config
 
@@ -240,14 +236,16 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
                 json.loads(response) if isinstance(response, str) else response.model_dump()
             )
         except (json.JSONDecodeError, AttributeError):
-            state.supplementary_findings = {"markers": [], "other_findings": [], "evidence_quotes": []}
+            state.supplementary_findings = {
+                "markers": [],
+                "other_findings": [],
+                "evidence_quotes": [],
+            }
 
         out_path = ctx.deps.traversal_dir / "supplementary_findings.json"
         out_path.write_text(json.dumps(state.supplementary_findings, indent=2))
 
-    async def _citation_traverse(
-        self, ctx: GraphRunContext[ReportState, ReportDeps]
-    ) -> None:
+    async def _citation_traverse(self, ctx: GraphRunContext[ReportState, ReportDeps]) -> None:
         """Run citation traversal via ASTA snippet search.
 
         This is the programmatic equivalent of the citation-traverse Claude Code
@@ -267,7 +265,10 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
         resolved = state.name_resolution.get("resolved_names", [state.cell_type])
         tissue = state.name_resolution.get("tissue_context", "")
         scope = state.name_resolution.get("scope", "")
-        query = f"{state.cell_type} {' '.join(resolved)} {scope} {tissue}: location, structure, function, markers"
+        names = " ".join(resolved)
+        query = (
+            f"{state.cell_type} {names} {scope} {tissue}: location, structure, function, markers"
+        )
 
         # Seed paper ID
         seed_id = config.corpus_id or f"DOI:{config.doi}"
@@ -295,9 +296,7 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
 
         # --- Snippet summarization: extract exact quotes via LLM ---
         if raw_snippets:
-            state.all_summaries = await self._summarize_snippets(
-                ctx, raw_snippets, resolved
-            )
+            state.all_summaries = await self._summarize_snippets(ctx, raw_snippets, resolved)
         else:
             state.all_summaries = []
 
@@ -332,18 +331,22 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
             # Build numbered snippet text for the prompt
             snippets_for_prompt = []
             for j, s in enumerate(batch):
-                snippets_for_prompt.append({
-                    "index": i + j,
-                    "snippet": s.get("snippet", ""),
-                    "title": s.get("title", ""),
-                    "authors": s.get("authors", ""),
-                    "year": s.get("year"),
-                    "corpus_id": s.get("corpus_id", ""),
-                })
+                snippets_for_prompt.append(
+                    {
+                        "index": i + j,
+                        "snippet": s.get("snippet", ""),
+                        "title": s.get("title", ""),
+                        "authors": s.get("authors", ""),
+                        "year": s.get("year"),
+                        "corpus_id": s.get("corpus_id", ""),
+                    }
+                )
 
             logger.info(
                 "Summarizing snippets %d–%d of %d",
-                i, min(i + BATCH_SIZE, len(raw_snippets)) - 1, len(raw_snippets),
+                i,
+                min(i + BATCH_SIZE, len(raw_snippets)) - 1,
+                len(raw_snippets),
             )
 
             try:
@@ -364,7 +367,8 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
                         if 0 <= idx < len(raw_snippets):
                             src_text = raw_snippets[idx].get("snippet", "")
                             verified_quotes = [
-                                q for q in ev.get("quotes", [])
+                                q
+                                for q in ev.get("quotes", [])
                                 if isinstance(q, str) and q in src_text
                             ]
                             ev["quotes"] = verified_quotes
@@ -379,7 +383,8 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
 
         logger.info(
             "Snippet summarization complete: %d evidence items from %d snippets",
-            len(all_evidence), len(raw_snippets),
+            len(all_evidence),
+            len(raw_snippets),
         )
         return all_evidence
 
@@ -412,15 +417,20 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
 
         logger.info("Backfilling catalogue for %d missing papers", len(missing_ids))
         try:
-            from atlas_chat.services.citation_traverser import _make_provider, ASTA_FIELDS
             import httpx
+
+            from atlas_chat.services.citation_traverser import ASTA_FIELDS, _make_provider
 
             provider = _make_provider()
             async with httpx.AsyncClient(timeout=60) as http_client:
-                raw = await provider._call_tool(http_client, "get_paper_batch", {
-                    "ids": list(missing_ids)[:50],
-                    "fields": f"{ASTA_FIELDS},externalIds",
-                })
+                raw = await provider._call_tool(
+                    http_client,
+                    "get_paper_batch",
+                    {
+                        "ids": list(missing_ids)[:50],
+                        "fields": f"{ASTA_FIELDS},externalIds",
+                    },
+                )
                 papers_list = raw.get("result", raw) if isinstance(raw, dict) else raw
                 if isinstance(papers_list, list):
                     for p_data in papers_list:
@@ -429,10 +439,7 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
                         ext_ids = p_data.get("externalIds") or {}
                         corpus_id = str(ext_ids.get("CorpusId", ""))
                         key = f"CorpusId:{corpus_id}" if corpus_id else p_data.get("paperId", "")
-                        authors = [
-                            a.get("name", "")
-                            for a in (p_data.get("authors") or [])
-                        ]
+                        authors = [a.get("name", "") for a in (p_data.get("authors") or [])]
                         state.paper_catalogue[key] = {
                             "title": p_data.get("title", ""),
                             "authors": authors,
@@ -453,13 +460,12 @@ class FanOut(BaseNode[ReportState, ReportDeps, str]):
 # Node: SynthesizeReport
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class SynthesizeReport(BaseNode[ReportState, ReportDeps, str]):
     """Generate the markdown report from all collected evidence."""
 
-    async def run(
-        self, ctx: GraphRunContext[ReportState, ReportDeps]
-    ) -> ValidateReport:
+    async def run(self, ctx: GraphRunContext[ReportState, ReportDeps]) -> ValidateReport:
         state = ctx.state
         config = ctx.deps.config
         state.synthesis_attempts += 1
@@ -479,8 +485,7 @@ class SynthesizeReport(BaseNode[ReportState, ReportDeps, str]):
         if state.validation_errors:
             validation_feedback = (
                 "IMPORTANT — Your previous report had validation errors. "
-                "Fix these issues:\n"
-                + "\n".join(f"- {e}" for e in state.validation_errors)
+                "Fix these issues:\n" + "\n".join(f"- {e}" for e in state.validation_errors)
             )
 
         response = await asyncio.to_thread(
@@ -507,6 +512,7 @@ class SynthesizeReport(BaseNode[ReportState, ReportDeps, str]):
 # ---------------------------------------------------------------------------
 # Node: ValidateReport
 # ---------------------------------------------------------------------------
+
 
 @dataclass
 class ValidateReport(BaseNode[ReportState, ReportDeps, str]):
@@ -546,13 +552,12 @@ class ValidateReport(BaseNode[ReportState, ReportDeps, str]):
 # Node: SaveReport (terminal)
 # ---------------------------------------------------------------------------
 
+
 @dataclass
 class SaveReport(BaseNode[ReportState, ReportDeps, str]):
     """Save the final report to disk."""
 
-    async def run(
-        self, ctx: GraphRunContext[ReportState, ReportDeps]
-    ) -> End[str]:
+    async def run(self, ctx: GraphRunContext[ReportState, ReportDeps]) -> End[str]:
         state = ctx.state
         report_path = ctx.deps.reports_dir / f"{state.cell_type}.md"
         report_path.write_text(state.report_md)
@@ -580,6 +585,7 @@ report_graph = Graph(
 # ---------------------------------------------------------------------------
 # Public entry point
 # ---------------------------------------------------------------------------
+
 
 async def run_report_graph(
     config: AtlasConfig,

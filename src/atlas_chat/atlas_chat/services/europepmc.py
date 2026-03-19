@@ -33,6 +33,7 @@ def _get(path: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
 # Identifier resolution
 # ------------------------------------------------------------------
 
+
 def resolve_identifiers(doi: str) -> PaperIdentifiers:
     """Resolve a DOI to all available identifiers via Europe PMC search.
 
@@ -41,12 +42,15 @@ def resolve_identifiers(doi: str) -> PaperIdentifiers:
     """
     logger.info("Resolving identifiers for DOI: %s", doi)
 
-    data = _get("search", {
-        "query": f'DOI:"{doi}"',
-        "format": "json",
-        "pageSize": 1,
-        "resultType": "core",
-    })
+    data = _get(
+        "search",
+        {
+            "query": f'DOI:"{doi}"',
+            "format": "json",
+            "pageSize": 1,
+            "resultType": "core",
+        },
+    )
 
     results = data.get("resultList", {}).get("result", [])
     if not results:
@@ -69,6 +73,7 @@ def resolve_identifiers(doi: str) -> PaperIdentifiers:
 # ------------------------------------------------------------------
 # Full text
 # ------------------------------------------------------------------
+
 
 def get_full_text(doi: str) -> str:
     """Fetch full text of a paper from Europe PMC (if available in PMC OA).
@@ -94,12 +99,15 @@ def get_full_text(doi: str) -> str:
             logger.warning("Full text fetch failed for %s: %s", ids.pmcid, exc)
 
     # Fallback: return abstract from search result
-    data = _get("search", {
-        "query": f'DOI:"{doi}"',
-        "format": "json",
-        "pageSize": 1,
-        "resultType": "core",
-    })
+    data = _get(
+        "search",
+        {
+            "query": f'DOI:"{doi}"',
+            "format": "json",
+            "pageSize": 1,
+            "resultType": "core",
+        },
+    )
     results = data.get("resultList", {}).get("result", [])
     if results:
         abstract = results[0].get("abstractText", "")
@@ -112,6 +120,7 @@ def get_full_text(doi: str) -> str:
 # ------------------------------------------------------------------
 # Supplementary material
 # ------------------------------------------------------------------
+
 
 def get_supplementary_text(pmcid: str) -> str:
     """Fetch supplementary file listing for a PMC article.

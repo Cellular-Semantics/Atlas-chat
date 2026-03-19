@@ -97,3 +97,24 @@ Currently, setting up a new atlas project requires manually authoring `cell_type
 - Consistent annotation metadata (scope/granularity inferred rather than guessed)
 
 **Effort:** Medium-large. Playwright extraction is atlas-specific and will need per-platform adapters (or a generic strategy that works across common atlas UIs). The CSV path is simpler and should come first.
+
+## 5. Unit tests
+
+**Status:** Not started — blocked on architectural direction
+
+The project currently has 0% test coverage. The pre-commit hook enforces 60% (`--cov-fail-under=60`) but the only test is a placeholder that imports nothing. This means the hook blocks every commit — a guardrail that was supposed to enforce quality is instead being bypassed entirely.
+
+**Why this should wait for the agentic refactor:** The current programmatic pipeline (rigid graph nodes, fixed traversal logic, prompt-template rendering) is likely to change substantially if the architecture moves toward a thinner agentic wrapper (items 1-2). Writing comprehensive unit tests for code that will be rewritten is wasted effort. Tests should target the architecture we're keeping.
+
+**What to test now (stable components):**
+- `validation/report_checker.py` — quote checking, DOI checking, ellipsis handling. This is pure logic, unlikely to change, and directly affects report quality.
+- `services/atlas_paper.py` — `AtlasConfig.from_project()`, `get_annotation()`, path helpers.
+- `utils/prompt_loader.py` — YAML loading, template rendering.
+- `cli.py` — argument parsing, batch/no-stomp logic (mock the graph runner).
+
+**What to defer:**
+- Graph node tests (will change with agentic refactor)
+- Citation traverser tests (will change with LLM-driven traversal)
+- Integration tests requiring real API keys (already have a marker, just need writing)
+
+**Template issue:** The agentic coding template (`CLAUDE_dev.md`) sets up the 60% coverage hook from day 1 but doesn't scaffold any real tests. The template should either generate starter tests for infrastructure code or start with a lower threshold that ratchets up as tests are added. This is a problem to fix upstream in the template.

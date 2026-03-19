@@ -60,10 +60,7 @@ def create_agent(
         SystemExit: If credentials are missing (clean error message).
     """
     if provider not in DEFAULT_MODELS:
-        raise ValueError(
-            f"Unknown provider: {provider!r}. "
-            f"Choose from: {', '.join(PROVIDERS)}"
-        )
+        raise ValueError(f"Unknown provider: {provider!r}. Choose from: {', '.join(PROVIDERS)}")
 
     load_environment()
     model = model or DEFAULT_MODELS[provider]
@@ -79,18 +76,12 @@ def create_agent(
     api_key = os.getenv(env_var)
     if not api_key:
         raise SystemExit(
-            f"Error: {env_var} not set.\n"
-            f"Set {env_var} in your .env file or environment."
+            f"Error: {env_var} not set.\nSet {env_var} in your .env file or environment."
         )
 
     logger.info("Creating LLM agent: provider=%s model=%s", provider, model)
 
     try:
-        return create_litellm_agent(
-            model=model, api_key=api_key, max_tokens=max_tokens
-        )
+        return create_litellm_agent(model=model, api_key=api_key, max_tokens=max_tokens)
     except ValueError as exc:
-        raise SystemExit(
-            f"Error: {exc}\n"
-            f"Set {env_var} in your .env file or environment."
-        ) from exc
+        raise SystemExit(f"Error: {exc}\nSet {env_var} in your .env file or environment.") from exc
