@@ -1,120 +1,190 @@
 # Roadmap
 
-## 1. Switch to unified queries with cost tracking
+## Implementation Order
+
+| Phase | What | Branch | Tests Written During |
+|-------|------|--------|----------------------|
+| 0 | End-to-end acceptance spec | main | `scripts/e2e_smoke.py` — smoke checks only |
+| 1 | Repository cleanup | `cleanup/flatten-package-structure` | Smoke checks must pass before merge |
+| 2 | Agentic refactor (items 1+2 merged) | `feature/llm-driven-traversal` | Unit tests for stable modules + tool defs |
+| 3 | Project generation | `feature/project-generation` | Schema validation, CSV parsing tests |
+
+Phases 2 and 3 can run in parallel after Phase 1 merges.
+
+---
+
+## Phase 0: End-to-End Acceptance Criteria
+
+Before any structural changes, define what "nothing broke" means. This is a specification, not a test suite — a script (`scripts/e2e_smoke.py`) that verifies all three modes without API calls.
+
+### Programmatic mode
+- `uv sync` succeeds
+- `atlas-report --project fetal_skin_atlas --cell-type "Macro_1" --dry-run` exits 0
+- `from atlas_chat.validation.report_checker import validate_report` imports successfully
+- `from atlas_chat.services.atlas_paper import load_project_config` loads config and returns DOI
+- `validate_report(report_path, traversal_dir)` passes for 3 existing reports (Macro_1, LC_1, NK)
+
+### Agentic mode
+- All `@` path references in AGENT.md resolve to real files
+- All paths in `.claude/agents/*.md` resolve
+- `.claude/hooks/check_report_refs.py` imports `atlas_chat.validation.report_checker`
+- All 5 prompt YAMLs load via `load_prompt()`
+
+### Chat mode
+- CHAT.md path references resolve
+- `/load-project-context` can locate project data
+
+### Golden-data regression
+- Pick 3 representative reports. Run `validate_report()` against their traversal data. These must pass. This catches changes to validation logic or evidence format assumptions.
+- `check_quotes` and `check_references` are pure functions; their behaviour on known inputs is the regression contract.
+
+---
+
+## Phase 1: Repository Structure Cleanup
 
 **Status:** Not started
+**Branch:** `cleanup/flatten-package-structure`
+**Prerequisite:** Phase 0 smoke script exists and passes
 
-The `cellsem_llm_client` library provides `query_unified()` — a single method that combines schema enforcement, tool calling, and usage tracking. The graph currently uses the older `query()` and `query_with_schema()` methods, which discard token counts and cost data.
+### Problem
 
-**Goal:** Replace all LLM calls in `report_graph.py` with `query_unified(..., track_usage=True)`. Accumulate `UsageMetrics` on `ReportState` across all nodes (ResolveName, SnippetSummarizer batches, ScanSupplements, SynthesizeReport + retries). Print a cost summary at the end of each run, and in batch mode, a cumulative total.
+Oddly nested `src/atlas_chat/atlas_chat/` structure from early scaffolding. Schemas duplicated between `src/schemas/` and the inner package. Empty shadow directories at the outer level.
 
-**What this enables:**
-- Per-run cost reporting (input/output/cached/thinking tokens + USD estimate)
-- Batch cost forecasting (run one, extrapolate)
-- Provider comparison (same report, Anthropic vs OpenAI cost)
+### Target layout
 
-**Effort:** Small. The calls already return structured output; the change is mechanical — swap method, collect `result.usage`, sum at the end.
+```
+src/atlas_chat/
+  __init__.py
+  cli.py
+  agents/        ← prompt YAMLs
+  graphs/
+  llm/
+  schemas/       ← consolidated (merge both locations)
+  services/
+  utils/
+  validation/
+  pyproject.toml
+```
 
-## 2. LLM-driven citation traversal via tool calling
+### Sequence
 
-**Status:** Not started — needs design
+1. Audit and document what lives where
+2. Flatten: move `src/atlas_chat/atlas_chat/*` up one level, delete inner directory
+3. Update internal imports (package name `atlas_chat` stays the same)
+4. Update all `@` path references in AGENT.md, CHAT.md, `.claude/agents/*.md`
+5. Consolidate schemas into `src/atlas_chat/schemas/`
+6. Fix `prompt_loader.py` `_AGENTS_DIR` path calculation (one fewer nesting level)
+7. Update `pyproject.toml` paths (setuptools find, coverage source, mypy packages)
+8. Decide on `atlas_chat_validation_tools` — keep or remove empty stubs
+9. Run Phase 0 smoke checks — all must pass before merge
 
-The current citation traverser (`citation_traverser.py`) calls `AstaProvider` directly: it runs a fixed snippet search, broadens the query at depth 1, and returns everything. The LLM has no say in which papers are followed or which results are irrelevant.
+**Rules:** Structure changes only. No feature work. No logic changes.
 
-The agentic workflow (Claude Code) does this differently — the LLM decides which snippets matter, which CorpusIds to follow, and when to stop. This produces more focused evidence and avoids noise from irrelevant citations.
+**Highest-risk breakage points:**
+- `prompt_loader.py` `_AGENTS_DIR` — navigates `parent.parent`; after flattening this is wrong
+- AGENT.md `@` imports — if not updated, agentic workflow silently can't find prompts
 
-**Goal:** Give the programmatic pipeline the same capability by wiring Semantic Scholar as LLM tools via `query_unified()` with tool calling.
+---
 
-**How it would work:**
-1. Define Semantic Scholar tools (`snippet_search`, `get_paper`, `get_paper_batch`, `get_citations`) as `cellsem_llm_client.tools.Tool` objects with handlers that call the ASTA API.
-2. Replace the fixed traversal loop with a `query_unified()` call that gives the LLM access to these tools plus a system prompt describing the traversal strategy.
-3. The LLM decides: which snippets are relevant, which papers to follow up on, when the evidence is sufficient to stop.
-4. The library's `_run_tool_loop` handles the multi-turn conversation automatically.
-
-The library already supports this pattern — `query_unified` accepts `tools` and `tool_handlers`, runs a tool-call loop (up to `max_turns`), and optionally tracks usage across all turns.
-
-Alternatively, `cellsem_llm_client.tools.mcp_source.load_mcp_tools()` can bridge MCP servers directly into LiteLLM tool format, which would let the programmatic pipeline use the same ASTA MCP server as the agentic workflow without duplicating tool definitions.
-
-**What this enables:**
-- Selective citation following — the LLM skips irrelevant papers instead of fetching everything
-- Deeper traversal without proportional noise — depth 2+ becomes practical
-- Convergence between programmatic and agentic workflows — same decision-making, different execution mode
-- Cost tracking across the full traversal (via `track_usage=True`)
-
-**Trade-offs to consider:**
-- More LLM calls = higher cost per run (but potentially fewer wasted tokens on irrelevant evidence)
-- Non-determinism — the LLM may follow different paths on re-runs
-- Need to decide: use Tool objects with direct ASTA API handlers, or bridge the MCP server? MCP bridging is simpler (no duplicate code) but adds a process dependency.
-
-**Effort:** Medium. Needs a new traversal prompt, tool definitions, and changes to the FanOut node. The snippet summarizer step may become unnecessary if the LLM extracts quotes during traversal.
-
-## 3. Repository structure cleanup
-
-**Status:** Not started — requires careful planning
-
-The project has an oddly nested structure from early development, with some duplication between levels (e.g. `src/atlas_chat/atlas_chat/`, schemas in multiple locations). This makes navigation confusing and risks divergence between duplicated files.
-
-**Goal:** Flatten to a conventional Python package layout. Eliminate duplicated files and consolidate schemas, prompts, and config into canonical locations.
-
-**Approach — must be done carefully:**
-- Work on a dedicated branch, not main
-- Audit every file to identify duplicates, dead code, and misplaced assets before moving anything
-- Update all internal imports, entry points, pyproject.toml paths, and tool references
-- End-to-end test all three modes (programmatic single + batch, agentic workflow, chat) before merging
-- Verify: `uv sync`, `atlas-report --dry-run`, a real single-cell run, the agentic `/run-workflow`, and `/chat` all still work
-- Keep the PR atomic — structure changes only, no feature work mixed in
-
-**Risk:** High if done carelessly — broken imports, missing prompt files, or stale paths in AGENT.md/CHAT.md could silently break workflows. The careful branch + full test pass mitigates this.
-
-## 4. Project generation workflow
+## Phase 2: Agentic Refactor — LLM-Driven Traversal with Cost Tracking
 
 **Status:** Not started — needs design
+**Branch:** `feature/llm-driven-traversal`
+**Merges ROADMAP items 1 (unified queries) and 2 (LLM-driven traversal)**
 
-Currently, setting up a new atlas project requires manually authoring `cell_type_annotations.json` with the atlas DOI, title, and a list of cell type annotations with labels, scope, and granularity. This is tedious for large atlases and error-prone for users unfamiliar with the schema.
+### Why merge items 1 and 2
 
-**Goal:** An `atlas-generate-project` command (or `/generate-project` in Claude Code) that creates a project config from an atlas source, with two input paths:
+The whole point of `query_unified()` is to support tool-calling loops with usage tracking — exactly what LLM-driven traversal needs. Doing cost tracking first without the traversal refactor means touching the same code twice.
 
-### Path A: From an online atlas (Playwright)
-1. User provides a URL to an online atlas (e.g. CellxGene, HCA, or similar)
-2. Playwright navigates to the atlas and extracts cell type annotations from the UI — labels, hierarchy, metadata
-3. The LLM resolves the atlas DOI from the page content or linked publications
-4. Generates `cell_type_annotations.json` with all discovered annotations
+### Design philosophy: priorities, not procedures
 
-### Path B: From user-provided tabular data
-1. User provides a CSV/TSV/spreadsheet with cell type annotations (at minimum a label column)
-2. The LLM infers or asks for: atlas DOI, scope, granularity, and any missing metadata
+The current programmatic traverser is rigid: fixed snippet search, broaden at depth 1, return everything. The agentic path lets the LLM decide. The refactored programmatic path should adopt the agentic philosophy with budget constraints:
+
+**Give the LLM priorities, not steps:**
+1. First: find direct evidence about this cell type in the seed paper
+2. Second: if the seed paper references other studies of this cell type, follow those
+3. Third: broaden to the cell type in other tissue contexts if direct evidence is thin
+4. Stop when evidence covers markers, function, and location — or after N tool calls
+
+**Constrain cost, not behaviour.** Set `max_turns` on `query_unified()` to cap total tool calls. Track usage via `track_usage=True`. This is a budget guardrail, not a behaviour script.
+
+**Do not overfit to the fetal_skin_atlas reports.** The 34 existing reports are a validation baseline, not a training set. The refactored pipeline should produce reports of comparable quality but not identical content (different traversal paths, different quotes). The regression test is: `validate_report()` passes on newly generated reports.
+
+### Atlas paper full text
+
+AGENT.md currently says "Prefer `snippet_search` over `get_europepmc_full_text`." This is correct for agentic sessions (huge output, fragile download). But the programmatic path already fetches full text (FetchSupplements node).
+
+**Resolution:** Keep the snippet-first guidance for the agentic workflow. For the programmatic path, make full text available as a tool the LLM can query on demand — a `search_atlas_full_text(query)` tool that does local text search against the already-fetched document. The traversal prompt should mention it as a fallback: "If snippet search does not cover methodology or supplementary table references, search the atlas paper full text."
+
+This matters because subtle decisions (e.g. which annotations are integrated from external sources, tissue-specific terminology) often require reading the methods or figure legends — information that snippet search may not surface.
+
+### Sequence
+
+1. Define Semantic Scholar tools as `cellsem_llm_client.tools.Tool` objects (or bridge via `load_mcp_tools()` if ASTA MCP server is already running)
+2. Replace `citation_traverser.py` with `services/llm_traverser.py` — same interface, LLM-driven internals
+3. Replace `_llm_call()` in `report_graph.py` with `query_unified(..., track_usage=True)`
+4. Accumulate `UsageMetrics` on `ReportState`, print cost summary per run and per batch
+5. Simplify or remove `_summarize_snippets` if the LLM extracts quotes during traversal
+6. Add `search_atlas_full_text` tool for the programmatic traversal
+
+### Tests written during this phase
+- Unit tests for `report_checker.py` (stable pure logic — the validation contract)
+- Unit tests for `atlas_paper.py` (config loading, path helpers)
+- Unit tests for `prompt_loader.py` (YAML loading, template rendering)
+- Unit tests for new tool definitions (serialization, handler dispatch)
+- Integration test (marked, skipped without API keys): single cell type end-to-end
+
+### Trade-offs
+- More LLM calls = higher cost per run, but fewer wasted tokens on irrelevant evidence
+- Non-determinism — different paths on re-runs; the validation contract is deterministic even if content is not
+- Tool bridge vs direct handlers: MCP bridging is simpler but adds a process dependency
+
+---
+
+## Phase 3: Project Generation Workflow
+
+**Status:** Not started — needs design
+**Branch:** `feature/project-generation`
+**Independent of Phase 2 — can develop in parallel after Phase 1**
+
+### Problem
+
+Setting up a new atlas project requires manually authoring `cell_type_annotations.json` — tedious for large atlases and error-prone for unfamiliar users.
+
+### Goal
+
+An `atlas-generate-project` command (or `/generate-project` in Claude Code) that creates project config from an atlas source.
+
+### Path A: From user-provided tabular data (first)
+1. User provides CSV/TSV with cell type annotations (minimum: label column)
+2. LLM infers or asks for: atlas DOI, scope, granularity, missing metadata
 3. Generates `cell_type_annotations.json`, mapping columns to schema fields
 
+### Path B: From an online atlas (second, Playwright)
+1. User provides URL to online atlas (CellxGene, HCA, etc.)
+2. Playwright extracts cell type annotations from the UI
+3. LLM resolves atlas DOI from page content or linked publications
+4. Generates `cell_type_annotations.json`
+
 ### Shared post-processing
-- Validate the generated config against `cell_type_annotation.schema.json`
-- Resolve DOI → PMCID via Europe PMC to confirm the atlas paper is accessible
-- Optionally deduplicate annotations that appear at multiple granularity levels
-- Interactive review: show the user the proposed config and let them edit before saving
+- Validate against `cell_type_annotation.schema.json`
+- Resolve DOI → PMCID via Europe PMC
+- Optionally deduplicate annotations at multiple granularity levels
+- Interactive review before saving
 
-**What this enables:**
-- Lower barrier to entry — users don't need to understand the JSON schema
-- Faster onboarding of new atlases
-- Consistent annotation metadata (scope/granularity inferred rather than guessed)
+### Tests written during this phase
+- Unit tests for schema validation
+- Unit tests for CSV/TSV column mapping
+- Integration test for DOI → PMCID resolution
 
-**Effort:** Medium-large. Playwright extraction is atlas-specific and will need per-platform adapters (or a generic strategy that works across common atlas UIs). The CSV path is simpler and should come first.
+---
 
-## 5. Unit tests
+## Coverage Ratchet (ongoing, not a discrete phase)
 
-**Status:** Not started — blocked on architectural direction
+Tests are written during Phases 1–3, not as a standalone effort. The 60% coverage threshold should be adjusted:
 
-The project currently has 0% test coverage. The pre-commit hook enforces 60% (`--cov-fail-under=60`) but the only test is a placeholder that imports nothing. This means the hook blocks every commit — a guardrail that was supposed to enforce quality is instead being bypassed entirely.
+- After Phase 1: lower to 0% or write `report_checker` + `atlas_paper` unit tests to reach ~30%
+- After Phase 2: should reach 40–60% from tests written during the refactor
+- Ratchet up as new code is added
 
-**Why this should wait for the agentic refactor:** The current programmatic pipeline (rigid graph nodes, fixed traversal logic, prompt-template rendering) is likely to change substantially if the architecture moves toward a thinner agentic wrapper (items 1-2). Writing comprehensive unit tests for code that will be rewritten is wasted effort. Tests should target the architecture we're keeping.
-
-**What to test now (stable components):**
-- `validation/report_checker.py` — quote checking, DOI checking, ellipsis handling. This is pure logic, unlikely to change, and directly affects report quality.
-- `services/atlas_paper.py` — `AtlasConfig.from_project()`, `get_annotation()`, path helpers.
-- `utils/prompt_loader.py` — YAML loading, template rendering.
-- `cli.py` — argument parsing, batch/no-stomp logic (mock the graph runner).
-
-**What to defer:**
-- Graph node tests (will change with agentic refactor)
-- Citation traverser tests (will change with LLM-driven traversal)
-- Integration tests requiring real API keys (already have a marker, just need writing)
-
-**Template issue:** The agentic coding template (`CLAUDE_dev.md`) sets up the 60% coverage hook from day 1 but doesn't scaffold any real tests. The template should either generate starter tests for infrastructure code or start with a lower threshold that ratchets up as tests are added. This is a problem to fix upstream in the template.
+The pre-commit hook should enforce whatever the current floor is, not an aspirational target that forces bypass.
