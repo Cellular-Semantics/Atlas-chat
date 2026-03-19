@@ -56,13 +56,12 @@ Oddly nested `src/atlas_chat/atlas_chat/` structure from early scaffolding. Sche
 src/atlas_chat/
   __init__.py
   cli.py
-  agents/        ← prompt YAMLs
-  graphs/
-  llm/
-  schemas/       ← consolidated (merge both locations)
-  services/
-  utils/
-  validation/
+  agents/        ← agentic LLM loops + co-located prompt YAMLs
+  graphs/        ← orchestration (PydanticAI graph nodes)
+  schemas/       ← JSON schemas (consolidated, single location)
+  services/      ← API calls + one-shot LLM calls + LLM factory
+  utils/         ← general utilities
+  validation/    ← cross-cutting validation logic
   pyproject.toml
 ```
 
@@ -96,6 +95,29 @@ src/atlas_chat/
 
 The whole point of `query_unified()` is to support tool-calling loops with usage tracking — exactly what LLM-driven traversal needs. Doing cost tracking first without the traversal refactor means touching the same code twice.
 
+### Package layout standard
+
+Converge with the scaffold's directory roles during this refactor. The distinction between `agents/` and `services/` is about **who controls the flow**:
+
+- **Service** (one-shot): The *caller* controls the flow. Prompt in → response out. No tool loop. Even a thinking model used for complex reasoning is a service if it's single-turn.
+  - API pattern: `query()`, `query_with_schema()`
+- **Agent** (agentic loop): The *LLM* controls the flow. It has tools, decides which to call, interprets results, decides what to do next, and decides when to stop. The caller sets the budget (`max_turns`) and the goal.
+  - API pattern: `query_unified(tools=..., tool_handlers=..., max_turns=N)`
+
+| Directory | Role | What changes in Phase 2 |
+|-----------|------|------------------------|
+| `schemas/` | JSON schemas → Pydantic models derived programmatically | Already correct |
+| `agents/` | Agentic LLM calls — multi-turn tool loops, LLM decides the path | New: citation traversal agent moves here. Delete `example_agent.py` (unused scaffold). Prompt YAMLs stay co-located. |
+| `services/` | API calls + one-shot LLM calls (prompt → response) | Already correct. `llm/factory.py` folds in as `services/llm_factory.py`. One-shot calls (name resolution, supplement scanning, snippet summarization, report synthesis) stay here or are called from graph nodes via services. |
+| `utils/` | General utilities | Already correct (prompt_loader, provenance) |
+| `graphs/` | Orchestration (PydanticAI graph nodes) | Already correct. Nodes call services and agents. |
+| `validation/` | Cross-cutting validation logic | Already correct (report_checker) |
+
+**Current misplacements to fix:**
+- `llm/factory.py` → `services/llm_factory.py` (thin API config wrapper belongs in services; delete `llm/` directory)
+- `agents/example_agent.py` → delete (unused scaffold example)
+- `citation_traverser.py` replacement → `agents/citation_agent.py` (it's an agentic loop with tools, not a one-shot service)
+
 ### Design philosophy: priorities, not procedures
 
 The current programmatic traverser is rigid: fixed snippet search, broaden at depth 1, return everything. The agentic path lets the LLM decide. The refactored programmatic path should adopt the agentic philosophy with budget constraints:
@@ -121,11 +143,13 @@ This matters because subtle decisions (e.g. which annotations are integrated fro
 ### Sequence
 
 1. Define Semantic Scholar tools as `cellsem_llm_client.tools.Tool` objects (or bridge via `load_mcp_tools()` if ASTA MCP server is already running)
-2. Replace `citation_traverser.py` with `services/llm_traverser.py` — same interface, LLM-driven internals
-3. Replace `_llm_call()` in `report_graph.py` with `query_unified(..., track_usage=True)`
-4. Accumulate `UsageMetrics` on `ReportState`, print cost summary per run and per batch
-5. Simplify or remove `_summarize_snippets` if the LLM extracts quotes during traversal
-6. Add `search_atlas_full_text` tool for the programmatic traversal
+2. Replace `citation_traverser.py` with `agents/citation_agent.py` — same interface, LLM-driven internals (agentic loop with tools, belongs in `agents/` not `services/`)
+3. Move `llm/factory.py` to `services/llm_factory.py`, delete `llm/` directory
+4. Delete `agents/example_agent.py` (unused scaffold example)
+5. Replace `_llm_call()` in `report_graph.py` with `query_unified(..., track_usage=True)`
+6. Accumulate `UsageMetrics` on `ReportState`, print cost summary per run and per batch
+7. Simplify or remove `_summarize_snippets` if the LLM extracts quotes during traversal
+8. Add `search_atlas_full_text` tool for the programmatic traversal
 
 ### Tests written during this phase
 - Unit tests for `report_checker.py` (stable pure logic — the validation contract)
