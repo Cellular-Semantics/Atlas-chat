@@ -22,7 +22,7 @@ Before any structural changes, define what "nothing broke" means. This is a spec
 - `atlas-report --project fetal_skin_atlas --cell-type "Macro_1" --dry-run` exits 0
 - `from atlas_chat.validation.report_checker import validate_report` imports successfully
 - `from atlas_chat.services.atlas_paper import load_project_config` loads config and returns DOI
-- `validate_report(report_path, traversal_dir)` passes for 3 existing reports (Macro_1, LC_1, NK)
+- `validate_report(report_path, traversal_dir)` passes for 3 existing reports (Macro_1, Treg, NK)
 
 ### Agentic mode
 - All `@` path references in AGENT.md resolve to real files
