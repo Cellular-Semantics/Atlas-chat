@@ -1,0 +1,171 @@
+{
+  "cas_source": "tests/unit/fixtures/subatlas/cas.fixture.json",
+  "partition": {
+    "basis": "hierarchy_leaves",
+    "n_cell_sets": 2,
+    "total_cells": 2000,
+    "labelsets_spanned": [
+      "L2"
+    ]
+  },
+  "thresholds": {
+    "f1_floor": 0.2,
+    "min_overlap_cells": 25,
+    "purity_floor": 0.5,
+    "record_floor": 0.0,
+    "shape_high": 0.5
+  },
+  "degraded": true,
+  "cell_sets": [
+    {
+      "cell_label": "parent",
+      "labelset": "L1",
+      "overlaps": [
+        {
+          "subatlas_paper": "Study X",
+          "subatlas_cell_label": "fu",
+          "overlap_cells": 1000,
+          "subatlas_contribution_cells": 1000,
+          "purity": 1.0,
+          "doi": "10.1000/x",
+          "fraction_of_atlas_set": 0.5,
+          "subatlas_set_total_cells": 1000,
+          "fraction_of_subatlas_set": 1.0,
+          "f1": 1.0,
+          "overlap_shape": "one_to_one"
+        }
+      ],
+      "cell_set_accession": "P",
+      "n_cells": 2000
+    },
+    {
+      "cell_label": "named child",
+      "labelset": "L2",
+      "overlaps": [
+        {
+          "subatlas_paper": "Unpublished Y",
+          "subatlas_cell_label": "orphan",
+          "overlap_cells": 200,
+          "subatlas_contribution_cells": 200,
+          "purity": 1.0,
+          "fraction_of_atlas_set": 0.2,
+          "subatlas_set_total_cells": 200,
+          "fraction_of_subatlas_set": 1.0,
+          "f1": 1.0,
+          "overlap_shape": "one_to_one"
+        },
+        {
+          "subatlas_paper": "Study X",
+          "subatlas_cell_label": "fu",
+          "overlap_cells": 700,
+          "subatlas_contribution_cells": 740,
+          "purity": 0.9459,
+          "doi": "10.1000/x",
+          "fraction_of_atlas_set": 0.7,
+          "subatlas_set_total_cells": 1000,
+          "fraction_of_subatlas_set": 0.7,
+          "f1": 0.8046,
+          "overlap_shape": "one_to_one"
+        },
+        {
+          "subatlas_paper": "Study X",
+          "subatlas_cell_label": "ePV2",
+          "overlap_cells": 40,
+          "subatlas_contribution_cells": 740,
+          "purity": 0.0541,
+          "doi": "10.1000/x",
+          "fraction_of_atlas_set": 0.04,
+          "subatlas_set_total_cells": 700,
+          "fraction_of_subatlas_set": 0.0571,
+          "f1": 0.0556,
+          "overlap_shape": "weak"
+        }
+      ],
+      "cell_set_accession": "A",
+      "n_cells": 1000,
+      "synonyms": [
+        "ePV_2"
+      ]
+    },
+    {
+      "cell_label": "other child",
+      "labelset": "L2",
+      "overlaps": [
+        {
+          "subatlas_paper": "Study X",
+          "subatlas_cell_label": "ePV2",
+          "overlap_cells": 660,
+          "subatlas_contribution_cells": 960,
+          "purity": 0.6875,
+          "doi": "10.1000/x",
+          "fraction_of_atlas_set": 0.66,
+          "subatlas_set_total_cells": 700,
+          "fraction_of_subatlas_set": 0.9429,
+          "f1": 0.7952,
+          "overlap_shape": "one_to_one"
+        },
+        {
+          "subatlas_paper": "Study X",
+          "subatlas_cell_label": "fu",
+          "overlap_cells": 300,
+          "subatlas_contribution_cells": 960,
+          "purity": 0.3125,
+          "doi": "10.1000/x",
+          "fraction_of_atlas_set": 0.3,
+          "subatlas_set_total_cells": 1000,
+          "fraction_of_subatlas_set": 0.3,
+          "f1": 0.3061,
+          "overlap_shape": "weak"
+        }
+      ],
+      "cell_set_accession": "B",
+      "n_cells": 1000
+    }
+  ],
+  "atlas_doi": "10.1000/fixture",
+  "unpublished": [
+    {
+      "subatlas_paper": "Unpublished Y",
+      "n_atlas_cell_sets": 1,
+      "overlap_cells": 200,
+      "status": "unresolved"
+    }
+  ],
+  "sensitivity": [
+    {
+      "f1_floor": 0.05,
+      "n_overlaps": 6,
+      "n_atlas_cell_sets": 3,
+      "n_subatlas_cell_sets": 3,
+      "n_papers": 2
+    },
+    {
+      "f1_floor": 0.1,
+      "n_overlaps": 5,
+      "n_atlas_cell_sets": 3,
+      "n_subatlas_cell_sets": 3,
+      "n_papers": 2
+    },
+    {
+      "f1_floor": 0.2,
+      "n_overlaps": 5,
+      "n_atlas_cell_sets": 3,
+      "n_subatlas_cell_sets": 3,
+      "n_papers": 2
+    },
+    {
+      "f1_floor": 0.3,
+      "n_overlaps": 5,
+      "n_atlas_cell_sets": 3,
+      "n_subatlas_cell_sets": 3,
+      "n_papers": 2
+    },
+    {
+      "f1_floor": 0.5,
+      "n_overlaps": 4,
+      "n_atlas_cell_sets": 3,
+      "n_subatlas_cell_sets": 3,
+      "n_papers": 2
+    }
+  ]
+}

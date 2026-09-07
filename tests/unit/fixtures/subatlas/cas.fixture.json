@@ -1,0 +1,91 @@
+{
+  "title": "Fixture atlas",
+  "source": {
+    "doi": "10.1000/fixture",
+    "subatlas_papers": [
+      {
+        "label": "Study X",
+        "doi": "10.1000/x",
+        "status": "asta",
+        "asta_indexing": {
+          "band": "full"
+        }
+      },
+      {
+        "label": "Unpublished Y",
+        "status": "unresolved"
+      }
+    ]
+  },
+  "labelsets": [
+    {
+      "name": "L1",
+      "rank": 1
+    },
+    {
+      "name": "L2",
+      "rank": 0
+    }
+  ],
+  "annotations": [
+    {
+      "labelset": "L1",
+      "cell_label": "parent",
+      "cell_set_accession": "P",
+      "n_cells": 2000,
+      "transferred_annotations": [
+        {
+          "transferred_cell_label": "fu",
+          "subatlas_paper": "Study X",
+          "cell_count": 1000
+        }
+      ]
+    },
+    {
+      "labelset": "L2",
+      "cell_label": "named child",
+      "cell_set_accession": "A",
+      "parent_cell_set_accession": "P",
+      "n_cells": 1000,
+      "synonyms": [
+        "ePV_2"
+      ],
+      "transferred_annotations": [
+        {
+          "transferred_cell_label": "fu",
+          "subatlas_paper": "Study X",
+          "cell_count": 700
+        },
+        {
+          "transferred_cell_label": "ePV2",
+          "subatlas_paper": "Study X",
+          "cell_count": 40
+        },
+        {
+          "transferred_cell_label": "orphan",
+          "subatlas_paper": "Unpublished Y",
+          "cell_count": 200
+        }
+      ]
+    },
+    {
+      "labelset": "L2",
+      "cell_label": "other child",
+      "cell_set_accession": "B",
+      "parent_cell_set_accession": "P",
+      "n_cells": 1000,
+      "transferred_annotations": [
+        {
+          "transferred_cell_label": "fu",
+          "subatlas_paper": "Study X",
+          "cell_count": 300
+        },
+        {
+          "transferred_cell_label": "ePV2",
+          "subatlas_paper": "Study X",
+          "cell_count": 660
+        }
+      ]
+    }
+  ]
+}

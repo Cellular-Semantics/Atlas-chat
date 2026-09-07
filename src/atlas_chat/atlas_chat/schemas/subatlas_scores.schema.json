@@ -1,0 +1,356 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subatlas_scores.schema.json",
+  "title": "SubatlasScores",
+  "description": "How every atlas cell set overlaps the cell sets of each contributing study, measured deterministically from a CAS+ document's transferred_annotations. Two independent groupings of the same cells are in play and are never conflated: an ATLAS CELL SET is one the atlas defines (an annotations[] entry, named by cell_label); a SUBATLAS CELL SET is one a contributing study defines (named by transferred_cell_label), whose size 'as integrated' is however many of its cells reached the atlas. Derived, not authored \u2014 regenerate with `python -m atlas_chat.cli_subatlas_scores` rather than hand-editing.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cas_source",
+    "partition",
+    "thresholds",
+    "degraded",
+    "cell_sets"
+  ],
+  "properties": {
+    "cas_source": {
+      "type": "string",
+      "description": "Path to the CAS+ document this was computed from."
+    },
+    "atlas_doi": {
+      "type": "string",
+      "description": "The atlas paper's DOI, copied from source.doi."
+    },
+    "partition": {
+      "$ref": "#/$defs/Partition"
+    },
+    "thresholds": {
+      "$ref": "#/$defs/Thresholds"
+    },
+    "degraded": {
+      "type": "boolean",
+      "description": "True when no usable partition was found, so fraction_of_subatlas_set and f1 could not be computed and the cutoff fell back to purity alone. A degraded run is a coverage limit, not a finding about the data."
+    },
+    "sensitivity": {
+      "type": "array",
+      "description": "How the surviving set changes across candidate f1 floors. Recorded because the f1 distribution has no knee, so any floor is a policy choice: a later change should be a diff against this table, not an argument.",
+      "items": {
+        "$ref": "#/$defs/SensitivityRow"
+      }
+    },
+    "cell_sets": {
+      "type": "array",
+      "description": "One entry per atlas cell set carrying transferred_annotations. Atlas cell sets with no provenance are omitted entirely.",
+      "items": {
+        "$ref": "#/$defs/AtlasCellSet"
+      }
+    },
+    "unpublished": {
+      "type": "array",
+      "description": "Contributing studies with real provenance but no DOI \u2014 nothing to read, held apart from studies excluded for being small.",
+      "items": {
+        "$ref": "#/$defs/UnpublishedContributor"
+      }
+    }
+  },
+  "$defs": {
+    "Partition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "basis"
+      ],
+      "description": "The set of atlas cell sets used to size each subatlas cell set atlas-wide: it must cover every cell exactly once. Found, never assumed \u2014 annotation is not always hierarchical, and a labelset does not always cover the atlas.",
+      "properties": {
+        "basis": {
+          "type": "string",
+          "enum": [
+            "hierarchy_leaves",
+            "labelset",
+            "none"
+          ],
+          "description": "'hierarchy_leaves' = atlas cell sets that are no other cell set's parent (these may span several labelsets, which is why 'the finest labelset' is the wrong rule); 'labelset' = one whole labelset, used when no parent links exist; 'none' = no usable partition, so the run is degraded."
+        },
+        "labelset": {
+          "type": "string",
+          "description": "Which labelset, when basis is 'labelset'."
+        },
+        "n_cell_sets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_cells": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Cells covered by the partition. This is the atlas total by construction."
+        },
+        "labelsets_spanned": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Labelsets the partition's cell sets come from. More than one is normal for hierarchy_leaves."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Why no partition was usable, when basis is 'none' \u2014 e.g. cell sets missing n_cells, or candidate labelsets whose totals disagree."
+        }
+      }
+    },
+    "Thresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "f1_floor",
+        "min_overlap_cells",
+        "purity_floor",
+        "record_floor",
+        "shape_high"
+      ],
+      "description": "Recorded on every run so a threshold change is visible as a diff.",
+      "properties": {
+        "f1_floor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Minimum f1 for an overlap to reach the read plan."
+        },
+        "min_overlap_cells": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Minimum overlap_cells, guarding against reading a correspondence into a handful of cells."
+        },
+        "purity_floor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Fallback gate used only on a degraded run, where f1 does not exist."
+        },
+        "record_floor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overlaps whose purity falls below this are rolled into the tail rather than listed individually. A recording economy, not a judgement: the tail names every study it aggregated."
+        },
+        "shape_high": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Above this a ratio counts as high when reading off overlap_shape. Deliberately separate from f1_floor: whether an overlap is worth asking about and whether it looks one-to-one are different judgements, and reusing the inclusion floor for both called a 0.39/0.29 overlap one_to_one."
+        }
+      }
+    },
+    "SensitivityRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "f1_floor",
+        "n_overlaps",
+        "n_atlas_cell_sets",
+        "n_subatlas_cell_sets",
+        "n_papers"
+      ],
+      "properties": {
+        "f1_floor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "n_overlaps": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_atlas_cell_sets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_subatlas_cell_sets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_papers": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "AtlasCellSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cell_label",
+        "labelset",
+        "overlaps"
+      ],
+      "properties": {
+        "cell_label": {
+          "type": "string",
+          "description": "The atlas's own name for this cell set."
+        },
+        "labelset": {
+          "type": "string"
+        },
+        "cell_set_accession": {
+          "type": "string"
+        },
+        "n_cells": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Cells in this atlas cell set, from every source. Used only for fraction_of_atlas_set \u2014 never as a denominator for purity."
+        },
+        "synonyms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The atlas cell set's CAS+ synonyms, carried through because a synonym naming a subatlas cell set force-includes that overlap regardless of f1."
+        },
+        "overlaps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Overlap"
+          }
+        },
+        "tail": {
+          "type": "array",
+          "description": "Overlaps below record_floor, aggregated per contributing study so an exclusion stays visible.",
+          "items": {
+            "$ref": "#/$defs/Tail"
+          }
+        }
+      }
+    },
+    "Overlap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subatlas_paper",
+        "subatlas_cell_label",
+        "overlap_cells",
+        "subatlas_contribution_cells",
+        "purity"
+      ],
+      "description": "One atlas cell set's intersection with one subatlas cell set.",
+      "properties": {
+        "subatlas_paper": {
+          "type": "string",
+          "description": "Registry key \u2014 matches a source.subatlas_papers[].label, or the raw source_taxonomy where no registry entry exists."
+        },
+        "doi": {
+          "type": "string",
+          "description": "The contributing study's DOI, when known. Absent for a source with no publication."
+        },
+        "subatlas_cell_label": {
+          "type": "string",
+          "description": "The contributing study's own name for its cell set."
+        },
+        "source_labelset": {
+          "type": "string",
+          "description": "The upstream labelset (obs column) this name came from."
+        },
+        "overlap_cells": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Cells belonging to both this atlas cell set and this subatlas cell set."
+        },
+        "subatlas_contribution_cells": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Every cell of this atlas cell set that came from this study, whatever the study called it. The denominator for purity."
+        },
+        "subatlas_set_total_cells": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "This subatlas cell set's size across the whole atlas, summed over the partition. The denominator for fraction_of_subatlas_set. Absent on a degraded run."
+        },
+        "purity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "overlap_cells / subatlas_contribution_cells \u2014 of what this study contributed to this atlas cell set, the fraction that is this one subatlas cell set. The denominator is deliberately the study's contribution and NOT n_cells: most cells here usually came from other studies that never saw them, and counting those would penalise a study for cells it had no part in. Called within_source_share on the subatlas-consistency branch."
+        },
+        "fraction_of_subatlas_set": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "overlap_cells / subatlas_set_total_cells \u2014 of this subatlas cell set, the fraction that landed here. High means this atlas cell set accounts for it; low means it was spread across several. Called reverse_share on the subatlas-consistency branch. Absent on a degraded run."
+        },
+        "fraction_of_atlas_set": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "overlap_cells / n_cells \u2014 of this atlas cell set, the fraction that is this subatlas cell set. RECORDED, NEVER GATED: it is confounded by every other study's cells, so a low value says more about how many studies fed this cell set than about the correspondence."
+        },
+        "f1": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Harmonic mean of fraction_of_subatlas_set and purity \u2014 high only when both are, which is what a one-to-one correspondence requires. Neither alone suffices: on the reference project 575 overlaps have fraction_of_subatlas_set >= 0.9 and 405 of those have purity < 0.5, being coarse atlas cell sets that absorbed a fine subatlas one whole. Absent on a degraded run."
+        },
+        "overlap_shape": {
+          "$ref": "#/$defs/OverlapShape"
+        }
+      }
+    },
+    "OverlapShape": {
+      "type": "string",
+      "enum": [
+        "one_to_one",
+        "atlas_set_within_subatlas_set",
+        "subatlas_set_within_atlas_set",
+        "weak",
+        "unknown"
+      ],
+      "description": "The shape of the overlap, read off the two ratios alone \u2014 it says what to ask the paper, not what the answer is. 'one_to_one' = both high. 'atlas_set_within_subatlas_set' = purity high, fraction_of_subatlas_set low: the atlas split the subatlas cell set and this is one piece. 'subatlas_set_within_atlas_set' = the reverse: this atlas cell set absorbed the subatlas one along with others from the same study, so agreement here is a resolution difference and not corroboration. 'weak' = both low. 'unknown' = degraded run, no partition."
+    },
+    "Tail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subatlas_paper",
+        "n_subatlas_cell_sets",
+        "overlap_cells"
+      ],
+      "properties": {
+        "subatlas_paper": {
+          "type": "string"
+        },
+        "n_subatlas_cell_sets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "overlap_cells": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "UnpublishedContributor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subatlas_paper",
+        "n_atlas_cell_sets",
+        "overlap_cells"
+      ],
+      "description": "A contributing study with provenance but no DOI. Named at setup so it is a known gap before any reading is attempted, rather than a surprise mid-run.",
+      "properties": {
+        "subatlas_paper": {
+          "type": "string"
+        },
+        "n_atlas_cell_sets": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "overlap_cells": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "description": "Ingest route from the registry, when present."
+        }
+      }
+    }
+  }
+}

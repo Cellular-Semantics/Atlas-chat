@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subatlas_read_plan.schema.json",
+  "title": "SubatlasReadPlan",
+  "description": "Which contributing studies to read, and what to ask each one. Derived deterministically from subatlas_scores.json by applying the cutoff \u2014 no model call is involved in producing it. Keyed by study, then by SUBATLAS CELL SET (the study's own cell set, named by transferred_cell_label), because one subatlas cell set often spans several atlas cell sets and is still only one question and one read. Derived, not authored \u2014 regenerate with `python -m atlas_chat.cli_subatlas_scores`.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cas_source",
+    "scores_source",
+    "thresholds",
+    "degraded",
+    "papers"
+  ],
+  "properties": {
+    "cas_source": {
+      "type": "string"
+    },
+    "scores_source": {
+      "type": "string",
+      "description": "Path to the subatlas_scores.json this plan was cut from. Every question here must trace to an overlap there."
+    },
+    "atlas_doi": {
+      "type": "string"
+    },
+    "degraded": {
+      "type": "boolean",
+      "description": "True when the scores had no usable partition, so questions were selected on purity alone and every overlap_shape is 'unknown'. State it in any report built on this plan: it is a coverage limit, not a finding."
+    },
+    "thresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "f1_floor",
+        "min_overlap_cells",
+        "purity_floor"
+      ],
+      "properties": {
+        "f1_floor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "min_overlap_cells": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "purity_floor": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "papers": {
+      "type": "array",
+      "description": "One entry per contributing study with at least one surviving question, ordered by how many questions it carries.",
+      "items": {
+        "$ref": "#/$defs/PaperPlan"
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "description": "Things a reader cannot act on, named here so they are known before reading starts.",
+      "items": {
+        "$ref": "#/$defs/Gap"
+      }
+    }
+  },
+  "$defs": {
+    "PaperPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subatlas_paper",
+        "questions"
+      ],
+      "properties": {
+        "subatlas_paper": {
+          "type": "string",
+          "description": "Registry key \u2014 matches a source.subatlas_papers[].label."
+        },
+        "doi": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "description": "Ingest route from the CAS+ registry (candidate / unresolved / asta / local / needs_pdf) \u2014 whether this study's text is reachable at all. An unreachable study is a retrieval limit, not a disagreement."
+        },
+        "asta_band": {
+          "type": "string",
+          "description": "Measured ASTA indexing band from the registry, when probed."
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Question"
+          }
+        }
+      }
+    },
+    "Question": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subatlas_cell_label",
+        "included_by",
+        "atlas_cell_sets"
+      ],
+      "description": "One thing to ask this study: what does it mean by its own cell set, and how does that sit against the atlas cell sets its cells went into.",
+      "properties": {
+        "subatlas_cell_label": {
+          "type": "string",
+          "description": "The study's own name for the cell set to ask about."
+        },
+        "source_labelset": {
+          "type": "string"
+        },
+        "subatlas_set_total_cells": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "included_by": {
+          "type": "string",
+          "enum": [
+            "f1",
+            "synonym",
+            "purity_only"
+          ],
+          "description": "Why this question survived the cutoff. 'f1' = cleared the floor on its own numbers. 'synonym' = force-included because an atlas cell set names it in CAS+ synonyms; an asserted correspondence is invisible to an overlap statistic, so on the reference project the label the authors adopted scores f1 0.027 and ranks seventh of eight. 'purity_only' = degraded run, no partition, so f1 did not exist."
+        },
+        "atlas_cell_sets": {
+          "type": "array",
+          "minItems": 1,
+          "description": "The most specific atlas cell sets this subatlas cell set's cells went into that cleared the cutoff. More than one means the atlas split it across genuinely distinct cell sets \u2014 which is itself the interesting thing to ask about.",
+          "items": {
+            "$ref": "#/$defs/AtlasCellSetRef"
+          }
+        },
+        "n_coarser_dropped": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "How many coarser atlas cell sets were dropped from atlas_cell_sets because a more specific claimant was also present. Where the CAS+ document has a hierarchy every ancestor of a genuine claimant also overlaps and clears the cutoff, so the same cells arrive at several granularities; the finest claimant is the one that carries the comparison. Absent with flat annotation, where there is nothing to collapse."
+        }
+      }
+    },
+    "AtlasCellSetRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cell_label",
+        "labelset",
+        "overlap_cells",
+        "purity",
+        "overlap_shape"
+      ],
+      "properties": {
+        "cell_label": {
+          "type": "string"
+        },
+        "labelset": {
+          "type": "string"
+        },
+        "cell_set_accession": {
+          "type": "string"
+        },
+        "overlap_cells": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "purity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "overlap_shape": {
+          "$ref": "subatlas_scores.schema.json#/$defs/OverlapShape"
+        },
+        "fraction_of_subatlas_set": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "f1": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "matched_synonym": {
+          "type": "string",
+          "description": "The CAS+ synonym of this atlas cell set that named this subatlas cell set, when the question was force-included by one."
+        },
+        "nested_under": {
+          "type": "string",
+          "description": "cell_set_accession of another atlas cell set in this same list that subsumes this one. Present only where the CAS+ document carries parent_cell_set_accession links; with flat annotation it is simply absent and the co-claimants are still listed."
+        }
+      }
+    },
+    "Gap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "detail"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "no_publication",
+            "no_partition",
+            "no_surviving_overlap",
+            "unreachable_text"
+          ],
+          "description": "'no_publication' = a contributing study with real provenance and no DOI, so there is nothing to read. 'no_partition' = the run is degraded. 'no_surviving_overlap' = an atlas cell set with provenance whose overlaps all fell below the cutoff. 'unreachable_text' = the registry says this study's text cannot be reached."
+        },
+        "detail": {
+          "type": "string"
+        },
+        "subatlas_paper": {
+          "type": "string"
+        },
+        "cell_label": {
+          "type": "string"
+        },
+        "labelset": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
