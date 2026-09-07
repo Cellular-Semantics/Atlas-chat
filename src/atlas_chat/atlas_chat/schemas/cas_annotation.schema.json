@@ -111,7 +111,11 @@
         "cell_set_accession": { "type": "string", "description": "Stable id for this cell set, independent of cell_label." },
         "parent_cell_set_accession": { "type": ["string", "null"], "description": "Accession of the cell set that subsumes this one (hierarchy); null for root cell sets." },
         "n_cells": { "type": "integer", "minimum": 0, "description": "Local extension: number of cells in the set." },
-        "rationale": { "type": "string", "description": "Free-text evidence/justification (report narrative)." },
+        "comment": {
+          "type": "string",
+          "description": "Free-text note on where this label and node came from: how the label was derived or minted, which source table or spreadsheet it was read from, and any ad hoc documentation attached to a hierarchical annotation node that has no other home. Provenance, not evidence — the report step's justification goes in rationale. Do not duplicate what other fields hold (marker_gene_evidence, synonyms, cell_ontology_term_id); anything true of a whole tier belongs in the labelset's description."
+        },
+        "rationale": { "type": "string", "description": "Free-text evidence/justification for what this cell set is, written by the report step and paired with rationale_dois. Evidence, not provenance — where the label itself came from goes in comment." },
         "rationale_dois": {
           "description": "DOIs of the papers the rationale draws on. Written by the report step from the paper catalogue; every entry must appear there.",
           "type": "array", "items": { "type": "string" }
