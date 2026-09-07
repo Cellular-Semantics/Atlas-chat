@@ -37,7 +37,6 @@
  "annotations": [
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Endo_ven_apcv",
    "cell_fullname": "Activated post-capillary venous endothelial",
    "cell_set_accession": "HCArepro:L4:0204",
@@ -975,7 +974,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Endo_ven_pcv",
    "cell_fullname": "Post-capillary venous endothelial",
    "cell_set_accession": "HCArepro:L4:m004",
@@ -2635,7 +2633,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Endo_ven_tpcv",
    "cell_fullname": "Transitional post-capillary venous endothelial",
    "cell_set_accession": "HCArepro:L4:0067",
@@ -3972,7 +3969,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Endothelial of endometrial capillary APCDD1+",
    "cell_fullname": "Endothelial of endometrial capillary APCDD1+",
    "cell_set_accession": "HCArepro:L4:0122",
@@ -5311,7 +5307,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_CervixSquamous",
    "cell_fullname": "Cervix squamous epithelial",
    "cell_set_accession": "HCArepro:L4:m009",
@@ -5617,7 +5612,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_CervixSquamous_Cyc",
    "cell_fullname": "Cervix squamous epithelial cycling",
    "cell_set_accession": "HCArepro:L4:0133",
@@ -5748,7 +5742,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoCil_Cyc",
    "cell_fullname": "Endometrial ciliated epithelial cycling",
    "cell_set_accession": "HCArepro:L4:0128",
@@ -6266,7 +6259,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoCil_Diff",
    "cell_fullname": "Endometrial ciliated epithelial of differentiated",
    "cell_set_accession": "HCArepro:L4:0109",
@@ -6970,7 +6962,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoCil_eProf",
    "cell_fullname": "Endometrial ciliated epithelial of early proliferative",
    "cell_set_accession": "HCArepro:L4:0206",
@@ -7506,7 +7497,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandBas",
    "cell_fullname": "Endometrial basalis glandular epithelial",
    "cell_set_accession": "HCArepro:L4:m006",
@@ -7877,16 +7867,12 @@
      "cell_ratio": 0.0013
     }
    ],
-   "rationale_citations": [
-    "Nguyen et al 2017"
-   ],
    "rationale_dois": [
     "10.1093/humrep/dex289"
    ]
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandBas_WIF1",
    "cell_fullname": "Endometrial basalis glandular epithelial of WIF1+",
    "cell_set_accession": "HCArepro:L4:0169",
@@ -8438,7 +8424,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandFun_Menstr",
    "cell_fullname": "Endometrial functionalis glandular epithelial of menstrual phase",
    "cell_set_accession": "HCArepro:L4:0281",
@@ -8915,7 +8900,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandFun_Prof",
    "cell_fullname": "Endometrial functionalis glandular epithelial of proliferative phase",
    "cell_set_accession": "HCArepro:L4:0251",
@@ -9630,7 +9614,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandFun_Prof_Cyc",
    "cell_fullname": "Endometrial functionalis glandular epithelial of proliferative phase cycling",
    "cell_set_accession": "HCArepro:L4:0049",
@@ -10302,7 +10285,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandFun_emSec",
    "cell_fullname": "Endometrial functionalis glandular epithelial of early-mid secretory phase",
    "cell_set_accession": "HCArepro:L4:0200",
@@ -10981,7 +10963,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandFun_lProf",
    "cell_fullname": "Endometrial functionalis glandular epithelial of late proliferative/early secretory phase",
    "cell_set_accession": "HCArepro:L4:0187",
@@ -11524,7 +11505,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandFun_lSec",
    "cell_fullname": "Endometrial functionalis glandular epithelial of late secretory phase",
    "cell_set_accession": "HCArepro:L4:0172",
@@ -11964,7 +11944,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandFun_mSec",
    "cell_fullname": "Endometrial functionalis glandular epithelial of mid secretory phase",
    "cell_set_accession": "HCArepro:L4:0113",
@@ -12654,7 +12633,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandLum_Prof",
    "cell_fullname": "Endometrial luminal glandular epithelial of of proliferative phase",
    "cell_set_accession": "HCArepro:L4:0055",
@@ -13351,7 +13329,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandLum_eSec",
    "cell_fullname": "Endometrial luminal glandular epithelial of of early secretory",
    "cell_set_accession": "HCArepro:L4:0224",
@@ -13542,7 +13519,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGlandLum_mSec",
    "cell_fullname": "Endometrial luminal glandular epithelial of of secretory phase",
    "cell_set_accession": "HCArepro:L4:0221",
@@ -14285,7 +14261,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_EndoGland_nEMC",
    "cell_fullname": "Endometrial glandular epithelial in no endogenous menstrual cycle (nEMC)",
    "cell_set_accession": "HCArepro:L4:0166",
@@ -15005,7 +14980,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianCil_Cyc",
    "cell_fullname": "Fallopian Tube ciliated epithelial cycling",
    "cell_set_accession": "HCArepro:L4:0193",
@@ -15206,7 +15180,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianCil_Diff",
    "cell_fullname": "Fallopian Tube differentiated ciliated epithelial of mature",
    "cell_set_accession": "HCArepro:L4:0201",
@@ -15476,7 +15449,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianCil_Early",
    "cell_fullname": "Fallopian Tube early ciliated epithelial",
    "cell_set_accession": "HCArepro:L4:0101",
@@ -15697,7 +15669,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianCil_Fetal",
    "cell_fullname": "Fetal fallopian tube ciliated epithelial",
    "cell_set_accession": "HCArepro:L4:0280",
@@ -15928,7 +15899,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianSec_Cyc",
    "cell_fullname": "Fallopian Tube secretory epithelial cycling",
    "cell_set_accession": "HCArepro:L4:0199",
@@ -16191,7 +16161,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianSec_Fetal",
    "cell_fullname": "Fetal fallopian tube secretory epithelial",
    "cell_set_accession": "HCArepro:L4:0226",
@@ -16699,7 +16668,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianSec_OVGP1hi_EstrInd",
    "cell_fullname": "Fallopian Tube secretory epithelial of OVGP1high",
    "cell_set_accession": "HCArepro:L4:0275",
@@ -16958,7 +16926,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_FallopianSec_OVGP1lo",
    "cell_fullname": "Fallopian Tube secretory epithelial of OVGP1low",
    "cell_set_accession": "HCArepro:L4:0230",
@@ -17227,7 +17194,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_GenitalSurf_Fetal",
    "cell_fullname": "Fetal genital surface epithelial",
    "cell_set_accession": "HCArepro:L4:0003",
@@ -17521,7 +17487,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_MesonephricTub_Fetal",
    "cell_fullname": "Fetal mesonephric tubule epithelial",
    "cell_set_accession": "HCArepro:L4:0278",
@@ -18153,7 +18118,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_PrepuceSquamous_Fetal",
    "cell_fullname": "Fetal preputial squamous epithelial",
    "cell_set_accession": "HCArepro:L4:0177",
@@ -18390,7 +18354,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_UrethralSquamous_Fetal",
    "cell_fullname": "Fetal urethral epithelial",
    "cell_set_accession": "HCArepro:L4:0234",
@@ -18730,7 +18693,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_Uterocervical_Fetal",
    "cell_fullname": "Fetal uterocervical epithelial",
    "cell_set_accession": "HCArepro:L4:0104",
@@ -19141,7 +19103,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_Vagina_Lower_Fetal",
    "cell_fullname": "Fetal lower urogenital sinus-derived vaginal epithelial",
    "cell_set_accession": "HCArepro:L4:0243",
@@ -19533,7 +19494,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_Vagina_Upper_Fetal",
    "cell_fullname": "Fetal upper Müllerian-derived vaginal squamous epithelial",
    "cell_set_accession": "HCArepro:L4:0179",
@@ -19774,7 +19734,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Epi_reteOvarii_Fetal_Undiff",
    "cell_fullname": "Fetal rete ovarii epithelial",
    "cell_set_accession": "HCArepro:L4:0196",
@@ -20279,7 +20238,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Germcell_PrimaryOocyte_ZP4neg",
    "cell_fullname": "Primary oocyte",
    "cell_set_accession": "HCArepro:L4:m001",
@@ -20573,7 +20531,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Germcell_PrimaryOocyte_ZP4pos",
    "cell_fullname": "Primary oocyte ZP4+",
    "cell_set_accession": "HCArepro:L4:0030",
@@ -21095,7 +21052,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Gonadal_preGranulosa-OSEderived_early",
    "cell_fullname": "Second wave fetal pre-granulosa, early differentiated state",
    "cell_set_accession": "HCArepro:L4:0261",
@@ -21554,7 +21510,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Gonadal_preGranulosa-OSEderived_late",
    "cell_fullname": "Second wave fetal pre-granulosa, late differentiated state",
    "cell_set_accession": "HCArepro:L4:0095",
@@ -22218,7 +22173,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_AMHneg_Atretic",
    "cell_fullname": "Granulosa of primordial follicle atretic",
    "cell_set_accession": "HCArepro:L4:0037",
@@ -22888,7 +22842,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_AMHneg_Squamous",
    "cell_fullname": "Granulosa of primordial follicle quiescent",
    "cell_set_accession": "HCArepro:L4:0284",
@@ -23546,7 +23499,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_AMHpos_Atretic",
    "cell_fullname": "Granulosa AMH+ atretic",
    "cell_set_accession": "HCArepro:L4:0241",
@@ -24246,7 +24198,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_AMHpos_Cyc",
    "cell_fullname": "Granulosa AMH+ cycling",
    "cell_set_accession": "HCArepro:L4:0141",
@@ -24880,7 +24831,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_AMHpos_Steroidogenic",
    "cell_fullname": "steroidogenic Granulosa AMH+",
    "cell_set_accession": "HCArepro:L4:0289",
@@ -25564,7 +25514,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_AMHpos_nonSteroidogenic",
    "cell_fullname": "non-steroidogenic Granulosa AMH+",
    "cell_set_accession": "HCArepro:L4:0205",
@@ -26140,7 +26089,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_AMHpos_nonSteroidogenic_early",
    "cell_fullname": "early non-steroidogenic Granulosa AMH+, from primary follicles",
    "cell_set_accession": "HCArepro:L4:0091",
@@ -26786,7 +26734,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Granulosa_sq_Fetal",
    "cell_fullname": "Granulosa of primordial follicle quiescent, fetal",
    "cell_set_accession": "HCArepro:L4:0087",
@@ -27108,7 +27055,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_ASDC",
    "cell_fullname": "Plasmacytoid DC AXL+ SIGLEC6+",
    "cell_set_accession": "HCArepro:L4:0160",
@@ -27694,16 +27640,12 @@
     }
    ],
    "comment": "media-4 description: pDC-like subset of AXL/SIGLEC6-expressing DCs (AS DC) as described by Villani et al., 2017.",
-   "rationale_citations": [
-    "Villani et al., 2017"
-   ],
    "rationale_dois": [
     "10.1126/science.aah4573"
    ]
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_BasoEosino",
    "cell_fullname": "Basophils and eosinophils",
    "cell_set_accession": "HCArepro:L4:0170",
@@ -28115,7 +28057,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD4_NaiveT",
    "cell_fullname": "CD4+ naive T",
    "cell_set_accession": "HCArepro:L4:0273",
@@ -29324,7 +29265,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD4_T_Unpolarised",
    "cell_fullname": "CD4+ T unpolarised",
    "cell_set_accession": "HCArepro:L4:0021",
@@ -30752,7 +30692,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD4_Th17",
    "cell_fullname": "CD4+ Th17",
    "cell_set_accession": "HCArepro:L4:0268",
@@ -31986,7 +31925,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD4_Th17_SCMlike",
    "cell_fullname": "CD4+ Th17 stem memory-like",
    "cell_set_accession": "HCArepro:L4:0011",
@@ -33142,14 +33080,10 @@
      "cell_ratio": 0.0302
     }
    ],
-   "comment": "media-4 description: Express Th17 markers, but also markers of both naive and memory T cells, which is consistent with a TSCM phenotype (Wang et al., 2021). Contains a small IL22+ subset. | UNRESOLVED citation(s) ['Wang et al., 2021']: no verified DOI found.",
-   "rationale_citations": [
-    "Wang et al., 2021"
-   ]
+   "comment": "media-4 description: Express Th17 markers, but also markers of both naive and memory T cells, which is consistent with a TSCM phenotype (Wang et al., 2021). Contains a small IL22+ subset. | UNRESOLVED citation(s) ['Wang et al., 2021']: no verified DOI found."
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD4_Treg",
    "cell_fullname": "CD4+ regulatory T",
    "cell_set_accession": "HCArepro:L4:0252",
@@ -34205,7 +34139,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD4_Treg_Cyc",
    "cell_fullname": "CD4+ regulatory T cycling",
    "cell_set_accession": "HCArepro:L4:0099",
@@ -34808,7 +34741,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD8_NaiveT",
    "cell_fullname": "CD8+ naive T",
    "cell_set_accession": "HCArepro:L4:0014",
@@ -35883,7 +35815,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD8_T_EM",
    "cell_fullname": "CD8+ effector memory T",
    "cell_set_accession": "HCArepro:L4:0227",
@@ -37043,14 +36974,10 @@
      "cell_ratio": 0.0627
     }
    ],
-   "comment": "media-4 description: CX3CR1, KLRG1, GZMB, and perforin expression is consistent with a TEMRA phenotype, poised for rapid cytolytic activity (Masopust et al., 2026). Contains a subset that is enriched in menstural fluid and is SELL+ - this might be more central memory-like. | UNRESOLVED citation(s) ['Masopust et al., 2026']: no verified DOI found.",
-   "rationale_citations": [
-    "Masopust et al., 2026"
-   ]
+   "comment": "media-4 description: CX3CR1, KLRG1, GZMB, and perforin expression is consistent with a TEMRA phenotype, poised for rapid cytolytic activity (Masopust et al., 2026). Contains a subset that is enriched in menstural fluid and is SELL+ - this might be more central memory-like. | UNRESOLVED citation(s) ['Masopust et al., 2026']: no verified DOI found."
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD8_T_RM",
    "cell_fullname": "CD8+ tissue-resident memory T",
    "cell_set_accession": "HCArepro:L4:0052",
@@ -38272,7 +38199,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_CD8_T_RM_GZMKhi",
    "cell_fullname": "CD8+ tissue-resident memory T GZMKhi",
    "cell_set_accession": "HCArepro:L4:0137",
@@ -39740,7 +39666,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_EarlyMidErythroid",
    "cell_fullname": "Early- and mid-erythroid",
    "cell_set_accession": "HCArepro:L4:0225",
@@ -39971,7 +39896,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_HPC",
    "cell_fullname": "Haematopoietic progenitors",
    "cell_set_accession": "HCArepro:L4:0267",
@@ -40437,7 +40361,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_ILC3_NCRhi",
    "cell_fullname": "ILC3 NKp44+",
    "cell_set_accession": "HCArepro:L4:0265",
@@ -41645,7 +41568,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_ILC3_NCRlo",
    "cell_fullname": "ILC3 NKp44-",
    "cell_set_accession": "HCArepro:L4:0118",
@@ -42430,7 +42352,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_ImmatureB",
    "cell_fullname": "Immature B",
    "cell_set_accession": "HCArepro:L4:0061",
@@ -43102,7 +43023,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_LargePreB",
    "cell_fullname": "Large pre-B",
    "cell_set_accession": "HCArepro:L4:0098",
@@ -43604,7 +43524,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_LateErythroid",
    "cell_fullname": "Late erythroid",
    "cell_set_accession": "HCArepro:L4:0151",
@@ -44011,7 +43930,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_MAIT",
    "cell_fullname": "Mucosal-associated invariant T",
    "cell_set_accession": "HCArepro:L4:0140",
@@ -45221,7 +45139,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_MEMP",
    "cell_fullname": "Megakaryocyte-erythroid-mast progenitors",
    "cell_set_accession": "HCArepro:L4:0269",
@@ -45844,7 +45761,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_MO_Classical",
    "cell_fullname": "Classical monocytes",
    "cell_set_accession": "HCArepro:L4:0069",
@@ -47330,7 +47246,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_MO_NonClassical",
    "cell_fullname": "Non-classical monocytes",
    "cell_set_accession": "HCArepro:L4:0083",
@@ -48422,7 +48337,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_Mac_Cyc",
    "cell_fullname": "Macrophages cycling",
    "cell_set_accession": "HCArepro:L4:0076",
@@ -49814,7 +49728,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_Mac_LYVE1hi",
    "cell_fullname": "Macrophages LYVE1+",
    "cell_set_accession": "HCArepro:L4:0282",
@@ -51471,7 +51384,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_Mac_Transitional",
    "cell_fullname": "Intermediate monocyte-derived macrophages",
    "cell_set_accession": "HCArepro:L4:0053",
@@ -52744,7 +52656,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_Mast",
    "cell_fullname": "Mast",
    "cell_set_accession": "HCArepro:L4:0263",
@@ -53964,7 +53875,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_MemoryB",
    "cell_fullname": "Memory B",
    "cell_set_accession": "HCArepro:L4:0164",
@@ -55076,7 +54986,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_NKT_γδT_Vδ1",
    "cell_fullname": "NKT and Vδ1+ γδT",
    "cell_set_accession": "HCArepro:L4:0077",
@@ -56193,7 +56102,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_NK_CD16hi",
    "cell_fullname": "NK CD16hi CD56dim",
    "cell_set_accession": "HCArepro:L4:0279",
@@ -57560,7 +57468,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_NK_CD56dim_CD16dim_SPTSSBhi",
    "cell_fullname": "NK CD56dim CD16dim SPTSSBhi",
    "cell_set_accession": "HCArepro:L4:0018",
@@ -58218,7 +58125,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_NK_Cyc",
    "cell_fullname": "NK cycling",
    "cell_set_accession": "HCArepro:L4:0274",
@@ -59391,7 +59297,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_NMP_Promyelocytes",
    "cell_fullname": "Neutrophil-myeloid progenitors and promyelocytes",
    "cell_set_accession": "HCArepro:L4:0214",
@@ -60021,7 +59926,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_NaiveB",
    "cell_fullname": "Naive B",
    "cell_set_accession": "HCArepro:L4:0191",
@@ -61025,7 +60929,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_Neutrophils",
    "cell_fullname": "Neutrophils",
    "cell_set_accession": "HCArepro:L4:0079",
@@ -61387,7 +61290,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_Plasma_κ",
    "cell_fullname": "Plasmas κ-restricted",
    "cell_set_accession": "HCArepro:L4:0062",
@@ -62231,7 +62133,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_Plasma_λ",
    "cell_fullname": "Plasmas λ-restricted",
    "cell_set_accession": "HCArepro:L4:0063",
@@ -63003,7 +62904,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_ProB",
    "cell_fullname": "Pro-B",
    "cell_set_accession": "HCArepro:L4:0131",
@@ -63425,7 +63325,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_SmallPreB",
    "cell_fullname": "Small pre-B",
    "cell_set_accession": "HCArepro:L4:0051",
@@ -63826,7 +63725,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_T_Cyc",
    "cell_fullname": "CD4+ CD8+ T cycling",
    "cell_set_accession": "HCArepro:L4:0135",
@@ -65019,7 +64917,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_cDC1",
    "cell_fullname": "Conventional DC Type 1",
    "cell_set_accession": "HCArepro:L4:0250",
@@ -66100,7 +65997,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_cDC2",
    "cell_fullname": "Conventional DC Type 2",
    "cell_set_accession": "HCArepro:L4:0257",
@@ -67626,7 +67522,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_cDC2_CD207hi",
    "cell_fullname": "Conventional DC Type 2 CD207+",
    "cell_set_accession": "HCArepro:L4:0285",
@@ -68705,7 +68600,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_mregDC",
    "cell_fullname": "Mature DC",
    "cell_set_accession": "HCArepro:L4:0271",
@@ -69605,16 +69499,12 @@
     }
    ],
    "comment": "media-4 description: DC subset, described by Maier et al., 2020, that co-expresses immunoregulatory molecules and maturation genes. This programme is upregulated by cDC1/2 upon the uptake of tumour antigens.",
-   "rationale_citations": [
-    "Maier et al., 2020"
-   ],
    "rationale_dois": [
     "10.1038/s41586-020-2134-y"
    ]
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_oLAM",
    "cell_fullname": "Ovarian lipid-associated macrophages",
    "cell_set_accession": "HCArepro:L4:0026",
@@ -70519,7 +70409,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_pDC",
    "cell_fullname": "Plasmacytoid DC",
    "cell_set_accession": "HCArepro:L4:0270",
@@ -71589,7 +71478,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_tolDC",
    "cell_fullname": "Tolerizing DC",
    "cell_set_accession": "HCArepro:L4:0254",
@@ -72067,7 +71955,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_uMac_Inf",
    "cell_fullname": "Inflammatory uterine macrophages",
    "cell_set_accession": "HCArepro:L4:0130",
@@ -73296,7 +73183,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_uNK1",
    "cell_fullname": "Uterine NK CD56hi CD16lo B4GALNThi",
    "cell_set_accession": "HCArepro:L4:0246",
@@ -73914,16 +73800,12 @@
     }
    ],
    "comment": "media-4 description: First described by Vento-Tormo et al., 2018.",
-   "rationale_citations": [
-    "Vento-Tormo et al., 2018"
-   ],
    "rationale_dois": [
     "10.1038/s41586-018-0698-6"
    ]
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_uNK2",
    "cell_fullname": "Uterine NK CD56hi CD16lo XCLhi",
    "cell_set_accession": "HCArepro:L4:0138",
@@ -75037,16 +74919,12 @@
     }
    ],
    "comment": "media-4 description: First described by Vento-Tormo et al., 2018.",
-   "rationale_citations": [
-    "Vento-Tormo et al., 2018"
-   ],
    "rationale_dois": [
     "10.1038/s41586-018-0698-6"
    ]
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_uNK3",
    "cell_fullname": "Uterine NK CD56hi CD16lo CD160hi",
    "cell_set_accession": "HCArepro:L4:0168",
@@ -76439,16 +76317,12 @@
     }
    ],
    "comment": "media-4 description: First described by Vento-Tormo et al., 2018.",
-   "rationale_citations": [
-    "Vento-Tormo et al., 2018"
-   ],
    "rationale_dois": [
     "10.1038/s41586-018-0698-6"
    ]
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_uftLAM",
    "cell_fullname": "Uterine and fallopian tube lipid-associated macrophages",
    "cell_set_accession": "HCArepro:L4:0207",
@@ -77586,7 +77460,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Immune_γδT_Vγ9Vδ2",
    "cell_fullname": "Vγ9/Vδ2+ γδT",
    "cell_set_accession": "HCArepro:L4:0283",
@@ -78338,7 +78211,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_AdvFibsIntr",
    "cell_fullname": "Transitioning adventitial fibroblasts",
    "cell_set_accession": "HCArepro:L4:0298",
@@ -79833,7 +79705,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_AdvFibs_PI16hi",
    "cell_fullname": "Adventitial fibroblasts PI16 high",
    "cell_set_accession": "HCArepro:L4:0220",
@@ -80330,7 +80201,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_AdvFibs_PI16low",
    "cell_fullname": "Adventitial fibroblasts PI16 low",
    "cell_set_accession": "HCArepro:L4:0060",
@@ -81311,7 +81181,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_CervixFib_Fetal",
    "cell_fullname": "Fetal cervical fibroblast",
    "cell_set_accession": "HCArepro:L4:0217",
@@ -81777,7 +81646,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_CervixFibs",
    "cell_fullname": "Cervix stroma",
    "cell_set_accession": "HCArepro:L4:m011",
@@ -81923,7 +81791,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_CervixVaginaSMCs_Fetal",
    "cell_fullname": "Fetal cervicovaginal smooth muscle",
    "cell_set_accession": "HCArepro:L4:0047",
@@ -82446,7 +82313,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_CorpusCavernosumFib_Fetal",
    "cell_fullname": "Fetal corpus cavernosum fibroblast",
    "cell_set_accession": "HCArepro:L4:0120",
@@ -82720,7 +82586,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_CorpusSpongiosumFib_Fetal",
    "cell_fullname": "Fetal corpus spongiosum fibroblast",
    "cell_set_accession": "HCArepro:L4:0016",
@@ -83143,7 +83008,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_Menopause",
    "cell_fullname": "Endometrial stroma in postmenopause",
    "cell_set_accession": "HCArepro:L4:0256",
@@ -83748,7 +83612,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_MenstrualEutopic",
    "cell_fullname": "Endometrial stroma of the menstrual phase",
    "cell_set_accession": "HCArepro:L4:0146",
@@ -84315,7 +84178,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_MenstrualFluid",
    "cell_fullname": "Endometrial stroma of the menstrual effluent",
    "cell_set_accession": "HCArepro:L4:0255",
@@ -84847,7 +84709,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_Prolif",
    "cell_fullname": "Endometrial stroma of proliferative phase",
    "cell_set_accession": "HCArepro:L4:0134",
@@ -85729,7 +85590,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_Prolif_Cyc",
    "cell_fullname": "Endometrial stroma of proliferative phase cycling",
    "cell_set_accession": "HCArepro:L4:0111",
@@ -86431,7 +86291,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_eSec",
    "cell_fullname": "Endometrial stroma of early secretory phase",
    "cell_set_accession": "HCArepro:L4:0239",
@@ -87139,7 +86998,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_lSec",
    "cell_fullname": "Endometrial stroma of late secretory phase",
    "cell_set_accession": "HCArepro:L4:0262",
@@ -87941,7 +87799,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_mSec",
    "cell_fullname": "Endometrial stroma of mid secretory phase",
    "cell_set_accession": "HCArepro:L4:0171",
@@ -88803,7 +88660,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_nEMC",
    "cell_fullname": "Endometrial stroma in no endogenous menstrual cycle (nEMC)",
    "cell_set_accession": "HCArepro:L4:0112",
@@ -89595,7 +89451,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_nEMC_Cyc",
    "cell_fullname": "Endometrial stroma in no endogenous menstrual cycle (nEMC) cycling",
    "cell_set_accession": "HCArepro:L4:0106",
@@ -90222,7 +90077,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EndoStromalFib_nEMC_Sec",
    "cell_fullname": "Endometrial stroma in no endogenous menstrual cycle (nEMC), decidualised",
    "cell_set_accession": "HCArepro:L4:0167",
@@ -90995,7 +90849,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_EpoophronFib_Fetal",
    "cell_fullname": "Fetal epoophoron fibroblast",
    "cell_set_accession": "HCArepro:L4:0116",
@@ -91695,7 +91548,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_FallopianFib_Fetal",
    "cell_fullname": "Fetal fallopian tube fibroblast",
    "cell_set_accession": "HCArepro:L4:0215",
@@ -92476,7 +92328,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_FallopianFibs",
    "cell_fullname": "Fallopian tube stroma",
    "cell_set_accession": "HCArepro:L4:m010",
@@ -92824,7 +92675,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_FallopianLig_Fetal",
    "cell_fullname": "Fetal fallopian tube ligament fibroblast",
    "cell_set_accession": "HCArepro:L4:0183",
@@ -93515,7 +93365,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_FallopianSMCs_Fetal",
    "cell_fullname": "Fetal fallopian tube smooth muscle",
    "cell_set_accession": "HCArepro:L4:0089",
@@ -93968,7 +93817,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_GlansFib_Fetal",
    "cell_fullname": "Fetal glans fibroblast",
    "cell_set_accession": "HCArepro:L4:0057",
@@ -94215,7 +94063,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_LabiaFib_Fetal",
    "cell_fullname": "Fetal labial fibroblast",
    "cell_set_accession": "HCArepro:L4:0085",
@@ -94433,7 +94280,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_LabioScrotalSwelling_Fetal",
    "cell_fullname": "Fetal labioscrotal swelling fibroblast",
    "cell_set_accession": "HCArepro:L4:0296",
@@ -94856,7 +94702,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_MesonephricFibs_Fetal",
    "cell_fullname": "Fetal mesonephric stromal fibroblast",
    "cell_set_accession": "HCArepro:L4:0153",
@@ -95522,7 +95367,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_MullerianFib",
    "cell_fullname": "Fetal Müllerian fibroblast",
    "cell_set_accession": "HCArepro:L4:0223",
@@ -95975,7 +95819,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_OvarianFibs_Fetal",
    "cell_fullname": "Fetal ovarian stroma",
    "cell_set_accession": "HCArepro:L4:0240",
@@ -96810,7 +96653,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_OvarianFibs_InncorMedulla",
    "cell_fullname": "Ovarian stroma of the inner cortex and medulla",
    "cell_set_accession": "HCArepro:L4:0071",
@@ -97679,7 +97521,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_OvarianFibs_Medulla_SMCsLike",
    "cell_fullname": "Ovarian stroma of the medulla SMCs-like",
    "cell_set_accession": "HCArepro:L4:0020",
@@ -98454,7 +98295,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_OvarianFibs_Outcor",
    "cell_fullname": "Ovarian stroma of the outer cortex",
    "cell_set_accession": "HCArepro:L4:0139",
@@ -99266,7 +99106,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_OvarianFibs_Perifol",
    "cell_fullname": "Ovarian stroma of the perifollicular niche",
    "cell_set_accession": "HCArepro:L4:0286",
@@ -100114,7 +99953,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Pericyte",
    "cell_fullname": "Pericytes",
    "cell_set_accession": "HCArepro:L4:m002",
@@ -101745,7 +101583,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Pericyte_Cyc",
    "cell_fullname": "Cycling pericytes",
    "cell_set_accession": "HCArepro:L4:0202",
@@ -102966,7 +102803,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Pericyte_EndoStromalLike",
    "cell_fullname": "Endometrial pericyte-stromal-likes",
    "cell_set_accession": "HCArepro:L4:m007",
@@ -103729,7 +103565,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Pericyte_EndoStromalLike_MenstrualFluid",
    "cell_fullname": "Menstrual fluid endometrial pericyte-stromal-likes",
    "cell_set_accession": "HCArepro:L4:0203",
@@ -103987,7 +103822,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Pericyte_SMCsIntr",
    "cell_fullname": "Pericyte-smooth muscle intermediates",
    "cell_set_accession": "HCArepro:L4:0032",
@@ -105195,7 +105029,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Prepuce_Fetal",
    "cell_fullname": "Fetal prepuce fibroblast",
    "cell_set_accession": "HCArepro:L4:0291",
@@ -105457,7 +105290,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Theca_Atretic",
    "cell_fullname": "Theca atretic",
    "cell_set_accession": "HCArepro:L4:0043",
@@ -106050,7 +105882,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Theca_Interna_Cyc",
    "cell_fullname": "Theca Interna cycling",
    "cell_set_accession": "HCArepro:L4:0136",
@@ -106699,7 +106530,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Theca_Interna_Perifol",
    "cell_fullname": "Theca Interna perifolicular",
    "cell_set_accession": "HCArepro:L4:0264",
@@ -107350,7 +107180,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_Theca_Interna_Steroid",
    "cell_fullname": "Theca Interna steroidogenic",
    "cell_set_accession": "HCArepro:L4:0194",
@@ -108107,7 +107936,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_UGSFib_Lower",
    "cell_fullname": "Fetal Lower urogenital sinus fibroblast",
    "cell_set_accession": "HCArepro:L4:0157",
@@ -108600,7 +108428,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_UGSFib_Upper",
    "cell_fullname": "Fetal Upper urogenital sinus fibroblast",
    "cell_set_accession": "HCArepro:L4:0210",
@@ -109246,7 +109073,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_UterusFibs_Fetal",
    "cell_fullname": "Fetal uterine stromal fibroblast",
    "cell_set_accession": "HCArepro:L4:0294",
@@ -109870,7 +109696,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_UterusLig_Fetal",
    "cell_fullname": "Fetal uterine ligament fibroblast",
    "cell_set_accession": "HCArepro:L4:0209",
@@ -110513,7 +110338,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_UterusSMCs_Fetal",
    "cell_fullname": "Fetal uterine smooth muscle",
    "cell_set_accession": "HCArepro:L4:0260",
@@ -110887,7 +110711,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_VaginaFib_Lower_Fetal",
    "cell_fullname": "Fetal lower vaginal stromal fibroblast",
    "cell_set_accession": "HCArepro:L4:0287",
@@ -111186,7 +111009,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_VaginaFibs",
    "cell_fullname": "Vagina stroma",
    "cell_set_accession": "HCArepro:L4:m000",
@@ -111337,7 +111159,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_VaginaFibs_Upper_Fetal",
    "cell_fullname": "Fetal upper vaginal stromal fibroblast",
    "cell_set_accession": "HCArepro:L4:0007",
@@ -111790,7 +111611,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_VaginaSMCs_Lower_Fetal",
    "cell_fullname": "Fetal lower vaginal smooth muscle",
    "cell_set_accession": "HCArepro:L4:0245",
@@ -112044,7 +111864,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_vSMCs_largeArt",
    "cell_fullname": "Large vessel vascular smooth muscles",
    "cell_set_accession": "HCArepro:L4:0190",
@@ -113233,7 +113052,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Mesen_vSMCs_medArt",
    "cell_fullname": "Medium artery / arteriolar vascular smooth muscles",
    "cell_set_accession": "HCArepro:L4:0236",
@@ -114681,7 +114499,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_Melanocyte_Fetal",
    "cell_fullname": "Genital melanocytes fetal",
    "cell_set_accession": "HCArepro:L4:0145",
@@ -114856,7 +114673,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_Schwann_Cyc",
    "cell_fullname": "Schwanns cycling",
    "cell_set_accession": "HCArepro:L4:0127",
@@ -115334,7 +115150,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_Schwann_Fetal",
    "cell_fullname": "Schwanns mature fetal",
    "cell_set_accession": "HCArepro:L4:0155",
@@ -115767,7 +115582,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_Schwann_Immature",
    "cell_fullname": "Schwanns immature/promyelinating",
    "cell_set_accession": "HCArepro:L4:0142",
@@ -115940,7 +115754,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_Schwann_Precursor",
    "cell_fullname": "Schwann precursor",
    "cell_set_accession": "HCArepro:L4:0253",
@@ -116196,7 +116009,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_Schwann_myelinating",
    "cell_fullname": "Schwanns myelinating",
    "cell_set_accession": "HCArepro:L4:0129",
@@ -116561,7 +116373,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_SympatheticNeurons_Immature",
    "cell_fullname": "Sympathetic neurons immature",
    "cell_set_accession": "HCArepro:L4:0186",
@@ -117022,7 +116833,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_SympatheticNeurons_Immature_Cyc",
    "cell_fullname": "Sympathetic neurons cycling",
    "cell_set_accession": "HCArepro:L4:0232",
@@ -117385,7 +117195,6 @@
   },
   {
    "labelset": "L4",
-   "rank": 0,
    "cell_label": "Neural_SympatheticNeurons_Noradrenergic",
    "cell_fullname": "Sympathetic neurons noradrenergic",
    "cell_set_accession": "HCArepro:L4:0175",
@@ -117652,7 +117461,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Adventitial fibroblasts",
    "cell_fullname": "Adventitial fibroblasts",
    "cell_set_accession": "HCArepro:L3:0059",
@@ -119196,7 +119004,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "B",
    "cell_fullname": "B",
    "cell_set_accession": "HCArepro:L3:0050",
@@ -120722,7 +120529,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Cervix Smooth muscle cell",
    "cell_fullname": "Cervix Smooth muscle cell",
    "cell_set_accession": "HCArepro:L3:0046",
@@ -121243,7 +121049,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Cervix mucinous secretory epithelial",
    "cell_fullname": "Cervix mucinous secretory epithelial",
    "cell_set_accession": "HCArepro:L3:0148",
@@ -121399,7 +121204,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Cervix squamous epithelial",
    "cell_fullname": "Cervix squamous epithelial",
    "cell_set_accession": "HCArepro:L3:0132",
@@ -121713,7 +121517,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Cervix stroma",
    "cell_fullname": "Cervix stroma",
    "cell_set_accession": "HCArepro:L3:0216",
@@ -122315,7 +122118,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Conventional DC",
    "cell_fullname": "Conventional DC",
    "cell_set_accession": "HCArepro:L3:0249",
@@ -123918,7 +123720,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Corpus cavernosum fibroblast",
    "cell_fullname": "Corpus cavernosum fibroblast",
    "cell_set_accession": "HCArepro:L3:0119",
@@ -124186,7 +123987,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Corpus spongiosum fibroblast",
    "cell_fullname": "Corpus spongiosum fibroblast",
    "cell_set_accession": "HCArepro:L3:0015",
@@ -124603,7 +124403,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endo_cap",
    "cell_fullname": "Capillary endothelial",
    "cell_set_accession": "HCArepro:L3:m005",
@@ -126384,7 +126183,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endo_cap_cycl",
    "cell_fullname": "Capillary endothelial cycling",
    "cell_set_accession": "HCArepro:L3:0073",
@@ -127786,7 +127584,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endo_cap_kidney",
    "cell_fullname": "Capillary likely from kidney",
    "cell_set_accession": "HCArepro:L3:0181",
@@ -128129,7 +127926,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endo_cap_tip",
    "cell_fullname": "Angiogenic tip endothelial",
    "cell_set_accession": "HCArepro:L3:0154",
@@ -129798,7 +129594,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endo_ven_hev",
    "cell_fullname": "High endothelial venule",
    "cell_set_accession": "HCArepro:L3:0110",
@@ -131106,7 +130901,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial basalis glandular epithelial",
    "cell_fullname": "Endometrial basalis glandular epithelial",
    "cell_set_accession": "HCArepro:L3:0097",
@@ -131709,7 +131503,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial capillary endothelial",
    "cell_fullname": "Endometrial capillary endothelial",
    "cell_set_accession": "HCArepro:L3:0121",
@@ -133039,7 +132832,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial ciliated epithelial",
    "cell_fullname": "Endometrial ciliated epithelial",
    "cell_set_accession": "HCArepro:L3:0108",
@@ -133835,7 +133627,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial functionalis glandular epithelia",
    "cell_fullname": "Endometrial functionalis glandular epithelia",
    "cell_set_accession": "HCArepro:L3:0048",
@@ -134769,7 +134560,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial functionalis stroma",
    "cell_fullname": "Endometrial functionalis stroma",
    "cell_set_accession": "HCArepro:L3:0105",
@@ -135841,7 +135631,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial glandular epithelial",
    "cell_fullname": "Endometrial glandular epithelial",
    "cell_set_accession": "HCArepro:L3:0165",
@@ -136558,7 +136347,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial luminal glandular epithelial",
    "cell_fullname": "Endometrial luminal glandular epithelial",
    "cell_set_accession": "HCArepro:L3:0054",
@@ -137381,7 +137169,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Endometrial pericyte-stromal-likes",
    "cell_fullname": "Endometrial pericyte-stromal-likes",
    "cell_set_accession": "HCArepro:L3:0107",
@@ -138158,7 +137945,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epi_EctocervixVaginaSquamous",
    "cell_fullname": "Ectocervix-vagina squamous epithelial",
    "cell_set_accession": "HCArepro:L3:0218",
@@ -138307,7 +138093,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epi_EndoMucinous",
    "cell_fullname": "Endometrial mucinous secretory epithelial",
    "cell_set_accession": "HCArepro:L3:0235",
@@ -138925,7 +138710,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epi_Mullerian_Undiff",
    "cell_fullname": "Müllerian duct undifferentiated epithelial",
    "cell_set_accession": "HCArepro:L3:0149",
@@ -139458,7 +139242,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epi_OvarianInclCil",
    "cell_fullname": "Ovarian Inclusion ciliated epithelial",
    "cell_set_accession": "HCArepro:L3:0093",
@@ -139647,7 +139430,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epi_OvarianInclSec",
    "cell_fullname": "Ovarian Inclusion secretory epithelial",
    "cell_set_accession": "HCArepro:L3:0013",
@@ -139918,7 +139700,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epi_ParatubalIncl_squamous",
    "cell_fullname": "Paratubal squamous epithelial",
    "cell_set_accession": "HCArepro:L3:0258",
@@ -140126,7 +139907,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epi_UGS_Undiff",
    "cell_fullname": "Urogenital sinus epithelial",
    "cell_set_accession": "HCArepro:L3:0184",
@@ -140529,7 +140309,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Epoophoron fibroblast",
    "cell_fullname": "Epoophoron fibroblast",
    "cell_set_accession": "HCArepro:L3:0115",
@@ -141224,7 +141003,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Erythroid",
    "cell_fullname": "Erythroid",
    "cell_set_accession": "HCArepro:L3:0150",
@@ -141698,7 +141476,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Fallopian Tube ciliated epithelial",
    "cell_fullname": "Fallopian Tube ciliated epithelial",
    "cell_set_accession": "HCArepro:L3:0100",
@@ -142242,7 +142019,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Fallopian Tube secretory epithelial",
    "cell_fullname": "Fallopian Tube secretory epithelial",
    "cell_set_accession": "HCArepro:L3:0198",
@@ -143072,7 +142848,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Fallopian tube Smooth muscle cell",
    "cell_fullname": "Fallopian tube Smooth muscle cell",
    "cell_set_accession": "HCArepro:L3:0088",
@@ -143523,7 +143298,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Fallopian tube ligament fibroblast",
    "cell_fullname": "Fallopian tube ligament fibroblast",
    "cell_set_accession": "HCArepro:L3:0182",
@@ -144209,7 +143983,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Fallopian tube stroma",
    "cell_fullname": "Fallopian tube stroma",
    "cell_set_accession": "HCArepro:L3:0211",
@@ -145322,7 +145095,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Genital melanocytes",
    "cell_fullname": "Genital melanocytes",
    "cell_set_accession": "HCArepro:L3:0144",
@@ -145489,7 +145261,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Genital surface squamous epithelial",
    "cell_fullname": "Genital surface squamous epithelial",
    "cell_set_accession": "HCArepro:L3:0002",
@@ -145777,7 +145548,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Germcell_Oogonia_meiotic",
    "cell_fullname": "Meiotic oogonia",
    "cell_set_accession": "HCArepro:L3:0197",
@@ -146028,7 +145798,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Germcell_Oogonia_premeiotic",
    "cell_fullname": "Premeiotic oogonia",
    "cell_set_accession": "HCArepro:L3:0075",
@@ -146270,7 +146039,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Germcell_PGC_Cyc",
    "cell_fullname": "Primordial germ cell cycling",
    "cell_set_accession": "HCArepro:L3:0292",
@@ -146558,7 +146326,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Germcell_PGCs",
    "cell_fullname": "Primordial germ cell",
    "cell_set_accession": "HCArepro:L3:m012",
@@ -146852,7 +146619,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Glans fibroblast",
    "cell_fullname": "Glans fibroblast",
    "cell_set_accession": "HCArepro:L3:0056",
@@ -147093,7 +146859,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Gonadal_SupportingUndiff",
    "cell_fullname": "Gonadal undifferentiated supporting",
    "cell_set_accession": "HCArepro:L3:0082",
@@ -147620,7 +147385,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Gonadal_preGranulosa-CEderived",
    "cell_fullname": "First wave pre-granulosa",
    "cell_set_accession": "HCArepro:L3:0163",
@@ -148203,7 +147967,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Granulocytes",
    "cell_fullname": "Granulocytes",
    "cell_set_accession": "HCArepro:L3:0078",
@@ -149451,7 +149214,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Granulosa AMH+",
    "cell_fullname": "Granulosa AMH+",
    "cell_set_accession": "HCArepro:L3:0090",
@@ -150256,7 +150018,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Granulosa of primordial follicle",
    "cell_fullname": "Granulosa of primordial follicle",
    "cell_set_accession": "HCArepro:L3:0036",
@@ -151227,7 +150988,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Haematopoietic progenitors",
    "cell_fullname": "Haematopoietic progenitors",
    "cell_set_accession": "HCArepro:L3:0266",
@@ -151674,7 +151434,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "ILC",
    "cell_fullname": "ILC",
    "cell_set_accession": "HCArepro:L3:0117",
@@ -152937,7 +152696,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Immune_MegaPlat",
    "cell_fullname": "Megakaryocytes/platelets",
    "cell_set_accession": "HCArepro:L3:0086",
@@ -153415,7 +153173,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Labial fibroblast",
    "cell_fullname": "Labial fibroblast",
    "cell_set_accession": "HCArepro:L3:0084",
@@ -153631,7 +153388,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Labioscrotal swelling fibroblast",
    "cell_fullname": "Labioscrotal swelling fibroblast",
    "cell_set_accession": "HCArepro:L3:0295",
@@ -154052,7 +153808,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Macrophages",
    "cell_fullname": "Macrophages",
    "cell_set_accession": "HCArepro:L3:0025",
@@ -155777,7 +155532,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_AdvFibs",
    "cell_fullname": "Adventitial fibroblasts",
    "cell_set_accession": "HCArepro:L3:m003",
@@ -156086,7 +155840,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_EndoGlandBas",
    "cell_fullname": "Endometrial basalis stroma",
    "cell_set_accession": "HCArepro:L3:0288",
@@ -156409,7 +156162,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_GonadalFibs_Undiff",
    "cell_fullname": "Gonadal fibroblast",
    "cell_set_accession": "HCArepro:L3:0044",
@@ -157360,7 +157112,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_OvarianFibs_AdvLike",
    "cell_fullname": "Ovarian stroma adventitial-like",
    "cell_set_accession": "HCArepro:L3:0185",
@@ -157958,7 +157709,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_OvarianInclFibs",
    "cell_fullname": "Ovarian Inclusions fibroblasts",
    "cell_set_accession": "HCArepro:L3:0033",
@@ -158325,7 +158075,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_PV_Fetal",
    "cell_fullname": "Fetal perivascular",
    "cell_set_accession": "HCArepro:L3:0248",
@@ -159256,7 +159005,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_Pericyte_EndoSpiralArt",
    "cell_fullname": "Endometrial pericytes surrounding spiral arteries",
    "cell_set_accession": "HCArepro:L3:0023",
@@ -160464,7 +160212,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_SMCs",
    "cell_fullname": "Smooth muscles",
    "cell_set_accession": "HCArepro:L3:0229",
@@ -161782,7 +161529,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_Theca_Externa",
    "cell_fullname": "Theca Externa",
    "cell_set_accession": "HCArepro:L3:0237",
@@ -162580,7 +162326,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_UGSLig",
    "cell_fullname": "Urogenital sinus ligament fibroblast",
    "cell_set_accession": "HCArepro:L3:0162",
@@ -162974,7 +162719,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_UGSSMCs",
    "cell_fullname": "Urogenital sinus smooth muscle",
    "cell_set_accession": "HCArepro:L3:0070",
@@ -163257,7 +163001,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesen_UterotubalJunctionFibs",
    "cell_fullname": "Uterotubal Junction fibroblasts",
    "cell_set_accession": "HCArepro:L3:0192",
@@ -163463,7 +163206,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Meso_GonadalCoelEpi",
    "cell_fullname": "Gonadal coelomic epithelial",
    "cell_set_accession": "HCArepro:L3:0123",
@@ -164027,7 +163769,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Meso_OSE",
    "cell_fullname": "Ovarian surface epithelium",
    "cell_set_accession": "HCArepro:L3:0040",
@@ -164455,7 +164196,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Meso_OSE_Fetal",
    "cell_fullname": "Fetal ovarian surface epithelium",
    "cell_set_accession": "HCArepro:L3:0096",
@@ -165172,7 +164912,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Meso_ParamesoCoelEpi",
    "cell_fullname": "Paramesonephric coelomic epithelial",
    "cell_set_accession": "HCArepro:L3:0114",
@@ -165788,7 +165527,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Meso_Peritoneal_Fetal",
    "cell_fullname": "Fetal peritoneum lining mesothelium",
    "cell_set_accession": "HCArepro:L3:0297",
@@ -166315,7 +166053,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Meso_serosa",
    "cell_fullname": "Peritoneum lining mesothelium",
    "cell_set_accession": "HCArepro:L3:0219",
@@ -166783,7 +166520,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesonephric duct stroma",
    "cell_fullname": "Mesonephric duct stroma",
    "cell_set_accession": "HCArepro:L3:0152",
@@ -167451,7 +167187,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mesonephric tubule epithelial",
    "cell_fullname": "Mesonephric tubule epithelial",
    "cell_set_accession": "HCArepro:L3:0277",
@@ -168078,7 +167813,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Monocytes",
    "cell_fullname": "Monocytes",
    "cell_set_accession": "HCArepro:L3:0068",
@@ -169588,7 +169322,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Mullerian duct stroma",
    "cell_fullname": "Mullerian duct stroma",
    "cell_set_accession": "HCArepro:L3:0222",
@@ -170035,7 +169768,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Myeloid progenitors",
    "cell_fullname": "Myeloid progenitors",
    "cell_set_accession": "HCArepro:L3:0213",
@@ -170861,7 +170593,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "NK",
    "cell_fullname": "NK",
    "cell_set_accession": "HCArepro:L3:0017",
@@ -172549,7 +172280,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Neural_Schwann",
    "cell_fullname": "Glials",
    "cell_set_accession": "HCArepro:L3:m008",
@@ -173582,7 +173312,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Non-conventional DC",
    "cell_fullname": "Non-conventional DC",
    "cell_set_accession": "HCArepro:L3:0159",
@@ -174763,7 +174492,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Ovarian stroma",
    "cell_fullname": "Ovarian stroma",
    "cell_set_accession": "HCArepro:L3:0019",
@@ -176383,7 +176111,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Pericytes",
    "cell_fullname": "Pericytes",
    "cell_set_accession": "HCArepro:L3:0031",
@@ -178054,7 +177781,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Post-capillary venous endothelial",
    "cell_fullname": "Post-capillary venous endothelial",
    "cell_set_accession": "HCArepro:L3:0066",
@@ -179835,7 +179561,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Prepuce Fibroblast",
    "cell_fullname": "Prepuce Fibroblast",
    "cell_set_accession": "HCArepro:L3:0290",
@@ -180091,7 +179816,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Preputial squamous epithelial",
    "cell_fullname": "Preputial squamous epithelial",
    "cell_set_accession": "HCArepro:L3:0176",
@@ -180322,7 +180046,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Primary oocyte",
    "cell_fullname": "Primary oocyte",
    "cell_set_accession": "HCArepro:L3:0029",
@@ -180952,7 +180675,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Rete ovarii epithelial",
    "cell_fullname": "Rete ovarii epithelial",
    "cell_set_accession": "HCArepro:L3:0195",
@@ -181455,7 +181177,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Schwanns",
    "cell_fullname": "Schwanns",
    "cell_set_accession": "HCArepro:L3:0126",
@@ -182284,7 +182005,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Second wave fetal pre-granulosa",
    "cell_fullname": "Second wave fetal pre-granulosa",
    "cell_set_accession": "HCArepro:L3:0094",
@@ -183044,7 +182764,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Sympathetic neurons",
    "cell_fullname": "Sympathetic neurons",
    "cell_set_accession": "HCArepro:L3:0174",
@@ -183546,7 +183265,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "T",
    "cell_fullname": "T",
    "cell_set_accession": "HCArepro:L3:0010",
@@ -185437,7 +185155,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Theca Interna",
    "cell_fullname": "Theca Interna",
    "cell_set_accession": "HCArepro:L3:0042",
@@ -186257,7 +185974,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Urethral epithelial",
    "cell_fullname": "Urethral epithelial",
    "cell_set_accession": "HCArepro:L3:0233",
@@ -186591,7 +186307,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Urogenital sinus fibroblast",
    "cell_fullname": "Urogenital sinus fibroblast",
    "cell_set_accession": "HCArepro:L3:0156",
@@ -187292,7 +187007,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Uterine Smooth muscle cell",
    "cell_fullname": "Uterine Smooth muscle cell",
    "cell_set_accession": "HCArepro:L3:0259",
@@ -187664,7 +187378,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Uterine interstitial fibroblast",
    "cell_fullname": "Uterine interstitial fibroblast",
    "cell_set_accession": "HCArepro:L3:0293",
@@ -188290,7 +188003,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Uterine ligament fibroblast",
    "cell_fullname": "Uterine ligament fibroblast",
    "cell_set_accession": "HCArepro:L3:0208",
@@ -188928,7 +188640,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Uterocervical undifferentiated epithelial",
    "cell_fullname": "Uterocervical undifferentiated epithelial",
    "cell_set_accession": "HCArepro:L3:0103",
@@ -189333,7 +189044,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Vagina Smooth muscle cell",
    "cell_fullname": "Vagina Smooth muscle cell",
    "cell_set_accession": "HCArepro:L3:0244",
@@ -189585,7 +189295,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Vagina stroma",
    "cell_fullname": "Vagina stroma",
    "cell_set_accession": "HCArepro:L3:0006",
@@ -190270,7 +189979,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Vaginal Müllerian-derived squamous epithelial",
    "cell_fullname": "Vaginal Müllerian-derived squamous epithelial",
    "cell_set_accession": "HCArepro:L3:0178",
@@ -190501,7 +190209,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Vaginal urogenital sinus-derived epithelial",
    "cell_fullname": "Vaginal urogenital sinus-derived epithelial",
    "cell_set_accession": "HCArepro:L3:0242",
@@ -190887,7 +190594,6 @@
   },
   {
    "labelset": "L3",
-   "rank": 1,
    "cell_label": "Vascular smooth muscles",
    "cell_fullname": "Vascular smooth muscles",
    "cell_set_accession": "HCArepro:L3:0189",
@@ -192362,7 +192068,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Adventitial fibroblasts",
    "cell_fullname": "Adventitial fibroblasts",
    "cell_set_accession": "HCArepro:L2:0058",
@@ -193919,7 +193624,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Capillary endothelial",
    "cell_fullname": "Capillary endothelial",
    "cell_set_accession": "HCArepro:L2:0072",
@@ -195787,7 +195491,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Ciliated epithelial",
    "cell_fullname": "Ciliated epithelial",
    "cell_set_accession": "HCArepro:L2:0092",
@@ -197071,7 +196774,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "DC",
    "cell_fullname": "DC",
    "cell_set_accession": "HCArepro:L2:0158",
@@ -198780,7 +198482,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Endo_artery",
    "cell_fullname": "Artery endothelial",
    "cell_set_accession": "HCArepro:L2:0180",
@@ -200599,7 +200300,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Endo_lymp",
    "cell_fullname": "Lymphatic endothelial",
    "cell_set_accession": "HCArepro:L2:0231",
@@ -202104,7 +201804,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Germcell_GGCs",
    "cell_fullname": "Gonadal germ cell",
    "cell_set_accession": "HCArepro:L2:0272",
@@ -202349,7 +202048,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Glials",
    "cell_fullname": "Glials",
    "cell_set_accession": "HCArepro:L2:0125",
@@ -203859,7 +203557,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Gonadal supporting",
    "cell_fullname": "Gonadal supporting",
    "cell_set_accession": "HCArepro:L2:0081",
@@ -204533,7 +204230,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Gonadal_SomaticPrec",
    "cell_fullname": "Gonadal somatic precursor",
    "cell_set_accession": "HCArepro:L2:0276",
@@ -204990,7 +204686,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Granulosa",
    "cell_fullname": "Granulosa",
    "cell_set_accession": "HCArepro:L2:0035",
@@ -206495,7 +206190,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Ligament fibroblast",
    "cell_fullname": "Ligament fibroblast",
    "cell_set_accession": "HCArepro:L2:0161",
@@ -207284,7 +206978,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Lymphoid",
    "cell_fullname": "Lymphoid",
    "cell_set_accession": "HCArepro:L2:0009",
@@ -209457,7 +209150,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Melanocyte",
    "cell_fullname": "Melanocyte",
    "cell_set_accession": "HCArepro:L2:0143",
@@ -209624,7 +209316,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Mucinous epithelial",
    "cell_fullname": "Mucinous epithelial",
    "cell_set_accession": "HCArepro:L2:0147",
@@ -210320,7 +210011,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Myeloid",
    "cell_fullname": "Myeloid",
    "cell_set_accession": "HCArepro:L2:0024",
@@ -212309,7 +211999,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Neurons",
    "cell_fullname": "Neurons",
    "cell_set_accession": "HCArepro:L2:0173",
@@ -212805,7 +212494,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Oocyte",
    "cell_fullname": "Oocyte",
    "cell_set_accession": "HCArepro:L2:0028",
@@ -213429,7 +213117,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Oogonia",
    "cell_fullname": "Oogonia",
    "cell_set_accession": "HCArepro:L2:0074",
@@ -213710,7 +213397,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Pericytes",
    "cell_fullname": "Pericytes",
    "cell_set_accession": "HCArepro:L2:0022",
@@ -215467,7 +215153,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Perivascular",
    "cell_fullname": "Perivascular",
    "cell_set_accession": "HCArepro:L2:0247",
@@ -216388,7 +216073,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Primordial germ cell",
    "cell_fullname": "Primordial germ cell",
    "cell_set_accession": "HCArepro:L2:0238",
@@ -216703,7 +216387,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Progenitors",
    "cell_fullname": "Progenitors",
    "cell_set_accession": "HCArepro:L2:0212",
@@ -217584,7 +217267,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Secretory epithelial",
    "cell_fullname": "Secretory epithelial",
    "cell_set_accession": "HCArepro:L2:0012",
@@ -219928,7 +219610,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Smooth muscle cell",
    "cell_fullname": "Smooth muscle cell",
    "cell_set_accession": "HCArepro:L2:0045",
@@ -220634,7 +220315,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Smooth muscles",
    "cell_fullname": "Smooth muscles",
    "cell_set_accession": "HCArepro:L2:0228",
@@ -221939,7 +221619,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Squamous epithelial",
    "cell_fullname": "Squamous epithelial",
    "cell_set_accession": "HCArepro:L2:0001",
@@ -222895,7 +222574,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Stromal-interstitial fibroblasts",
    "cell_fullname": "Stromal-interstitial fibroblasts",
    "cell_set_accession": "HCArepro:L2:0005",
@@ -226201,7 +225879,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Surface epithelium mesothelial",
    "cell_fullname": "Surface epithelium mesothelial",
    "cell_set_accession": "HCArepro:L2:0039",
@@ -227828,7 +227505,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Theca",
    "cell_fullname": "Theca",
    "cell_set_accession": "HCArepro:L2:0041",
@@ -228718,7 +228394,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Undifferentiated epithelial",
    "cell_fullname": "Undifferentiated epithelial",
    "cell_set_accession": "HCArepro:L2:0102",
@@ -229309,7 +228984,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Vascular smooth muscles",
    "cell_fullname": "Vascular smooth muscles",
    "cell_set_accession": "HCArepro:L2:0188",
@@ -230796,7 +230470,6 @@
   },
   {
    "labelset": "L2",
-   "rank": 2,
    "cell_label": "Venous endothelial",
    "cell_fullname": "Venous endothelial",
    "cell_set_accession": "HCArepro:L2:0065",
@@ -232613,7 +232286,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Endothelial",
    "cell_fullname": "Endothelial",
    "cell_set_accession": "HCArepro:L1:0064",
@@ -234662,7 +234334,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Epithelial",
    "cell_fullname": "Epithelial",
    "cell_set_accession": "HCArepro:L1:0000",
@@ -237365,7 +237036,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Germ",
    "cell_fullname": "Germ",
    "cell_set_accession": "HCArepro:L1:0027",
@@ -238191,7 +237861,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Gonadal somatic",
    "cell_fullname": "Gonadal somatic",
    "cell_set_accession": "HCArepro:L1:0080",
@@ -238921,7 +238590,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Immune",
    "cell_fullname": "Immune",
    "cell_set_accession": "HCArepro:L1:0008",
@@ -241521,7 +241189,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Mesenchymal",
    "cell_fullname": "Mesenchymal",
    "cell_set_accession": "HCArepro:L1:0004",
@@ -245236,7 +244903,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Mesothelial",
    "cell_fullname": "Mesothelial",
    "cell_set_accession": "HCArepro:L1:0038",
@@ -246871,7 +246537,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Neural crest-derived",
    "cell_fullname": "Neural crest-derived",
    "cell_set_accession": "HCArepro:L1:0124",
@@ -248494,7 +248159,6 @@
   },
   {
    "labelset": "L1",
-   "rank": 3,
    "cell_label": "Supporting of the Ovary",
    "cell_fullname": "Supporting of the Ovary",
    "cell_set_accession": "HCArepro:L1:0034",

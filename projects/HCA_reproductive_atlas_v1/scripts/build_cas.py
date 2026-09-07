@@ -168,7 +168,6 @@ for key, v in nodes.items():
     lvl = v["level"]
     ann = {
         "labelset": f"L{lvl}",
-        "rank": RANK[lvl],
         "cell_label": v["label"],
         "cell_set_accession": acc_of(key),
         "parent_cell_set_accession": acc_of(v["parent"]) if v["parent"] else None,
@@ -238,7 +237,6 @@ for key, v in nodes.items():
         acc = f"HCArepro:L{leaf_lvl}:m{mint_i:03d}"; mint_i += 1
         leaf = {
             "labelset": f"L{leaf_lvl}",
-            "rank": RANK.get(leaf_lvl, 0),
             "cell_label": parent_name,   # an un-subtyped X is still an X; fullname inherited from supertype
             "cell_set_accession": acc,
             "parent_cell_set_accession": parent_acc,
@@ -473,6 +471,12 @@ for a in annotations:
     unres = [c for c in a.get("rationale_citations", []) if c in CITE_UNRESOLVED]
     if unres:
         a["comment"] = desc + f" | UNRESOLVED citation(s) {unres}: no verified DOI found."
+
+# rationale_citations was a raw staging field for DOI resolution: resolved ones live in
+# rationale_dois, unresolved ones are spelled out in comment above. Drop it — the CAS
+# schema has rationale_dois / rationale and no slot for raw author-year strings.
+for a in annotations:
+    a.pop("rationale_citations", None)
 n_doi = sum(1 for a in annotations if a.get("rationale_dois"))
 print(f"annotations with resolved rationale_dois: {n_doi}")
 
@@ -485,7 +489,7 @@ for a in annotations:
                         "Merged here to one leaf via label normalisation; flag to authors.")
 
 # stable, readable key order (cell_fullname next to cell_label)
-_KEY_ORDER = ["labelset", "rank", "cell_label", "cell_fullname", "cell_set_accession",
+_KEY_ORDER = ["labelset", "cell_label", "cell_fullname", "cell_set_accession",
               "parent_cell_set_accession", "n_cells", "cell_ontology_term_id",
               "cell_ontology_term", "synonyms", "marker_gene_evidence",
               "negative_marker_gene_evidence"]
@@ -493,7 +497,7 @@ annotations = [{**{k: a[k] for k in _KEY_ORDER if k in a},
                 **{k: v for k, v in a.items() if k not in _KEY_ORDER}}
                for a in annotations]
 
-annotations.sort(key=lambda a: (a["rank"], a["cell_label"]))
+annotations.sort(key=lambda a: (RANK[int(a["labelset"][1:])], a["cell_label"]))
 
 # ---------------------------------------------------------------- document
 doc = {
