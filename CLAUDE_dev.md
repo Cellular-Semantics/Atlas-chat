@@ -44,6 +44,9 @@ Some particularly egregious past examples:
 
 (5-way relation label???!!! Really??!!!)
 
+## Skills
+
+A major part of your job is writing new skills.  Please refer to docs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf to remind yourself of best practice before you do.
 
 ## Schema-first commandment
 
