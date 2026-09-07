@@ -33,7 +33,7 @@
     },
     "prose": {
       "type": "array",
-      "description": "The content index for supplementary material that is prose rather than a table: a Supplementary Discussion, a Methods section, a table-legends document. It has no header row and no columns, so `tables` cannot hold it, and a bundle whose legends document is unrepresentable reads as though it were absent. Prose that names cell types is meant to be read whole alongside the paper text, which is why each pointer carries the path to its extracted text.",
+      "description": "The content index for supplementary material that is prose rather than a table: a Supplementary Discussion, a Methods section, a table-legends document. It has no header row and no columns, so `tables` cannot hold it, and a bundle whose legends document is unrepresentable reads as though it were absent. Prose is not sliced by a query the way a table is \u2014 it is read whole into a reader's context \u2014 so each pointer carries the path to its extracted text, and `sections` carries the spans of it worth reading.",
       "items": {
         "$ref": "#/$defs/ProsePointer"
       }
@@ -338,7 +338,7 @@
     },
     "ProsePointer": {
       "type": "object",
-      "description": "A piece of supplementary prose and what it contains. Unlike a table, prose is not sliced — a unit that names cell types is read whole alongside the paper text, so the pointer carries the path to its extracted text rather than a locator into the original file. Extraction is recorded because it is not all equal: text recovered from a PDF has no reliable reading order across columns and is not equivalent to JATS when grounding a quote.",
+      "description": "A piece of supplementary prose and what it contains. Unlike a table, prose is not sliced by a query — the spans that fold in are read whole alongside the paper text, so the pointer carries the path to its extracted text plus the spans worth reading, rather than a locator into the original file. Extraction is recorded because it is not all equal: text recovered from a PDF has no reliable reading order across columns and is not equivalent to JATS when grounding a quote.",
       "properties": {
         "file_id": {
           "type": "string",
@@ -370,13 +370,13 @@
           "type": "string",
           "description": "What this prose contains and what a reader would use it for. One or two sentences, grounded in the text actually read."
         },
-        "mentions_cell_types": {
+        "folds_in": {
           "type": "boolean",
-          "description": "Whether this prose names cell types, cell states, or clusters standing for either. Records whether, not which. True is the signal to read the unit whole into the reader's context with the paper text."
+          "description": "Whether any of this prose bears on the six report dimensions in `ProseSection.dimensions` \u2014 names or synonyms, hierarchy, location, markers, structure, function. This is the fold-in decision for the document as a whole, and for a unit with no sections it is the only one there is. It replaces an earlier `mentions_cell_types`, which asked whether the prose named cell types at all: on an atlas corpus that is true of essentially every supplement, so it excluded nothing and the fold-in it gated was the entire bundle. Where `sections` carry their own `folds_in`, this is true if any of them is."
         },
-        "mentions_cell_types_note": {
+        "folds_in_note": {
           "type": "string",
-          "description": "What that verdict rests on, and whether the text behind it was complete or a sample. A `false` from a sample means 'none in what was seen', never 'none in the document'."
+          "description": "What the verdict rests on, and whether the view behind it was the document or part of it. A `false` from an `outline` or `sampled_text` view covers what was seen, never the document, and nothing downstream may upgrade it."
         },
         "sections": {
           "type": "array",
@@ -402,7 +402,7 @@
         "file_id",
         "text_file",
         "description",
-        "mentions_cell_types",
+        "folds_in",
         "evidence"
       ],
       "additionalProperties": false
@@ -424,6 +424,27 @@
           "type": "integer",
           "description": "Character offset one past the section's last paragraph, so `text[char_start:char_end]` is exactly the section.",
           "minimum": 0
+        },
+        "folds_in": {
+          "type": "boolean",
+          "description": "Whether this span is read into a reader's context. Set when the document was judged section-wise, which is the only thing that makes a long supplement affordable: across the reproductive corpus this decision removes about 42% of long-form prose, and on a methods-dominated document up to 92%. ABSENT IS NOT FALSE. The outline handed to a judge omits the smallest sections, so a span with no `folds_in` was never shown to anyone and is unjudged \u2014 fold it in, or judge it, but do not read the silence as a decision. A `false` means a judge saw the heading and ruled it out."
+        },
+        "dimensions": {
+          "type": "array",
+          "description": "Which of the six report dimensions this span plausibly bears on, and so why it folds in. Recorded because a reader chasing markers and one chasing location want different spans of the same document. Judged from a heading, so it is a claim about what the span is likely to cover, not a promise that it does. Empty or absent alongside `folds_in: false` means none of the six.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "names",
+              "hierarchy",
+              "location",
+              "markers",
+              "structure",
+              "function"
+            ],
+            "description": "'names' \u2014 what a population is called, its synonyms, or a cluster-ID-to-name mapping. 'hierarchy' \u2014 broad lineage against fine subtype, or parent/child relations between populations. 'location' \u2014 tissue, compartment, spatial or developmental-stage context. 'markers' \u2014 genes or proteins that identify a population. 'structure' \u2014 its morphology. 'function' \u2014 what it does."
+          },
+          "uniqueItems": true
         }
       },
       "required": [

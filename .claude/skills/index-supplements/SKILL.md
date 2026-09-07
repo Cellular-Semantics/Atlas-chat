@@ -229,8 +229,8 @@ Each unit carries `evidence_kind`, and it tells you what to do with it:
 | `evidence_kind` | What you have | What to do |
 |---|---|---|
 | `full_text` | the whole document | **Read it yourself.** It is short, and it is usually the highest-leverage read in the bundle. |
-| `outline` | its section headings and their sizes | Hand to an `assess-supplement-content` subagent (Haiku). |
-| `sampled_text` | head, middle and tail | Same. |
+| `outline` | its section headings and their sizes | Hand to an `assess-supplement-content` subagent (Haiku), which returns a keep/drop per span. |
+| `sampled_text` | head, middle and tail | Same, but there are no spans to key on — expect a document-level verdict only. |
 
 Do not put a `full_text` document through a subagent. A legends document is
 ~11 KB and it is precisely the thing you want to have read properly — a cheap
@@ -244,8 +244,8 @@ document whose author used no headings at all falls back to the sample.
 
 ### Read the section, not the document
 
-Each section in an outline carries offsets into the text file, so you can take
-one out on its own:
+Each section in an outline carries offsets into the text file, so a span can be
+taken out on its own:
 
 ```
 Sections, in order (30 in total; ...). Offsets index the text file, so a section can be read on its own:
@@ -253,17 +253,56 @@ Sections, in order (30 in total; ...). Offsets index the text file, so a section
   [24650:25603] _4. Differential gene expression for cell type analysis_ — 953 chars
 ```
 
-That is the difference between contributing 2,773 characters and 53,422. Use it.
-Two cases where it decides the outcome:
+That is the difference between contributing 2,773 characters and 53,422, and it
+is the whole reason a long supplement is affordable. Prose has no query-time
+slicing the way a table does — whatever folds in is read *whole* into a frontier
+agent's context alongside the paper text — so this is the only place the size of
+that read gets decided.
 
-- **A references section is routinely most of the file.** One supplement in the
-  reproductive corpus is 32,212 characters of which 21,640 are `REFERENCES AND
-  NOTES` — two thirds of a fold-in for nothing.
+**The question to ask of each section is whether it bears on the six dimensions
+a report is written from:** `names` (and synonyms, and cluster-ID-to-name
+mappings), `hierarchy`, `location`, `markers`, `structure`, `function`. The
+subagent answers exactly this, one verdict per span.
+
+**Methods go, except annotation.** Wet-lab and computational methods alike
+describe how the work was done, not what the cell types are, and they are
+usually most of a supplement. The exception is the one that pays: a heading
+about *annotation* or *cell-type identification* is where clusters get their
+names, and it is routinely the highest-value span in the bundle. Keep
+`Cell type annotation` and `Annotation of the stromal cells` however deep in a
+methods block they sit.
+
+Measured over the reproductive corpus this removes **~42% of long-form prose**,
+~125k tokens down to ~73k. The spread matters more than the average, because it
+is a property of the document and not an overhead you can budget for:
+
+| | cut | why |
+|---|---|---|
+| A methods-dominated supplement | up to **92%** | thirteen methods sections and a reference block around three figure legends |
+| One with a big references tail | **71–76%** | one is 32,212 chars of which 21,640 are `REFERENCES AND NOTES`; another carries an 11.6k-char KEGG dump |
+| Cell-type characterisation throughout | **13–16%** | `Annotation of main cell lineages`, `Identification of main cell types in human fetal ovary` — there is nothing to drop |
+
+A document that resists cutting is one worth reading whole. A 13% cut is the
+selection working, not failing to discriminate.
+
+Two structural cases worth recognising:
+
+- **A references section is routinely most of the file**, so it is the cheapest
+  win available and needs no judgement at all.
 - **A legends document has one span per figure.** Headings like `Fig. S2.
   Follicular region images and DAZL sample projections` are captions, so the
   heading is itself the evidence and the span behind it is small.
 
-The pointer records every span, so a later reader has the same choice you did.
+**The offsets are the key, not the line numbers.** The outline shows only the
+largest sections — `OUTLINE_CAP` of them — so the nth line a judge saw is not
+the nth section of the document. Verdicts key on `char_start`, copied from the
+outline, and `record` rejects an offset the document has no section at rather
+than attaching the verdict to the wrong span.
+
+That cap has a second consequence, and the schema is emphatic about it: **a span
+with no `folds_in` is unjudged, not rejected.** It was never shown to anyone.
+A `false` means a judge read the heading and ruled it out. Collapsing the two is
+how a size cap turns into silent data loss.
 
 ### Recording what you found
 
@@ -275,11 +314,21 @@ as unread rather than guessing:
 {
   "prose|MOESM4.zip|s4/Supplementary Table legends.docx": {
     "description": "Legends for Supplementary Tables 1-22 ...",
-    "mentions_cell_types": true,
-    "mentions_cell_types_note": "Table 22's legend names the four macrophage subsets"
+    "folds_in": true,
+    "folds_in_note": "Table 22's legend names the four macrophage subsets",
+    "sections": [
+      {"char_start": 15979, "dimensions": ["names", "hierarchy"]},
+      {"char_start": 36455, "dimensions": ["markers", "location"]}
+    ]
   }
 }
 ```
+
+`sections` carries **one entry per span that folds in, and only those** — a span
+left out is recorded as ruled out. Omit the key entirely for a document with no
+usable outline: `[]` claims every span was judged irrelevant, which is a much
+stronger statement than "no section-level judgement was made". A `full_text`
+document you read yourself needs only `description`, `folds_in` and the note.
 
 Subagents tend to wrap their JSON in a code fence; strip it before assembling
 the file. `record` exits 2 when a document went unread and writes each as a
@@ -291,15 +340,28 @@ all, which is usually a scan or an image-only PDF (three of the twenty-four in
 the reproductive corpus). Those are gaps too, and they carry through `record`
 into the manifest. A file the extractor could not read is unread, never empty.
 
-### What `mentions_cell_types` is for
+### What `folds_in` is for
 
 It decides how the document is used, and prose is the only place that decision
-exists. **Prose that names cell types is read whole into context alongside the
-paper text** — it has nothing to slice and these documents are small.
+exists. **Whatever folds in is read whole into context alongside the paper
+text** — it has nothing to slice and, once the irrelevant spans are dropped,
+these reads are small.
 
 Tables are never folded in, however relevant their description; that is what
 `locator`, `header_row` and `columns` are for. Supplementary Table 5 in this
 bundle is 95 MB and 396,877 rows.
+
+`folds_in` on the pointer is the document-level answer, and for a unit with no
+sections it is the only one there is. Where the sections carry their own
+`folds_in`, the pointer's is true if any of them is — `record` derives it, so
+the two cannot disagree.
+
+It replaces an earlier `mentions_cell_types`, which asked whether the prose
+named cell types at all. On an atlas corpus that is true of essentially every
+supplement: measured over the 22-paper reproductive corpus it came back `true`
+for all 21 prose units, excluded nothing, and gated a fold-in of the entire
+bundle. The judgement was correct every time and worth nothing — the answer has
+to be able to come back "no" to be worth asking.
 
 A `false` from an `outline` or `sampled_text` view means "none in what was
 seen", not "none in the document". Nothing downstream may upgrade it.

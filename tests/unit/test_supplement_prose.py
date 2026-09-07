@@ -12,6 +12,7 @@ import json
 import jsonschema
 import pytest
 from atlas_chat.services.supplement_prose import (
+    OUTLINE_CAP,
     SAMPLE_BUDGET,
     AssessResult,
     SupplementProseError,
@@ -24,6 +25,7 @@ from atlas_chat.services.supplement_prose import (
     render_evidence,
     roster_block,
     sample_text,
+    shown_sections,
     write_into_manifest,
 )
 
@@ -35,10 +37,17 @@ pytestmark = pytest.mark.unit
 def _verdict(**kwargs):
     return {
         "description": "Legends for the supplementary tables.",
-        "mentions_cell_types": True,
-        "mentions_cell_types_note": "Table 22's legend names four macrophage subsets",
+        "folds_in": True,
+        "folds_in_note": "Table 22's legend names four macrophage subsets",
         **kwargs,
     }
+
+
+def _sections():
+    return [
+        {"heading": "Methods", "char_start": 0, "char_end": 100},
+        {"heading": "Cell type annotation", "char_start": 100, "char_end": 300},
+    ]
 
 
 def _unit(unit_id="p1", evidence="full_text", n_chars=1000, **pointer):
@@ -237,8 +246,85 @@ def test_a_verdict_lands_on_the_pointer():
 
     assert result.gaps == []
     assert len(result.prose) == 1
-    assert result.prose[0]["mentions_cell_types"] is True
+    assert result.prose[0]["folds_in"] is True
     assert result.prose[0]["description"] == "Legends for the supplementary tables."
+
+
+def test_a_named_span_folds_in_with_its_dimensions():
+    unit = _unit("p1", evidence="outline", sections=_sections())
+    result = apply_verdicts(
+        [unit],
+        {"p1": _verdict(sections=[{"char_start": 100, "dimensions": ["names", "markers"]}])},
+    )
+
+    spans = result.prose[0]["sections"]
+    assert spans[1]["folds_in"] is True
+    assert spans[1]["dimensions"] == ["names", "markers"]
+
+
+def test_a_shown_span_nobody_named_is_ruled_out():
+    unit = _unit("p1", evidence="outline", sections=_sections())
+    result = apply_verdicts(
+        [unit], {"p1": _verdict(sections=[{"char_start": 100, "dimensions": ["names"]}])}
+    )
+
+    # Section 0 was on show and went unmentioned, so a judge declined it.
+    assert result.prose[0]["sections"][0]["folds_in"] is False
+
+
+def test_a_span_never_shown_stays_unjudged():
+    # The outline caps how many spans a judge sees. One omitted for being small
+    # was never asked about, and recording it as `false` would turn a size cap
+    # into silent data loss.
+    big = [
+        {"heading": f"s{i}", "char_start": i * 1000, "char_end": i * 1000 + 900}
+        for i in range(OUTLINE_CAP)
+    ]
+    runt = {"heading": "runt", "char_start": OUTLINE_CAP * 1000, "char_end": OUTLINE_CAP * 1000 + 5}
+    sections = big + [runt]
+
+    assert runt not in shown_sections(sections)
+
+    result = apply_verdicts(
+        [_unit("p1", evidence="outline", sections=sections)],
+        {"p1": _verdict(sections=[{"char_start": 0, "dimensions": ["names"]}])},
+    )
+    spans = result.prose[0]["sections"]
+
+    assert spans[0]["folds_in"] is True  # named
+    assert spans[1]["folds_in"] is False  # shown, declined
+    assert "folds_in" not in spans[-1]  # never shown
+
+
+def test_the_document_verdict_follows_its_spans():
+    # A per-span judgement outranks a document-level guess, so the two cannot
+    # end up disagreeing in a manifest.
+    unit = _unit("p1", evidence="outline", sections=_sections())
+    result = apply_verdicts([unit], {"p1": _verdict(folds_in=True, sections=[])})
+
+    assert result.prose[0]["folds_in"] is False
+
+
+def test_no_sections_key_is_not_the_same_as_an_empty_one():
+    # Omitting the key means "no span-level judgement was made"; `[]` claims
+    # every span was judged irrelevant.
+    unit = _unit("p1", evidence="outline", sections=_sections())
+    result = apply_verdicts([unit], {"p1": _verdict(folds_in=True)})
+
+    assert result.prose[0]["folds_in"] is True
+    assert all("folds_in" not in s for s in result.prose[0]["sections"])
+
+
+def test_an_offset_no_section_starts_at_becomes_a_gap():
+    # Keying on char_start only helps if a mistyped offset is caught. Attaching
+    # the verdict to a neighbouring span would be worse than not recording it.
+    unit = _unit("p1", evidence="outline", sections=_sections())
+    result = apply_verdicts(
+        [unit], {"p1": _verdict(sections=[{"char_start": 99, "dimensions": ["names"]}])}
+    )
+
+    assert result.prose == []
+    assert "no section at" in result.gaps[0]["reason"]
 
 
 def test_a_document_with_no_verdict_becomes_a_gap():
@@ -256,12 +342,21 @@ def test_a_document_with_no_verdict_becomes_a_gap():
 @pytest.mark.parametrize(
     "verdict",
     [
-        {"mentions_cell_types": True},
+        {"folds_in": True},
         {"description": "x"},
-        {"description": "   ", "mentions_cell_types": True},
+        {"description": "   ", "folds_in": True},
         "not an object",
+        {"description": "x", "folds_in": True, "sections": "not a list"},
+        {"description": "x", "folds_in": True, "sections": [{"dimensions": ["names"]}]},
     ],
-    ids=["no-description", "no-verdict-flag", "blank-description", "not-an-object"],
+    ids=[
+        "no-description",
+        "no-verdict-flag",
+        "blank-description",
+        "not-an-object",
+        "sections-not-a-list",
+        "section-without-char-start",
+    ],
 )
 def test_a_malformed_verdict_becomes_a_gap_not_a_pointer(verdict):
     result = apply_verdicts([_unit("p1")], {"p1": verdict})
@@ -314,7 +409,7 @@ def _prose_pointer(**extra):
         "n_chars": 10_995,
         "extractor": "docx",
         "description": "Legends for the supplementary tables.",
-        "mentions_cell_types": True,
+        "folds_in": True,
         "evidence": "full_text",
         **extra,
     }

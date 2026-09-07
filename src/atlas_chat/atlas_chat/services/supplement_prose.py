@@ -20,13 +20,24 @@ How much it gives depends on size, because the decision differs:
   its outline: pymupdf4llm tags every paragraph with the heading above it, so
   the section list says what the document is almost for free, and a Supplementary
   Methods announces itself without being read. Failing that, a sample of the
-  head, middle and tail. Either goes to a cheap judge, which answers only
-  whether it is worth folding in.
+  head, middle and tail. Either goes to a cheap judge, which answers only which
+  spans of it are worth folding in.
 
-That question — does it name cell types — is what routes prose, because prose
-that does is read *whole* alongside the paper text. Tables never are, however
-relevant: Supplementary Table 5 in this bundle is 95 MB and 396,877 rows. The
-format decides, not a score.
+Prose is read *whole* into a reader's context, never sliced by a query — tables
+are the opposite, however relevant: Supplementary Table 5 in Gopee's bundle is
+95 MB and 396,877 rows. The format decides, not a score. But "whole" is what
+makes the question asked of prose matter, and the obvious question is the wrong
+one. *Does it name cell types* is true of essentially every supplement in an
+atlas corpus, so it excludes nothing and folds in the entire bundle: measured
+over the 22-paper reproductive corpus it kept all 21 prose units, ~125k tokens.
+
+So the judge is asked instead which *sections* bear on the six dimensions a
+report is written from — names and synonyms, hierarchy, location, markers,
+structure, function — with methods excluded unless the heading is about
+annotation, which is where clusters get their names. That question removes about
+42% of long-form prose, and the spread is the useful part: 92% of a
+methods-dominated supplement, 13% of one whose sections are all cell-type
+characterisation. A document that resists cutting is one worth reading whole.
 
 No model is called here. The judging is a subagent driven by the
 ``index-supplements`` skill: ``units`` hands out the evidence, ``record`` takes
@@ -118,6 +129,25 @@ class AssessResult:
 # ------------------------------------------------------------------
 
 
+def shown_sections(sections: list[dict], cap: int = OUTLINE_CAP) -> list[dict]:
+    """The spans an outline actually puts in front of a judge, in document order.
+
+    The one place that decides which sections are visible. :func:`outline_sections`
+    renders these and :func:`apply_verdicts` scores against them, so the set a judge
+    saw and the set held to its silence are the same set by construction. Split them
+    and a span omitted from the view starts reading as one a judge ruled out.
+
+    Args:
+        sections: Spans from :func:`assemble`.
+        cap: How many spans an outline shows.
+    """
+    if len(sections) <= cap:
+        return list(sections)
+    biggest = sorted(sections, key=lambda s: s["char_end"] - s["char_start"], reverse=True)[:cap]
+    on_show = {id(s) for s in biggest}
+    return [s for s in sections if id(s) in on_show]
+
+
 def outline_sections(sections: list[dict], cap: int = OUTLINE_CAP) -> str:
     """The document's substantial sections in order, with how much sits in each.
 
@@ -140,17 +170,18 @@ def outline_sections(sections: list[dict], cap: int = OUTLINE_CAP) -> str:
         return "Sections: none — no headings were found in this document."
 
     sized = [(s, s["char_end"] - s["char_start"]) for s in sections]
-    keep = {id(s) for s, _ in sorted(sized, key=lambda p: p[1], reverse=True)[:cap]}
+    shown = shown_sections(sections, cap)
+    on_show = {id(s) for s in shown}
     lines = [
         f"  [{s['char_start']}:{s['char_end']}] {s['heading']} — {n} chars"
         for s, n in sized
-        if id(s) in keep
+        if id(s) in on_show
     ]
 
     dropped = len(sections) - len(lines)
     header = f"Sections, in order ({len(sections)} in total"
     if dropped:
-        omitted = sum(n for s, n in sized if id(s) not in keep)
+        omitted = sum(n for s, n in sized if id(s) not in on_show)
         header += f"; the {dropped} smallest are omitted, holding {omitted} chars between them"
     return (
         f"{header}). Offsets index the text file, so a section can be read on its own:\n"
@@ -288,8 +319,8 @@ def prose_units(
 ) -> tuple[list[Unit], list[dict[str, Any]]]:
     """Every prose-bearing supplement, extracted to disk and ready to read.
 
-    Text is written out because prose that names cell types is read whole later,
-    and re-extracting it then would be wasted work. The pointer records where it
+    Text is written out because the spans that fold in are read whole later, and
+    re-extracting them then would be wasted work. The pointer records where it
     went, and how much of it the evidence block represents.
 
     Returns:
@@ -427,8 +458,10 @@ def apply_verdicts(units: list[Unit], verdicts: dict[str, Any]) -> AssessResult:
 
     Args:
         units: What was handed out, from :func:`prepare_units`.
-        verdicts: ``unit_id`` to an object carrying ``description``,
-            ``mentions_cell_types`` and optionally ``mentions_cell_types_note``.
+        verdicts: ``unit_id`` to an object carrying ``description``, ``folds_in``,
+            optionally ``folds_in_note``, and for a sectioned document optionally
+            ``sections``: a list of ``{"char_start": int, "dimensions": [...]}`` naming
+            the spans worth reading.
 
     Returns:
         AssessResult: Prose pointers, plus a gap per unread unit.
@@ -439,35 +472,120 @@ def apply_verdicts(units: list[Unit], verdicts: dict[str, Any]) -> AssessResult:
         try:
             if verdict is None:
                 raise SupplementProseError("no verdict was returned for it")
-            description, mentions, note = _read_verdict(verdict)
+            description, folds_in, note, picks = _read_verdict(verdict)
+            sections = _apply_section_picks(unit.pointer.get("sections") or [], picks)
         except SupplementProseError as exc:
             result.gaps.append(_gap(unit, str(exc)))
             continue
 
         pointer = dict(unit.pointer)
         pointer["description"] = description
-        pointer["mentions_cell_types"] = mentions
+        if sections:
+            pointer["sections"] = sections
+            # A per-span judgement outranks a document-level guess: the document
+            # folds in exactly when some span of it does.
+            if picks is not None:
+                folds_in = any(s.get("folds_in") for s in sections)
+        pointer["folds_in"] = folds_in
         if note:
-            pointer["mentions_cell_types_note"] = note
+            pointer["folds_in_note"] = note
         result.prose.append(pointer)
 
     logger.info("recorded %d prose unit(s), %d gap(s)", len(result.prose), len(result.gaps))
     return result
 
 
-def _read_verdict(verdict: Any) -> tuple[str, bool, str]:
+def _read_verdict(verdict: Any) -> tuple[str, bool, str, dict[int, list[str]] | None]:
     if not isinstance(verdict, dict):
         raise SupplementProseError(f"verdict was {type(verdict).__name__}, not an object")
     description = str(verdict.get("description") or "").strip()
     if not description:
         raise SupplementProseError("verdict had no `description`")
-    if "mentions_cell_types" not in verdict:
-        raise SupplementProseError("verdict had no `mentions_cell_types`")
+    if "folds_in" not in verdict:
+        raise SupplementProseError("verdict had no `folds_in`")
     return (
         description,
-        bool(verdict["mentions_cell_types"]),
-        str(verdict.get("mentions_cell_types_note") or "").strip(),
+        bool(verdict["folds_in"]),
+        str(verdict.get("folds_in_note") or "").strip(),
+        _read_section_picks(verdict.get("sections")),
     )
+
+
+def _read_section_picks(raw: Any) -> dict[int, list[str]] | None:
+    """The spans a judge kept, keyed by ``char_start``.
+
+    Keyed on the offset rather than a position in the list because the outline omits
+    the smallest sections, so the nth line a judge saw is not the nth section of the
+    document. An index would silently attach a verdict to the wrong span.
+
+    Returns:
+        Offset to its dimensions, or None if the verdict made no section-level
+        judgement at all — which is different from judging every span irrelevant.
+    """
+    if raw is None:
+        return None
+    if not isinstance(raw, list):
+        raise SupplementProseError(f"`sections` was {type(raw).__name__}, not a list")
+    picks: dict[int, list[str]] = {}
+    for entry in raw:
+        if not isinstance(entry, dict):
+            raise SupplementProseError(
+                f"a `sections` entry was {type(entry).__name__}, not an object"
+            )
+        if "char_start" not in entry:
+            raise SupplementProseError("a `sections` entry had no `char_start`")
+        try:
+            start = int(entry["char_start"])
+        except (TypeError, ValueError):
+            raise SupplementProseError(
+                f"a `sections` entry had a non-numeric `char_start`: {entry['char_start']!r}"
+            ) from None
+        dims = entry.get("dimensions") or []
+        if not isinstance(dims, list):
+            raise SupplementProseError(f"`dimensions` for span {start} was not a list")
+        picks[start] = [str(d).strip() for d in dims if str(d).strip()]
+    return picks
+
+
+def _apply_section_picks(
+    sections: list[dict[str, Any]], picks: dict[int, list[str]] | None
+) -> list[dict[str, Any]]:
+    """Stamp `folds_in` on each span a judge could see, and leave the rest alone.
+
+    Three states, and the third is the one worth keeping straight:
+
+    - named in ``picks`` — folds in, with the dimensions that earned it
+    - shown in the outline and not named — a judge saw the heading and ruled it out
+    - never shown — no ``folds_in`` at all, because nobody was asked about it
+
+    Collapsing the third into the second is how an outline's size cap turns into
+    silent data loss: a span omitted for being small would read as one rejected on
+    its merits.
+    """
+    if picks is None:
+        return [dict(s) for s in sections]
+
+    on_show = {s["char_start"] for s in shown_sections(sections)}
+    unknown = sorted(set(picks) - {s["char_start"] for s in sections})
+    if unknown:
+        raise SupplementProseError(
+            "`sections` named span(s) at char_start "
+            + ", ".join(str(u) for u in unknown)
+            + " which this document has no section at — the offsets must be copied from the outline"
+        )
+
+    out: list[dict[str, Any]] = []
+    for section in sections:
+        merged = dict(section)
+        start = section["char_start"]
+        if start in picks:
+            merged["folds_in"] = True
+            if picks[start]:
+                merged["dimensions"] = picks[start]
+        elif start in on_show:
+            merged["folds_in"] = False
+        out.append(merged)
+    return out
 
 
 def _gap(unit: Unit, why: str) -> dict[str, Any]:
@@ -692,5 +810,6 @@ __all__ = [
     "render_evidence",
     "roster_block",
     "sample_text",
+    "shown_sections",
     "write_into_manifest",
 ]
