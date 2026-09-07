@@ -484,6 +484,15 @@ for a in annotations:
                         "for the same cell type — 'Endo_cap_APCDD1' and 'Endo_cap_APCDD1+' (trailing '+'). "
                         "Merged here to one leaf via label normalisation; flag to authors.")
 
+# stable, readable key order (cell_fullname next to cell_label)
+_KEY_ORDER = ["labelset", "rank", "cell_label", "cell_fullname", "cell_set_accession",
+              "parent_cell_set_accession", "n_cells", "cell_ontology_term_id",
+              "cell_ontology_term", "synonyms", "marker_gene_evidence",
+              "negative_marker_gene_evidence"]
+annotations = [{**{k: a[k] for k in _KEY_ORDER if k in a},
+                **{k: v for k, v in a.items() if k not in _KEY_ORDER}}
+               for a in annotations]
+
 annotations.sort(key=lambda a: (a["rank"], a["cell_label"]))
 
 # ---------------------------------------------------------------- document
