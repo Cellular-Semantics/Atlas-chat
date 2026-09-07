@@ -303,6 +303,27 @@ for a in annotations:
 print(f"cell_label <- celltype_HCA_fine for {_relabelled} leaves; "
       f"{_leaf_kept} leaves span >1 code and keep the nomenclature name")
 
+# ---------------------------------------------------------------- prune subsuming author_annotations
+# An author field whose single value covers 100% of the cell set is only worth
+# recording when the value IS the cell set. Where the value spans more cells the
+# entry just restates a broader grouping ("all these cells are mesenchymal",
+# "Disease=control"), so drop it. Identical-set entries stay (they record which
+# field names this set) and so does anything cross-cutting (ratio < 1.0).
+_gtot = {c: obs[c].value_counts().to_dict() for c in AUTHOR_CELLTYPE + AUTHOR_DESCRIPTOR}
+_dropped = 0
+for a in annotations:
+    keep = []
+    for f in a.get("author_annotations") or []:
+        vs = f["values"]
+        if (len(vs) == 1 and abs(vs[0]["cell_ratio"] - 1.0) < 1e-9
+                and _gtot[f["field"]].get(vs[0]["value"], 0) > a["n_cells"]):
+            _dropped += 1
+            continue
+        keep.append(f)
+    a["author_annotations"] = keep
+print(f"dropped {_dropped} author_annotations entries whose value subsumes the cell set")
+
+
 # ---------------------------------------------------------------- enrich leaves with media-4 fields
 # Markers_positive -> marker_gene_evidence; Markers_negative -> negative_marker_gene_evidence;
 # Alternative_celltype_labels -> synonyms; Celltype_description -> comment (mixed bag; mine later);
@@ -373,6 +394,64 @@ for code in unattached:
         still_unattached.append(code)
 print(f"media-4 fields attached to {attached} leaves | broad->internal: {broad_attached} | "
       f"still unattached ({len(still_unattached)}): {sorted(still_unattached)}")
+
+# NOTE: must run AFTER the media-4 enrichment above, which assigns
+# a["synonyms"] = m["syn"] outright and would otherwise clobber these.
+# ---------------------------------------------------------------- obs labels as synonyms
+# Any obs cell-type label (Axis A celltype_HCA_*, Axis B celltype_HCA_ontology_level*)
+# whose cell set is EXACTLY identical to a node -- same cells, both directions, not
+# subsumption -- is a genuine alternative name for it. Excluded: strings that merely
+# restate the node's own name, and clearly broader ones (a proper substring of the
+# node name, a name belonging to another node, or a label that is 1:1 with several
+# nodes in a single-child chain and so cannot pick one out).
+import unicodedata as _ud
+_SYN_COLS = ["celltype_HCA_lineage", "celltype_HCA_broad", "celltype_HCA", "celltype_HCA_fine",
+             "celltype_HCA_ontology_level1", "celltype_HCA_ontology_level2",
+             "celltype_HCA_ontology_level3", "celltype_HCA_ontology_level4"]
+_SYN_COLS = [c for c in _SYN_COLS if c in obs.columns]
+
+def _nrm(t):
+    return re.sub(r"[\s_]+", " ", _ud.normalize("NFKC", str(t))).strip().casefold()
+
+_gt = {c: obs[c].value_counts().to_dict() for c in _SYN_COLS}
+_ct = {c: pd.crosstab(obs["celltype_HCA_fine"], obs[c]) for c in _SYN_COLS}
+_owner = defaultdict(set)
+for a in annotations:
+    _owner[_nrm(a["cell_label"])].add(a["cell_set_accession"])
+    _owner[_nrm(a["cell_fullname"])].add(a["cell_set_accession"])
+
+def _node_codes(a):
+    fa = [f for f in a.get("author_annotations") or [] if f["field"] == "celltype_HCA_fine"]
+    return {v["value"] for v in fa[0]["values"]} if fa else set()
+
+_ident = defaultdict(list); _cand = []
+for a in annotations:
+    cs = _node_codes(a)
+    if not cs:
+        continue
+    for c in _SYN_COLS:
+        sub = _ct[c].reindex(sorted(cs)).dropna(how="all")
+        if sub.empty:
+            continue
+        tot = sub.sum(axis=0)
+        for v, cnt in tot[tot > 0].items():
+            if int(cnt) == a["n_cells"] and _gt[c].get(v) == a["n_cells"]:
+                _ident[(c, v)].append(a["cell_set_accession"]); _cand.append((a, c, v))
+
+_added = 0
+for a, c, v in _cand:
+    nv, nl, nf = _nrm(v), _nrm(a["cell_label"]), _nrm(a["cell_fullname"])
+    if nv in (nl, nf):                                     continue   # restates this node
+    if nv in nl or nv in nf:                               continue   # broader: node adds qualifiers
+    if _owner.get(nv, set()) - {a["cell_set_accession"]}:   continue   # broader/clash: another node
+    if len(_ident[(c, v)]) > 1:                            continue   # broader: whole chain
+    cur = a.setdefault("synonyms", [])
+    if not any(_nrm(x) == nv for x in cur):
+        cur.append(v); _added += 1
+for a in annotations:
+    if a.get("synonyms") is not None and not a["synonyms"]:
+        del a["synonyms"]
+print(f"added {_added} obs-label synonyms on identical cell sets")
 n_cites = sum(1 for a in annotations if a.get("rationale_citations"))
 print(f"annotations with extracted citations: {n_cites}")
 
