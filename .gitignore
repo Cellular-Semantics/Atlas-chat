@@ -25,3 +25,4 @@ projects/test_projects/**/runs/
 projects/**/supplements/**/files/
 projects/**/supplements/incoming/*
 !projects/**/supplements/incoming/README.md
+projects/test_projects/**/local_index/

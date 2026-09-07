@@ -22,6 +22,14 @@
           },
           {
             "type": "command",
+            "command": "uv run python .claude/hooks/check_query_decomposition.py"
+          },
+          {
+            "type": "command",
+            "command": "uv run python .claude/hooks/check_coverage.py"
+          },
+          {
+            "type": "command",
             "command": "uv run python .claude/hooks/check_cl_mapping.py"
           },
           {

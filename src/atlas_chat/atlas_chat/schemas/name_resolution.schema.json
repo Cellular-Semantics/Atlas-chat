@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "name_resolution.schema.json",
+  "title": "NameResolution",
+  "description": "Output of the resolve-name (grounder) subagent: how the atlas authors refer to a cell type, plus which corpus paper the annotation comes from. Consumed by scan-supplements (source_paper) and by the query-decomposer (aliases + seed). resolved_names is the union of CAS-provided synonyms and names found in the paper.",
+  "type": "object",
+  "required": ["label", "resolved_names", "source_paper"],
+  "additionalProperties": false,
+  "properties": {
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The original annotation label (CAS cell_label)."
+    },
+    "resolved_names": {
+      "type": "array",
+      "description": "Names the authors use for this cell type — CAS synonyms unioned with paper-found names. Includes the original label.",
+      "items": { "type": "string" }
+    },
+    "scope": {
+      "type": "string",
+      "description": "Biological context/origin as author text (e.g. 'fetal', 'adult', 'organoid'). Free text by design."
+    },
+    "tissue_context": {
+      "type": "string",
+      "description": "Tissue/organ context from the paper (e.g. 'fetal skin')."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "evidence": {
+      "type": "string",
+      "description": "Brief note on where the name was found."
+    },
+    "source_paper": {
+      "type": "object",
+      "description": "The paper the annotation comes from (atlas or an integrated subatlas). At least one of doi / corpus_id must be present.",
+      "required": ["role"],
+      "anyOf": [{ "required": ["doi"] }, { "required": ["corpus_id"] }],
+      "additionalProperties": false,
+      "properties": {
+        "doi": { "type": "string", "description": "DOI of the source paper." },
+        "corpus_id": {
+          "type": "string",
+          "pattern": "^CorpusId:\\d+$",
+          "description": "Semantic Scholar CorpusId, formatted 'CorpusId:NNNN'."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["atlas", "subatlas"],
+          "description": "'atlas' = the annotation is the atlas authors' own; 'subatlas' = integrated from an upstream corpus paper."
+        }
+      }
+    }
+  }
+}

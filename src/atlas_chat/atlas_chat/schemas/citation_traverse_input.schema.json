@@ -1,16 +1,22 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "CitationTraverseInput",
-  "description": "Input parameters for the citation-traverse subagent: a query, a seed paper, and traversal limits.",
+  "description": "Input parameters for the citation-traverse subagent: a query, one or more seed papers, and traversal limits. Seeds are a list rather than a single paper because an integrated atlas's cell types are often defined in a contributing study, not in the atlas paper — seeding only on the atlas leaves the defining paper to chance, and inherited annotations measurably lose out when it does not come up. Where subatlas-consistency returns primacy 'subatlas_primary', that paper is seed priority 0 and the atlas follows it.",
   "type": "object",
   "properties": {
+    "seeds": {
+      "type": "array",
+      "description": "Papers to search at hop 0, in priority order. Legacy single-seed input via 'seed_paper_id' + 'seed_role' is still accepted; exactly one of the two forms must be given.",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/Seed" }
+    },
     "seed_paper_id": {
       "type": "string",
-      "description": "Seed paper identifier: 'CorpusId:NNNN', 'DOI:10.xxxx/...', or 'PMID:...'."
+      "description": "DEPRECATED single-seed form, retained so existing callers keep working: 'CorpusId:NNNN', 'DOI:10.xxxx/...', or 'PMID:...'. Prefer 'seeds'."
     },
     "seed_role": {
       "type": "string",
-      "description": "Role stamped on hop-0 (seed) evidence.",
+      "description": "Role stamped on hop-0 evidence for the single-seed form.",
       "enum": ["atlas", "subatlas"],
       "default": "atlas"
     },
@@ -20,7 +26,7 @@
     },
     "depth": {
       "type": "integer",
-      "description": "Number of citation hops to follow (0 = seed only).",
+      "description": "Number of citation hops to follow (0 = seeds only).",
       "minimum": 0,
       "default": 1
     },
@@ -41,11 +47,50 @@
       "description": "Optional coarse snippet-score floor applied before the sentence-level gate.",
       "default": 0.0
     },
+    "project_dir": {
+      "type": "string",
+      "description": "Project directory. Required when any seed has retrieval 'local' — that is how the local snippet index is found."
+    },
     "output_dir": {
       "type": "string",
       "description": "Directory to write traversal output files to."
     }
   },
-  "required": ["seed_paper_id", "query", "output_dir"],
-  "additionalProperties": false
+  "required": ["query", "output_dir"],
+  "oneOf": [{ "required": ["seeds"] }, { "required": ["seed_paper_id"] }],
+  "additionalProperties": false,
+  "$defs": {
+    "Seed": {
+      "type": "object",
+      "description": "One hop-0 paper.",
+      "required": ["paper_id", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "paper_id": {
+          "type": "string",
+          "description": "'CorpusId:NNNN', 'DOI:10.xxxx/...', or 'PMID:...'."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["atlas", "subatlas"],
+          "description": "What this paper IS relative to the corpus; stamped on the evidence it yields."
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Search order, 0 first. The defining paper goes first so its evidence is gathered before the run cap can bite."
+        },
+        "retrieval": {
+          "type": "string",
+          "enum": ["asta", "local"],
+          "default": "asta",
+          "description": "Where to search this paper. 'local' uses the project's own snippet index and is required for a corpus paper at status 'local' — ASTA holds too little of it to quote, which is why it was built locally. Read it from the paper's registry entry rather than guessing."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Why this paper is a seed — e.g. 'subatlas_primary per subatlas_consistency.json: exact match, 0.71 contribution'. Recorded so a run's source ordering is auditable."
+        }
+      }
+    }
+  }
 }

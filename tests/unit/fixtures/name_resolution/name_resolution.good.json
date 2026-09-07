@@ -1,0 +1,9 @@
+{
+  "label": "Iron-recycling macrophage",
+  "resolved_names": ["Iron-recycling macrophage", "HRG+ macrophage"],
+  "scope": "fetal",
+  "tissue_context": "fetal skin",
+  "confidence": "high",
+  "evidence": "Found in Extended Data Fig. 5 cluster annotations",
+  "source_paper": { "doi": "10.1038/s41586-024-08002-x", "corpus_id": "CorpusId:2762329", "role": "atlas" }
+}

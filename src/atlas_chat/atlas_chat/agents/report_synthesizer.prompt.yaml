@@ -67,6 +67,10 @@ user_prompt: |
   supports them. Provide narrative context around quotes — don't just list
   quotes without explanation.
 
+  The aspect sections below correspond to the query_decomposition aspects
+  (location, structure, function, markers, marker_roles); keep this order, with
+  Summary and References framing them.
+
   # [Cell Type Name]
   Atlas: [atlas title] (DOI: [doi])
   Scope: [scope]
@@ -88,6 +92,10 @@ user_prompt: |
   Biological roles with evidence. Use subsections for distinct functions.
 
   ## Structure / Morphology
+  If evidence exists.
+
+  ## Marker roles
+  What the marker genes do — their roles in the cell type's structure and function.
   If evidence exists.
 
   ## References

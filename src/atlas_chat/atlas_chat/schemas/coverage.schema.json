@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AspectCoverage",
+  "description": "Per-aspect evidence coverage for one cell type, written by assess-coverage and updated by free-search. Drives the escalation ladder (thin/absent aspects get a free search) and the synthesizer's honesty contract (an aspect still absent after free search MUST render as 'No evidence found in traversed literature.').",
+  "type": "object",
+  "properties": {
+    "cell_label": { "type": "string" },
+    "assessed_from": {
+      "type": "string",
+      "description": "Path of the all_summaries.json this assessment was made over."
+    },
+    "aspects": {
+      "type": "object",
+      "description": "One entry per query_decomposition aspect. The five aspect names are the shared contract with synthesis.",
+      "properties": {
+        "location": { "$ref": "#/$defs/AspectStatus" },
+        "structure": { "$ref": "#/$defs/AspectStatus" },
+        "function": { "$ref": "#/$defs/AspectStatus" },
+        "markers": { "$ref": "#/$defs/AspectStatus" },
+        "marker_roles": { "$ref": "#/$defs/AspectStatus" }
+      },
+      "required": ["location", "structure", "function", "markers", "marker_roles"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["cell_label", "aspects"],
+  "additionalProperties": false,
+  "$defs": {
+    "AspectStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["covered", "thin", "absent", "absent_after_free_search"],
+          "description": "'covered' = enough in-scope evidence; 'thin' = some but not enough; 'absent' = none yet; 'absent_after_free_search' = the free-search rung also returned nothing relevant — the report section must state that honestly."
+        },
+        "in_scope_items": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Evidence items whose source context matches the decomposition scope."
+        },
+        "off_scope_only": {
+          "type": "boolean",
+          "description": "True when the aspect has evidence but all of it is off-scope (different species/stage/tissue). Off-scope evidence is usable with the mismatch stated; it does not count as covered."
+        },
+        "note": { "type": "string" }
+      },
+      "required": ["status", "in_scope_items"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "subject": "Iron-recycling macrophage",
+  "aspects": [
+    { "name": "location", "query": "iron-recycling macrophage location" },
+    { "name": "structure", "query": "iron-recycling macrophage morphology" },
+    { "name": "function", "query": "iron-recycling macrophage function" },
+    { "name": "markers", "query": "iron-recycling macrophage markers" },
+    { "name": "marker_roles", "query": "iron-recycling macrophage marker roles" }
+  ],
+  "combined_query": "iron-recycling macrophage: location structure function markers marker roles",
+  "seed": { "paper_id": "CorpusId:273400864", "role": "atlas" }
+}

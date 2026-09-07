@@ -39,8 +39,8 @@
     },
     "retrieval_method": {
       "type": "string",
-      "description": "The MECHANISM by which this item was obtained. Orthogonal to source_paper.role. 'corpus_snippet' = snippet_search scoped to a corpus paper; 'supplement' = extracted from a supplementary file; 'citation_traversal' = reached by following a citation from another paper; 'free_search' = unscoped snippet/literature search.",
-      "enum": ["corpus_snippet", "supplement", "citation_traversal", "free_search"]
+      "description": "The MECHANISM by which this item was obtained. Orthogonal to source_paper.role. 'corpus_snippet' = snippet_search scoped to a corpus paper; 'supplement' = extracted from a supplementary file; 'citation_traversal' = reached by following a citation from another paper; 'free_search' = unscoped snippet/literature search; 'full_text' = extracted while reading the paper's full narrative text (JATS route).",
+      "enum": ["corpus_snippet", "supplement", "citation_traversal", "free_search", "full_text"]
     },
     "SourcePaper": {
       "type": "object",

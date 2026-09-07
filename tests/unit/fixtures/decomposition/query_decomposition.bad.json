@@ -1,0 +1,11 @@
+{
+  "subject": "x",
+  "aspects": [
+    { "name": "location", "query": "q" },
+    { "name": "structure", "query": "q" },
+    { "name": "function", "query": "q" },
+    { "name": "markers", "query": "q" }
+  ],
+  "combined_query": "q",
+  "seed": { "paper_id": "CorpusId:1", "role": "atlas" }
+}

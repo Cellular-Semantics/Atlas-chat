@@ -1,0 +1,15 @@
+{
+  "subject": "Dermal papilla",
+  "aliases": ["Dermal papilla", "DP", "dermal papilla cells"],
+  "non_subject_terms": ["dermal condensate", "placode"],
+  "scope": { "organism": "human", "developmental_stage": "fetal", "tissue": "skin" },
+  "aspects": [
+    { "name": "location", "query": "dermal papilla location within the hair follicle in prenatal human skin" },
+    { "name": "structure", "query": "dermal papilla morphology condensed mesenchymal cluster ECM" },
+    { "name": "function", "query": "dermal papilla instructive signalling to hair matrix follicle induction" },
+    { "name": "markers", "query": "dermal papilla marker genes prenatal human skin" },
+    { "name": "marker_roles", "query": "roles of dermal papilla marker genes in signalling and morphogenesis" }
+  ],
+  "combined_query": "Dermal papilla (DP) in prenatal human skin hair follicle: location, structure, function, markers, marker roles",
+  "seed": { "paper_id": "DOI:10.1038/s41586-024-08002-x", "role": "atlas" }
+}

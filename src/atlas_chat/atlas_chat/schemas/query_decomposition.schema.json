@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "query_decomposition.schema.json",
+  "title": "QueryDecomposition",
+  "description": "Per-cell-type decomposition produced by the query-decomposer subagent (Layer B). Grounds one selected cell type and authors the search queries that citation-traversal consumes. The aspect names double as the report's sections (shared contract with synthesis). combined_query is the hybrid first pass; each aspects[].query is a focused follow-up used only where an aspect comes back thin or off-scope. seed maps to citation_traverse_input.seed_paper_id/seed_role; scope is orchestrator-side (evidence tagging + scope-targeted escalation), not part of the traversal input.",
+  "type": "object",
+  "required": ["subject", "aspects", "combined_query", "seed"],
+  "additionalProperties": false,
+  "properties": {
+    "subject": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical name of the cell type being reported on (the CAS cell_label or its resolved full name)."
+    },
+    "aliases": {
+      "type": "array",
+      "description": "Names the subject is known by — the union of CAS synonyms and paper-found names from resolve-name. Used to steer retrieval and gating toward the subject.",
+      "items": { "type": "string" }
+    },
+    "non_subject_terms": {
+      "type": "array",
+      "description": "Confusable neighbours that are NOT the subject (e.g. sibling/precursor cell types from the CAS hierarchy). A sentence whose subject is one of these should not be treated as evidence about the subject.",
+      "items": { "type": "string" }
+    },
+    "scope": {
+      "type": "object",
+      "description": "Biological context the report is restricted to — the query's contextual restriction unioned with the annotation's CAS composition. Drives evidence tagging and scope-targeted escalation. All keys optional.",
+      "properties": {
+        "organism": { "type": "string", "description": "e.g. 'human' or an NCBITaxon CURIE." },
+        "developmental_stage": { "type": "string", "description": "e.g. 'fetal' / 'adult' or an HsapDv CURIE." },
+        "tissue": { "type": "string", "description": "e.g. 'skin' or a UBERON CURIE." }
+      },
+      "additionalProperties": { "type": "string" }
+    },
+    "aspects": {
+      "type": "array",
+      "description": "One entry per report aspect, each with an authored focused query. The five names are fixed and correspond to the report's sections.",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["name", "query"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "enum": ["location", "structure", "function", "markers", "marker_roles"]
+          },
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Focused retrieval query for this aspect (a retrieval seed, not a claim)."
+          }
+        }
+      },
+      "allOf": [
+        { "contains": { "properties": { "name": { "const": "location" } }, "required": ["name"] } },
+        { "contains": { "properties": { "name": { "const": "structure" } }, "required": ["name"] } },
+        { "contains": { "properties": { "name": { "const": "function" } }, "required": ["name"] } },
+        { "contains": { "properties": { "name": { "const": "markers" } }, "required": ["name"] } },
+        { "contains": { "properties": { "name": { "const": "marker_roles" } }, "required": ["name"] } }
+      ]
+    },
+    "combined_query": {
+      "type": "string",
+      "minLength": 1,
+      "description": "All-aspect query for the hybrid first pass over the seed."
+    },
+    "seed": {
+      "type": "object",
+      "description": "The seed paper for citation traversal, from resolve-name's source_paper.",
+      "required": ["paper_id", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "paper_id": {
+          "type": "string",
+          "description": "Seed identifier: 'CorpusId:NNNN' or 'DOI:10.xxxx/...'."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["atlas", "subatlas"],
+          "description": "Provenance role stamped on hop-0 evidence."
+        }
+      }
+    }
+  }
+}

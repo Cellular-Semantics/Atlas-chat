@@ -12,6 +12,9 @@ You resolve how atlas authors refer to a specific cell type annotation label.
 
 You receive:
 - `cell_type_label` — the annotation label (e.g. "Iron-recycling macrophage", "LC_1", "moDC_3")
+- `provided_synonyms` — any `synonyms` already recorded for this cell type in the
+  CAS+ annotation (may be empty). **Union** these with the names you find in the
+  paper; never discard a provided synonym just because you did not re-find it.
 - `atlas_doi` — DOI of the atlas paper
 - `atlas_corpus_id` — CorpusId of the atlas paper (if known)
 - `scope` — "adult", "fetal", or "organoid"
@@ -27,7 +30,9 @@ You receive:
    mapping tables.
 3. If snippet search is insufficient, fall back to `get_europepmc_full_text`
    (max 2 attempts).
-4. Identify all names the authors use for this cell type.
+4. Identify all names the authors use for this cell type, and **union** them with
+   `provided_synonyms` (from CAS) into `resolved_names` — deduped, including the
+   original label.
 5. **Identify the source paper of the annotation.** Usually the annotation is
    the atlas authors' own (`role: atlas`). But when the label was integrated
    from an upstream study (e.g. adult annotations from a subatlas paper mapped
