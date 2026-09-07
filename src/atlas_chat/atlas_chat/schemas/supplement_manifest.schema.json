@@ -31,6 +31,13 @@
         "$ref": "#/$defs/TablePointer"
       }
     },
+    "prose": {
+      "type": "array",
+      "description": "The content index for supplementary material that is prose rather than a table: a Supplementary Discussion, a Methods section, a table-legends document. It has no header row and no columns, so `tables` cannot hold it, and a bundle whose legends document is unrepresentable reads as though it were absent. Prose is not sliced by a query the way a table is \u2014 it is read whole into a reader's context \u2014 so each pointer carries the path to its extracted text, and `sections` carries the spans of it worth reading.",
+      "items": {
+        "$ref": "#/$defs/ProsePointer"
+      }
+    },
     "gaps": {
       "type": "array",
       "description": "Things the indexer could not do, stated explicitly so an absence is never mistaken for a negative result. Read this before concluding a paper has no marker tables.",
@@ -216,7 +223,7 @@
     },
     "TablePointer": {
       "type": "object",
-      "description": "A table worth reading, located precisely enough to slice without searching, and carrying its own relevance verdict. One pointer per table \u2014 a sheet, not a workbook \u2014 because a 42-sheet supplement routinely mixes differential expression with antibody lists, and a verdict on the file as a whole cannot express that. Describes the table and its columns; it deliberately does NOT enumerate which cell types appear (a query-time question).",
+      "description": "A table worth reading, located precisely enough to slice without searching, and carrying its own relevance verdict. One pointer per table \u2014 a sheet, not a workbook \u2014 because a 42-sheet supplement routinely mixes differential expression with antibody lists, and a verdict on the file as a whole cannot express that. Describes the table and its columns; it records WHETHER cell types are named but deliberately does NOT enumerate WHICH (a query-time question). A table is never read into a reader's context wholesale \u2014 that is what the locator and columns are for.",
       "properties": {
         "file_id": {
           "type": "string",
@@ -299,6 +306,9 @@
             "headers",
             "rows_read"
           ]
+        },
+        "cas_uptake": {
+          "$ref": "#/$defs/CasUptake"
         }
       },
       "required": [
@@ -323,6 +333,144 @@
       },
       "required": [
         "name"
+      ],
+      "additionalProperties": false
+    },
+    "ProsePointer": {
+      "type": "object",
+      "description": "A piece of supplementary prose and what it contains. Unlike a table, prose is not sliced by a query — the spans that fold in are read whole alongside the paper text, so the pointer carries the path to its extracted text plus the spans worth reading, rather than a locator into the original file. Extraction is recorded because it is not all equal: text recovered from a PDF has no reliable reading order across columns and is not equivalent to JATS when grounding a quote.",
+      "properties": {
+        "file_id": {
+          "type": "string",
+          "description": "The SupplementFile.file_id this prose came from."
+        },
+        "member_path": {
+          "type": "string",
+          "description": "Path within the archive, when file_id names an archive."
+        },
+        "text_file": {
+          "type": "string",
+          "description": "Store-relative path to the extracted plain text. What a reader opens; the original file may be a format it cannot read."
+        },
+        "n_chars": {
+          "type": "integer",
+          "description": "Characters of extracted text. The size of the read a caller is committing to.",
+          "minimum": 0
+        },
+        "extractor": {
+          "type": "string",
+          "description": "What produced the text, so its trustworthiness is visible without opening it. 'docx' and 'plaintext' preserve reading order; 'pdf' does not, and text from it must not be treated as equivalent to JATS when grounding a quote.",
+          "enum": [
+            "docx",
+            "pdf",
+            "plaintext"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "What this prose contains and what a reader would use it for. One or two sentences, grounded in the text actually read."
+        },
+        "folds_in": {
+          "type": "boolean",
+          "description": "Whether any of this prose bears on the six report dimensions in `ProseSection.dimensions` \u2014 names or synonyms, hierarchy, location, markers, structure, function. This is the fold-in decision for the document as a whole, and for a unit with no sections it is the only one there is. It replaces an earlier `mentions_cell_types`, which asked whether the prose named cell types at all: on an atlas corpus that is true of essentially every supplement, so it excluded nothing and the fold-in it gated was the entire bundle. Where `sections` carry their own `folds_in`, this is true if any of them is."
+        },
+        "folds_in_note": {
+          "type": "string",
+          "description": "What the verdict rests on, and whether the view behind it was the document or part of it. A `false` from an `outline` or `sampled_text` view covers what was seen, never the document, and nothing downstream may upgrade it."
+        },
+        "sections": {
+          "type": "array",
+          "description": "The document's sections, in order, with where each one sits in `text_file`. Present when the format records its own structure — Word paragraph styles, or the markdown headings pymupdf4llm reports for a PDF. This is what keeps a long document usable: a 53,000-character supplement whose `Cell type annotation` section is 2,773 characters can contribute those, not all of it, and a legends document can be read one figure at a time while its references section — routinely two thirds of the file — is left alone.",
+          "items": {
+            "$ref": "#/$defs/ProseSection"
+          }
+        },
+        "evidence": {
+          "type": "string",
+          "description": "What the description was based on. 'full_text' is the document itself — short enough to read, so the verdict is about all of it. 'outline' is its section headings only, available where the extractor reports them; 'sampled_text' is head, middle and tail. Under either of the latter two a negative verdict covers what was seen, not the document.",
+          "enum": [
+            "full_text",
+            "outline",
+            "sampled_text"
+          ]
+        },
+        "cas_uptake": {
+          "$ref": "#/$defs/CasUptake"
+        }
+      },
+      "required": [
+        "file_id",
+        "text_file",
+        "description",
+        "folds_in",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "ProseSection": {
+      "type": "object",
+      "description": "One run of a document under a single heading, and where to find it. Offsets index `text_file` directly, so a reader slices the extracted text without re-parsing the original — which for a PDF would mean re-running the extractor, and for a docx re-reading the archive.",
+      "properties": {
+        "heading": {
+          "type": "string",
+          "description": "The heading, verbatim, truncated to 80 characters. For a legends document this is the figure or table it describes."
+        },
+        "char_start": {
+          "type": "integer",
+          "description": "0-based character offset of the section's first paragraph in `text_file`.",
+          "minimum": 0
+        },
+        "char_end": {
+          "type": "integer",
+          "description": "Character offset one past the section's last paragraph, so `text[char_start:char_end]` is exactly the section.",
+          "minimum": 0
+        },
+        "folds_in": {
+          "type": "boolean",
+          "description": "Whether this span is read into a reader's context. Set when the document was judged section-wise, which is the only thing that makes a long supplement affordable: across the reproductive corpus this decision removes about 42% of long-form prose, and on a methods-dominated document up to 92%. ABSENT IS NOT FALSE. The outline handed to a judge omits the smallest sections, so a span with no `folds_in` was never shown to anyone and is unjudged \u2014 fold it in, or judge it, but do not read the silence as a decision. A `false` means a judge saw the heading and ruled it out."
+        },
+        "dimensions": {
+          "type": "array",
+          "description": "Which of the six report dimensions this span plausibly bears on, and so why it folds in. Recorded because a reader chasing markers and one chasing location want different spans of the same document. Judged from a heading, so it is a claim about what the span is likely to cover, not a promise that it does. Empty or absent alongside `folds_in: false` means none of the six.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "names",
+              "hierarchy",
+              "location",
+              "markers",
+              "structure",
+              "function"
+            ],
+            "description": "'names' \u2014 what a population is called, its synonyms, or a cluster-ID-to-name mapping. 'hierarchy' \u2014 broad lineage against fine subtype, or parent/child relations between populations. 'location' \u2014 tissue, compartment, spatial or developmental-stage context. 'markers' \u2014 genes or proteins that identify a population. 'structure' \u2014 its morphology. 'function' \u2014 what it does."
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "heading",
+        "char_start",
+        "char_end"
+      ],
+      "additionalProperties": false
+    },
+    "CasUptake": {
+      "type": "object",
+      "description": "A note that content from this unit was taken into the project's CAS+ document at setup. Written by whatever performed the uptake, because only it knows what it took. It exists so a later run can tell a CAS-supplied fact from a paper-found one, and so a re-run does not re-derive what is already curated.",
+      "properties": {
+        "at": {
+          "type": "string",
+          "description": "ISO-8601 UTC timestamp of the uptake.",
+          "format": "date-time"
+        },
+        "note": {
+          "type": "string",
+          "description": "What was taken and into which part of CAS+, in a sentence."
+        }
+      },
+      "required": [
+        "at",
+        "note"
       ],
       "additionalProperties": false
     },

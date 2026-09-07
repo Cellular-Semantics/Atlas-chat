@@ -36,6 +36,13 @@
 **Agentic (Claude Code) workflows:**
 - `/run-workflow` → `.claude/commands/run-workflow.md` → spawns orchestrator following `CLAUDE.md`
 
+**Supplementary prose CLI:**
+- `python -m atlas_chat.cli_supplement_prose` — `units` extracts every prose supplement
+  (docx, PDF, txt) to disk and hands back one block per document: the whole text when it is
+  short, its PDF section outline or a head/middle/tail sample when it is not. `record` merges
+  what a reader concluded into the manifest's `prose`; `cas-uptake` notes that a pointer fed
+  CAS+. Spreadsheets are untouched — those are `cli_supplements` outline/slice.
+
 **Local index CLI** (secondary entry point within `local_snippet_index.py`):
 - `src/atlas_chat/atlas_chat/services/local_snippet_index.py:main()` — `build`, `add`, `remove`, `list`, `search` subcommands
 
@@ -136,7 +143,8 @@ The GitHub App private key file path is configured separately — the key itself
 | `python-dotenv` | `.env` loading (delegated to `cellsem_llm_client`) |
 | `sentence-transformers` | `all-MiniLM-L6-v2` embeddings for local snippet index (optional dep under `[local-index]` extra) |
 | `numpy` | Vector math for cosine similarity in local search |
-| `pymupdf4llm` | PDF-to-markdown extraction for closed-access papers in local index (optional) |
+| `pymupdf4llm` | PDF-to-markdown extraction, used by the supplement store and the local index (optional dep under `[text-access]` extra) |
+| `curl-cffi` | Fetching preprint JATS past Cloudflare (optional dep under `[text-access]` extra) |
 | `PyJWT` + `cryptography` | GitHub App JWT minting in `github_app_posting/auth.py` |
 | `ruff`, `mypy`, `pytest`, `sphinx` | Dev tooling (lint, type check, tests, docs) |
 

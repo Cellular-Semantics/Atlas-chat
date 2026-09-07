@@ -815,13 +815,25 @@ def test_extract_text_truncates_to_budget(tmp_path: Path) -> None:
 
 
 def test_extract_text_declines_unsupported_kinds(tmp_path: Path) -> None:
-    path = tmp_path / "scan.pdf"
-    path.write_bytes(b"%PDF-1.4")
+    path = tmp_path / "figure.png"
+    path.write_bytes(b"\x89PNG\r\n")
 
     result = store.extract_text(path)
 
     assert result["text"] == ""
-    assert "no text extraction for pdf" in result["note"]
+    assert "no text extraction for" in result["note"]
+
+
+def test_extract_text_reports_why_a_pdf_yielded_nothing(tmp_path: Path) -> None:
+    """A PDF that cannot be read must say so — an empty string alone would read
+    as 'this file holds nothing', which is how scans get written off."""
+    path = tmp_path / "scan.pdf"
+    path.write_bytes(b"%PDF-1.4 truncated")
+
+    result = store.extract_text(path)
+
+    assert result["text"] == ""
+    assert result["note"]
 
 
 @pytest.mark.parametrize("op", ["outline", "text"])

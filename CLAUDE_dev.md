@@ -45,7 +45,6 @@ Some particularly egregious past examples:
 (5-way relation label???!!! Really??!!!)
 
 
-
 ## Schema-first commandment
 
 **JSON Schema is the single source of truth.** Define the shape as a JSON Schema
@@ -75,6 +74,16 @@ schema = load_schema("cl_mapping.schema.json")
   re-declares.
 
 ---
+
+## DO NOT OVERFIT
+
+In discussion and development of prompts, skills, schemas we will inevitably use examples in discussion and testing.  Be very careful about making generalising assumptions about the shape of inputs based on the limited examples you have seen.  If you do make such assumptions in a proposal/plan  - examine them all critically - are they needed, do they fit the most general/minimal use cases & ASK before assuming.
+
+Details of examples, test results and plans DO NOT belong in prompts, schema descriptions, code doc or comments. 
+
+## DO NOT OVERENGINEER
+
+When prosing increased complexity in workflow, skill, schema, code - ask if it is necessary.  Be particularly wary of bespoke enmum fillers in schemas.  Are they really necessary?  Do they represent some semi-abitrary, congintent set of possible fillers or do they both plausibly cover the domain AND do useful work.
 
 ## Modular orchestrations with declared shapes
 

@@ -1,6 +1,5 @@
 ## Atlas-reporter functional spec for processing and reporting.
 
-
 ### Setup:
 - Init:  
     - Request atlas name. --> set up new branch and project directory structure (check we are on main first!)

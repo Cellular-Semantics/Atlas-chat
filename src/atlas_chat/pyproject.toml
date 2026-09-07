@@ -21,13 +21,21 @@ dev = [
     "ruff>=0.5.0",
     "mypy>=1.10.0",
 ]
-# Local snippet index for fresh preprints (not yet indexed by ASTA / EuropePMC).
-# Pulls in sentence-transformers (~500 MB) — keep optional.
-local-index = [
-    "sentence-transformers>=5.0",
-    "numpy>=1.26",
+# Getting at a paper's text: fetching JATS past Cloudflare, and reading PDFs.
+# Small, and separate from the embedding stack — a caller who wants the text of
+# a PDF should not have to install sentence-transformers to get it.
+text-access = [
     "curl-cffi>=0.7.0",
     "pymupdf4llm>=0.0.17",
+]
+
+# Local snippet index for fresh preprints (not yet indexed by ASTA / EuropePMC).
+# Pulls in sentence-transformers (~500 MB) — keep optional. Includes text-access
+# because the index reads the same JATS and PDFs.
+local-index = [
+    "atlas_chat[text-access]",
+    "sentence-transformers>=5.0",
+    "numpy>=1.26",
 ]
 
 # Reading supplementary spreadsheets in the supplement store. Small; kept

@@ -118,7 +118,7 @@ def _try_biorxiv_curlcffi(meta: dict, out_path: Path) -> tuple[bool, str]:
     try:
         from curl_cffi import requests as cf_requests  # type: ignore[import-not-found]
     except ImportError:
-        return False, "curl_cffi not installed (pip install atlas_chat[local-index])"
+        return False, "curl_cffi not installed (uv sync --extra text-access)"
     try:
         resp = cf_requests.get(jats_url, impersonate="chrome120", timeout=60)
         if resp.status_code != 200:

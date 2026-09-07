@@ -258,11 +258,16 @@ local-index = [
 supplements = [
     { name = "openpyxl" },
 ]
+text-access = [
+    { name = "curl-cffi" },
+    { name = "pymupdf4llm" },
+]
 
 [package.metadata]
 requires-dist = [
+    { name = "atlas-chat", extras = ["text-access"], marker = "extra == 'local-index'", editable = "src/atlas_chat" },
     { name = "cellsem-llm-client", git = "https://github.com/Cellular-Semantics/cellsem_llm_client.git?rev=main" },
-    { name = "curl-cffi", marker = "extra == 'local-index'", specifier = ">=0.7.0" },
+    { name = "curl-cffi", marker = "extra == 'text-access'", specifier = ">=0.7.0" },
     { name = "deep-research-client", git = "https://github.com/monarch-initiative/deep-research-client.git?rev=main" },
     { name = "jsonschema", specifier = ">=4.22.0" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.10.0" },
@@ -270,7 +275,7 @@ requires-dist = [
     { name = "openpyxl", marker = "extra == 'supplements'", specifier = ">=3.1" },
     { name = "pydantic", specifier = ">=2.7.0" },
     { name = "pydantic-ai", specifier = ">=1.16.0" },
-    { name = "pymupdf4llm", marker = "extra == 'local-index'", specifier = ">=0.0.17" },
+    { name = "pymupdf4llm", marker = "extra == 'text-access'", specifier = ">=0.0.17" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0.0" },
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.1.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
@@ -278,7 +283,7 @@ requires-dist = [
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.5.0" },
     { name = "sentence-transformers", marker = "extra == 'local-index'", specifier = ">=5.0" },
 ]
-provides-extras = ["dev", "local-index", "supplements"]
+provides-extras = ["dev", "text-access", "local-index", "supplements"]
 
 [[package]]
 name = "atlas-chat-validation-tools"
