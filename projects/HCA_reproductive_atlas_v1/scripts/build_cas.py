@@ -44,7 +44,8 @@ wb.close()
 # ---------------------------------------------------------------- object obs
 obs = pd.read_parquet("h5ad_obs/obs.categoricals.parquet").astype(str)
 N_TOTAL = len(obs)
-objcodes = set(obs["celltype_HCA_fine"].unique())
+objcodes = sorted(set(obs["celltype_HCA_fine"].unique()))  # sorted: keeps node insertion
+# order — and therefore cell_set_accession numbering — stable across runs.
 
 # join object code -> sheet row, with light normalisation for known drifts
 def resolve(code):
@@ -267,6 +268,40 @@ for key, v in nodes.items():
             f"leaf/leaves (see children with 'Minted generic leaf' comments). n_cells is the full subtree.")
 
 annotations.extend(minted)
+
+# ---------------------------------------------------------------- cell_label / cell_fullname
+# cell_label should be the VERBATIM object label so leaf nodes join directly to
+# obs.celltype_HCA_fine (a key for later subatlas-contribution analysis); the
+# master-nomenclature long name moves to cell_fullname on every node.
+# Only leaves that correspond 1:1 to a single fine code are relabelled — internal
+# nodes aggregate several codes, and a single-child chain's code names the child,
+# not the parent.
+_parents = {a.get("parent_cell_set_accession") for a in annotations
+            if a.get("parent_cell_set_accession")}
+
+def _sole_fine_code(a):
+    """The one celltype_HCA_fine code covering 100% of this cell set, else None."""
+    fa = [f for f in a.get("author_annotations") or [] if f["field"] == "celltype_HCA_fine"]
+    if not fa:
+        return None
+    vs = fa[0]["values"]
+    if len(vs) == 1 and abs(vs[0]["cell_ratio"] - 1.0) < 1e-9:
+        return vs[0]["value"]
+    return None
+
+_relabelled = _leaf_kept = 0
+for a in annotations:
+    a["cell_fullname"] = a["cell_label"]
+    if a["cell_set_accession"] in _parents:
+        continue                      # internal node: nomenclature name stays the label
+    code = _sole_fine_code(a)
+    if code:
+        a["cell_label"] = code
+        _relabelled += 1
+    else:
+        _leaf_kept += 1               # leaf spanning >1 fine code (merged labels)
+print(f"cell_label <- celltype_HCA_fine for {_relabelled} leaves; "
+      f"{_leaf_kept} leaves span >1 code and keep the nomenclature name")
 
 # ---------------------------------------------------------------- enrich leaves with media-4 fields
 # Markers_positive -> marker_gene_evidence; Markers_negative -> negative_marker_gene_evidence;
