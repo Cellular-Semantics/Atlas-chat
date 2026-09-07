@@ -497,6 +497,45 @@ annotations = [{**{k: a[k] for k in _KEY_ORDER if k in a},
                 **{k: v for k, v in a.items() if k not in _KEY_ORDER}}
                for a in annotations]
 
+# ---------------------------------------------------------------- CAS schema compliance
+# Shape local extensions to dev's cas_annotation.schema.json (Annotation has
+# additionalProperties: false).
+#
+# Descriptor distributions go into `composition`. Its keys are deliberately not
+# enumerated by the schema ("or an open semantic key ... for non-CxG descriptors"),
+# so we key on the VERBATIM obs column name rather than forcing a CxG category:
+# this object has no 1:1 mapping onto tissue / development_stage / disease / assay
+# (Organ vs Organ_part vs Tissue_ROI all carry anatomy at different grains).
+# Mapping to CxG categories + ontology_term_id is deferred, not lost — the
+# CompositionValue slots for it are simply left unset.
+for a in annotations:
+    aa = a.pop("author_annotations", None)
+    if aa:
+        a["composition"] = {
+            e["field"]: {
+                "author_field_name": e["field"],
+                "values": [{"author_value": v["value"],
+                            "cell_count": v["cell_count"],
+                            "cell_ratio": v["cell_ratio"]} for v in e["values"]],
+            }
+            for e in aa
+        }
+    # marker_source has no schema slot; it is provenance, which is what comment is for
+    # ("which source table or spreadsheet it was read from"), so fold it in explicitly.
+    ms = a.pop("marker_source", None)
+    if ms:
+        _note = f"Marker origin: {ms}."
+        a["comment"] = (a["comment"].rstrip() + " | " + _note) if a.get("comment") else _note
+
+_KEY_ORDER2 = ["labelset", "cell_label", "cell_fullname", "cell_set_accession",
+               "parent_cell_set_accession", "n_cells", "cell_ontology_term_id",
+               "cell_ontology_term", "synonyms", "marker_gene_evidence",
+               "negative_marker_gene_evidence", "comment", "rationale", "rationale_dois",
+               "composition", "transferred_annotations"]
+annotations = [{**{k: a[k] for k in _KEY_ORDER2 if k in a},
+                **{k: v for k, v in a.items() if k not in _KEY_ORDER2}}
+               for a in annotations]
+
 annotations.sort(key=lambda a: (RANK[int(a["labelset"][1:])], a["cell_label"]))
 
 # ---------------------------------------------------------------- document
@@ -545,8 +584,8 @@ print(f"nodes with CL term: {withcl} | ambiguous (multi-CL terminal): {ambig}")
 leaf_ratio1 = 0
 for a in annotations:
     if a["labelset"]!="L4": continue
-    fine=[x for x in a["author_annotations"] if x["field"]=="celltype_HCA_fine"]
-    if fine and len(fine[0]["values"])==1 and fine[0]["values"][0]["cell_ratio"]==1.0: leaf_ratio1+=1
+    fine=(a.get("composition") or {}).get("celltype_HCA_fine")
+    if fine and len(fine["values"])==1 and fine["values"][0]["cell_ratio"]==1.0: leaf_ratio1+=1
 print(f"L4 nodes with a single celltype_HCA_fine @ratio 1.0: {leaf_ratio1}")
 # nodes that are BOTH terminal-for-a-code and internal (mixed) -> flag
 mixed=[]
