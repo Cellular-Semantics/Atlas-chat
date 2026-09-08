@@ -234,7 +234,7 @@
             },
             {
               "const": "cross_cutting_cell_type",
-              "description": "An author cell-type column whose labels also assert something else — an anatomical site, a developmental stage — so that they cut across the categories above instead of sitting in one. Only for that case: a column whose labels assert a cell type and nothing else is not a descriptor of the cell set's composition and does not belong here."
+              "description": "A cell-type column whose labels also assert something else, so that they cut across the categories above instead of sitting in one. Only for that case: a column whose labels assert a cell type and nothing else is not a descriptor of the cell set's composition and does not belong here."
             },
             {
               "const": "unclassified",
