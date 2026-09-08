@@ -6,16 +6,25 @@
   "source": {
     "doi": "10.1234/test",
     "title": "A test atlas paper",
-    "authors": ["Ada Lovelace"],
+    "authors": [
+      "Ada Lovelace"
+    ],
     "atlas_name": "Test Atlas v1",
-    "links": { "preprint": "https://example.org/preprint", "cellxgene": "https://example.org/cxg" },
+    "links": {
+      "preprint": "https://example.org/preprint",
+      "cellxgene": "https://example.org/cxg"
+    },
     "subatlas_papers": [
       {
         "label": "Smith2021",
         "doi": "10.1000/smith",
         "status": "asta",
         "asta_indexing": {
-          "band": "full", "snippets": 72, "chars": 105876, "sections": 30, "ref_mentions": 361,
+          "band": "full",
+          "snippets": 72,
+          "chars": 105876,
+          "sections": 30,
+          "ref_mentions": 361,
           "corpus_id": "CorpusId:273400864",
           "reason": "72 snippets across 30 sections",
           "probed_at": "2026-08-21T09:00:00+00:00"
@@ -27,15 +36,25 @@
         "status": "local",
         "source_type": "jats",
         "asta_indexing": {
-          "band": "abstract_only", "snippets": 4, "chars": 6312, "sections": 0, "ref_mentions": 0,
+          "band": "abstract_only",
+          "snippets": 4,
+          "chars": 6312,
+          "sections": 0,
+          "ref_mentions": 0,
           "corpus_id": "CorpusId:260956290",
-          "reason": "4 snippets, no section names, no refMentions — title/abstract only, no body text",
+          "reason": "4 snippets, no section names, no refMentions \u2014 title/abstract only, no body text",
           "probed_at": "2026-08-21T09:00:00+00:00"
         }
       }
     ]
   },
-  "labelsets": [ { "name": "author_cell_type", "rank": 0, "role": "author_cell_type" } ],
+  "labelsets": [
+    {
+      "name": "author_cell_type",
+      "rank": 0,
+      "role": "author_cell_type"
+    }
+  ],
   "annotations": [
     {
       "labelset": "author_cell_type",
@@ -44,8 +63,13 @@
       "parent_cell_set_accession": null,
       "cell_ontology_term_id": "CL:0000084",
       "cell_ontology_term": "T cell",
-      "marker_gene_evidence": ["CD3D", "CD3E"],
-      "synonyms": ["T lymphocyte"],
+      "marker_gene_evidence": [
+        "CD3D",
+        "CD3E"
+      ],
+      "synonyms": [
+        "T lymphocyte"
+      ],
       "transferred_annotations": [
         {
           "transferred_cell_label": "T lymphocyte",
@@ -60,10 +84,62 @@
       "composition": {
         "organism": {
           "author_field_name": "organism_ontology_term_id",
-          "values": [ { "author_value": "NCBITaxon:9606", "value": "Homo sapiens", "ontology_term_id": "NCBITaxon:9606", "cell_ratio": 1.0 } ]
+          "values": [
+            {
+              "author_value": "NCBITaxon:9606",
+              "value": "Homo sapiens",
+              "ontology_term_id": "NCBITaxon:9606",
+              "cell_ratio": 1.0
+            }
+          ],
+          "category": "organism"
+        },
+        "tissue_coarse": {
+          "author_field_name": "organ",
+          "category": "tissue",
+          "values": [
+            {
+              "author_value": "Uterus",
+              "value": "uterus",
+              "ontology_term_id": "UBERON:0000995",
+              "cell_count": 80,
+              "cell_ratio": 0.8
+            },
+            {
+              "author_value": "Ovary",
+              "value": "ovary",
+              "ontology_term_id": "UBERON:0000992",
+              "cell_count": 20,
+              "cell_ratio": 0.2
+            }
+          ]
+        },
+        "donor_age": {
+          "author_field_name": "age_years",
+          "category": "development_stage",
+          "values": [
+            {
+              "author_value": 34,
+              "cell_count": 100,
+              "cell_ratio": 1.0
+            }
+          ]
+        },
+        "enrichment": {
+          "author_field_name": "sort_strategy",
+          "values": [
+            {
+              "author_value": "CD45+",
+              "cell_count": 100,
+              "cell_ratio": 1.0
+            }
+          ],
+          "category": "unclassified"
         }
       },
-      "author_annotation_fields": { "author_cluster_id": "c12" }
+      "author_annotation_fields": {
+        "author_cluster_id": "c12"
+      }
     }
   ]
 }
