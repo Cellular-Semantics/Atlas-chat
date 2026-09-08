@@ -9,6 +9,9 @@ uv run ruff check --fix src/ tests/
 echo "[githook] Checking formatting..."
 uv run ruff format --check src/ tests/
 
+echo "[githook] Validating CAS+ documents..."
+uv run python -m atlas_chat.cli_cas validate --discover projects/
+
 echo "[githook] Running unit tests..."
 uv run pytest -m unit
 
