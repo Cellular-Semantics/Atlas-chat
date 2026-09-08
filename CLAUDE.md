@@ -1,366 +1,187 @@
-# atlas-chat: Cell Type Report Generation
+# atlas-chat: cell type reports from atlas papers
 
-> **You are the orchestrator agent.** You coordinate subagents to produce
-> evidence-grounded cell type reports from atlas papers.
-> For development instructions, see `CLAUDE_dev.md`.
+> **You are the orchestrator.** You set a project up, build its CAS+ document,
+> and coordinate subagents that read the literature and write reports.
+>
+> This file says *what to do*. Two neighbours say other things:
+> `docs/pipeline.md` describes what is actually built and where it lives —
+> consult it when you need the current shape of a service, schema or hook.
+> `CLAUDE_dev.md` is for changing the code.
 
----
-
-## Shared Prompts
-
-These YAML files are the canonical prompts — shared between this agentic
-workflow and the programmatic Python graph.
-
-@src/atlas_chat/atlas_chat/agents/name_resolver.prompt.yaml
-@src/atlas_chat/atlas_chat/agents/supplementary_scanner.prompt.yaml
-@src/atlas_chat/atlas_chat/agents/report_synthesizer.prompt.yaml
-@src/atlas_chat/atlas_chat/agents/orchestrator.prompt.yaml
+Work is in three parts. **Setting up a project** and **building CAS+** happen
+once. **Producing reports** happens whenever the user asks, and may be repeated.
 
 ---
 
-## Tool Usage Rules
+## Tool rules
 
-1. **Never use `curl` or `WebFetch` for APIs that have MCP tools.** Semantic
-   Scholar, Europe PMC, and PubMed Central all have MCP tools. If an MCP tool
-   has a gap (e.g. missing field), use a different MCP query pattern — do not
-   bypass MCP.
-
-2. **Prefer `snippet_search` over `get_europepmc_full_text`** for evidence
-   gathering. Full text is fragile (silent failures, huge output). Snippet
-   search returns pre-chunked, relevance-ranked text with reference annotations.
-
-3. **CorpusId retrieval**: `snippet_search` is the canonical way to get
-   CorpusIds via MCP. The response includes `paper.corpusId` in snippet
-   metadata. For referenced papers within snippets, check
-   `matchedPaperCorpusId`. Do not attempt to get CorpusId from `get_paper`
-   fields — it is not available there.
-
-4. **Batch paper lookups**: Use `get_paper_batch` early to pre-fetch metadata
-   for all papers that will appear in the catalogue.
-
-5. **Limit supplement fetch attempts**: Max 2 attempts for full text or
-   supplement retrieval per paper. If both fail, move on to snippet search.
-
-6. **Pre-extract JSON before grepping MCP output**: When MCP tools save
-   large results as single-line JSON, use `python3 -c "import json..."` to
-   extract and search — do not grep raw JSON files.
+1. **Paper and supplement access goes through the project's own CLIs**, not
+   through ad-hoc HTTP. `cli_supplements` retrieves, unpacks and triages
+   supplementary material; `cli_supplement_prose` extracts prose from it. Never
+   `curl` a publisher directly and never read a supplementary spreadsheet with
+   `Read` — one can run to hundreds of thousands of rows.
+2. **Never pass a large text through your own context to hand it to a subagent.**
+   Subagents are given a *path*, not the bytes.
+3. **A bounded read is not an absence.** Every size limit in these tools leaves a
+   trace — a truncation flag, a gap entry, a true row count beside a returned
+   one. Check it before concluding that something is not there.
+4. **Prefer MCP tools over raw HTTP** where one exists for the service. For
+   Semantic Scholar, a CorpusId can come from `snippet_search` snippet metadata
+   or from `get_paper` with `fields=externalIds`.
 
 ---
 
-## Workflow Sequence
+# Part 1 — Set up a project
 
-Given a **project name** and **cell type label**:
+Everything here is once per atlas, before any report is written.
 
-### 1. Load Project Config (CAS+)
+### 1.1 Create the project
 
-The project config is a **CAS+** document at `projects/{project}/cas.json`
-(schema: `src/atlas_chat/atlas_chat/schemas/cas_annotation.schema.json`). CAS+
-supersedes the legacy flat `cell_type_annotations.json`.
+From a project name alone, create the working branch and the project directory.
 
-- **If `projects/{project}/cas.json` exists and validates**, load it and move on.
-- **Otherwise**, invoke the `generate-cas` skill
-  (`.claude/skills/generate-cas/SKILL.md`) to build it from the project's
-  source(s), asking the user for anything not derivable (DOI, organism, which
-  column is the cell-type label). The `check_cas_annotation` PostToolUse hook
-  enforces schema compliance on write.
+> **Not yet built.** Do it by hand for now: branch from `dev`, and create
+> `projects/{project}/`. An `init` skill is the intended home.
 
-From the loaded CAS+ document:
-- Extract atlas DOI + title from `source`.
-- Validate the requested cell type label exists as an annotation `cell_label`.
-- Read its `labelset` (granularity) and context from `composition`
-  (e.g. developmental stage / organism / tissue).
-- **If an annotation's provenance points to an integrated subatlas** (via
-  `transferred_annotations[].subatlas_paper` / `source_taxonomy`), identify that
-  source paper early and pivot supplementary fetching to it.
+### 1.2 Ask the user what they have
 
-> Migration note: downstream steps below still reference the legacy `label` /
-> `scope` fields; their input contracts move to CAS+ `cell_label` / `composition`
-> as part of the query-decomposer work.
+Four things, and it is normal for some to be missing:
 
-### 2. Fetch Supplementary Material
+- **Cell type annotations** — a spreadsheet or CSV, a pointer to a cell-by-gene
+  matrix, or both.
+- **The atlas paper** — published, a preprint, or a manuscript in progress.
+- **Subatlas papers**, if this is an integrated atlas: the studies whose
+  annotations were carried into it.
+- **Whether the paper's supplementary material should feed CAS+** — see 2.1,
+  where you can answer this from what indexing found rather than from a guess.
 
-Use MCP tools directly (single call, no subagent needed):
-1. `get_all_identifiers_from_europepmc(doi)` → get PMCID
-2. `get_pmc_supplemental_material(pmcid)` → list available supplements
-3. Fetch relevant supplement files (tables, figures with legends)
+Ask for all of it up front. A manuscript with no DOI is a normal case, not a
+failure — record what identifies it and move on.
 
-If supplements are unavailable (max 2 attempts), fall back to snippet search
-with marker-focused queries. Try `get_europepmc_pdf_as_markdown` for
-supplement PDFs as an alternative.
+### 1.3 Retrieve the atlas paper
 
-Store supplementary text for downstream steps.
+Tagged article XML if it can be had, otherwise the PDF. If neither can be
+retrieved, ask the user to supply the file. Record which route succeeded: text
+recovered from a PDF carries no reference markup and no guaranteed reading order
+across a column boundary, and anything downstream that grounds a quote needs to
+know that.
 
-### 3. Resolve Name → subagent: `resolve-name`
+### 1.4 Retrieve and index the atlas paper's supplements
 
-**Primary method**: Use `snippet_search` with `paper_ids` parameter scoped to
-the atlas paper. This avoids fragile full text download → grep → parse cycles
-and returns relevance-ranked text.
+Retrieve, then unpack, then triage, then index — in that order. Unpacking before
+triage matters: a bundle of forty tables is one opaque item until it is expanded.
+Ask the user to supply anything that could not be retrieved.
 
-**Input:**
-- Cell type label, atlas DOI, scope
-- Supplementary text from step 2
+Indexing is the `index-supplements` skill. It writes, per sheet and per prose
+document, what the content is and where it sits, so a later step can go straight
+to it. **This is what makes 2.1 answerable.**
 
-**Output:** `projects/{project}/traversal_output/{cell_type}/name_resolution.json`
+### 1.5 Do the same for every subatlas paper
 
-**Contract:**
-```json
-{
-  "label": "Iron-recycling macrophage",
-  "resolved_names": ["Iron-recycling macrophage", "HRG+ macrophage"],
-  "scope": "fetal",
-  "tissue_context": "fetal skin",
-  "confidence": "high",
-  "evidence": "Found in cluster annotations table"
-}
-```
+Retrieve each one, and its supplements, and index what arrives. Check ASTA
+availability for any paper no text route reaches, since that decides whether it
+can be searched later at all.
 
-### 4. Parallel: Scan Supplements + Citation Traverse
+**Report what was not retrieved, per paper, with the reason.** A paper that
+cannot be read is a limit on every report that would have cited it, and it needs
+to be visible now rather than discovered mid-run.
 
-These two steps are independent after name resolution. Run them in parallel.
+---
 
-#### 4a. Scan Supplements → subagent: `scan-supplements`
+# Part 2 — Build CAS+
 
-**Input:**
-- PMCID, cell type label + resolved names
-- Supplementary text from step 2
+CAS+ (`projects/{project}/cas.json`, schema `cas_annotation.schema.json`) is the
+project's account of its own cell types. Everything downstream reads it.
 
-**Output:** `projects/{project}/traversal_output/{cell_type}/supplementary_findings.json`
+### 2.1 Decide what feeds it
 
-**Contract:**
-```json
-{
-  "markers": [{"gene": "HRG", "evidence_type": "DE analysis", "source_table": "..."}],
-  "other_findings": [{"finding": "...", "category": "function", "source_table": "..."}],
-  "evidence_quotes": [{"quote": "exact text", "source_file": "...", "context": "..."}]
-}
-```
+The annotations the user supplied, plus — if they agree — content the supplement
+indexing flagged. Propose the specific sheets and documents rather than asking in
+the abstract: after 1.4 you know which ones hold a cluster-to-name mapping, a
+label hierarchy or an asserted marker panel.
 
-#### 4b. Citation Traverse → subagent: `citation-traverse`
+### 2.2 Generate it
 
-**Input:**
-- Seed paper ID (CorpusId from snippet metadata, or `DOI:{doi}`)
-- Query: `"{label} / {resolved_name} in {scope} {tissue}: location, structure, function, markers"`
-- Depth: 1 (default), configurable up to 3
+Use the `generate-cas` skill. Draft the field mapping first and **put it to the
+user for review before writing `cas.json`** — a mapping accepted silently is one
+nobody has checked.
 
-**Local snippet index (fresh preprints):** if
-`projects/{project}/local_index/manifest.json` exists, the graph also calls
-`services.citation_traverser.traverse_local` in parallel with the ASTA path
-and merges results. Snippets carry `source_method: "local_snippet"`. See the
-`local-paper-index` skill (`.claude/skills/local-paper-index/SKILL.md`) for
-how to build the index when ASTA is blind to the atlas paper.
+Expect this to be a conversation rather than a single pass. An atlas mid-annotation
+routinely carries several competing hierarchies — the matrix, a spreadsheet and a
+supplementary table disagreeing about what the levels are — and reconciling them
+is a judgement the user has to make, not one to resolve quietly by preferring a
+source.
 
-**Output:**
-- `projects/{project}/traversal_output/{cell_type}/all_summaries.json`
-- `projects/{project}/traversal_output/{cell_type}/paper_catalogue.json`
+### 2.3 Stamp what was taken
 
-### 5. Synthesize Report → subagent: `synthesize-report`
+Where content came from a supplement, record the uptake on the pointer it came
+from (`cas_uptake` in the supplement manifest). **This is not bookkeeping.** A
+later step that re-reads a sheet whose markers are already curated in CAS+ will
+present them as a fresh finding, and the report will double-count its own input.
 
-**Input:** Reads all output files from steps 3-4.
+---
 
-**Output:** `projects/{project}/reports/{cell_type}.md`
+# Part 3 — Produce reports
 
-### 6. Validate Report (explicit step — not hook-dependent)
+The user asks for reports on some set of cell types, in free text. Interpret that
+against CAS+ to decide which annotations are in scope, and say which you chose.
 
-After the report is written, **always run validation explicitly**:
+Then work down as much of this as the evidence warrants. **You may stop and
+synthesise at any point** — a report from the atlas paper alone is a legitimate
+output, not a truncated one. Go further when the user wants more, or when
+coverage is thin.
 
-1. Read the report file and the evidence files (`all_summaries.json`,
-   `paper_catalogue.json`, `supplementary_findings.json`).
-2. Check that every blockquoted text (`> "..."`) is a substring of the
-   evidence corpus.
-3. Check that every DOI in the report exists in the paper catalogue.
-4. If validation fails, pass the error list back to `synthesize-report` and
-   retry (max 2 retries).
+| | step | reads |
+|---|---|---|
+| 3.1 | **Read the atlas paper** — one subagent, whole text plus its indexed supplements, over a batch of cell types | atlas paper, its supplement manifest |
+| 3.2 | **Read the subatlas papers** that matter for those cell types | subatlas papers and their supplements |
+| 3.3 | **Traverse citations** from the atlas paper via ASTA | papers the atlas cites |
+| 3.4 | **Open literature search** — *not yet specified* | anything |
+| 3.5 | **Synthesise** the report | everything gathered |
+| 3.6 | **Map to the Cell Ontology**, and draft a term request if no term fits | the report |
 
-The validation logic lives in `src/atlas_chat/atlas_chat/validation/report_checker.py`.
-You can invoke it directly:
+Each reading step is given the paper as a path and a subject block per cell type,
+and returns evidence records.
+
+> **Steps 3.1 and 3.2 are not yet on `dev`.** Assembling a paper's readable
+> content is PR #52; subject blocks and `subject_block.schema.json` are PR #59.
+> What an evidence record contains, and the rules for markers and for quoting,
+> are being specified in #46 and #47. Until those land, gather evidence with the
+> `citation-traverse` subagent, which is the ASTA route and does exist.
+
+**Do not offer a subagent content already taken into CAS+** (2.3). It is in the
+subject block already, attributed to the atlas annotation.
+
+### 3.5 Synthesis and validation
+
+Synthesis writes `projects/{project}/reports/{cell_type}.md`. Validate it
+explicitly afterwards — never rely on a write hook, which is a convenience for
+interactive sessions and not the contract:
 
 ```python
 from atlas_chat.validation.report_checker import validate_report
 passed, errors = validate_report(report_path, traversal_dir)
 ```
 
-**Note:** The Claude Code write hook (`.claude/hooks/check_report_refs.py`) is
-an *optional extra guard* for interactive sessions — it is NOT the primary
-validation mechanism. The correction loop must work without it.
+On failure, pass the errors back to synthesis verbatim and re-validate, at most
+twice. On the third failure, stop and report what remains. **Do not weaken a
+check to get a pass, and do not hand-edit the report around the validator.**
 
-### 7. Map to Cell Ontology → subagent: `ontology-term-lookup`
+### 3.6 Cell Ontology
 
-After the report passes validation, map the cell type to the Cell Ontology.
+Map the cell type with `ontology-term-lookup`, then add a `Cell Ontology` line to
+the report header. Where no term fits, `cl-term-request` drafts a new term
+request.
 
-**Input:**
-- Report path from step 5
-- Cell type label
-- Output path: `projects/{project}/traversal_output/{cell_type}/cl_mapping.json`
-
-**Output:** `projects/{project}/traversal_output/{cell_type}/cl_mapping.json`
-
-The subagent searches OLS4 for CL terms, compares definitions against the
-report content, and classifies the match as exact, broad, narrow, or none
-using SKOS vocabulary. Output conforms to the JSON Schema at
-`src/atlas_chat/atlas_chat/schemas/cl_mapping.schema.json` and is validated
-by a PostToolUse hook.
-
-### 8. Insert CL Mapping into Report Header
-
-After the CL mapping JSON is written, insert the mapping metadata into the
-report header block (between the title line and `## Summary`). Read
-`cl_mapping.json` and add a `Cell Ontology` line:
-
-- **Exact match:**
-  `Cell Ontology: [basal cell of epidermis](http://purl.obolibrary.org/obo/CL_0002187) (CL:0002187, exact match)`
-- **Broad match:**
-  `Cell Ontology: [keratinocyte](http://purl.obolibrary.org/obo/CL_0000312) (CL:0000312, broad match — no exact CL term)`
-- **No match:**
-  `Cell Ontology: No CL term (new term needed)`
-
-The PURL format is `http://purl.obolibrary.org/obo/CL_NNNNNNN` (underscore,
-not colon).
-
-### 9. Draft CL Term Request (conditional) → subagent: `cl-term-request`
-
-**Only run this step if** `cl_mapping.json` has `"new_term_needed": true`.
-
-**Input:**
-- Report path from step 5
-- CL mapping path from step 7
-- Output path: `projects/{project}/traversal_output/{cell_type}/cl_term_request.json`
-
-**Output:** `projects/{project}/traversal_output/{cell_type}/cl_term_request.json`
-
-The subagent generates a draft new term request following:
-- CL definition guidelines (`docs/LLM_prompt_guidelines_for_CL_definitions.md`)
-- CL relations guide (`docs/relations_guide.md`)
-- CL NTR issue template (`docs/cl_new_term_request_template.md`)
-
-Output includes structured JSON (definition, parent, axioms, synonyms,
-references) and a pre-rendered `ntr_markdown` field ready to paste into a
-GitHub issue on `obophenotype/cell-ontology`. The JSON is validated by a
-PostToolUse hook against the schema at
-`src/atlas_chat/atlas_chat/schemas/cl_term_request.schema.json`.
-
-### 10. Post CL Term Request to GitHub (conditional, requires confirmation)
-
-**Only run this step if:**
-- Step 9 produced a `cl_term_request.json`
-- A GitHub token with `public_repo` scope is available
-- The user explicitly confirms they want to post
-
-**This step modifies an external shared repository. Always ask the user
-before posting.** Show them the `ntr_markdown` content and the target repo
-first.
-
-**Authentication:** Pass the token via `GH_TOKEN` so the user's default `gh`
-credentials are unaffected. The token must have `public_repo` scope.
-
-**Procedure:**
-
-1. Read `cl_term_request.json` and extract `suggested_label` and `ntr_markdown`.
-2. Show the user the draft issue title and body for review.
-3. On confirmation, post:
-
-```bash
-GH_TOKEN=$(grep ATLAS_CHAT_GH_TOKEN .env | cut -d= -f2) gh issue create \
-  --repo obophenotype/cell-ontology \
-  --title "[NTR] {suggested_label}" \
-  --label "new term request" \
-  --body "$ntr_markdown"
-```
-
-4. Record the returned issue URL in the report header, appending it to the
-   Cell Ontology line:
-   `Cell Ontology: ... (broad match — NTR: obophenotype/cell-ontology#NNN)`
-
-**Never post without user confirmation.** This creates a public issue on an
-external repository.
-
-**Note:** A GitHub App-based alternative (`gh-app-post` CLI) is implemented
-at `src/github_app_posting/` for future use — posts as a bot identity without
-a personal token.
-
----
-
-## Output Layout
-
-```
-projects/{project}/
-├── cell_type_annotations.json
-├── traversal_output/{cell_type}/
-│   ├── name_resolution.json
-│   ├── supplementary_findings.json
-│   ├── all_summaries.json
-│   └── paper_catalogue.json
-└── reports/
-    └── {cell_type}.md
-```
-
----
-
-## Report Format
-
-Reports use standard academic citation style. See the shared prompt at
-`src/atlas_chat/atlas_chat/agents/report_synthesizer.prompt.yaml` for full
-instructions. Key conventions:
-
-- **Inline citations**: `(Author et al., Year)`
-- **Blockquote evidence**: `> "exact quote"\n>\n> — Author et al. (Year)`
-- **References**: standard academic format with DOI links
-
-```markdown
-# Iron-Recycling Macrophages in Prenatal Human Skin
-
-## Summary
-Iron-recycling macrophages are one of four macrophage subsets identified in
-prenatal human skin by Gopee et al. (2024)...
-
-## Markers
-> "Iron-recycling macrophages: CD5L, APOE, VCAM, TIMD4, SLC40A1"
->
-> — Gopee et al. (2024), Supplementary Materials
-
-These markers reflect the subset's functional specialisation:
-- **SLC40A1** (ferroportin) — the sole known cellular iron exporter...
-
-## Location
-### In prenatal skin
-...
-
-## Function
-### 1. Endothelial cell chemotaxis
-...
-
-## References
-- Gopee NH et al. (2024). "A prenatal skin atlas..." *Nature*. DOI: [10.1038/s41586-024-08002-x](https://doi.org/10.1038/s41586-024-08002-x)
-- Suo C et al. (2022). "Mapping the developing human immune system..." *Science*. DOI: ...
-```
-
----
-
-## Validation Rules
-
-Shared validation logic in `src/atlas_chat/atlas_chat/validation/report_checker.py`:
-
-1. **Quote check**: Every blockquoted text (`> "..."`) must be a substring of
-   the evidence corpus (all_summaries.json snippets + supplementary evidence +
-   atlas full text).
-2. **DOI check**: Every DOI in the report must appear in `paper_catalogue.json`.
-
-The canonical correction loop is in Python (`report_graph.py` nodes
-`SynthesizeReport` → `ValidateReport` → retry). Both runtimes use it:
-- **Programmatic**: Graph validation node → routes back to synthesis with error list
-- **Agentic**: Orchestrator calls validation explicitly after synthesis, feeds
-  errors back to synthesize-report subagent for retry
-
-The Claude Code write hook (`.claude/hooks/check_report_refs.py`) is an
-**optional extra guard** — it catches problems in interactive sessions but is
-not part of the required correction loop.
+Posting a term request to `obophenotype/cell-ontology` **creates a public issue
+on someone else's repository. Always show the user the draft and ask before
+posting**, whatever else they have already approved.
 
 ---
 
 ## Rules
 
-- Do **not** write or modify source code unless the user explicitly asks.
-- Do **not** run the test suite.
-- Do **not** commit changes.
-- All quotes in the final report must be traceable to traversal evidence files.
-- Use the test cell type "Iron-recycling macrophage" (fetal scope) from the
-  fetal_skin_atlas project for verification runs.
+- Do **not** modify source code unless asked. Content lives under `projects/`.
+- Do **not** commit, and do **not** run the test suite.
+- Every quote in a report must be traceable to an evidence record.
+- Say what you could not do. A gap reported is a limit on the work; a gap
+  omitted reads as a finding.

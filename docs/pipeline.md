@@ -12,8 +12,9 @@ It is deliberately more detailed and more developer-facing than `README.md`.
 Three neighbouring documents, so you know when to look elsewhere:
 
 - `CLAUDE.md` is the orchestrator's operating instructions — what to do at each
-  step, in the imperative. It is being rewritten; where it disagrees with this
-  file, this file describes the code.
+  step, in the imperative. It is organised as project setup, CAS+ construction
+  and report production, and defers to this file for what exists; where the two
+  disagree, this file describes the code.
 - `CLAUDE_dev.md` is how to build and extend the workflow: conventions, testing,
   the schema-first rule.
 - `README.md` is the project overview for people who are not going to read either
@@ -349,13 +350,10 @@ Real discrepancies, listed so nobody rediscovers them:
   `resolve-name`, `cl-term-request` and `synthesize-report` declare nothing;
   `scan-supplements` declares output only. Retrofitting these is the follow-up work
   named in `CLAUDE_dev.md`.
-- **`CLAUDE.md`'s numbered workflow is behind the code.** It does not mention the
-  supplement store, triage, the snippet annotator, the subatlas resolver or ASTA
-  indexing bands. A rewrite is planned.
 - **Legacy annotation file still in use.** `load-project-context` and
   `anndata-zarr-summary` work with the flat `cell_type_annotations.json`, not CAS+.
-- **No CLI** for `supplement_fetch` or `subatlas_resolver`, both of which are
-  otherwise service-shaped.
+- **No CLI** for `subatlas_resolver`, which is otherwise service-shaped.
+  `supplement_fetch` is reachable as `cli_supplements fetch`.
 - **Two CAS schemas exist**, one here and one on an unmerged `cxg-author-probe`
   branch — see [Where CAS+ lives](#where-cas-lives).
 
