@@ -234,7 +234,7 @@
             },
             {
               "const": "cross_cutting_cell_type",
-              "description": "A cell-type column whose labels also assert something else, so that they cut across the categories above instead of sitting in one. Only for that case: a column whose labels assert a cell type and nothing else is not a descriptor of the cell set's composition and does not belong here."
+              "description": "A cell type label defining a cell set that cross-cuts this one. Cross-cutting is established by analysis of cell set membership, not by reading the label — the label may explain why the two sets cross, but it is not what determines that they do."
             },
             {
               "const": "unclassified",
