@@ -31,11 +31,31 @@ def _paper(project: Path, doi: str = DOI) -> Path:
     return path
 
 
-def test_a_project_is_found_under_either_parent(tmp_path):
+def test_a_project_is_found_under_projects(tmp_path):
     _project(tmp_path, "a")
-    _project(tmp_path, "b", under="projects/test_projects")
     assert resolve("a", repo_root=tmp_path).project_dir.name == "a"
-    assert resolve("b", repo_root=tmp_path).project_dir.name == "b"
+
+
+def test_a_nested_project_must_be_named_with_its_subdirectory(tmp_path):
+    _project(tmp_path, "b", under="projects/test_projects")
+    assert resolve("test_projects/b", repo_root=tmp_path).project_dir.name == "b"
+    with pytest.raises(ProjectNotFound):
+        resolve("b", repo_root=tmp_path)
+
+
+def test_a_bare_name_never_reaches_past_projects(tmp_path):
+    """A test project standing in for a working atlas of the same name is not a
+    mistake anyone would catch by reading the output."""
+    real = _project(tmp_path, "shared")
+    _project(tmp_path, "shared", under="projects/test_projects")
+    assert resolve("shared", repo_root=tmp_path).project_dir == real
+
+
+def test_a_name_that_only_resolves_deeper_says_where_it_is(tmp_path):
+    _project(tmp_path, "b", under="projects/test_projects")
+    with pytest.raises(ProjectNotFound) as exc:
+        resolve("b", repo_root=tmp_path)
+    assert "test_projects/b" in str(exc.value)
 
 
 def test_a_path_may_be_given_instead_of_a_name(tmp_path):
@@ -46,7 +66,7 @@ def test_a_path_may_be_given_instead_of_a_name(tmp_path):
 def test_an_unknown_project_says_where_it_looked(tmp_path):
     with pytest.raises(ProjectNotFound) as exc:
         resolve("nope", repo_root=tmp_path)
-    assert "projects/test_projects/nope" in str(exc.value)
+    assert "projects/nope" in str(exc.value)
 
 
 def test_the_doi_and_title_come_from_the_cas_document(tmp_path):

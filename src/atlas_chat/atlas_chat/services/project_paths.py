@@ -28,8 +28,13 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-#: Names where a project directory may sit, relative to the repository root.
-PROJECT_PARENTS = ("projects", "projects/test_projects")
+#: Where a project directory sits, relative to the repository root. Only one,
+#: deliberately: a bare name searched across several parents would resolve to
+#: whichever was looked at first, and a test project quietly standing in for a
+#: working atlas is not a mistake anyone would catch by reading the output.
+#: A project nested under this is named with its subdirectory,
+#: ``test_projects/<name>``.
+PROJECTS_DIR = "projects"
 
 #: Environment variable naming the root of out-of-checkout corpus material.
 CORPUS_ENV = "ATLAS_CHAT_CORPUS_ROOT"
@@ -78,7 +83,9 @@ def find_project(name: str, repo_root: Path) -> Path:
     """The directory holding this project's CAS+ document.
 
     Args:
-        name: the project's directory name, or a path to it.
+        name: the project's directory under ``projects``, or a path to it. A
+            project filed in a subdirectory is named with it, as in
+            ``test_projects/<name>``.
         repo_root: the checkout to look in.
 
     Returns:
@@ -91,12 +98,19 @@ def find_project(name: str, repo_root: Path) -> Path:
     direct = Path(name)
     if (direct / "cas.json").is_file():
         return direct
-    for parent in PROJECT_PARENTS:
-        candidate = repo_root / parent / name
-        if (candidate / "cas.json").is_file():
-            return candidate
-    looked = ", ".join(str(repo_root / p / name) for p in PROJECT_PARENTS)
-    raise ProjectNotFound(f"no cas.json for {name!r}; looked in {looked}")
+    candidate = repo_root / PROJECTS_DIR / name
+    if (candidate / "cas.json").is_file():
+        return candidate
+
+    # A name that only resolves somewhere else is worth saying out loud: the
+    # alternative is a caller assuming the project is missing when it is filed
+    # under a subdirectory they did not name.
+    nested = sorted(
+        p.parent.relative_to(repo_root / PROJECTS_DIR)
+        for p in (repo_root / PROJECTS_DIR).glob(f"*/{name}/cas.json")
+    )
+    hint = f"; did you mean {' or '.join(str(n) for n in nested)}?" if nested else ""
+    raise ProjectNotFound(f"no cas.json at {candidate}{hint}")
 
 
 def resolve(
@@ -108,7 +122,7 @@ def resolve(
     """Everything a reading step needs, from a project's name.
 
     Args:
-        name: the project's directory name, or a path to it.
+        name: the project's directory under ``projects``, or a path to it.
         repo_root: the checkout. Defaults to the working directory.
         corpus_root: where out-of-checkout material lives. Defaults to
             ``ATLAS_CHAT_CORPUS_ROOT``.
@@ -160,7 +174,11 @@ def build_parser() -> argparse.ArgumentParser:
         prog="python -m atlas_chat.cli_project",
         description="Resolve a project's paths from its name.",
     )
-    parser.add_argument("--project", required=True, help="project directory name, or a path to it")
+    parser.add_argument(
+        "--project",
+        required=True,
+        help="project directory under projects/, e.g. test_projects/<name>, or a path",
+    )
     parser.add_argument("--repo-root", help="checkout to look in; default the working directory")
     parser.add_argument("--corpus-root", help=f"default {CORPUS_ENV}")
     return parser

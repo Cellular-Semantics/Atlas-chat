@@ -316,7 +316,7 @@ Everything reusable is callable without a Claude Code session:
 
 | Command | What it does |
 | --- | --- |
-| `python -m atlas_chat.cli_project` | a project's paths, from its name |
+| `python -m atlas_chat.cli_project` | a project's paths, from its name under `projects/` |
 | `python -m atlas_chat.cli_paper_ingest` | a paper plus its indexed supplementary prose, assembled for reading |
 | `python -m atlas_chat.cli_subject_block` | what a reader is told about a cell set, from CAS+ |
 | `python -m atlas_chat.cli_supplement_prose` | supplementary prose: units, record, cas-uptake |
