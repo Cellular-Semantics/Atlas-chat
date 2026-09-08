@@ -100,3 +100,16 @@ def test_without_a_job_file_the_check_says_it_could_not_run(tmp_path):
     result = _run(tmp_path, [_item("anything at all")])
     assert result.returncode == 0
     assert "not checked" in result.stderr
+
+
+def test_a_job_file_shared_by_several_cell_types_is_found(tmp_path):
+    """One read covers several cell types and produces one job file, so the
+    paper sits above the per-cell-type output directories rather than being
+    copied into each of them."""
+    papers = tmp_path / "papers"
+    papers.mkdir()
+    (papers / "atlas.json").write_text(json.dumps(JOB))
+    out = tmp_path / "Immune_uftLAM"
+    out.mkdir()
+    assert _run(out, [_item("sits in the outer cortex")]).returncode == 0
+    assert _run(out, [_item("never written anywhere")]).returncode == 2

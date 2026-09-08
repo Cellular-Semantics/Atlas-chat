@@ -5,10 +5,11 @@ Fires as a PostToolUse hook on Write/Edit to ``all_summaries.json`` (an array of
 evidence_summary items) or any ``*evidence_summary.json`` (a single item).
 
 Two checks. The shape is validated against ``evidence_summary.schema.json``. The
-quotes are then looked for in the text they came from: any job file beside the
-output, under ``papers/``, is searched, and a quote found in none of them is
-rejected. Searching rather than trusting is the point — a writer that names its
-own source can name it wrongly, whereas a search cannot.
+quotes are then looked for in the text they came from: job files under
+``papers/`` beside the output, or one level above it, are searched, and a
+quote found in none of them is rejected. Searching rather than trusting is the
+point — a writer that names its own source can name it wrongly, whereas a
+search cannot.
 
 Where no job file sits beside the output there is nothing to search, so the
 quote check says it could not run and the shape check stands alone. That is the
@@ -56,10 +57,14 @@ def _quote_errors(data: object, file_path: Path) -> list[str]:
     except ImportError:
         return []
 
-    job_paths = sorted((file_path.parent / "papers").glob("*.json"))
+    # Beside the output, and one level up: a read covering several cell types
+    # produces one job file and one output directory per cell type, so the
+    # shared paper sits above them rather than being copied into each.
+    searched = [file_path.parent / "papers", file_path.parent.parent / "papers"]
+    job_paths = sorted({p for d in searched for p in d.glob("*.json")})
     if not job_paths:
         print(
-            f"no job files under {file_path.parent / 'papers'} — quotes not checked",
+            "no job files under " + " or ".join(str(d) for d in searched) + " — quotes not checked",
             file=sys.stderr,
         )
         return []
