@@ -183,7 +183,7 @@
     },
     "Composition": {
       "type": "object",
-      "description": "Keyed by CxG descriptor category (tissue, development_stage, assay, disease, sex, self_reported_ethnicity, organism) or an open semantic key (e.g. germ_layer) for non-CxG descriptors. Keys are not enumerated; each value is a CompositionCategory.",
+      "description": "How the cell set breaks down over the descriptors recorded for its cells, one entry per descriptor. Keys are not enumerated: the key identifies the descriptor within this document, and what kind of descriptor it is — where that can be determined — is stated by each entry's `category`. Several entries may share a category; recording a column at more than one granularity is common and they are not interchangeable.",
       "additionalProperties": { "$ref": "#/$defs/CompositionCategory" }
     },
     "CompositionCategory": {
@@ -193,6 +193,27 @@
       "additionalProperties": false,
       "properties": {
         "author_field_name": { "type": "string", "description": "The original obs column this category came from." },
+        "category": {
+          "description": "What kind of descriptor this is, where that can be determined. A claim about what the column holds, never about whether it matters to any particular consumer. Omit it rather than force a plausible-but-wrong value: the list is deliberately short, an unclassified descriptor is an expected outcome, and absence is what makes the classification's completeness countable. Where present, it names the ontology a value would map to.",
+          "oneOf": [
+            {
+              "const": "tissue",
+              "description": "Anatomical origin of the cells. Recording this at several granularities is common; each granularity is its own entry."
+            },
+            {
+              "const": "development_stage",
+              "description": "Where the donor sits in development. This includes age: stage ontologies express age as stage terms, so a column of ages belongs here rather than unclassified."
+            },
+            {
+              "const": "disease",
+              "description": "Disease state of the tissue or donor."
+            },
+            {
+              "const": "assay",
+              "description": "The transcriptomics assay. Sample handling, dissociation, cell enrichment and sorting strategy are not assay and are left unclassified."
+            }
+          ]
+        },
         "values": {
           "description": "The distribution over this category, one entry per distinct author value. Computed from the per-cell table by cross-tabbing the cell set against the category's column; every cell of the set is counted exactly once, so cell_count sums to the annotation's n_cells.",
           "type": "array",

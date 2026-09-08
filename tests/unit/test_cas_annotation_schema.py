@@ -290,3 +290,72 @@ def test_atlas_paper_with_only_a_doi_validates() -> None:
     data = _load("cas_annotation.minimal.good.json")
     data["source"] = {"doi": "10.1038/s41586-024-08002-x"}
     assert _errors(data) == []
+
+
+# --- what kind of descriptor a composition entry holds ----------------------
+
+
+def _with_composition(composition: dict) -> object:
+    data = _load("cas_annotation.minimal.good.json")
+    data["annotations"][0]["composition"] = composition
+    return data
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("category", ["tissue", "development_stage", "disease", "assay"])
+def test_every_category_value_is_accepted(category: str) -> None:
+    assert (
+        _errors(
+            _with_composition(
+                {"a_column": {"category": category, "values": [{"author_value": "x"}]}}
+            )
+        )
+        == []
+    )
+
+
+@pytest.mark.unit
+def test_unknown_category_is_rejected() -> None:
+    assert _errors(
+        _with_composition(
+            {"a_column": {"category": "karyotype", "values": [{"author_value": "x"}]}}
+        )
+    )
+
+
+@pytest.mark.unit
+def test_a_descriptor_with_no_category_validates() -> None:
+    """Not every column can be typed, and forcing a plausible-but-wrong value is
+    worse than leaving it out. Absence is what makes the classification's
+    completeness countable."""
+    assert _errors(_with_composition({"a_column": {"values": [{"author_value": "x"}]}})) == []
+
+
+@pytest.mark.unit
+def test_several_descriptors_may_share_a_category() -> None:
+    """Recording a descriptor at more than one granularity is common, and the
+    entries are not interchangeable, so both are kept."""
+    assert (
+        _errors(
+            _with_composition(
+                {
+                    "coarse": {"category": "tissue", "values": [{"author_value": "x"}]},
+                    "fine": {"category": "tissue", "values": [{"author_value": "y"}]},
+                }
+            )
+        )
+        == []
+    )
+
+
+@pytest.mark.unit
+def test_every_category_value_is_described() -> None:
+    """The point of spelling the values out as branches rather than a bare enum
+    is that each carries its own definition where an editor will see it.
+    Collapsing them back to an enum would validate identically and lose that."""
+    branches = load_schema(SCHEMA)["$defs"]["CompositionCategory"]["properties"]["category"][
+        "oneOf"
+    ]
+    undescribed = [b.get("const") for b in branches if not (b.get("description") or "").strip()]
+    assert undescribed == []
+    assert len(branches) == len({b["const"] for b in branches})
