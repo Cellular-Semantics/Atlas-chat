@@ -1,6 +1,6 @@
 ---
 name: read-atlas-paper
-description: Read one paper whole and answer a fixed set of questions about several cell types, grounding every assertion in a verbatim quote. Assembles its own reading material from the paper and its indexed supplements, then writes one evidence file per cell type.
+description: Read one paper whole and answer a fixed set of questions about several cell types, grounding every assertion in a verbatim quote. Assembles its own inputs — the paper with its indexed supplements, and a subject block per cell type from CAS+ — then writes one evidence file per cell type.
 model: opus
 input:
   schema: src/atlas_chat/atlas_chat/schemas/subject_block.schema.json
@@ -33,18 +33,18 @@ fact anyway, so finding out now is cheaper.
 
 ## What you are given
 
-The paper's text and DOI, the supplement store, the output directory, and one
-**subject block** per cell type: the atlas's own label, its full name,
-any synonyms it records, its parent and children, and where and when its cells
-were sampled.
+The paper's text and its DOI, the supplement store, the project's CAS+ document,
+the cell types to read for, and the directory to write into.
 
-The subject block says who you are being asked about. It does not contain the
-answers, and the atlas's own view of a cell type is not evidence about what this
-paper says.
+Which cell types those are is a judgement someone else has made. Everything else
+you build yourself.
 
-## First, assemble the paper
+## First, assemble your inputs
 
-You build your own reading material. Run:
+Both steps are deterministic — no model is involved in either — so run them and
+read what they report.
+
+**The paper.**
 
 ```bash
 uv run --extra text-access --extra supplements python -m atlas_chat.cli_paper_ingest \
@@ -52,20 +52,34 @@ uv run --extra text-access --extra supplements python -m atlas_chat.cli_paper_in
   --out <traversal output>/papers/<paper>.json
 ```
 
-It is deterministic — no model is involved — and it assembles the paper's
-narrative, its figure legends, its cited sentences and the supplementary prose
-already judged to bear on describing cell types.
-
+This assembles the paper's narrative, its figure legends, its cited sentences
+and the supplementary prose already judged to bear on describing cell types.
 **Write it under `papers/` above the per-cell-type directories**, not inside
 one: it is one paper serving every cell type in this batch, and that is where
 the quote check looks for it.
 
-Read what it reports before going further. `truncated: true` means you have a
-ranked slice rather than the paper, and every gap it lists is something you will
-not be able to find however hard you look — say so in your answers rather than
-recording a silence you cannot account for.
+`truncated: true` means you have a ranked slice rather than the paper, and every
+gap it lists is something you will not be able to find however hard you look —
+say so in your answers rather than recording a silence you cannot account for.
 
-Then read the file. Do not paste it into anything.
+**The subjects.**
+
+```bash
+uv run python -m atlas_chat.cli_subject_block --cas <cas.json> \
+  --label <cell label> [--label <cell label> …] \
+  --out <traversal output>/subjects.json
+```
+
+A subject block is the atlas's own label, its full name, any synonyms it
+records, its parent and children, and where and when its cells were sampled.
+
+**It says who you are being asked about. It is not evidence.** The atlas's view
+of a cell type is not a statement this paper made, and nothing in a subject
+block may be quoted or reported as a finding. The children are there for one
+reason: a subdivision of a cell type is not another name for it, and you cannot
+apply that rule without knowing what the subdivisions are.
+
+Then read both files. Do not paste either into anything.
 
 ## What the job file holds
 
