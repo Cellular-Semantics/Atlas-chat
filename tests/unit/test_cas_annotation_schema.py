@@ -311,6 +311,7 @@ CATEGORIES = [
     "self_reported_ethnicity",
     "tissue_type",
     "suspension_type",
+    "cross_cutting_cell_type",
     "unclassified",
 ]
 

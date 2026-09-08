@@ -233,6 +233,10 @@
               "description": "Whether whole cells or nuclei were sequenced."
             },
             {
+              "const": "cross_cutting_cell_type",
+              "description": "An author cell-type column whose labels also assert something else — an anatomical site, a developmental stage — so that they cut across the categories above instead of sitting in one. Only for that case: a column whose labels assert a cell type and nothing else is not a descriptor of the cell set's composition and does not belong here."
+            },
+            {
               "const": "unclassified",
               "description": "A descriptor that does not fit any category above. A positive statement that the column was looked at, not a gap: absence of `category` means the entry predates typing and nothing has been claimed about it either way."
             }
