@@ -145,8 +145,10 @@ front-matter, but no validator hook is registered for it.
 
 ## 6a. Reading a paper whole
 
-`read-atlas-paper` (opus) is handed a job file from `paper_ingest` and one
-subject block per cell type, and answers a fixed set of questions about each:
+`read-atlas-paper` (opus) is given a project name and the cell types to read
+for, and nothing else. It resolves the project's paths with
+`services/project_paths.py`, assembles the paper with `paper_ingest` and the
+subject blocks with `subject_block`, then answers a fixed set of questions about each:
 naming first, since the names it finds are what it searches with for everything
 after, then location, markers, structure and function. Every assertion must
 carry a verbatim quote, and each answer states not only what the paper says but
@@ -314,7 +316,11 @@ Everything reusable is callable without a Claude Code session:
 
 | Command | What it does |
 | --- | --- |
-| `python -m atlas_chat.cli_supplements` | supplement store: inventory, adopt, unpack, outline, text, slice, show, check, papers |
+| `python -m atlas_chat.cli_project` | a project's paths, from its name |
+| `python -m atlas_chat.cli_paper_ingest` | a paper plus its indexed supplementary prose, assembled for reading |
+| `python -m atlas_chat.cli_subject_block` | what a reader is told about a cell set, from CAS+ |
+| `python -m atlas_chat.cli_supplement_prose` | supplementary prose: units, record, cas-uptake |
+| `python -m atlas_chat.cli_supplements` | supplement store: inventory, adopt, unpack, outline, text, slice, show, check, fetch, triage, papers |
 | `python -m atlas_chat.cli_annotate` | traversal boundary: fetch, follow-set, show |
 | `python -m atlas_chat.services.local_snippet_index` | local index: build, add, remove, rebuild, check, list, search |
 | `python -m atlas_chat.services.fetch_preprint` | DOI to local JATS |

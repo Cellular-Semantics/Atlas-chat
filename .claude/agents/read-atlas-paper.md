@@ -33,16 +33,26 @@ fact anyway, so finding out now is cheaper.
 
 ## What you are given
 
-The paper's text and its DOI, the supplement store, the project's CAS+ document,
-the cell types to read for, and the directory to write into.
-
-Which cell types those are is a judgement someone else has made. Everything else
-you build yourself.
+**A project name and the cell types to read for.** That is all: which cell types
+matter is a judgement someone else has made, and everything else follows from
+the project.
 
 ## First, assemble your inputs
 
-Both steps are deterministic — no model is involved in either — so run them and
-read what they report.
+Three steps, all deterministic — no model is involved in any of them — so run
+them and read what they report.
+
+**Where things are.**
+
+```bash
+uv run python -m atlas_chat.cli_project --project <project>
+```
+
+This gives you the project directory, its CAS+ document, the atlas DOI, the
+paper's text, the supplement store and the traversal output directory. It also
+lists whatever it could not find: a missing paper or a missing store is
+something to report, not to work around by searching the filesystem for
+something that looks close enough.
 
 **The paper.**
 
