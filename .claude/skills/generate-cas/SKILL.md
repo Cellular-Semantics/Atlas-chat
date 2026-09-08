@@ -63,8 +63,24 @@ Some fields are not derivable from the data — **ask the user** rather than gue
      unmapped author columns in `author_annotation_fields`.
    - Leave optional fields **absent** when unknown — downstream consumers are
      presence-aware.
-5. Write `projects/{project}/cas.json`. The `check_cas_annotation` PostToolUse hook
-   validates it against the schema; if it fails, read the errors and rewrite.
+5. Write `projects/{project}/cas.json`, then **validate it explicitly**:
+
+   ```bash
+   uv run python -m atlas_chat.cli_cas validate --cas projects/{project}/cas.json
+   ```
+
+   Exit 0 is valid, 1 invalid; read the errors and rewrite until it passes. Run
+   this whatever wrote the file — if you built the CAS+ with a script rather
+   than by writing it directly, the check still applies and is the only thing
+   that will catch a malformed document at the point it was made.
+
+   Warnings name cross-field problems the schema cannot express (a dangling
+   parent, counts that do not sum). They do not fail the run, because CAS+ is
+   filled in across passes — but read them: on a document you have just
+   finished, a warning is usually a real defect. Add `--strict` to fail on them.
+
+   The `check_cas_annotation` PostToolUse hook runs the same checks as a
+   backstop; it is not a substitute for the explicit call.
 
 ## Minimal case
 
@@ -85,4 +101,4 @@ A bare list of labels + a DOI is enough:
 - **Do not invent** markers, synonyms, or ontology terms. Carry them only if the
   source states them; otherwise leave absent for downstream steps to fill.
 - Prefer asking the user over guessing DOI / organism / which column is the label.
-- Output is `projects/{project}/cas.json`; schema compliance is enforced by the hook.
+- Output is `projects/{project}/cas.json`; validate it with `cli_cas validate` (the hook is a backstop, not the primary check).
