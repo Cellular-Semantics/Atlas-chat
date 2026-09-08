@@ -25,9 +25,14 @@ Oxford, PNAS, and a bioRxiv preprint):
    per publisher. Only Springer Nature is implemented, because its ESM stem is
    derivable from the DOI alone (verified on 8 of 8 Springer papers in the
    corpus) — for others, a template can be added when a corpus needs it.
-4. **Manual** (``manual``). Recorded as a gap naming the file and where to get
-   it. The only route for the 5 corpus papers with no PMC record at all, and for
-   closed-access papers generally.
+4. **bioRxiv** (``biorxiv``). A preprint has no PMC record, so the three rungs
+   above are all blind to it, but the preprint server lists its supplements on
+   a page of its own and serves each file individually. That page supplies
+   both the listing (with the author's labels) and the bytes, so this route
+   stands in for rungs 1 and 3 at once for the papers it covers.
+5. **Manual** (``manual``). Recorded as a gap naming the file and where to get
+   it. The route of last resort for closed-access papers, and for anything
+   published where none of the above reaches.
 
 Two traps this module exists to avoid
 -------------------------------------
@@ -56,11 +61,13 @@ import urllib.parse
 import zipfile
 from collections import Counter
 from datetime import UTC, datetime
+from html import unescape
 from pathlib import Path
 from typing import Any
 
 import httpx
 
+from atlas_chat.services.fetch_preprint import biorxiv_metadata
 from atlas_chat.services.supplement_store import (
     MANIFEST_VERSION,
     SupplementStoreError,
@@ -339,6 +346,102 @@ def fetch_one_file(client: httpx.Client, url: str, dest: Path) -> tuple[bool, st
 
 
 # ------------------------------------------------------------------
+# Route: bioRxiv
+# ------------------------------------------------------------------
+
+BIORXIV_CONTENT = "https://www.biorxiv.org/content"
+
+#: One supplement's markup on the page. Splitting on the container class rather
+#: than matching a nested structure keeps the parse tolerant of the surrounding
+#: page changing around it.
+BIORXIV_ENTRY_MARKER = "supplementary-material-expansion"
+BIORXIV_LINK = re.compile(r'href="([^"]+/embed/[^"?]+)[^"]*"')
+BIORXIV_LABEL = re.compile(r'supplementary-material-label"[^>]*>([^<]+)<')
+
+
+def biorxiv_get(url: str) -> tuple[bytes | None, str]:
+    """GET one URL from bioRxiv, which serves nothing to an ordinary client.
+
+    The site is behind a bot filter that answers a plain HTTP request with a
+    challenge page rather than an error, so the request has to present a
+    browser's TLS fingerprint — the same approach, and the same optional
+    dependency, as fetching a preprint's JATS.
+
+    Returns:
+        ``(payload, note)``; the note says what went wrong when payload is None.
+    """
+    try:
+        from curl_cffi import requests as cf_requests  # type: ignore[import-not-found]
+    except ImportError:
+        return None, "curl_cffi not installed (uv sync --extra text-access)"
+    try:
+        resp = cf_requests.get(url, impersonate="chrome120", timeout=180)
+    except Exception as exc:  # curl_cffi raises its own error hierarchy
+        return None, f"{type(exc).__name__}: {exc}"
+    if resp.status_code != 200:
+        return None, f"HTTP {resp.status_code}"
+    return resp.content, "ok"
+
+
+def parse_supplement_page(page: str) -> list[dict[str, Any]]:
+    """Read the file list off a bioRxiv supplementary-material page.
+
+    Returns:
+        Manifest ``files`` entries with ``status: "listed"``, each carrying the
+        download URL the page gave for it, since it encodes a posting date that
+        cannot be derived from the DOI.
+    """
+    out: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for chunk in page.split(BIORXIV_ENTRY_MARKER)[1:]:
+        link = BIORXIV_LINK.search(chunk)
+        if not link:
+            continue
+        url = unescape(link.group(1))
+        file_id = url.rsplit("/", 1)[-1]
+        if file_id in seen:
+            continue
+        seen.add(file_id)
+        entry: dict[str, Any] = {
+            "file_id": file_id,
+            "media_type": media_type(file_id),
+            "status": "listed",
+            "retrieval": {"route": "biorxiv", "url": url},
+        }
+        label = BIORXIV_LABEL.search(chunk)
+        if label:
+            entry["label"] = unescape(label.group(1)).strip()
+        out.append(entry)
+    return out
+
+
+def biorxiv_listing(doi: str) -> list[dict[str, Any]]:
+    """List a bioRxiv preprint's supplements, if the DOI is one.
+
+    bioRxiv has issued more than one DOI prefix, so being a preprint is not
+    something the DOI can be pattern-matched for: the test is whether bioRxiv's
+    own metadata service knows the paper. It also supplies the version number,
+    which the content URL needs.
+
+    Returns:
+        Manifest ``files`` entries, empty for a paper bioRxiv does not host or
+        whose page could not be read.
+    """
+    meta = biorxiv_metadata(doi)
+    if not meta:
+        return []
+    version = meta.get("version") or "1"
+    url = f"{BIORXIV_CONTENT}/{doi}v{version}.supplementary-material"
+    payload, note = biorxiv_get(url)
+    if payload is None:
+        logger.info("%s: bioRxiv supplement page unreadable — %s", doi, note)
+        return []
+    listed = parse_supplement_page(payload.decode("utf-8", errors="replace"))
+    logger.info("%s: bioRxiv lists %d supplementary file(s)", doi, len(listed))
+    return listed
+
+
+# ------------------------------------------------------------------
 # The negative cache
 # ------------------------------------------------------------------
 
@@ -443,13 +546,17 @@ def _fetch(
                 }
             )
     else:
-        gaps.append(
-            {
-                "file_id": doi,
-                "reason": "no PMC record in Europe PMC, so no programmatic route exists",
-                "action": f"download from https://doi.org/{doi} into incoming/ and run adopt",
-            }
-        )
+        # No PMC record, so the listing has to come from wherever the paper
+        # itself is published. For a preprint that is the preprint server.
+        listed = biorxiv_listing(doi)
+        if not listed:
+            gaps.append(
+                {
+                    "file_id": doi,
+                    "reason": "no PMC record in Europe PMC, so no programmatic route exists",
+                    "action": f"download from https://doi.org/{doi} into incoming/ and run adopt",
+                }
+            )
 
     if listed:
         manifest["files"] = _merge_files(manifest.get("files", []), listed)
@@ -541,7 +648,35 @@ def _fetch(
                 "note": note,
             }
 
-    # --- route 4: nothing left but a person --------------------------
+    # --- route 4: the preprint server ---------------------------------
+    for entry in wanted:
+        if entry.get("status") == "present":
+            continue
+        retrieval = entry.get("retrieval", {})
+        if retrieval.get("route") != "biorxiv":
+            continue
+        url = retrieval.get("url")
+        dest = files_dir(store_root, doi) / entry["file_id"]
+        payload, note = biorxiv_get(url)
+        if payload is not None:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(payload)
+            ok, note = verify_payload(dest, media_type(entry["file_id"]))
+        else:
+            ok = False
+        if ok:
+            _mark_present(entry, store_root, doi, dest, "biorxiv", url=url)
+        else:
+            dest.unlink(missing_ok=True)
+            entry["status"] = "failed"
+            entry["retrieval"] = {
+                "route": "biorxiv",
+                "url": url,
+                "attempted_at": _now(),
+                "note": note,
+            }
+
+    # --- route 5: nothing left but a person --------------------------
     for entry in wanted:
         if entry.get("status") == "present":
             continue

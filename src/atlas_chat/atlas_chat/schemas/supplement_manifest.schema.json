@@ -146,11 +146,12 @@
       "properties": {
         "route": {
           "type": "string",
-          "description": "'jats_listing' = known from the article XML but bytes not fetched by this route. 'publisher_direct' = fetched from the publisher's static host. 'europepmc_bundle' = from Europe PMC's supplementaryFiles zip. 'manual' = supplied by a user. 'none' = no route available.",
+          "description": "'jats_listing' = known from the article XML but bytes not fetched by this route. 'publisher_direct' = fetched from the publisher's static host. 'europepmc_bundle' = from Europe PMC's supplementaryFiles zip. 'biorxiv' = listed on, and fetched from, the preprint's bioRxiv page. 'manual' = supplied by a user. 'none' = no route available.",
           "enum": [
             "jats_listing",
             "publisher_direct",
             "europepmc_bundle",
+            "biorxiv",
             "manual",
             "none"
           ]

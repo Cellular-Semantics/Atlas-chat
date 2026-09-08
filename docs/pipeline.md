@@ -85,7 +85,11 @@ paper body, so this gets its own subsystem: fetch, store, triage, index.
 **Fetch — `services/supplement_fetch.py`.** `resolve_pmcid()` and `fetch_jats()`
 get the paper; `fetch_bundle()` pulls the EuropePMC supplementary bundle, with
 `publisher_direct_url()` / `springer_url()` as a fallback where the bundle is
-absent. `verify_payload()` and `is_non_evidence()` discard junk. `should_attempt()`
+absent. A preprint has no PMC record, so `biorxiv_listing()` /
+`parse_supplement_page()` / `biorxiv_get()` read the file list off the preprint
+server's own supplementary-material page and fetch each file from it (needs the
+`[text-access]` extra for the impersonating HTTP client).
+`verify_payload()` and `is_non_evidence()` discard junk. `should_attempt()`
 holds the retry policy. `fetch_supplements()` does one paper, `fetch_corpus()` does
 the project's whole paper set. Library only — no CLI.
 
