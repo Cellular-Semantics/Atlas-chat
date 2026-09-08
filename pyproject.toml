@@ -20,6 +20,7 @@ dev-dependencies = [
     "sphinx-autodoc-typehints>=1.25.0",
     "myst-parser>=2.0.0",
     "pre-commit>=3.7.0",
+    "ipython>=9.17.1",
 ]
 
 [tool.pytest.ini_options]

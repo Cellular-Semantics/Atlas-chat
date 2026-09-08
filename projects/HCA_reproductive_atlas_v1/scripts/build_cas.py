@@ -561,6 +561,47 @@ for a in annotations:
         _note = f"Marker origin: {ms}."
         a["comment"] = (a["comment"].rstrip() + " | " + _note) if a.get("comment") else _note
 
+# ---------------------------------------------------------------- prune cell-type composition
+# The four Axis A cell-type columns are mostly redundant inside composition now:
+# a value identical to the cell set is already the cell_label or a synonym, and a
+# value wholly inside the cell set is just its own subdivision, which the hierarchy
+# already encodes. What is worth keeping is a value that genuinely CROSS-CUTS the
+# hierarchy — present in this cell set and also outside it — because that documents
+# where Axis A disagrees with the master nomenclature.
+# Placeholder values ("unknown", "Not applicable") cross-cut everything by
+# construction and do not count.
+_CT_FIELDS = ["celltype_HCA_fine", "celltype_HCA", "celltype_HCA_broad", "celltype_HCA_lineage"]
+_PLACEHOLDER = {"unknown", "not applicable", "nan", "none", ""}
+_CT_GTOT = {c: obs[c].value_counts().to_dict() for c in _CT_FIELDS}
+_leafset = {a["cell_set_accession"] for a in annotations} - {
+    a.get("parent_cell_set_accession") for a in annotations if a.get("parent_cell_set_accession")}
+_ct_dropped = _ct_kept = _ct_merged = 0
+for a in annotations:
+    comp = a.get("composition")
+    if not comp:
+        continue
+    for f in _CT_FIELDS:
+        e = comp.get(f)
+        if not e:
+            continue
+        real = [v for v in e["values"] if v["author_value"].strip().lower() not in _PLACEHOLDER]
+        crosscut = any(_CT_GTOT[f].get(v["author_value"], 0) != v["cell_count"] for v in real)
+        # exception: a leaf built from >1 fine code (the deliberate label merges) — its
+        # cell_label names only one of them, so the pair has no other robust home.
+        merged_leaf = (f == "celltype_HCA_fine"
+                       and a["cell_set_accession"] in _leafset and len(real) > 1)
+        if crosscut:
+            _ct_kept += 1
+        elif merged_leaf:
+            _ct_merged += 1
+        else:
+            del comp[f]
+            _ct_dropped += 1
+    if not comp:
+        del a["composition"]
+print(f"composition cell-type entries: dropped {_ct_dropped}, kept {_ct_kept} cross-cutting, "
+      f"{_ct_merged} merged-code leaves")
+
 _KEY_ORDER2 = ["labelset", "cell_label", "cell_fullname", "cell_set_accession",
                "parent_cell_set_accession", "n_cells", "cell_ontology_term_id",
                "cell_ontology_term", "synonyms", "marker_gene_evidence",
@@ -618,8 +659,7 @@ print(f"nodes with CL term: {withcl} | ambiguous (multi-CL terminal): {ambig}")
 leaf_ratio1 = 0
 for a in annotations:
     if a["labelset"]!="L4": continue
-    fine=(a.get("composition") or {}).get("celltype_HCA_fine")
-    if fine and len(fine["values"])==1 and fine["values"][0]["cell_ratio"]==1.0: leaf_ratio1+=1
+    if a["cell_label"] in objcodes: leaf_ratio1+=1   # cell_label IS the fine code
 print(f"L4 nodes with a single celltype_HCA_fine @ratio 1.0: {leaf_ratio1}")
 # nodes that are BOTH terminal-for-a-code and internal (mixed) -> flag
 mixed=[]
