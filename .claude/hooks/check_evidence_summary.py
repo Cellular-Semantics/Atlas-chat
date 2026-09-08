@@ -1,9 +1,18 @@
 #!/usr/bin/env python
-"""Claude Code hook: validate evidence_summary output against JSON Schema.
+"""Claude Code hook: check evidence_summary output, in shape and in substance.
 
 Fires as a PostToolUse hook on Write/Edit to ``all_summaries.json`` (an array of
 evidence_summary items) or any ``*evidence_summary.json`` (a single item).
-Validates against ``evidence_summary.schema.json``.
+
+Two checks. The shape is validated against ``evidence_summary.schema.json``. The
+quotes are then looked for in the text they came from: any job file beside the
+output, under ``papers/``, is searched, and a quote found in none of them is
+rejected. Searching rather than trusting is the point — a writer that names its
+own source can name it wrongly, whereas a search cannot.
+
+Where no job file sits beside the output there is nothing to search, so the
+quote check says it could not run and the shape check stands alone. That is the
+case for evidence gathered from remote snippets, whose text never lands here.
 
 Exit codes:
     0 — valid, or file is not an evidence-summary file, or jsonschema unavailable
@@ -40,6 +49,30 @@ def _errors(data: object, schema: dict) -> list[str]:
     return errors
 
 
+def _quote_errors(data: object, file_path: Path) -> list[str]:
+    """Look for every quote in the job files beside the output, if there are any."""
+    try:
+        from atlas_chat.validation.quote_search import check_items, load_sources
+    except ImportError:
+        return []
+
+    job_paths = sorted((file_path.parent / "papers").glob("*.json"))
+    if not job_paths:
+        print(
+            f"no job files under {file_path.parent / 'papers'} — quotes not checked",
+            file=sys.stderr,
+        )
+        return []
+
+    sources = load_sources(job_paths)
+    if not sources:
+        print("job files hold no quotable text — quotes not checked", file=sys.stderr)
+        return []
+
+    items = data if isinstance(data, list) else [data]
+    return check_items([i for i in items if isinstance(i, dict)], sources)
+
+
 def main() -> int:
     try:
         hook_input = json.loads(sys.stdin.read())
@@ -71,6 +104,8 @@ def main() -> int:
         return 0
 
     errors = _errors(data, json.loads(SCHEMA_PATH.read_text()))
+    if not errors:
+        errors = _quote_errors(data, Path(file_path))
     if not errors:
         return 0
 

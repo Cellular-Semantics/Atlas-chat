@@ -143,6 +143,20 @@ Prompt: `agents/supplementary_scanner.prompt.yaml`. Output:
 `schemas/supplementary_findings.schema.json`. Declares its output schema in
 front-matter, but no validator hook is registered for it.
 
+## 6a. Reading a paper whole
+
+`read-atlas-paper` (opus) is handed a job file from `paper_ingest` and one
+subject block per cell type, and answers a fixed set of questions about each:
+naming first, since the names it finds are what it searches with for everything
+after, then location, markers, structure and function. Every assertion must
+carry a verbatim quote, and each answer states not only what the paper says but
+what the paper did to establish it — the claim and its basis are frequently
+different sentences, and the basis is often in a figure legend.
+
+It writes one `all_summaries.json` per cell type, into that cell type's
+traversal directory. Cell types are taken in series with each one's subject
+block immediately before its own questions.
+
 ## 6. Citation traversal and evidence gathering
 
 The core of the literature search. A query is run against ASTA (Semantic Scholar)
@@ -189,6 +203,19 @@ directory. Individual records are checked by `check_annotated_snippet.py`,
 `check_follow_set.py` and `check_evidence_summary.py` against
 `annotated_snippet.schema.json`, `follow_set.schema.json` and
 `evidence_summary.schema.json`.
+
+`EvidenceSummary` carries two optional fields alongside its provenance:
+`aspect`, which keeps the question being answered out of the prose, and
+`found`, which distinguishes a source that is silent from a question nobody
+asked. Both are optional because citation traversal has no aspect to give and
+writes only what it found. What binds every producer is the quote rule: an item
+may have an empty `quotes` list only where `found` is explicitly false.
+`check_evidence_summary.py` enforces the shape and then looks for each quote in
+the job files under `papers/` beside the output, via
+`validation/quote_search.py`. Searching rather than trusting is deliberate — the
+search reports where the text was found, and a source a writer names can be
+named wrongly. Where no job file sits beside the output there is nothing to
+search, and the hook says so rather than passing quietly.
 
 ## 7. Report synthesis
 
@@ -267,7 +294,7 @@ bot identity without a personal token. Built, not yet wired into the workflow.
 | `supplement_manifest` | `index-supplements`, supplement store | `check_supplement_manifest.py` |
 | `annotated_snippet` | `cli_annotate fetch` | `check_annotated_snippet.py` |
 | `follow_set` | `cli_annotate follow-set` | `check_follow_set.py` |
-| `evidence_summary` | `citation-traverse` | `check_evidence_summary.py` |
+| `evidence_summary` | `citation-traverse`, `read-atlas-paper` | `check_evidence_summary.py` |
 | `all_summaries` | `citation-traverse` | none |
 | `supplementary_findings` | `scan-supplements` | none |
 | `citation_traverse_input` | orchestrator | n/a (input) |
@@ -347,8 +374,9 @@ Real discrepancies, listed so nobody rediscovers them:
   `planning/`, and describes a regression test for it. The original lives on
   `feat/orchestration-contracts`, and its behaviour did not match that
   description. A reconstruction is on `feature/curation-guard` — see below.
-- **No validator hook** for `supplementary_findings` or `all_summaries`, though
-  both have schemas. `CLAUDE_dev.md` requires one per output schema.
+- **No validator hook** for `supplementary_findings`, though it has a schema.
+  `CLAUDE_dev.md` requires one per output schema. (`all_summaries.json` is
+  covered: `check_evidence_summary.py` fires on it.)
 - **Most subagents declare no input/output front-matter** —
   `resolve-name`, `cl-term-request` and `synthesize-report` declare nothing;
   `scan-supplements` declares output only. Retrofitting these is the follow-up work
