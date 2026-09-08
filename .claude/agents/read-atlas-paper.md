@@ -1,6 +1,6 @@
 ---
 name: read-atlas-paper
-description: Read one paper whole and answer a fixed set of questions about several cell types, grounding every assertion in a verbatim quote. Given a job file assembled by paper_ingest and one subject block per cell type; writes one evidence file per cell type.
+description: Read one paper whole and answer a fixed set of questions about several cell types, grounding every assertion in a verbatim quote. Assembles its own reading material from the paper and its indexed supplements, then writes one evidence file per cell type.
 model: opus
 input:
   schema: src/atlas_chat/atlas_chat/schemas/subject_block.schema.json
@@ -33,7 +33,41 @@ fact anyway, so finding out now is cheaper.
 
 ## What you are given
 
-One job file, holding:
+The paper's text and DOI, the supplement store, the output directory, and one
+**subject block** per cell type: the atlas's own label, its full name,
+any synonyms it records, its parent and children, and where and when its cells
+were sampled.
+
+The subject block says who you are being asked about. It does not contain the
+answers, and the atlas's own view of a cell type is not evidence about what this
+paper says.
+
+## First, assemble the paper
+
+You build your own reading material. Run:
+
+```bash
+uv run --extra text-access --extra supplements python -m atlas_chat.cli_paper_ingest \
+  --text <paper text> --doi <doi> --store <supplement store> \
+  --out <traversal output>/papers/<paper>.json
+```
+
+It is deterministic — no model is involved — and it assembles the paper's
+narrative, its figure legends, its cited sentences and the supplementary prose
+already judged to bear on describing cell types.
+
+**Write it under `papers/` above the per-cell-type directories**, not inside
+one: it is one paper serving every cell type in this batch, and that is where
+the quote check looks for it.
+
+Read what it reports before going further. `truncated: true` means you have a
+ranked slice rather than the paper, and every gap it lists is something you will
+not be able to find however hard you look — say so in your answers rather than
+recording a silence you cannot account for.
+
+Then read the file. Do not paste it into anything.
+
+## What the job file holds
 
 - `narrative` — the paper's body prose, with section headings
 - `legends` — figure and table captions, kept separate from the prose. A caption
@@ -42,14 +76,6 @@ One job file, holding:
   resolve to
 - `supplement_prose` — supplementary documents judged to bear on describing cell
   types
-
-and one **subject block** per cell type: the atlas's own label, its full name,
-any synonyms it records, its parent and children, and where and when its cells
-were sampled.
-
-The subject block says who you are being asked about. It does not contain the
-answers, and the atlas's own view of a cell type is not evidence about what this
-paper says.
 
 ## The questions
 
