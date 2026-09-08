@@ -1,0 +1,162 @@
+"""Subatlas concordance: how each contributing study partitions each atlas cell set.
+
+Reads cas.json (transferred_annotations, incl. subatlas_contribution_cells) plus
+h5ad_obs/obs.categoricals.parquet for the atlas-wide total per source label.
+Writes notes/SUBATLAS_CONCORDANCE.md (summary) and notes/subatlas_concordance.csv
+(every row). Run from the project root.
+
+Two independent ratios per (cell set, source, label):
+
+  purity   = cell_count / subatlas_contribution_cells
+             of the cells this study partitioned inside this cell set, the fraction
+             it gave this label. High -> the study calls this cell set one thing.
+  coverage = cell_count / (atlas-wide cells carrying that source label)
+             of everything the study called this label, the fraction inside this
+             cell set. High -> this cell set holds the study's whole type.
+
+Together they separate "same type" from "one is broader", which a single
+node-relative ratio cannot do.
+"""
+import csv, json, collections
+from pathlib import Path
+import pyarrow.parquet as pq
+
+MIN_PARTITIONED = 20      # below this the ratios are noise
+HI = 0.8
+
+PAPER = {
+    "celltype_Lorenzi2025": ("Lorenzi et al. 2025", "10.1038/s41586-025-09875-2"),
+    "celltype_OvarySanger2026": ("Ovary (Sanger, unpublished)", "—"),
+    "celltype_Ulrich2024": ("Ulrich et al. 2024", "10.1073/pnas.2404775121"),
+    "celltype_GarciaAlonso2022": ("Garcia-Alonso et al. 2022", "10.1038/s41586-022-04918-4"),
+    "celltype_HECA": ("HECA / Human Endometrial Cell Atlas", "10.1038/s41588-024-01873-w"),
+    "celltype_GarciaAlonso2021": ("Garcia-Alonso et al. 2021", "10.1038/s41588-021-00972-2"),
+    "celltype_Lardenois2026": ("Lardenois et al. 2025", "10.1016/j.devcel.2025.09.011"),
+    "celltype_Weigert2025": ("Weigert et al. 2025", "10.1038/s41467-024-55440-2"),
+    "celltype_Ulrich2022": ("Ulrich et al. 2022", "10.1016/j.devcel.2022.02.017"),
+}
+
+cas = json.loads(Path("cas.json").read_text())
+A = cas["annotations"]
+sources = sorted(PAPER)
+df = pq.read_table("h5ad_obs/obs.categoricals.parquet", columns=sources).to_pandas()
+gtot = {c: df[c].value_counts().to_dict() for c in sources}
+
+parents = {x.get("parent_cell_set_accession") for x in A if x.get("parent_cell_set_accession")}
+rows = []
+for a in A:
+    if a["cell_set_accession"] in parents:
+        continue                                    # leaf cell sets only
+    for t in a.get("transferred_annotations") or []:
+        part = t.get("subatlas_contribution_cells") or 0
+        gt = gtot[t["source_labelset"]].get(t["transferred_cell_label"])
+        rows.append({
+            "labelset": a["labelset"], "cell_label": a["cell_label"],
+            "cell_fullname": a["cell_fullname"], "n_cells": a["n_cells"],
+            "source": t["source_labelset"], "source_label": t["transferred_cell_label"],
+            "cell_count": t["cell_count"], "partitioned": part,
+            "source_label_total": gt,
+            "purity": round(t["cell_count"] / part, 4) if part else None,
+            "coverage": round(t["cell_count"] / gt, 4) if gt else None,
+        })
+
+Path("notes/subatlas_concordance.csv").write_text("")
+with open("notes/subatlas_concordance.csv", "w", newline="") as fh:
+    w = csv.DictWriter(fh, fieldnames=list(rows[0]))
+    w.writeheader()
+    w.writerows(sorted(rows, key=lambda r: (r["cell_label"], r["source"], -r["cell_count"])))
+
+# one row per (cell set, source): the label the study gave most of those cells
+best = {}
+for r in rows:
+    k = (r["cell_label"], r["source"])
+    if k not in best or r["cell_count"] > best[k]["cell_count"]:
+        best[k] = r
+sel = [r for r in best.values() if r["partitioned"] >= MIN_PARTITIONED and r["coverage"] is not None]
+
+def quadrant(r):
+    hp, hc = r["purity"] >= HI, r["coverage"] >= HI
+    if hp and hc:   return "A"      # cell set == the study's type
+    if hp:          return "B"      # cell set inside a broader study type
+    if hc:          return "C"      # study's type inside a broader cell set
+    return "D"                       # partial overlap both ways
+
+for r in sel:
+    r["q"] = quadrant(r)
+byq = collections.defaultdict(list)
+for r in sel:
+    byq[r["q"]].append(r)
+
+def table(rs, limit=25):
+    out = ["| Atlas cell set | n | Study | Study's label | purity | coverage | cells |",
+           "|---|---|---|---|---|---|---|"]
+    for r in sorted(rs, key=lambda r: -r["cell_count"])[:limit]:
+        out.append(f"| `{r['cell_label']}` <br/><sub>{r['cell_fullname']}</sub> | {r['n_cells']:,} "
+                   f"| {PAPER[r['source']][0]} | `{r['source_label']}` "
+                   f"| {r['purity']:.0%} | {r['coverage']:.0%} "
+                   f"| {r['cell_count']:,}/{r['partitioned']:,} |")
+    if len(rs) > limit:
+        out.append(f"\n*{len(rs) - limit} further pairs in `subatlas_concordance.csv`.*")
+    return "\n".join(out)
+
+L = [
+ "# Subatlas concordance — how each study partitions each atlas cell set\n",
+ "Generated by `scripts/subatlas_concordance.py` from `cas.json` and",
+ "`h5ad_obs/obs.categoricals.parquet`. Every row is in `notes/subatlas_concordance.csv`;",
+ "the tables below show the largest in each class.\n",
+ "## Method\n",
+ "For each leaf cell set and each contributing study, take the label that study gave",
+ "most of those cells, and compute two independent ratios:\n",
+ "- **purity** = `cell_count / subatlas_contribution_cells` — of the cells this study",
+ "  partitioned inside this cell set, the fraction it gave this label. High means the",
+ "  study treats the cell set as one type.",
+ "- **coverage** = `cell_count / atlas-wide total for that source label` — of everything",
+ "  the study called this label, the fraction that sits inside this cell set. High means",
+ "  the cell set holds the study's whole type.\n",
+ f"Pairs with fewer than {MIN_PARTITIONED} partitioned cells are dropped as noise. The two",
+ f"ratios are cut at {HI:.0%}.\n",
+ "A single node-relative ratio (the previous version of this document) could not tell",
+ "\"the study disagrees\" from \"the study barely contributed here\". These two can.\n",
+ "| | coverage high | coverage low |",
+ "|---|---|---|",
+ f"| **purity high** | **A** — same type ({len(byq['A'])}) | **B** — study's type is broader ({len(byq['B'])}) |",
+ f"| **purity low** | **C** — atlas cell set is broader ({len(byq['C'])}) | **D** — partial overlap ({len(byq['D'])}) |",
+ "\n---\n",
+ f"## A. Same type — purity and coverage both ≥{HI:.0%} ({len(byq['A'])} pairs)\n",
+ "The study partitions this cell set into one type, and that type is essentially",
+ "confined to this cell set. The strongest evidence that two annotations mean the",
+ "same thing.\n",
+ table(byq["A"]), "\n",
+ f"## B. The study's type is broader — purity ≥{HI:.0%}, coverage <{HI:.0%} ({len(byq['B'])} pairs)\n",
+ "The study calls this whole cell set one thing, but uses that label well beyond it —",
+ "so the label subsumes this cell set rather than matching it. Do not cite these as",
+ "equivalent; they support the parent, not the leaf.\n",
+ table(byq["B"]), "\n",
+ f"## C. The atlas cell set is broader — purity <{HI:.0%}, coverage ≥{HI:.0%} ({len(byq['C'])} pairs)\n",
+ "Nearly all of the study's type sits inside this cell set, but the study splits the",
+ "cell set across several of its own types. These are the cases where a contributing",
+ "study drew finer distinctions than the master nomenclature keeps.\n",
+ table(byq["C"]), "\n",
+ f"## D. Partial overlap — both <{HI:.0%} ({len(byq['D'])} pairs)\n",
+ "Neither annotation contains the other. Weakest evidence; treat as a flag for review.\n",
+ table(byq["D"]), "\n",
+ "---\n",
+ "## Caveats\n",
+ "- **Set overlap is not name equivalence.** Class A says two annotations cover the same",
+ "  cells in *this* atlas, which can be an artefact of what was sampled. A study that",
+ "  only ever saw fetal genital melanocytes will match a fetal-specific cell set exactly",
+ "  while meaning something broader.",
+ "- **Coarse study vocabularies inflate purity.** Weigert 2025 has 12 labels for the whole",
+ "  atlas, so `stromal cell` reaches high purity on many mesenchymal cell sets. Read the",
+ "  study's label granularity alongside the ratios.",
+ "- The denominator counts each study's **partitioning**, not cell origin — several",
+ "  sources are re-analyses of shared primary data, so a cell can be annotated by three",
+ "  studies at once.\n",
+ "## Study key\n",
+ "| Labelset | Study | DOI |", "|---|---|---|",
+]
+for k in sources:
+    L.append(f"| `{k}` | {PAPER[k][0]} | {PAPER[k][1]} |")
+Path("notes/SUBATLAS_CONCORDANCE.md").write_text("\n".join(L) + "\n")
+print(f"rows: {len(rows)} | leaf (cell set, source) pairs kept: {len(sel)}")
+print("quadrants:", {k: len(v) for k, v in sorted(byq.items())})
