@@ -301,6 +301,40 @@ for a in annotations:
 print(f"cell_label <- celltype_HCA_fine for {_relabelled} leaves; "
       f"{_leaf_kept} leaves span >1 code and keep the nomenclature name")
 
+# ---------------------------------------------------------------- subatlas_contribution_cells
+# The purity denominator for transferred labels: how many cells of THIS cell set the
+# contributing study partitioned into types of its own, whatever it called them. What
+# matters is each study's partitioning of the cells, not where the cells originated —
+# several of these sources are re-analyses of shared primary data (Wang 2020 and
+# Garcia-Alonso 2021 cells are each annotated by three different sources), so
+# "cells that came from study X" is not readable off the Dataset column anyway.
+#
+# Counted from the per-cell table and stored once per source, identical across that
+# source's entries in the set. It equals the sum of those entries today, but is
+# recorded rather than derived so that later pruning of entries cannot shrink it.
+#
+# purity = cell_count / subatlas_contribution_cells
+#   high  -> the study treats this cell set as one type
+#   low   -> the study splits it (Ulrich 2024 partitions Endo_ven_apcv across 8 types,
+#            top label Capillary at 59%)
+_fine = obs["celltype_HCA_fine"]
+_notnull = {c: ~(obs[c].isin(NULLS) | (obs[c] == "nan")) for c in TRANSFER}
+_stamped = 0
+for a in annotations:
+    fa = [f for f in a.get("author_annotations") or [] if f["field"] == "celltype_HCA_fine"]
+    ta = a.get("transferred_annotations") or []
+    if not fa or not ta:
+        continue
+    mask = _fine.isin({v["value"] for v in fa[0]["values"]})
+    per_src = {}
+    for t in ta:
+        src = t["source_labelset"]
+        if src not in per_src:
+            per_src[src] = int((mask & _notnull[src]).sum())
+        t["subatlas_contribution_cells"] = per_src[src]
+        _stamped += 1
+print(f"stamped subatlas_contribution_cells on {_stamped} transferred_annotations entries")
+
 # ---------------------------------------------------------------- prune subsuming author_annotations
 # An author field whose single value covers 100% of the cell set is only worth
 # recording when the value IS the cell set. Where the value spans more cells the
