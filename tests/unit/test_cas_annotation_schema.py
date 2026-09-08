@@ -301,8 +301,33 @@ def _with_composition(composition: dict) -> object:
     return data
 
 
+CATEGORIES = [
+    "tissue",
+    "development_stage",
+    "disease",
+    "assay",
+    "organism",
+    "sex",
+    "self_reported_ethnicity",
+    "tissue_type",
+    "suspension_type",
+    "unclassified",
+]
+
+
+def _category_branches() -> list[dict]:
+    return load_schema(SCHEMA)["$defs"]["CompositionCategory"]["properties"]["category"]["oneOf"]
+
+
 @pytest.mark.unit
-@pytest.mark.parametrize("category", ["tissue", "development_stage", "disease", "assay"])
+def test_the_category_values_are_the_ones_expected() -> None:
+    """Spelled out here as well as in the schema: adding or renaming a category
+    is a contract change and should have to be made in two places."""
+    assert [b["const"] for b in _category_branches()] == CATEGORIES
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("category", CATEGORIES)
 def test_every_category_value_is_accepted(category: str) -> None:
     assert (
         _errors(
@@ -325,10 +350,24 @@ def test_unknown_category_is_rejected() -> None:
 
 @pytest.mark.unit
 def test_a_descriptor_with_no_category_validates() -> None:
-    """Not every column can be typed, and forcing a plausible-but-wrong value is
-    worse than leaving it out. Absence is what makes the classification's
-    completeness countable."""
+    """Entries written before typing existed stay valid. Absence claims nothing
+    either way, which is why a descriptor that was looked at and did not fit
+    says so with `unclassified` instead."""
     assert _errors(_with_composition({"a_column": {"values": [{"author_value": "x"}]}})) == []
+
+
+@pytest.mark.unit
+def test_a_descriptor_that_fits_nothing_says_so_rather_than_being_forced() -> None:
+    """Forcing a plausible-but-wrong category is worse than declining, and
+    declining has to be sayable for the classification to be auditable."""
+    assert (
+        _errors(
+            _with_composition(
+                {"a_column": {"category": "unclassified", "values": [{"author_value": "x"}]}}
+            )
+        )
+        == []
+    )
 
 
 @pytest.mark.unit
@@ -353,9 +392,7 @@ def test_every_category_value_is_described() -> None:
     """The point of spelling the values out as branches rather than a bare enum
     is that each carries its own definition where an editor will see it.
     Collapsing them back to an enum would validate identically and lose that."""
-    branches = load_schema(SCHEMA)["$defs"]["CompositionCategory"]["properties"]["category"][
-        "oneOf"
-    ]
+    branches = _category_branches()
     undescribed = [b.get("const") for b in branches if not (b.get("description") or "").strip()]
     assert undescribed == []
     assert len(branches) == len({b["const"] for b in branches})

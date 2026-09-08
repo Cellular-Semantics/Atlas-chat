@@ -91,7 +91,8 @@
               "ontology_term_id": "NCBITaxon:9606",
               "cell_ratio": 1.0
             }
-          ]
+          ],
+          "category": "organism"
         },
         "tissue_coarse": {
           "author_field_name": "organ",
@@ -132,7 +133,8 @@
               "cell_count": 100,
               "cell_ratio": 1.0
             }
-          ]
+          ],
+          "category": "unclassified"
         }
       },
       "author_annotation_fields": {

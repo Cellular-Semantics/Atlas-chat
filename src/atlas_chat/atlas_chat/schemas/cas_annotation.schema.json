@@ -194,7 +194,7 @@
       "properties": {
         "author_field_name": { "type": "string", "description": "The original obs column this category came from." },
         "category": {
-          "description": "What kind of descriptor this is, where that can be determined. A claim about what the column holds, never about whether it matters to any particular consumer. Omit it rather than force a plausible-but-wrong value: the list is deliberately short, an unclassified descriptor is an expected outcome, and absence is what makes the classification's completeness countable. Where present, it names the ontology a value would map to.",
+          "description": "What kind of descriptor this is: a claim about what the column holds, never about whether it matters to any particular consumer. The values follow the standard single-cell descriptor fields, so a category also says which ontology a value would map to. Use `unclassified` rather than forcing a plausible-but-wrong value — a descriptor that does not fit is an expected outcome, and saying so is what tells a later reader that the question was asked and answered rather than skipped.",
           "oneOf": [
             {
               "const": "tissue",
@@ -211,6 +211,30 @@
             {
               "const": "assay",
               "description": "The transcriptomics assay. Sample handling, dissociation, cell enrichment and sorting strategy are not assay and are left unclassified."
+            },
+            {
+              "const": "organism",
+              "description": "The species the cells came from."
+            },
+            {
+              "const": "sex",
+              "description": "Sex of the donor."
+            },
+            {
+              "const": "self_reported_ethnicity",
+              "description": "Ethnicity as reported by the donor, rather than inferred."
+            },
+            {
+              "const": "tissue_type",
+              "description": "Whether the material is tissue, an organoid or cell culture. Distinct from `tissue`, which says where it came from."
+            },
+            {
+              "const": "suspension_type",
+              "description": "Whether whole cells or nuclei were sequenced."
+            },
+            {
+              "const": "unclassified",
+              "description": "A descriptor that does not fit any category above. A positive statement that the column was looked at, not a gap: absence of `category` means the entry predates typing and nothing has been claimed about it either way."
             }
           ]
         },
