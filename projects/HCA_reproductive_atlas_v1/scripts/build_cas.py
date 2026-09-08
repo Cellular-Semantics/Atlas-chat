@@ -602,6 +602,53 @@ for a in annotations:
 print(f"composition cell-type entries: dropped {_ct_dropped}, kept {_ct_kept} cross-cutting, "
       f"{_ct_merged} merged-code leaves")
 
+# ---------------------------------------------------------------- composition categories
+# CompositionCategory.category: what kind of descriptor the column holds. `unclassified`
+# is a positive statement that the column was looked at and does not fit, which the
+# schema prefers to forcing a plausible-but-wrong value.
+_CATEGORY = {
+    # anatomical origin, recorded at three granularities (entries may share a category)
+    "Organ": "tissue", "Organ_part": "tissue", "Tissue_ROI": "tissue",
+    # where the donor sits in development; stage ontologies express age as stage terms,
+    # so the age columns belong here, and Tanner stage is pubertal staging
+    "Developmental_stage": "development_stage", "Gestational_age_pcw": "development_stage",
+    "Postnatal_age_years": "development_stage", "Tanner Stage": "development_stage",
+    # disease state of tissue or donor; Sampled_site_condition is normal/endometriosis/
+    # adenomyosis/infertility, i.e. a claim about the state of the sampled tissue
+    "Disease": "disease", "Clinical_diagnosis": "disease",
+    "Observed_pathology": "disease", "Sampled_site_condition": "disease",
+    # mixed column: cycle phase (Proliferative, Secretory) plus life stage (Paediatric,
+    # Postmenopausal) plus treatment (Hormones) — no one category is true of it
+    "Menstrual_stage": "unclassified",
+    # sorting/enrichment target (Immune, Not_immune, oogonial stem cells); the assay
+    # category explicitly excludes enrichment and sorting strategy
+    "Target_cell_population": "unclassified",
+}
+from collections import Counter as _Counter
+_n_cat = _Counter()
+for a in annotations:
+    for key, entry in (a.get("composition") or {}).items():
+        if key in _CATEGORY:
+            cat = _CATEGORY[key]
+        elif key in _CT_FIELDS:
+            # a cell-type column survived the prune either because one of its values
+            # cross-cuts this cell set, or because this is a merged-code leaf whose
+            # codes both sit wholly inside it — only the former is cross-cutting.
+            crosses = any(_CT_GTOT[key].get(v["author_value"], 0) != v["cell_count"]
+                          for v in entry["values"]
+                          if v["author_value"].strip().lower() not in _PLACEHOLDER)
+            cat = "cross_cutting_cell_type" if crosses else "unclassified"
+        else:
+            cat = "unclassified"
+        entry["category"] = cat
+        _n_cat[cat] += 1
+# category sits next to author_field_name, before the distribution
+for a in annotations:
+    for key, entry in (a.get("composition") or {}).items():
+        a["composition"][key] = {k: entry[k] for k in
+                                 ("author_field_name", "category", "values") if k in entry}
+print("composition categories:", dict(_n_cat))
+
 _KEY_ORDER2 = ["labelset", "cell_label", "cell_fullname", "cell_set_accession",
                "parent_cell_set_accession", "n_cells", "cell_ontology_term_id",
                "cell_ontology_term", "synonyms", "marker_gene_evidence",
