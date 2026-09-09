@@ -340,13 +340,30 @@ Prompts are co-located with the code/agents that use them, always as `*.prompt.y
 
 ## Curation-mode hook (how it works)
 
-The default session is curation/content mode. `.claude/hooks/curation_guard.py`
-(`PreToolUse` on `Edit|MultiEdit|Write`, registered in `.claude/settings.json`) lets
-non-developer users write **only** under `projects/` and `planning/`, and blocks
-everything else (`src/`, `.claude/`, schemas, docs, root files, anything outside the
-repo). The repo developer is recognised by `git config user.email` (in `TRUSTED_USERS`)
-and bypasses the gate; tests override the identity via `ATLAS_CHAT_HOOK_USER`. To do
-dev work you either have the trusted git identity or run an explicit dev session.
+`.claude/hooks/curation_guard.py` runs `PreToolUse` on `Write|Edit|MultiEdit`
+(registered in `.claude/settings.json`) and splits the repository in two.
+
+It covers this repository only — scratch files, other checkouts and `~/.claude`
+are unaffected. Inside it, `projects/` and `planning/` hold content and anyone may
+write there. Everything else — `src/`, `tests/`, `docs/`, `.claude/`, root files —
+is infrastructure:
+
+- **Untrusted users** cannot write it. The block tells the agent to capture the
+  request as a note under `planning/` instead.
+- **Trusted users** (git `user.email` in `TRUSTED_USERS`) can, but not until this
+  file has been loaded into the session. Until then the write is blocked with an
+  instruction to read it; the agent reads it and retries, so the block clears
+  itself. Nobody edits infrastructure without these conventions in front of them.
+
+Acknowledgement is read from the session transcript Claude Code passes in the hook
+payload, by looking for this file's own title line — so any route that puts the
+content in context counts (the Read tool, `cat`, an `@CLAUDE_dev` import). The
+marker is taken from the file rather than hardcoded, so retitling keeps both sides
+in step. Where no transcript is available the check cannot run and trusted users
+are allowed through.
+
+Tests override the identity via `ATLAS_CHAT_HOOK_USER`; the regression suite is
+`tests/unit/test_curation_guard.py`.
 
 ---
 
