@@ -143,6 +143,20 @@ Prompt: `agents/supplementary_scanner.prompt.yaml`. Output:
 `schemas/supplementary_findings.schema.json`. Declares its output schema in
 front-matter, but no validator hook is registered for it.
 
+## 5a. Choosing which cell types to report on
+
+A request names cell types the way a person would; the atlas names them the way
+its authors did. The `select-cell-types` skill closes that gap in the
+orchestrator's own context, because it is a judgement that has to be put to the
+user rather than guessed at.
+
+It reads `cli_project outline` — the annotation hierarchy, at roughly a
+two-hundredth of the size of the CAS+ document, whose bulk is composition — and
+resolves a request by finding a node and taking its subtree. Text matching alone
+is not sufficient and fails quietly: on the reference project, asking for
+macrophages by label alone finds one of seven, because two of the six subtypes
+are named for where they are and say nothing about being macrophages.
+
 ## 6a. Reading a paper whole
 
 `read-atlas-paper` (opus) is given a project name and the cell types to read
@@ -316,7 +330,7 @@ Everything reusable is callable without a Claude Code session:
 
 | Command | What it does |
 | --- | --- |
-| `python -m atlas_chat.cli_project` | a project's paths, from its name under `projects/` |
+| `python -m atlas_chat.cli_project` | `paths`: a project's locations, from its name under `projects/`. `outline`: its annotation hierarchy |
 | `python -m atlas_chat.cli_paper_ingest` | a paper plus its indexed supplementary prose, assembled for reading |
 | `python -m atlas_chat.cli_subject_block` | what a reader is told about a cell set, from CAS+ |
 | `python -m atlas_chat.cli_supplement_prose` | supplementary prose: units, record, cas-uptake |

@@ -45,7 +45,7 @@ them and read what they report.
 **Where things are.**
 
 ```bash
-uv run python -m atlas_chat.cli_project --project <project>
+uv run python -m atlas_chat.cli_project paths --project <project>
 ```
 
 This gives you the project directory, its CAS+ document, the atlas DOI, the

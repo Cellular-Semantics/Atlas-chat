@@ -169,27 +169,149 @@ def resolve(
     return paths
 
 
+# ------------------------------------------------------------------
+# The annotation hierarchy, small enough to read
+# ------------------------------------------------------------------
+
+#: Columns of the outline, in order.
+OUTLINE_COLUMNS = ("labelset", "label", "full name", "parent", "cells", "synonyms")
+
+
+def _searchable(annotation: dict[str, Any]) -> str:
+    parts = [annotation.get("cell_label", ""), annotation.get("cell_fullname") or ""]
+    parts.extend(annotation.get("synonyms") or [])
+    return " ".join(parts).lower()
+
+
+def _descendants(root: str, by_parent: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+    stack = list(by_parent.get(root, []))
+    while stack:
+        node = stack.pop()
+        out.append(node)
+        stack.extend(by_parent.get(node.get("cell_set_accession") or "", []))
+    return out
+
+
+def outline(
+    cas: dict[str, Any],
+    *,
+    labelset: str | None = None,
+    match: str | None = None,
+    under: str | None = None,
+    synonyms: bool = False,
+) -> str:
+    """The annotation hierarchy as lines, without the composition that dwarfs it.
+
+    A CAS+ document is mostly the breakdown of every descriptor over every cell,
+    which says nothing about what a cell type is called or where it sits. What is
+    left is small enough to read, and reading it is what lets a vague request —
+    all the macrophages, only the ones at this level — be answered by judgement
+    rather than by pattern.
+
+    The parent is here because matching on text alone is not enough: a cell type's
+    label need not contain the word for what it is, and its siblings' labels need
+    not resemble each other. Finding a node by name and taking what sits under it
+    catches those; a substring does not.
+
+    Args:
+        cas: the CAS+ document.
+        labelset: keep only this level.
+        match: keep annotations whose label, full name or synonyms contain this.
+        under: keep everything beneath the annotation with this label.
+        synonyms: include them in the output.
+
+    Returns:
+        A header line and one line per annotation, tab-separated, in document
+        order. Empty where a field is absent, so the columns stay aligned.
+    """
+    annotations = cas.get("annotations") or []
+    by_accession = {
+        a.get("cell_set_accession"): a for a in annotations if a.get("cell_set_accession")
+    }
+    by_parent: dict[str, list[dict[str, Any]]] = {}
+    for a in annotations:
+        by_parent.setdefault(a.get("parent_cell_set_accession") or "", []).append(a)
+
+    kept = list(annotations)
+    if under:
+        roots = [a for a in annotations if a.get("cell_label") == under]
+        wanted = {
+            id(a)
+            for root in roots
+            for a in _descendants(root.get("cell_set_accession") or "", by_parent)
+        }
+        kept = [a for a in kept if id(a) in wanted]
+    if labelset:
+        kept = [a for a in kept if a.get("labelset") == labelset]
+    if match:
+        needle = match.lower()
+        kept = [a for a in kept if needle in _searchable(a)]
+
+    columns = OUTLINE_COLUMNS if synonyms else OUTLINE_COLUMNS[:-1]
+    lines = ["\t".join(columns)]
+    for a in kept:
+        parent = by_accession.get(a.get("parent_cell_set_accession") or "")
+        fullname = a.get("cell_fullname") or ""
+        row = [
+            a.get("labelset", ""),
+            a.get("cell_label", ""),
+            "" if fullname == a.get("cell_label") else fullname,
+            parent.get("cell_label", "") if parent else "",
+            str(a.get("n_cells", "")),
+        ]
+        if synonyms:
+            row.append(";".join(a.get("synonyms") or []))
+        lines.append("\t".join(row))
+    return "\n".join(lines)
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="python -m atlas_chat.cli_project",
-        description="Resolve a project's paths from its name.",
+        description="A project's paths, and its annotation hierarchy.",
     )
-    parser.add_argument(
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    common = argparse.ArgumentParser(add_help=False)
+    common.add_argument(
         "--project",
         required=True,
         help="project directory under projects/, e.g. test_projects/<name>, or a path",
     )
-    parser.add_argument("--repo-root", help="checkout to look in; default the working directory")
-    parser.add_argument("--corpus-root", help=f"default {CORPUS_ENV}")
+    common.add_argument("--repo-root", help="checkout to look in; default the working directory")
+
+    paths = sub.add_parser("paths", parents=[common], help="where the project's things are")
+    paths.add_argument("--corpus-root", help=f"default {CORPUS_ENV}")
+
+    out = sub.add_parser("outline", parents=[common], help="the annotation hierarchy")
+    out.add_argument("--labelset", help="keep only this level")
+    out.add_argument("--match", help="keep annotations whose label, full name or synonyms match")
+    out.add_argument("--under", help="keep everything beneath this annotation")
+    out.add_argument("--synonyms", action="store_true", help="include synonyms")
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    root = Path(args.repo_root) if args.repo_root else None
     try:
+        if args.command == "outline":
+            project_dir = find_project(args.project, root or Path.cwd())
+            cas = json.loads((project_dir / "cas.json").read_text(encoding="utf-8"))
+            print(
+                outline(
+                    cas,
+                    labelset=args.labelset,
+                    match=args.match,
+                    under=args.under,
+                    synonyms=args.synonyms,
+                )
+            )
+            return 0
         paths = resolve(
             args.project,
-            repo_root=Path(args.repo_root) if args.repo_root else None,
+            repo_root=root,
             corpus_root=Path(args.corpus_root) if args.corpus_root else None,
         )
     except ProjectNotFound as exc:
