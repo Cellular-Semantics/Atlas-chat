@@ -4,9 +4,15 @@
   "description": "The distilled evidence item the report synthesizer reads (one element of all_summaries.json). Produced by the snippet-summarizer from an annotated_snippet. Traversal machinery (refMentions / sentences) does NOT leak here; provenance (source_paper / retrieval_method / reached_from) does.",
   "type": "object",
   "properties": {
-    "source_paper": { "$ref": "#/$defs/SourcePaper" },
-    "retrieval_method": { "$ref": "#/$defs/retrieval_method" },
-    "reached_from": { "$ref": "#/$defs/ReachedFrom" },
+    "source_paper": {
+      "$ref": "#/$defs/SourcePaper"
+    },
+    "retrieval_method": {
+      "$ref": "#/$defs/retrieval_method"
+    },
+    "reached_from": {
+      "$ref": "#/$defs/ReachedFrom"
+    },
     "source_title": {
       "type": "string",
       "description": "Title of the source paper (convenience for the synthesizer's inline citations)."
@@ -17,7 +23,7 @@
     },
     "score": {
       "type": "number",
-      "description": "ASTA retrieval relevance score for the source snippet (carried through unchanged — not an LLM re-score)."
+      "description": "ASTA retrieval relevance score for the source snippet (carried through unchanged \u2014 not an LLM re-score)."
     },
     "summary": {
       "type": "string",
@@ -25,44 +31,96 @@
     },
     "quotes": {
       "type": "array",
-      "description": "Exact-substring quotes from the snippet text. Pre-verified so the synthesizer's blockquote rule and report_checker's quote-substring check hold.",
-      "items": { "type": "string" }
+      "description": "Verbatim quotes from the source, each one continuous run of text \u2014 never spliced. They are what every assertion in `summary` rests on, and are checked by searching the source text rather than trusted.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "aspect": {
+      "type": "string",
+      "description": "Which question about the cell type this item answers. Present so that the aspect is a field rather than a prefix on the prose, and so a consumer can tell an absent aspect from an unasked one.",
+      "enum": [
+        "naming",
+        "location",
+        "markers",
+        "structure",
+        "function"
+      ]
+    },
+    "found": {
+      "type": "boolean",
+      "description": "Whether the source addresses this aspect at all. False is a correct and expected outcome, and is not the same as no item having been written: an item recording that the source is silent is a finding, an absent item is an unanswered question."
     }
   },
-  "required": ["source_paper", "retrieval_method", "summary", "quotes"],
+  "required": [
+    "source_paper",
+    "retrieval_method",
+    "summary",
+    "quotes"
+  ],
   "additionalProperties": false,
   "$defs": {
     "role": {
       "type": "string",
       "description": "What the source paper IS relative to the corpus, independent of how it was reached. 'atlas' = primary atlas paper; 'subatlas' = an upstream corpus member; 'external' = not a corpus member.",
-      "enum": ["atlas", "subatlas", "external"]
+      "enum": [
+        "atlas",
+        "subatlas",
+        "external"
+      ]
     },
     "retrieval_method": {
       "type": "string",
       "description": "The MECHANISM by which this item was obtained. Orthogonal to source_paper.role. 'corpus_snippet' = snippet_search scoped to a corpus paper; 'supplement' = extracted from a supplementary file; 'citation_traversal' = reached by following a citation from another paper; 'free_search' = unscoped snippet/literature search.",
-      "enum": ["corpus_snippet", "supplement", "citation_traversal", "free_search"]
+      "enum": [
+        "corpus_snippet",
+        "supplement",
+        "citation_traversal",
+        "free_search"
+      ]
     },
     "SourcePaper": {
       "type": "object",
       "description": "The paper this evidence item came from. At least one of doi / corpus_id must be present, and it must resolve to an entry in paper_catalogue.json (enforced by report_checker).",
       "properties": {
-        "doi": { "type": "string", "description": "DOI of the source paper." },
+        "doi": {
+          "type": "string",
+          "description": "DOI of the source paper."
+        },
         "corpus_id": {
           "type": "string",
           "description": "Semantic Scholar CorpusId, formatted 'CorpusId:NNNN'.",
           "pattern": "^CorpusId:\\d+$"
         },
-        "role": { "$ref": "#/$defs/role" }
+        "role": {
+          "$ref": "#/$defs/role"
+        }
       },
-      "required": ["role"],
-      "anyOf": [{ "required": ["doi"] }, { "required": ["corpus_id"] }],
+      "required": [
+        "role"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "doi"
+          ]
+        },
+        {
+          "required": [
+            "corpus_id"
+          ]
+        }
+      ],
       "additionalProperties": false
     },
     "ReachedFrom": {
       "type": "object",
       "description": "For citation_traversal items: the corpus paper this reference was reached from, the traversal hop, and the citing sentence (from the ASTA refMention's containing sentence span).",
       "properties": {
-        "doi": { "type": "string", "description": "DOI of the citing paper." },
+        "doi": {
+          "type": "string",
+          "description": "DOI of the citing paper."
+        },
         "corpus_id": {
           "type": "string",
           "description": "CorpusId of the citing paper, formatted 'CorpusId:NNNN'.",
@@ -78,9 +136,42 @@
           "description": "The exact citing sentence from the citing paper (the sentence span containing the refMention)."
         }
       },
-      "required": ["hop", "citation_context"],
-      "anyOf": [{ "required": ["doi"] }, { "required": ["corpus_id"] }],
+      "required": [
+        "hop",
+        "citation_context"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "doi"
+          ]
+        },
+        {
+          "required": [
+            "corpus_id"
+          ]
+        }
+      ],
       "additionalProperties": false
+    }
+  },
+  "if": {
+    "not": {
+      "properties": {
+        "found": {
+          "const": false
+        }
+      },
+      "required": [
+        "found"
+      ]
+    }
+  },
+  "then": {
+    "properties": {
+      "quotes": {
+        "minItems": 1
+      }
     }
   }
 }
