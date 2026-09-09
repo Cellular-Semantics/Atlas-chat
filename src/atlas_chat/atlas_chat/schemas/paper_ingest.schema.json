@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paper_ingest.schema.json",
+  "title": "PaperIngest",
+  "description": "Everything from one paper that is loaded into a reading agent's context before any question is asked. Assembled deterministically: no model is called. Text is carried inline rather than referenced, because the point of the object is to be read whole; a caller that only needs to know what is available should read the counts and gaps.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source", "narrative", "budget"],
+  "properties": {
+    "paper": {
+      "type": "object",
+      "description": "Identifiers for the paper, as far as they are known. All optional: a paper may be reachable as text without any identifier resolving.",
+      "additionalProperties": false,
+      "properties": {
+        "doi": { "type": "string" },
+        "pmcid": { "type": "string" },
+        "title": { "type": "string" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "description": "Where the text came from, and by what route, so a downstream grounding check can tell how faithfully it represents the published article.",
+      "additionalProperties": false,
+      "required": ["path", "kind"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The file this was assembled from."
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["jats", "pdf_text"],
+          "description": "Tagged article XML, or text recovered from a PDF. The distinction does real work downstream: PDF text has no reference markup, so no cited sentences are available, and its reading order is not guaranteed across a column boundary, so a quote spanning one may not correspond to anything a reader of the article would see."
+        }
+      }
+    },
+    "narrative": {
+      "type": "object",
+      "description": "The paper's body prose, with section headings retained inline, in document order.",
+      "additionalProperties": false,
+      "required": ["text", "n_chars"],
+      "properties": {
+        "text": { "type": "string" },
+        "n_chars": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "excluded_sections": {
+      "type": "array",
+      "description": "Sections held out of `narrative` because they describe how the work was done rather than what was found. Recorded by heading and size rather than carried, so that their exclusion is visible and reversible without doubling the object.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["heading", "n_chars"],
+        "properties": {
+          "heading": { "type": "string" },
+          "n_chars": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "legends": {
+      "type": "array",
+      "description": "Figure and table captions, kept as their own block and never merged into `narrative`. A caption is not body prose and must not read as though it were; separately, captions routinely carry naming information that appears nowhere in the body, so they cannot simply be dropped either.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "The authors' own label for the figure or table, where the markup carries one."
+          },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "cited_sentences": {
+      "type": "array",
+      "description": "Sentences that carry a citation, each with the references it cites. Available only from tagged XML. Two uses: a citation on a sentence marks a claim as inherited rather than made by this paper, and the reference it resolves to is an exact onward target rather than a search result.",
+      "items": {
+        "type": "object",
+        "required": ["text", "ref_ids"],
+        "properties": {
+          "text": { "type": "string" },
+          "section": { "type": "string" },
+          "ref_ids": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "references": {
+      "type": "object",
+      "description": "The reference list, keyed by the identifier `cited_sentences` uses. A key absent here is a marker the parser could not resolve, not an invented reference.",
+      "additionalProperties": { "type": "object" }
+    },
+    "supplement_prose": {
+      "type": "array",
+      "description": "Supplementary prose judged to bear on describing cell types, taken from the paper's supplement manifest. Only spans marked as folding in are carried; the rest are omitted, not summarised. Prose is included whole because it cannot be sliced by a query the way a table can.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "n_chars"],
+        "properties": {
+          "file_id": { "type": "string" },
+          "member_path": { "type": "string" },
+          "text_file": {
+            "type": "string",
+            "description": "Store-relative path the text was read from, so a claim can be traced back to it."
+          },
+          "description": {
+            "type": "string",
+            "description": "What this prose contains, carried through from the manifest."
+          },
+          "headings": {
+            "type": "array",
+            "description": "The headings of the spans carried, in order. Empty when the document was taken whole.",
+            "items": { "type": "string" }
+          },
+          "text": { "type": "string" },
+          "n_chars": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "budget": {
+      "type": "object",
+      "description": "What the assembled object costs to read, and whether anything was left out to fit. A caller must be able to tell a complete ingest from a partial one without recounting.",
+      "additionalProperties": false,
+      "required": ["estimated_tokens", "truncated"],
+      "properties": {
+        "limit_tokens": {
+          "type": "integer",
+          "description": "The ceiling applied, when one was.",
+          "minimum": 0
+        },
+        "estimated_tokens": { "type": "integer", "minimum": 0 },
+        "truncated": {
+          "type": "boolean",
+          "description": "True when content was dropped to fit the ceiling. Every drop also appears in `gaps`, so a truncated ingest says what is missing rather than only that something is."
+        }
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "description": "What could not be included, and why. A gap is a statement that something is unread — never that it holds nothing relevant.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["what", "reason"],
+        "properties": {
+          "what": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    }
+  }
+}

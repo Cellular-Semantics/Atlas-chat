@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subject_block.schema.json",
+  "title": "SubjectBlock",
+  "description": "What a reading agent is told about one cell set before being asked anything about it. Identity and enough context to find the right passages and to notice when a passage is about something else — never the answers to the questions being asked, which is why nothing derived from prior annotation of this cell set's biology appears here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cell_label", "labelset", "n_cells"],
+  "properties": {
+    "cell_label": {
+      "type": "string",
+      "description": "The atlas's own label for the cell set."
+    },
+    "cell_fullname": {
+      "type": "string",
+      "description": "The label written out, where the atlas gives one and it differs from the label itself."
+    },
+    "labelset": {
+      "type": "string",
+      "description": "The labelset the cell set belongs to, which is what makes its granularity legible against its parent and children."
+    },
+    "n_cells": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Cells in the set. Carried because a claim about a handful of cells and a claim about tens of thousands are not equally weighty."
+    },
+    "synonyms": {
+      "type": "array",
+      "description": "Other names the atlas records for this cell set.",
+      "items": { "type": "string" }
+    },
+    "parent": {
+      "type": "string",
+      "description": "Label of the cell set this one sits within."
+    },
+    "children": {
+      "type": "array",
+      "description": "Labels of the cell sets that subdivide this one. Present so that a subdivision is not mistaken for another name for the whole: an alternative name must denote the same cells, and without the children that rule cannot be applied.",
+      "items": { "type": "string" }
+    },
+    "context": {
+      "type": "object",
+      "description": "Where and when these cells were sampled, grouped by descriptor category and then by the source column, carrying only values above the ratio the caller set. Several columns may report the same category at different granularities; they are kept apart because they are not the same statement.",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

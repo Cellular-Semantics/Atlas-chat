@@ -248,6 +248,17 @@ def _waterfall_handler(
     return handler
 
 
+def _no_pmc_handler():
+    """Europe PMC knows nothing about the paper, so every PMC route is blind."""
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if "/search" in str(request.url):
+            return httpx.Response(200, json={"resultList": {"result": []}})
+        return httpx.Response(404)
+
+    return handler
+
+
 def test_bundle_route_stores_only_listed_files(tmp_path: Path) -> None:
     """Figure images bloat the bundle; only the listed supplements are wanted."""
     bundle = _zip(
@@ -301,13 +312,10 @@ def test_everything_failing_leaves_actionable_gaps(tmp_path: Path) -> None:
     assert all("incoming/" in gap["action"] for gap in manifest["gaps"] if "action" in gap)
 
 
-def test_no_pmc_record_records_the_manual_route(tmp_path: Path) -> None:
-    def handler(request: httpx.Request) -> httpx.Response:
-        if "/search" in str(request.url):
-            return httpx.Response(200, json={"resultList": {"result": []}})
-        return httpx.Response(404)
+def test_no_pmc_record_records_the_manual_route(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(fetch, "biorxiv_metadata", lambda doi: None)
 
-    with _client(handler) as client:
+    with _client(_no_pmc_handler()) as client:
         manifest = fetch.fetch_supplements(tmp_path, "10.1126/science.adx0659", client=client)
 
     assert manifest["files"] == []
@@ -526,3 +534,148 @@ def test_corrupt_bytes_are_not_left_on_disk(tmp_path: Path) -> None:
     assert entry["status"] in {"failed", "unavailable"}
     assert "path" not in entry
     assert not list((tmp_path / "papers").rglob("*.xlsx"))
+
+
+# ------------------------------------------------------------------
+# The preprint route
+# ------------------------------------------------------------------
+
+PREPRINT_DOI = "10.5555/2026.01.02.123456"
+
+SUPPLEMENT_PAGE = """
+<div class="supplementary-material-expansion" id="DC1">
+  <span class="supplementary-material-label">Supplementary Information</span>
+  <a href="https://www.biorxiv.org/content/x/early/d/s/DC1/embed/media-1.docx?download=true">
+  [supplements/file01.docx]</a>
+</div>
+<div class="supplementary-material-expansion" id="DC2">
+  <span class="supplementary-material-label">Supplementary Table 1</span>
+  <a href="https://www.biorxiv.org/content/x/early/d/s/DC2/embed/media-2.xlsx?download=true">
+  [supplements/file02.xlsx]</a>
+</div>
+<a href="https://www.biorxiv.org/content/x.full.pdf">Full text</a>
+"""
+
+
+def _preprint_bytes(url: str) -> bytes:
+    return _xlsx() if url.endswith((".xlsx", ".docx")) else _pdf()
+
+
+def _serve_preprint(monkeypatch, *, page: str | None = SUPPLEMENT_PAGE, files: bool = True):
+    """Stand in for both bioRxiv boundaries: the metadata API and the site."""
+    monkeypatch.setattr(fetch, "biorxiv_metadata", lambda doi: {"doi": doi, "version": "2"})
+    requested: list[str] = []
+
+    def get(url: str) -> tuple[bytes | None, str]:
+        requested.append(url)
+        if url.endswith(".supplementary-material"):
+            return (page.encode(), "ok") if page is not None else (None, "HTTP 403")
+        return (_preprint_bytes(url), "ok") if files else (None, "HTTP 404")
+
+    monkeypatch.setattr(fetch, "biorxiv_get", get)
+    return requested
+
+
+def test_page_parse_reads_files_labels_and_urls() -> None:
+    listed = fetch.parse_supplement_page(SUPPLEMENT_PAGE)
+
+    assert [entry["file_id"] for entry in listed] == ["media-1.docx", "media-2.xlsx"]
+    assert listed[1]["label"] == "Supplementary Table 1"
+    assert listed[1]["retrieval"] == {
+        "route": "biorxiv",
+        "url": "https://www.biorxiv.org/content/x/early/d/s/DC2/embed/media-2.xlsx",
+    }
+    assert all(entry["status"] == "listed" for entry in listed)
+
+
+def test_page_parse_finds_nothing_in_a_page_without_supplements() -> None:
+    assert fetch.parse_supplement_page("<html><body>no supplements here</body></html>") == []
+
+
+def test_listing_declines_a_doi_the_preprint_server_does_not_host(monkeypatch) -> None:
+    """The metadata lookup is the test of what a preprint is — not the prefix."""
+    monkeypatch.setattr(fetch, "biorxiv_metadata", lambda doi: None)
+
+    assert fetch.biorxiv_listing("10.1126/science.adx0659") == []
+
+
+def test_listing_uses_the_version_the_metadata_reports(monkeypatch) -> None:
+    requested = _serve_preprint(monkeypatch)
+
+    fetch.biorxiv_listing(PREPRINT_DOI)
+
+    assert requested[0].endswith(f"{PREPRINT_DOI}v2.supplementary-material")
+
+
+def test_preprint_supplements_are_retrieved_without_a_pmc_record(
+    tmp_path: Path, monkeypatch
+) -> None:
+    _serve_preprint(monkeypatch)
+
+    with _client(_no_pmc_handler()) as client:
+        manifest = fetch.fetch_supplements(tmp_path, PREPRINT_DOI, client=client)
+
+    assert {f["file_id"] for f in manifest["files"]} == {"media-1.docx", "media-2.xlsx"}
+    for entry in manifest["files"]:
+        assert entry["status"] == "present"
+        assert entry["retrieval"]["route"] == "biorxiv"
+        assert (tmp_path / entry["path"]).stat().st_size == entry["size_bytes"]
+    assert manifest["gaps"] == []
+    store.validate_manifest(manifest)
+    assert store.cross_check_manifest(manifest) == []
+
+
+def test_an_unreadable_preprint_page_still_leaves_the_manual_route(
+    tmp_path: Path, monkeypatch
+) -> None:
+    _serve_preprint(monkeypatch, page=None)
+
+    with _client(_no_pmc_handler()) as client:
+        manifest = fetch.fetch_supplements(tmp_path, PREPRINT_DOI, client=client)
+
+    assert manifest["files"] == []
+    assert "no PMC record" in manifest["gaps"][0]["reason"]
+
+
+def test_a_listed_file_that_will_not_download_becomes_a_gap(tmp_path: Path, monkeypatch) -> None:
+    _serve_preprint(monkeypatch, files=False)
+
+    with _client(_no_pmc_handler()) as client:
+        manifest = fetch.fetch_supplements(tmp_path, PREPRINT_DOI, client=client)
+
+    assert all(f["status"] == "failed" for f in manifest["files"])
+    assert all(f["retrieval"]["attempted_at"] for f in manifest["files"])
+    assert {gap["file_id"] for gap in manifest["gaps"]} == {"media-1.docx", "media-2.xlsx"}
+    store.validate_manifest(manifest)
+
+
+def test_a_second_run_refetches_neither_the_page_nor_the_files(tmp_path: Path, monkeypatch) -> None:
+    requested = _serve_preprint(monkeypatch)
+
+    with _client(_no_pmc_handler()) as client:
+        fetch.fetch_supplements(tmp_path, PREPRINT_DOI, client=client)
+        first = len(requested)
+        fetch.fetch_supplements(tmp_path, PREPRINT_DOI, client=client)
+
+    assert first == 3, "the page, then one request per file"
+    assert len(requested) == first + 1, "only the page is read again"
+
+
+def test_corrupt_preprint_bytes_are_not_left_on_disk(tmp_path: Path, monkeypatch) -> None:
+    """Storing an unopenable file would poison indexing later."""
+    _serve_preprint(monkeypatch)
+    served = fetch.biorxiv_get
+
+    def truncated(url: str) -> tuple[bytes | None, str]:
+        if url.endswith(".supplementary-material"):
+            return served(url)
+        return b"PK\x03\x04truncated", "ok"
+
+    monkeypatch.setattr(fetch, "biorxiv_get", truncated)
+
+    with _client(_no_pmc_handler()) as client:
+        manifest = fetch.fetch_supplements(tmp_path, PREPRINT_DOI, client=client)
+
+    assert all(f["status"] == "failed" for f in manifest["files"])
+    assert all("path" not in f for f in manifest["files"])
+    assert not list((tmp_path / "papers").rglob("media-*"))

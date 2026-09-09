@@ -130,3 +130,64 @@ def test_good_fixtures_are_independent_copies() -> None:
     b = copy.deepcopy(a)
     a[0]["retrieval_method"] = "free_search"
     assert b[0]["retrieval_method"] == "corpus_snippet"
+
+
+# --- the aspect, the decline, and the quote that must be there ---------------
+
+
+def _record(**over: object) -> dict:
+    base = {
+        "source_paper": {"doi": "10.1/x", "role": "atlas"},
+        "retrieval_method": "corpus_snippet",
+        "summary": "s",
+        "quotes": ["q"],
+    }
+    base.update(over)
+    return base
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("schema", ["all_summaries.schema.json", "evidence_summary.schema.json"])
+def test_an_item_without_aspect_or_found_is_still_valid(schema: str) -> None:
+    """Citation traversal writes evidence that has no aspect, and everything it
+    writes is by construction something it found. Both fields are optional so
+    that producer is not broken by a field it cannot meaningfully supply."""
+    data = [_record()] if schema.startswith("all") else _record()
+    assert _validate(schema, data) == []
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("schema", ["all_summaries.schema.json", "evidence_summary.schema.json"])
+def test_an_assertion_with_no_quote_is_rejected(schema: str) -> None:
+    """`quotes` was required but an empty list validated, which is how earlier
+    runs produced assertions with nothing behind them."""
+    item = _record(quotes=[])
+    assert _validate(schema, [item] if schema.startswith("all") else item)
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("schema", ["all_summaries.schema.json", "evidence_summary.schema.json"])
+def test_a_decline_may_carry_no_quotes(schema: str) -> None:
+    """Recording that the source is silent is a finding; it has nothing to quote."""
+    item = _record(aspect="structure", found=False, quotes=[])
+    assert _validate(schema, [item] if schema.startswith("all") else item) == []
+
+
+@pytest.mark.unit
+@pytest.mark.parametrize("schema", ["all_summaries.schema.json", "evidence_summary.schema.json"])
+def test_an_unknown_aspect_is_rejected(schema: str) -> None:
+    item = _record(aspect="provenance")
+    assert _validate(schema, [item] if schema.startswith("all") else item)
+
+
+@pytest.mark.unit
+def test_the_two_copies_of_the_shape_agree() -> None:
+    """`all_summaries` inlines a mirror of `evidence_summary` because standalone
+    hook validators cannot resolve a cross-file $ref. Changing one and not the
+    other is the failure this catches."""
+    standalone = load_schema("evidence_summary.schema.json")
+    mirror = load_schema("all_summaries.schema.json")["$defs"]["EvidenceSummary"]
+    assert set(standalone["properties"]) == set(mirror["properties"])
+    assert sorted(standalone["required"]) == sorted(mirror["required"])
+    assert standalone.get("if") == mirror.get("if")
+    assert standalone.get("then") == mirror.get("then")
