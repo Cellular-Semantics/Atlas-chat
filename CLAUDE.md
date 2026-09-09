@@ -122,8 +122,21 @@ present them as a fresh finding, and the report will double-count its own input.
 
 # Part 3 — Produce reports
 
-The user asks for reports on some set of cell types, in free text. Interpret that
-against CAS+ to decide which annotations are in scope, and say which you chose.
+The user asks for reports on some set of cell types, in free text — "all the
+macrophages", "just the L3 ones", a single label.
+
+**Invoke the `select-cell-types` skill** to turn that into a list. It is a
+judgement, not a lookup: the atlas names cell types the way its authors did, and
+a request names them the way a person would. The skill reads the annotation
+hierarchy rather than the annotations themselves — a CAS+ document is mostly
+composition, and on a real atlas that is millions of tokens — and resolves a
+request by finding a node and taking its subtree, because matching on text alone
+misses cell types whose labels do not say what they are.
+
+It will show you the selection and wait. Do not skip that: the selection governs
+everything below, and a wrong one is discovered when the reports come back.
+
+Where the user has named exact labels, use them and say so.
 
 Then work down as much of this as the evidence warrants. **You may stop and
 synthesise at any point** — a report from the atlas paper alone is a legitimate
