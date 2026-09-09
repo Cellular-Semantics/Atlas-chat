@@ -139,12 +139,122 @@ def test_the_traversal_directory_is_created(tmp_path):
 def test_cli_prints_the_paths(tmp_path, capsys):
     d = _project(tmp_path, "a")
     _paper(d)
-    assert main(["--project", "a", "--repo-root", str(tmp_path)]) == 0
+    assert main(["paths", "--project", "a", "--repo-root", str(tmp_path)]) == 0
     out = json.loads(capsys.readouterr().out)
     assert out["doi"] == DOI
     assert out["paper_text"].endswith("paper.jats.xml")
 
 
 def test_cli_exits_nonzero_for_an_unknown_project(tmp_path, capsys):
-    assert main(["--project", "nope", "--repo-root", str(tmp_path)]) == 2
+    assert main(["paths", "--project", "nope", "--repo-root", str(tmp_path)]) == 2
     assert "no cas.json" in capsys.readouterr().out
+
+
+# --- the annotation hierarchy ------------------------------------------------
+
+
+def _hierarchy(tmp_path: Path) -> dict:
+    """A parent with two children, one of which does not say what it is."""
+    return {
+        "source": {"doi": DOI},
+        "annotations": [
+            {
+                "labelset": "L3",
+                "cell_label": "Macrophages",
+                "cell_set_accession": "M",
+                "n_cells": 100,
+                "synonyms": ["Mac"],
+            },
+            {
+                "labelset": "L4",
+                "cell_label": "Immune_Mac_LYVE1hi",
+                "cell_fullname": "Macrophages LYVE1+",
+                "cell_set_accession": "A",
+                "parent_cell_set_accession": "M",
+                "n_cells": 60,
+            },
+            {
+                "labelset": "L4",
+                "cell_label": "Immune_oLAM",
+                "cell_fullname": "Ovarian lipid-associated macrophages",
+                "cell_set_accession": "B",
+                "parent_cell_set_accession": "M",
+                "n_cells": 40,
+            },
+        ],
+    }
+
+
+def _labels(text: str) -> list[str]:
+    return [line.split("\t")[1] for line in text.splitlines()[1:]]
+
+
+def test_the_outline_has_a_line_per_annotation_and_a_header(tmp_path):
+    from atlas_chat.services.project_paths import outline
+
+    text = outline(_hierarchy(tmp_path))
+    assert text.splitlines()[0].startswith("labelset\tlabel")
+    assert _labels(text) == ["Macrophages", "Immune_Mac_LYVE1hi", "Immune_oLAM"]
+
+
+def test_a_full_name_identical_to_the_label_is_left_blank(tmp_path):
+    from atlas_chat.services.project_paths import outline
+
+    row = outline(_hierarchy(tmp_path)).splitlines()[1].split("\t")
+    assert row[1] == "Macrophages"
+    assert row[2] == ""
+
+
+def test_the_parent_is_named_so_a_subtree_is_visible(tmp_path):
+    from atlas_chat.services.project_paths import outline
+
+    rows = [line.split("\t") for line in outline(_hierarchy(tmp_path)).splitlines()[1:]]
+    assert {r[3] for r in rows if r[1].startswith("Immune")} == {"Macrophages"}
+
+
+def test_matching_the_label_alone_would_miss_most_of_them(tmp_path):
+    """The reason selection resolves to a subtree rather than a match: a cell
+    type's label need not contain the word for what it is."""
+    from atlas_chat.services.project_paths import outline
+
+    by_label = [
+        a["cell_label"]
+        for a in _hierarchy(tmp_path)["annotations"]
+        if "macrophage" in a["cell_label"].lower()
+    ]
+    assert by_label == ["Macrophages"]
+    assert _labels(outline(_hierarchy(tmp_path), under="Macrophages")) == [
+        "Immune_Mac_LYVE1hi",
+        "Immune_oLAM",
+    ]
+
+
+def test_match_covers_the_full_name_and_synonyms(tmp_path):
+    from atlas_chat.services.project_paths import outline
+
+    assert len(_labels(outline(_hierarchy(tmp_path), match="macrophage"))) == 3
+    assert _labels(outline(_hierarchy(tmp_path), match="mac")) == [
+        "Macrophages",
+        "Immune_Mac_LYVE1hi",
+        "Immune_oLAM",
+    ]
+
+
+def test_a_labelset_narrows_to_one_level(tmp_path):
+    from atlas_chat.services.project_paths import outline
+
+    assert _labels(outline(_hierarchy(tmp_path), labelset="L3")) == ["Macrophages"]
+
+
+def test_synonyms_are_left_out_unless_asked_for(tmp_path):
+    from atlas_chat.services.project_paths import outline
+
+    assert "synonyms" not in outline(_hierarchy(tmp_path)).splitlines()[0]
+    assert "Mac" in outline(_hierarchy(tmp_path), synonyms=True).splitlines()[1]
+
+
+def test_cli_outline_prints_the_hierarchy(tmp_path, capsys):
+    d = _project(tmp_path, "a")
+    (d / "cas.json").write_text(json.dumps(_hierarchy(tmp_path)))
+    assert main(["outline", "--project", "a", "--repo-root", str(tmp_path)]) == 0
+    assert "Immune_oLAM" in capsys.readouterr().out
