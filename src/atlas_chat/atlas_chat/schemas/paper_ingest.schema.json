@@ -31,6 +31,20 @@
           "type": "string",
           "enum": ["jats", "pdf_text"],
           "description": "Tagged article XML, or text recovered from a PDF. The distinction does real work downstream: PDF text has no reference markup, so no cited sentences are available, and its reading order is not guaranteed across a column boundary, so a quote spanning one may not correspond to anything a reader of the article would see."
+        },
+        "route": {
+          "type": "string",
+          "enum": ["europepmc", "preprint_server", "unpaywall", "manual", "none"],
+          "description": "Where the text came from, taken from the retrieval record written beside it. Distinct from kind, which is how it was parsed: a PDF pulled from a repository and one a user supplied read identically to a parser and are not equally accountable. Absent where retrieval left no record, as for a file assembled by hand."
+        },
+        "url": {
+          "type": "string",
+          "description": "Where the source was fetched from, where it was fetched at all."
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the source arrived, so a claim can be dated to a version of the text."
         }
       }
     },

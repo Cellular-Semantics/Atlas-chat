@@ -1,0 +1,16 @@
+{
+  "doi": "10.1126/science.adx0659",
+  "route": "none",
+  "title": "Comparative analysis of human and mouse ovaries across age",
+  "attempted_at": "2026-09-10T14:53:58+00:00",
+  "attempts": [
+    {"route": "europepmc", "outcome": "unavailable", "note": "no PMCID"},
+    {"route": "preprint_server", "outcome": "unavailable", "note": "not hosted"},
+    {"route": "unpaywall", "outcome": "unavailable", "note": "no open-access location"}
+  ],
+  "gap": {
+    "what": "\"Comparative analysis of human and mouse ovaries across age\" (10.1126/science.adx0659)",
+    "reason": "no route produced the text",
+    "action": "the paper is at https://doi.org/10.1126/science.adx0659 - download it and adopt it"
+  }
+}

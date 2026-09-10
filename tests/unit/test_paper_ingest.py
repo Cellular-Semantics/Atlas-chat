@@ -341,3 +341,79 @@ def test_cli_exits_nonzero_when_the_text_cannot_be_assembled(tmp_path, capsys):
     assert code == 2
     assert not (tmp_path / "ingest.json").exists()
     assert "no prose" in capsys.readouterr().out
+
+
+# ------------------------------------------------------------------
+# Where the text came from, folded in from retrieval
+# ------------------------------------------------------------------
+
+
+def _fetched_paper(tmp_path, kind: str, record: dict) -> Path:
+    """A paper laid out the way retrieval leaves one."""
+    import json as _json
+
+    source = tmp_path / "papers" / "10.1234_x" / "source"
+    source.mkdir(parents=True)
+    name = "paper.jats.xml" if kind == "jats" else "paper.txt"
+    text = (
+        "<article><body><sec><title>Results</title><p>Cells were counted twice.</p>"
+        "</sec></body></article>"
+        if kind == "jats"
+        else "Cells were counted twice, and then a third time for luck."
+    )
+    (source / name).write_text(text, encoding="utf-8")
+    (source.parent / "retrieval.json").write_text(_json.dumps(record), encoding="utf-8")
+    return source / name
+
+
+@pytest.mark.unit
+def test_the_route_the_text_arrived_by_is_carried_onto_the_ingest(tmp_path):
+    """A parser cannot tell a supplied PDF from a fetched one; the record can."""
+    path = _fetched_paper(
+        tmp_path,
+        "pdf",
+        {
+            "doi": "10.1234/x",
+            "route": "unpaywall",
+            "url": "https://repo.example/paper.pdf",
+            "retrieved_at": "2026-09-10T14:54:06+00:00",
+            "attempts": [],
+        },
+    )
+    source = ingest_paper(path, doi="10.1234/x").to_dict()["source"]
+
+    assert source["kind"] == "pdf_text"
+    assert source["route"] == "unpaywall"
+    assert source["url"] == "https://repo.example/paper.pdf"
+
+
+@pytest.mark.unit
+def test_a_paper_with_no_retrieval_record_still_ingests(tmp_path):
+    """Assembling a file by hand is normal and must not require a record."""
+    path = tmp_path / "paper.txt"
+    path.write_text("Cells were counted twice.", encoding="utf-8")
+
+    source = ingest_paper(path).to_dict()["source"]
+    assert "route" not in source
+
+
+@pytest.mark.unit
+def test_an_unreadable_retrieval_record_is_ignored_rather_than_fatal(tmp_path):
+    path = _fetched_paper(
+        tmp_path, "jats", {"doi": "10.1234/x", "route": "europepmc", "attempts": []}
+    )
+    (path.parent.parent / "retrieval.json").write_text("{ not json", encoding="utf-8")
+
+    source = ingest_paper(path, doi="10.1234/x").to_dict()["source"]
+    assert "route" not in source
+
+
+@pytest.mark.unit
+def test_pdf_text_records_both_of_the_things_it_cannot_support(tmp_path):
+    """No reference markup, and no guaranteed order across a column boundary."""
+    path = tmp_path / "paper.txt"
+    path.write_text("Cells were counted twice.", encoding="utf-8")
+
+    gaps = [g["what"] for g in ingest_paper(path).gaps]
+    assert "cited sentences and the reference list" in gaps
+    assert "guaranteed reading order" in gaps

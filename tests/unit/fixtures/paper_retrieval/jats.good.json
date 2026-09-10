@@ -1,0 +1,12 @@
+{
+  "doi": "10.1038/s41467-020-20358-y",
+  "route": "europepmc",
+  "kind": "jats",
+  "path": "source/paper.jats.xml",
+  "sha256": "3d0f1c2b4a5e6d7f8091a2b3c4d5e6f708192a3b4c5d6e7f8091a2b3c4d5e6f7",
+  "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7782707/fullTextXML",
+  "title": "Single-cell transcriptome profiling of the vaginal wall",
+  "retrieved_at": "2026-09-10T14:47:00+00:00",
+  "attempted_at": "2026-09-10T14:47:00+00:00",
+  "attempts": [{"route": "europepmc", "outcome": "ok", "note": "article XML for PMC7782707"}]
+}

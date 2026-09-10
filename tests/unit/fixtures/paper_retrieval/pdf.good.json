@@ -1,0 +1,21 @@
+{
+  "doi": "10.1016/j.devcel.2023.07.014",
+  "route": "unpaywall",
+  "kind": "pdf",
+  "path": "source/paper.pdf",
+  "text_file": "source/paper.txt",
+  "sha256": "80a7483f19ff765ac98ebe50291eba250760af4d9f9581a8cb7896aaf8219ba4",
+  "url": "https://escholarship.org/content/qt9362q83q/qt9362q83q.pdf",
+  "retrieved_at": "2026-09-10T14:54:06+00:00",
+  "attempted_at": "2026-09-10T14:53:58+00:00",
+  "attempts": [
+    {"route": "europepmc", "outcome": "unavailable", "note": "fullTextXML returned 404"},
+    {"route": "preprint_server", "outcome": "unavailable", "note": "not hosted"},
+    {"route": "unpaywall", "outcome": "ok", "note": "PDF from repository (submittedVersion)"}
+  ],
+  "oa_candidates": [
+    {"url": "https://doi.org/10.1016/j.devcel.2023.07.014", "host_type": "publisher", "version": "publishedVersion"},
+    {"url": "https://escholarship.org/content/qt9362q83q/qt9362q83q.pdf", "url_for_pdf": "https://escholarship.org/content/qt9362q83q/qt9362q83q.pdf", "host_type": "repository", "version": "submittedVersion", "used": true}
+  ],
+  "text_quality": {"n_segments": 187, "n_chars": 76344, "mean_chars_per_segment": 401.9, "sample": "Single-cell analysis of the developing human ovary"}
+}

@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cellular-semantics.org/atlas_chat/paper_retrieval.schema.json",
+  "title": "PaperRetrieval",
+  "description": "How one paper's text arrived, and what was tried. Written beside the text it describes, so a later step reading a quote can tell what it is looking at: text recovered from a PDF carries no reference markup and no guaranteed reading order, and a claim resting on it is not the same kind of claim as one resting on tagged article XML. A paper supplied by hand is a route on this record like any other, not a failure.",
+  "type": "object",
+  "properties": {
+    "doi": {
+      "description": "The paper this record is about.",
+      "type": "string",
+      "pattern": "^10\\.\\d{4,}(\\.\\d+)?/.+"
+    },
+    "route": {
+      "description": "Where the bytes came from. 'europepmc' = Europe PMC's fullTextXML for the paper's PMC record. 'preprint_server' = the JATS the preprint server hosts. 'unpaywall' = an open-access location an open-access resolver named. 'manual' = supplied by a user and taken in by 'adopt'. 'none' = no route produced anything; the paper has to be asked for.",
+      "type": "string",
+      "enum": ["europepmc", "preprint_server", "unpaywall", "manual", "none"]
+    },
+    "kind": {
+      "description": "What the stored bytes are, as distinct from where they came from. 'jats' = tagged article XML, which carries reference markup and document order. 'pdf' = a PDF, whose text has to be recovered before it can be read.",
+      "type": "string",
+      "enum": ["jats", "pdf"]
+    },
+    "path": {
+      "description": "The stored source, relative to the directory holding this record.",
+      "type": "string"
+    },
+    "text_file": {
+      "description": "Text recovered from a PDF, relative to the directory holding this record. Absent for a JATS source, which is read directly.",
+      "type": "string"
+    },
+    "sha256": {
+      "description": "Digest of the stored source, so a later run can tell whether the bytes changed rather than re-fetching to find out.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "url": {
+      "description": "Where the bytes were fetched from. Absent for a manually supplied file, which has no URL.",
+      "type": "string"
+    },
+    "title": {
+      "description": "The paper's title, where a route happened to return it. Not looked up on its own account — it is here so that asking a user for a paper can name it.",
+      "type": "string"
+    },
+    "retrieved_at": {
+      "description": "When the stored bytes arrived.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "attempted_at": {
+      "description": "When the waterfall last ran. Together with the attempts below this is the negative cache: a paper that no route could produce is not re-requested on every later pass unless a retry is asked for.",
+      "type": "string",
+      "format": "date-time"
+    },
+    "attempts": {
+      "description": "Every rung the waterfall reached, in the order it reached them, including rungs that could not run at all. A rung missing from this list was never tried, which is a different thing from a rung that tried and found nothing.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/Attempt" }
+    },
+    "oa_candidates": {
+      "description": "The open-access locations a resolver named, kept whether or not one was used. Whether a location is the paper or a preprint of it is a judgement, and it cannot be made after the fact from a URL alone.",
+      "type": "array",
+      "items": { "$ref": "#/$defs/OaLocation" }
+    },
+    "text_quality": {
+      "description": "What recovering text from the PDF produced. Present whenever text_file is, because a PDF that extracts to almost nothing is a scan, and that is indistinguishable from a paper with little to say unless the size is on the record.",
+      "$ref": "#/$defs/TextQuality"
+    },
+    "gap": {
+      "description": "What could not be retrieved and what would fix it. Present when route is 'none'.",
+      "$ref": "#/$defs/Gap"
+    }
+  },
+  "required": ["doi", "route", "attempts"],
+  "additionalProperties": false,
+  "$defs": {
+    "Attempt": {
+      "type": "object",
+      "description": "One rung of the waterfall and what it did.",
+      "properties": {
+        "route": {
+          "description": "The rung. 'local' is the cache check that runs first and is not a route: where it succeeds the existing record is kept as it stands, so that a paper supplied last week still reads as supplied.",
+          "type": "string",
+          "enum": ["local", "europepmc", "preprint_server", "unpaywall", "manual"]
+        },
+        "outcome": {
+          "description": "'ok' = produced the bytes on this record. 'unavailable' = the rung ran and this paper is not reachable by it. 'failed' = the rung ran and broke, so it is worth retrying. 'skipped' = the rung could not run at all, e.g. a missing dependency or no contact address for a resolver that requires one — nothing was learnt about the paper.",
+          "type": "string",
+          "enum": ["ok", "unavailable", "failed", "skipped"]
+        },
+        "note": {
+          "description": "What happened, in enough detail to act on. Free text.",
+          "type": "string"
+        }
+      },
+      "required": ["route", "outcome"],
+      "additionalProperties": false
+    },
+    "OaLocation": {
+      "type": "object",
+      "description": "One open-access location as the resolver described it. The resolver's own vocabulary is kept verbatim rather than mapped onto ours, so that a value it adds later does not read as invalid.",
+      "properties": {
+        "url": { "type": "string" },
+        "url_for_pdf": {
+          "description": "A direct link to the PDF, where the resolver has one. Frequently absent even for a location that is genuinely open, in which case only a landing page is on offer.",
+          "type": "string"
+        },
+        "host_type": {
+          "description": "Whose host it is, as the resolver says — typically the publisher or a repository.",
+          "type": "string"
+        },
+        "version": {
+          "description": "Which version of the paper, as the resolver says. A submitted version is the manuscript before review, so a location offering only that is a preprint of the paper rather than the paper.",
+          "type": "string"
+        },
+        "used": {
+          "description": "Whether the bytes on this record came from here.",
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "TextQuality": {
+      "type": "object",
+      "description": "Size and shape of the recovered text, for judging whether it is worth reading.",
+      "properties": {
+        "n_segments": {
+          "description": "Paragraph-level segments the extractor emitted.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "n_chars": {
+          "description": "Characters of text written.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "mean_chars_per_segment": {
+          "description": "A page of scanned images extracts to a handful of very short segments, which this separates from prose.",
+          "type": "number",
+          "minimum": 0
+        },
+        "sample": {
+          "description": "The opening segments as written, so a reader can see whether they are sentences.",
+          "type": "string"
+        }
+      },
+      "required": ["n_segments", "n_chars"],
+      "additionalProperties": false
+    },
+    "Gap": {
+      "type": "object",
+      "description": "A paper no route could produce, said in terms a user can act on.",
+      "properties": {
+        "what": {
+          "description": "The paper, named as well as it is known.",
+          "type": "string"
+        },
+        "reason": {
+          "description": "Why no route produced it.",
+          "type": "string"
+        },
+        "action": {
+          "description": "What would fix it: the file to find, where it can be found, and where to put it.",
+          "type": "string"
+        }
+      },
+      "required": ["what", "reason"],
+      "additionalProperties": false
+    }
+  }
+}
