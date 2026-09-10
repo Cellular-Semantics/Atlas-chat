@@ -66,13 +66,25 @@ The CLI decides nothing that needs judgement. Four things do.
 
 ### Which file in a drop zone is which paper
 
-A drop zone is a flat bag — papers, supplementary spreadsheets and figures
-together, named however they arrived (`media-1.pdf`, `2026.06.10.731198v1.full.pdf`).
-Nobody is asked to sort it, so you sort it. `candidates` gives you each file's
-declared DOI, its opening title and its size; match those against the papers you
-are missing and `adopt` each one. Where a file declares no DOI and its title is
-ambiguous, ask rather than guess — adopting the wrong file files a paper under
-another paper's DOI, and nothing downstream will catch it.
+A drop zone is a flat bag, named however things arrived, and **most of what looks
+like a paper in it is not one**: supplementary PDFs, figure packs and generated
+reports all open with something that reads like a title. Nobody is asked to sort
+it, so you sort it. `candidates` gives you each file's declared DOI, its opening
+title and its size.
+
+The DOI is the discriminator, and its absence is the strongest signal you get: a
+published paper's PDF or XML almost always carries its own DOI in the front
+matter, and a supplement or a locally generated document does not. **Do not
+promote a title alone into a match.** A file called `media-2.pdf` opening
+`GarciaAlonso 2026 Pediatric` looks exactly like a paper and is a supplement;
+adopting it files that content under a real paper's DOI, and nothing downstream
+will ever catch it. Where there is no DOI, ask — even when the title looks
+convincing, and especially then.
+
+The same paper often appears twice, as article XML and as a PDF with the same
+DOI. **Adopt the XML and leave the PDF.** For the same reasons given below, the
+XML is the better source, and having both invites a later reader to quote the
+worse one.
 
 ### Whether a resolver's hit is the paper or a manuscript of it
 
