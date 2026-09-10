@@ -79,6 +79,7 @@ class PaperIngest:
     cited_sentences: list[dict[str, Any]] = field(default_factory=list)
     references: dict[str, Any] = field(default_factory=dict)
     supplement_prose: list[dict[str, Any]] = field(default_factory=list)
+    retrieval: dict[str, Any] = field(default_factory=dict)
     limit_tokens: int | None = None
     truncated: bool = False
     gaps: list[dict[str, str]] = field(default_factory=list)
@@ -92,8 +93,10 @@ class PaperIngest:
         return chars // CHARS_PER_TOKEN
 
     def to_dict(self) -> dict[str, Any]:
+        source: dict[str, Any] = {"path": self.source_path, "kind": self.source_kind}
+        source.update(self.retrieval)
         out: dict[str, Any] = {
-            "source": {"path": self.source_path, "kind": self.source_kind},
+            "source": source,
             "narrative": {
                 "text": self.narrative_text,
                 "n_chars": len(self.narrative_text),
@@ -364,6 +367,32 @@ def _fit(ingest: PaperIngest, limit_tokens: int) -> None:
         )
 
 
+def retrieval_of(text_path: Path) -> dict[str, Any]:
+    """How the text beside this file arrived, where retrieval left a record.
+
+    Retrieval writes its record one level above the source it fetched. Reading
+    it here means a reader of the assembled paper is told where the text came
+    from as well as how it was parsed — a PDF a user supplied and one pulled from
+    a repository are the same to a parser and not the same to a grounding check.
+
+    Args:
+        text_path: The file the paper is being assembled from.
+
+    Returns:
+        The route and where it came from, or nothing where retrieval left no
+        record — which is the normal case for a file assembled by hand.
+    """
+    record_path = text_path.parent.parent / "retrieval.json"
+    if not record_path.is_file():
+        return {}
+    try:
+        record = json.loads(record_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        logger.warning("ignoring unreadable retrieval record %s: %s", record_path, exc)
+        return {}
+    return {key: record[key] for key in ("route", "url", "retrieved_at") if record.get(key)}
+
+
 def ingest_paper(
     text_path: str | Path,
     *,
@@ -397,6 +426,7 @@ def ingest_paper(
 
     resolved_kind = kind or ("jats" if path.suffix.lower() in (".xml", ".jats") else "pdf_text")
     ingest = PaperIngest(source_path=str(path), source_kind=resolved_kind, narrative_text="")
+    ingest.retrieval = retrieval_of(path)
     if doi:
         ingest.paper["doi"] = doi
 
@@ -420,6 +450,17 @@ def ingest_paper(
                 "reason": (
                     "the text came from a PDF, which carries no reference markup, "
                     "so no citation can be resolved from it"
+                ),
+            }
+        )
+        ingest.gaps.append(
+            {
+                "what": "guaranteed reading order",
+                "reason": (
+                    "the text came from a PDF, whose paragraphs are each internally "
+                    "coherent but whose order across a column boundary is not "
+                    "guaranteed, so a quote spanning one may not correspond to "
+                    "anything a reader of the article would see"
                 ),
             }
         )
